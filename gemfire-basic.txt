@@ -14,6 +14,9 @@ put --region=demo --key="1" --value="hello_1"
 
 locate entry --key="1" --region=/demo
 
+query --query="select * from /demo"
+
+
 
 
 gfsh -e 'put --region=demo --key="10" --value="hello_10"'
