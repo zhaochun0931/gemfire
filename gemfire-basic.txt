@@ -1,3 +1,4 @@
+create region --name=demo --type=REPLICATE_PERSISTENT
 
 
 describe region --name=/demo
