@@ -1,11 +1,10 @@
 create region --name=demo --type=REPLICATE_PERSISTENT
 
-
 describe region --name=/demo
-
 
 put --region=demo --key="1" --value="hello_1"
 
+locate entry --key="1" --region=/demo
 
 
 
