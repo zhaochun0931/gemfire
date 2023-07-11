@@ -1,3 +1,5 @@
+start locator
+start server
 list members
 
 
