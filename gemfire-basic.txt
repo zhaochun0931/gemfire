@@ -1,4 +1,10 @@
+list members
+
+
 create region --name=demo --type=REPLICATE_PERSISTENT
+list regions
+
+
 
 describe region --name=/demo
 
