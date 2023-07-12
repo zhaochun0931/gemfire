@@ -50,5 +50,5 @@ query --query="select * from /demo"
 
 
 
-
-gfsh -e 'put --region=demo --key="10" --value="hello_10"'
+gfsh -e "connect" -e "list members"
+gfsh -e 'connect' -e 'put --region=demo --key=10 --value=hello_10'
