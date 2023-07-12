@@ -48,6 +48,9 @@ locate entry --key="1" --region=/demo
 
 query --query="select * from /demo"
 
+show metrics --member=server1
+
+
 
 
 gfsh -e "connect" -e "list members"
