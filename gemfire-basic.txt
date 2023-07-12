@@ -20,10 +20,19 @@ apt install openjdk-8-jdk
 
 
 
-
+# start locator and server
 start locator
 start server
 list members
+
+# or run the scipt
+gfsh run --file demo.gfsh
+
+
+
+
+
+
 
 
 create region --name=demo --type=REPLICATE_PERSISTENT
