@@ -1,5 +1,7 @@
 start locator --name=locator1
 start server --name=server1
+start server --name=server2 --server-port=0
+start server --name=server3 --server-port=0
 list members
 
 create region --name=pp-demo1 --type=PARTITION_PERSISTENT
