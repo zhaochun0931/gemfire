@@ -1,0 +1,5 @@
+start locator --name=locator1 --properties-file=/root/gemfire.properties --security-properties-file=/root/gf.security
+
+start server --name=server2 --properties-file=/root/gemfire.properties --security-properties-file=/root/gf.security
+
+connect --locator=10.0.0.4[10334] --use-ssl --security-properties-file=/root/gf.security
