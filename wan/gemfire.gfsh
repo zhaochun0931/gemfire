@@ -1,0 +1,9 @@
+start locator --name=locator1
+
+start server --name=server1 --server-port=0
+
+create gateway-sender --id=demoGW --remote-distributed-system-id=1
+
+create region --name=demoPR --type=REPLICATE_PERSISTENT --gateway-sender-id=demoGW
+
+list gateways
