@@ -2,7 +2,7 @@ start locator --name=locatorB
 
 start server --name=serverB --server-port=0 --properties-file=gemfireB.properties
 
-create gateway-receiver --hostname-for-senders=10.1.0.5 --start-port=2000 --end-port=3000
+create gateway-receiver --hostname-for-senders=10.0.0.5 --start-port=2000 --end-port=3000
 
 create region --name=demoPR --type=REPLICATE_PERSISTENT
 
