@@ -4,4 +4,4 @@ start server --name=server1
 
 start server --name=server2 --server-port=0
 
-create region --name=exampleRegion --type=PARTITION_PERSISTENT
+create region --name=exampleRegion --type=PARTITION_PERSISTENT --redundant-copies=1
