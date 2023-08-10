@@ -1,6 +1,6 @@
-start locator --name=locatorA
+start locator --name=locatorA --properties-file=gemfireA.properties
 
-start server --name=serverA --server-port=0 --properties-file=gemfireA.properties
+start server --name=serverA --server-port=0 
 
 create gateway-sender --id=demoGW --remote-distributed-system-id=2
 
