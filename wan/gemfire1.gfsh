@@ -1,4 +1,4 @@
-start locator --name=locatorB
+start locator --name=locatorA
 
 start server --name=serverA --server-port=0
 
