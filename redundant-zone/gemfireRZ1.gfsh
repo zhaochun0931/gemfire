@@ -1,4 +1,5 @@
 start locator --name=locator1
 
 start server --name=server1 --properties-file=gemfireRZ1.properties
+start server --name=server3 --properties-file=gemfireRZ1.properties
 
