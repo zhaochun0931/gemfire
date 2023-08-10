@@ -3,4 +3,4 @@ connect --locator=10.0.0.4[10334]
 
 start server --name=server2 --server-port=0 --properties-file=gemfireRZ2.properties
 start server --name=server4 --server-port=0 --properties-file=gemfireRZ2.properties
-
+start server --name=server6 --server-port=0 --properties-file=gemfireRZ2.properties
