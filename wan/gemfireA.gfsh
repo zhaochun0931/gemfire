@@ -2,7 +2,7 @@ start locator --name=locatorA
 
 start server --name=serverA --server-port=0 --properties-file=gemfireA.properties
 
-create gateway-sender --id=demoGW --remote-distributed-system-id=1
+create gateway-sender --id=demoGW --remote-distributed-system-id=2
 
 create region --name=demoPR --type=REPLICATE_PERSISTENT --gateway-sender-id=demoGW
 
