@@ -7,3 +7,7 @@ create gateway-sender --id=demoGW --remote-distributed-system-id=2
 create region --name=demoPR --type=REPLICATE_PERSISTENT --gateway-sender-id=demoGW
 
 list gateways
+
+stop gateway-sender --id=demoGW
+
+start gateway-sender --id=demoGW
