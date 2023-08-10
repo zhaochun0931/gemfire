@@ -1,6 +1,6 @@
-start locator --name=locatorB
+start locator --name=locatorB --properties-file=gemfireB.properties
 
-start server --name=serverB --server-port=0 --properties-file=gemfireB.properties
+start server --name=serverB --server-port=0
 
 create gateway-receiver --hostname-for-senders=10.0.0.5 --start-port=2000 --end-port=3000
 
