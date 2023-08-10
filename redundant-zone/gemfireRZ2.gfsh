@@ -1,9 +1,9 @@
 connect --locator=10.0.0.4[10334]
 
 
-start server --name=server2 --server-port=0
+start server --name=server2 --server-port=0 --properties-file=gemfireRZ2.properties
 
-create region --name=exampleRegion --type=PARTITION_PERSISTENT --redundant-copies=1
+create region --name=exampleRegion --type=PARTITION --redundant-copies=1
 
 
 #
