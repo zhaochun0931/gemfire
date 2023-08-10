@@ -14,4 +14,6 @@ query --query="select distinct p.bucketId as bucketId,p.bucketAdvisor.primary.eq
 query --query="select distinct p.bucketId as bucketId,p.bucketAdvisor.primary.equals(o) as isPrimary,r.distributionManager.getRedundancyZone(o) as zone, o.name from (select * from /exampleRegion.cache.rootRegions r where r.name='exampleRegion') r, r.regionAdvisor.proxyBucketArray p, p.bucketOwners o order by bucketId,isPrimary limit 1000000"
 
 
+# buckets with low redundancy
+query --query="select distinct p.bucketId as bucketId,p.bucketAdvisor.primary.equals(o) as isPrimary,r.distributionManager.getRedundancyZone(o) as zone, o.name from (select * from /exampleRegion.cache.rootRegions r where r.name='exampleRegion') r, r.regionAdvisor.proxyBucketArray p, p.bucketOwners o where p.bucketRedundancy < 1 order by bucketId,isPrimary limit 1000000"
 
