@@ -1,6 +1,6 @@
-start locator --name=locator1
+start locator --name=locatorB
 
-start server --name=server1 --server-port=0
+start server --name=serverA --server-port=0
 
 create gateway-sender --id=demoGW --remote-distributed-system-id=1
 
