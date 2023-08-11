@@ -1,3 +1,15 @@
 VMStats -> cpus
 VMStats -> threads
 VMStats -> fdsOpen
+
+
+
+StatSampler -> delayDuration
+
+
+
+# G1 GC
+G1OldGen-Heapmemory
+G1EdenSpace-Heapmemory
+G1YoungGeneration
+
