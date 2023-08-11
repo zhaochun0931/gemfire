@@ -39,6 +39,7 @@ LinuxSystemStats -> pagesSwappedOut
 LinuxSystemStats -> pagesSwappedIn
 LinuxSystemStats -> tcpExtListenDrops
 LinuxSystemStats -> cachedMemory
+LinuxSystemStats -> freeMemory
 
 
 
