@@ -35,6 +35,7 @@ LinuxSystemStats -> iowait
 LinuxSystemStats -> loadAverage1
 LinuxSystemStats -> loadAverage5
 LinuxSystemStats -> loadAverage15
+LinuxSystemStats -> pagesSwappedOut
 
 
 
