@@ -27,7 +27,7 @@ CacheServerStats -> abandonedReadRequests
 
 
 LinuxSystemStats -> contextSwitches
-
+LinuxSystemStats -> cpuActive
 
 
 
