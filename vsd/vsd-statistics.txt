@@ -19,7 +19,7 @@ DistributionStats -> senderTimeouts
 
 
 
-
+CacheServerStats -> currentClientConnections
 
 
 # G1 GC
