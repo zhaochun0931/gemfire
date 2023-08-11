@@ -28,6 +28,14 @@ CacheServerStats -> abandonedReadRequests
 
 LinuxSystemStats -> contextSwitches
 LinuxSystemStats -> cpuActive
+LinuxSystemStats -> cpuSystem
+LinuxSystemStats -> diskOpsInProgress
+LinuxSystemStats -> diskTime
+LinuxSystemStats -> iowait
+LinuxSystemStats -> loadAverage1
+LinuxSystemStats -> loadAverage5
+LinuxSystemStats -> loadAverage15
+
 
 
 
