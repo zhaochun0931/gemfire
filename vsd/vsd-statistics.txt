@@ -11,6 +11,8 @@ DistributionStats -> Nodes
 DistributionStats -> partitionedRegionThreads
 DistributionStats -> functionExecutionsThreads
 DistributionStats -> highPriorityThreads
+DistributionStats -> replyWaitsInProgress
+DistributionStats -> senderCreatesInProgress
 
 
 
