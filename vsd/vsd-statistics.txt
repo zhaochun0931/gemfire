@@ -9,6 +9,9 @@ StatSampler -> delayDuration
 
 DistributionStats -> Nodes
 DistributionStats -> partitionedRegionThreads
+DistributionStats -> functionExecutionsThreads
+DistributionStats -> highPriorityThreads
+
 
 
 
