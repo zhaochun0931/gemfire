@@ -38,6 +38,7 @@ LinuxSystemStats -> loadAverage15
 LinuxSystemStats -> pagesSwappedOut
 LinuxSystemStats -> pagesSwappedIn
 LinuxSystemStats -> tcpExtListenDrops
+LinuxSystemStats -> cachedMemory
 
 
 
