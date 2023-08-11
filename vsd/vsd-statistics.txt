@@ -20,6 +20,15 @@ DistributionStats -> senderTimeouts
 
 
 CacheServerStats -> currentClientConnections
+CacheServerStats -> getRequests
+CacheServerStats -> receivedBytes
+CacheServerStats -> abandonedReadRequests
+
+
+
+LinuxSystemStats -> contextSwitches
+
+
 
 
 # G1 GC
