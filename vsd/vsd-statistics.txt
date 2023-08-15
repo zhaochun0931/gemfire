@@ -47,6 +47,10 @@ LinuxSystemStats -> freeMemory
 
 # G1 GC
 G1OldGen-Heapmemory
+
 G1EdenSpace-Heapmemory
+
 G1YoungGeneration
+
+
 
