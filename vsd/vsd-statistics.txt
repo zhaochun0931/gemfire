@@ -17,7 +17,7 @@ DistributionStats -> sendersTO
 DistributionStats -> senderTimeouts
 
 
-
+PartitionedRegionStats -> dataStoreBytesInUse
 
 CacheServerStats -> currentClientConnections
 CacheServerStats -> getRequests
