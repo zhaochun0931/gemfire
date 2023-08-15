@@ -50,6 +50,8 @@ G1OldGen-Heapmemory
 
 G1EdenSpace-Heapmemory
 
+G1SurvivorSpace-Heapmemory
+
 G1YoungGeneration
 
 
