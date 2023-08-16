@@ -7,3 +7,11 @@ export CLASSPATH=$GEMFIRE_HOME/lib/geode-dependencies.jar:$GEMFIRE_HOME/lib/geod
 
 
 
+configure pdx --read-serialized=true --auto-serializable-classes=io.pivotal.gemfire.demo.entity.*
+
+create jndi-binding --name=datasource --type=SIMPLE --jdbc-driver-class="org.postgresql.Driver" --username="gpadmin" --password="changeme" --connection-url="jdbc:postgresql://10.0.0.7:5432/test"
+
+configure gpfdist-protocol --port=8000
+
+create gpdb-mapping --region=/Child --data-source=datasource --pdx-name="io.pivotal.gemfire.demo.entity.Child" --table=child --id=id,parent_id
+  
