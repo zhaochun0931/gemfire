@@ -23,11 +23,26 @@ chown -R gpadmin:gpadmin /usr/local/greenplum*
 
 
 
+
+
+
 # create the directory
 
 mkdir -p /data/master
 chown gpadmin:gpadmin /data/master
 
+
+
+
+
+
+
+
+
+
+
+
+# Initializing Greenplum Database
 
 
 
