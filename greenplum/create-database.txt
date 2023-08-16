@@ -1,0 +1,9 @@
+psql postgres
+
+[gpadmin@gemfire-gp ~]$ psql postgres
+psql (9.4.26)
+Type "help" for help.
+
+postgres=# create database test;
+CREATE DATABASE
+postgres=#
