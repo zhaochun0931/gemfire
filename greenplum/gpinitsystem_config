@@ -1,0 +1,12 @@
+ARRAY_NAME="Greenplum Data Platform"
+SEG_PREFIX=gpseg
+PORT_BASE=6000
+declare -a DATA_DIRECTORY=(/data/primary /data/primary)
+MASTER_HOSTNAME=gemfire-gp
+MASTER_DIRECTORY=/data/master
+MASTER_PORT=5432
+TRUSTED_SHELL=ssh
+CHECK_POINT_SEGMENTS=8
+ENCODING=UNICODE
+MIRROR_PORT_BASE=7000
+declare -a MIRROR_DATA_DIRECTORY=(/data/mirror /data/mirror)
