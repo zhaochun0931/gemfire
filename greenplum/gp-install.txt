@@ -61,7 +61,6 @@ gpinitsystem -c gpinitsystem_config -h hostfile_gpinitsystem
 
 
 
-
 [gpadmin@gemfire-gp ~]$ gpinitsystem -c gpinitsystem_config -h hostfile_gpinitsystem
 20230816:06:10:16:041012 gpinitsystem:gemfire-gp:gpadmin-[INFO]:-Checking configuration parameters, please wait...
 20230816:06:10:16:041012 gpinitsystem:gemfire-gp:gpadmin-[INFO]:-Reading Greenplum configuration file gpinitsystem_config
@@ -232,6 +231,13 @@ server shutting down
 20230816:06:11:09:041012 gpinitsystem:gemfire-gp:gpadmin-[INFO]:-------------------------------------------------------
 [gpadmin@gemfire-gp ~]$
  
+
+
+# verify
+source /usr/local/greenplum-db/greenplum_path.sh
+export MASTER_DATA_DIRECTORY=/data/master/gpseg-1
+gpstate -d /data/master/gpseg-1
+
 
 
 
