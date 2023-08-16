@@ -45,11 +45,10 @@ chown gpadmin:gpadmin /data/master /data/primary /data/mirror
 # Initializing Greenplum Database
 
 su - gpadmin
-
 touch gpinitsystem_config hostfile_gpinitsystem
 
 source /usr/local/greenplum-db/greenplum_path.sh
-
+gpinitsystem -c gpinitsystem_config -h hostfile_gpinitsystem
 
  
 
