@@ -1,3 +1,16 @@
+gpstate -e
+
+select * from gp_segment_configuration order by 1;
+
+
+
+
+
+
+
+
+
+
 psql postgres
 
 [gpadmin@gemfire-gp ~]$ psql postgres
@@ -7,3 +20,11 @@ Type "help" for help.
 postgres=# create database test;
 CREATE DATABASE
 postgres=#
+
+
+
+\c test
+create table Child(id int, parent_id int);
+insert into Child select generate_series(1,100000),generate_series(1,100000);
+
+
