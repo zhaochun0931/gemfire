@@ -47,6 +47,10 @@ chown gpadmin:gpadmin /data/master /data/primary /data/mirror
 su - gpadmin
 
 touch gpinitsystem_config hostfile_gpinitsystem
+
+source /usr/local/greenplum-db/greenplum_path.sh
+
+
  
 
 
