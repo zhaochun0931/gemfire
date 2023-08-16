@@ -44,7 +44,10 @@ chown gpadmin:gpadmin /data/master /data/primary /data/mirror
 
 # Initializing Greenplum Database
 
+su - gpadmin
 
+touch gpinitsystem_config hostfile_gpinitsystem
+ 
 
 
 
