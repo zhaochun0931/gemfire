@@ -1,0 +1,9 @@
+.bash_profile
+
+export GEMFIRE_HOME=/root/pivotal-gemfire-9.10.5
+export PATH=$GEMFIRE_HOME/bin:$PATH
+export CLASSPATH=$GEMFIRE_HOME/lib/geode-dependencies.jar:$GEMFIRE_HOME/lib/geode-core-9.10.5.jar:$GEMFIRE_HOME/extensions/gemfire-greenplum-3.5.0.jar:$GEMFIRE_HOME/extensions/gemfire-greenplum-3.5.0-javadoc.jar:$CLASSPATH
+
+
+
+
