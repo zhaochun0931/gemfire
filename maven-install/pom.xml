@@ -1,0 +1,37 @@
+gemfire 9.0.0
+
+
+
+
+
+
+<repositories>
+    <repository>
+      <id>gemfire-release-repo</id>
+      <name>Pivotal GemFire Release Repository</name>
+      <url>https://commercial-repo.pivotal.io/data3/gemfire-release-repo/gemfire</url>
+    </repository>
+  </repositories>
+
+
+
+
+
+
+  <dependencies>
+    <dependency>
+      <groupId>io.pivotal.gemfire</groupId>
+      <artifactId>geode-core</artifactId>
+      <version>9.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>io.pivotal.gemfire</groupId>
+      <artifactId>geode-wan</artifactId>
+      <version>9.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>io.pivotal.gemfire</groupId>
+      <artifactId>geode-cq</artifactId>
+      <version>9.0.0</version>
+    </dependency>
+  </dependencies>
