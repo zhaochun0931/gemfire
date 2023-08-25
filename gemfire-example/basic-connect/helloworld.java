@@ -3,6 +3,8 @@ import org.apache.geode.cache.Region;
 import org.apache.geode.cache.client.*;
 
 
+//        input some values to the region
+
 
 public class helloworld 
 {
@@ -11,6 +13,7 @@ public class helloworld
 
 //        System.out.println( "Hello World!" );
 
+        
         ClientCache cache = new ClientCacheFactory()
                 .addPoolLocator("localhost", 10334)
                 .create();
