@@ -1,8 +1,8 @@
 start locator --name=locator1
 
-start server --name=server1 --server-port=0 --properties-file=gemfireRZ1.properties
-start server --name=server3 --server-port=0 --properties-file=gemfireRZ1.properties
-start server --name=server5 --server-port=0 --properties-file=gemfireRZ1.properties
+start server --name=server1 --server-port=0 --properties-file=rz1-gemfire.properties
+start server --name=server3 --server-port=0 --properties-file=rz1-gemfire.properties
+start server --name=server5 --server-port=0 --properties-file=rz1-gemfire.properties
 
 
 
