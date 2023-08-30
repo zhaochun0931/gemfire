@@ -2,7 +2,13 @@
 apt install openjdk-8-jdk
 
 
+
+
 # gemfire installation on Ubuntu linux
+
+
+tar -xzvf vmware-gemfire-9.15.1.tgz
+
 
 ~/.bash_profile
 
