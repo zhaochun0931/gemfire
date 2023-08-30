@@ -9,7 +9,7 @@ start server --name=server5 --server-port=0 --properties-file=rz1-gemfire.proper
 
 create region --name=exampleRegion --type=PARTITION --redundant-copies=1
 
-create region --name=exampleRegion --type=PARTITION_PERSISTENT --redundant-copies=1 --recovery-delay=15000 --startup-recovery-delay=30000
+create region --name=exampleRegion --type=PARTITION --redundant-copies=1 --recovery-delay=15000 --startup-recovery-delay=30000
 
 
 #
