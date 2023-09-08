@@ -70,3 +70,10 @@ show metrics --member=server1
 
 gfsh -e "connect" -e "list members"
 gfsh -e 'connect' -e 'put --region=demo --key=10 --value=hello_10'
+
+
+
+
+http://localhost:7070/pulse/
+admin/admin
+
