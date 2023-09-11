@@ -7,7 +7,7 @@ import org.apache.geode.cache.client.ClientRegionShortcut;
  * Hello world!
  *
  */
-public class app
+public class App
 {
     public static void main( String[] args )
     {
