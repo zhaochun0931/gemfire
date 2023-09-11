@@ -7,21 +7,20 @@ import org.apache.geode.cache.client.ClientRegionShortcut;
  * Hello world!
  *
  */
-public class App 
+public class app
 {
     public static void main( String[] args )
     {
-
         System.out.println( "Hello World!" );
 
         ClientCache cache = new ClientCacheFactory().addPoolLocator("127.0.0.1", 10334).create();
         Region<String, String>
-                helloWorldRegion =
-                cache.<String, String>createClientRegionFactory(ClientRegionShortcut.PROXY).create("helloWorld");
+                xxx =
+                cache.<String, String>createClientRegionFactory(ClientRegionShortcut.PROXY).create("exampleRegion");
 
-        for (int i=0; i<10000; i++){
-            helloWorldRegion.put(String.valueOf(i), "HelloWorldValue---"+ String.valueOf(i));
-            String value1 = helloWorldRegion.get(String.valueOf(i));
+        for (int i=0; i<1000; i++){
+            xxx.put(String.valueOf(i), "HelloWorldValue");
+            String value1 = xxx.get("1");
             System.out.println(value1);
         }
 
