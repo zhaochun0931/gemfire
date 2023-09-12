@@ -1,0 +1,27 @@
+#gemfire 
+
+
+start locator --name=locator1 --J=-Dgemfire.http-service-port=0
+
+Successfully connected to: JMX Manager [host=192.168.1.4, port=1099]
+
+
+
+#tomcat
+
+cd /Downloads/vmware-gemfire-9.15.1/tools/Pulse
+
+cp geode-pulse-9.15.1.war /Users/zchun/Downloads/apache-tomcat-10.1.13/webapps
+
+
+/Downloads/apache-tomcat-8.5.93/webapps/geode-pulse-9.15.1/WEB-INF/classes/pulse.properties
+
+pulse.useLocator=false
+pulse.host=localhost
+pulse.port=1099
+
+
+
+
+
+http://localhost:8080/geode-pulse-9.15.1/
