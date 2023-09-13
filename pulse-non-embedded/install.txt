@@ -1,3 +1,8 @@
+apache-tomcat-8.5.93
+vmware-gemfire-9.15.1
+
+
+
 #gemfire 
 
 
@@ -7,11 +12,11 @@ Successfully connected to: JMX Manager [host=192.168.1.4, port=1099]
 
 
 
-#tomcat
+#apache-tomcat-8.5.93
 
 cd /Downloads/vmware-gemfire-9.15.1/tools/Pulse
 
-cp geode-pulse-9.15.1.war /Users/zchun/Downloads/apache-tomcat-10.1.13/webapps
+cp geode-pulse-9.15.1.war /Users/Downloads/apache-tomcat-8.5.93/webapps
 
 
 /Downloads/apache-tomcat-8.5.93/webapps/geode-pulse-9.15.1/WEB-INF/classes/pulse.properties
@@ -21,7 +26,9 @@ pulse.host=localhost
 pulse.port=1099
 
 
+startup the tomcat
 
+/Users/Downloads/apache-tomcat-8.5.93/bin/startup.sh
 
 
 http://localhost:8080/geode-pulse-9.15.1/
