@@ -7,9 +7,9 @@ VMStats -> fdsOpen
 StatSampler -> delayDuration
 
 
-DistributionStats -> Nodes
 DistributionStats -> functionExecutionsThreads
 DistributionStats -> highPriorityThreads
+DistributionStats -> nodes
 DistributionStats -> partitionedRegionThreads
 DistributionStats -> replyWaitsInProgress
 DistributionStats -> senderCreatesInProgress
