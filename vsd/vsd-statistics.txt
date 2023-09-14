@@ -1,6 +1,6 @@
 VMStats -> cpus
-VMStats -> threads
 VMStats -> fdsOpen
+VMStats -> threads
 
 
 
@@ -17,29 +17,34 @@ DistributionStats -> senderTimeouts
 DistributionStats -> sendersTO
 
 
+
+
 PartitionedRegionStats -> dataStoreBytesInUse
 
+
+
+
+CacheServerStats -> abandonedReadRequests
 CacheServerStats -> currentClientConnections
 CacheServerStats -> getRequests
 CacheServerStats -> receivedBytes
-CacheServerStats -> abandonedReadRequests
 
 
 
+LinuxSystemStats -> cachedMemory
 LinuxSystemStats -> contextSwitches
 LinuxSystemStats -> cpuActive
 LinuxSystemStats -> cpuSystem
 LinuxSystemStats -> diskOpsInProgress
 LinuxSystemStats -> diskTime
+LinuxSystemStats -> freeMemory
 LinuxSystemStats -> iowait
 LinuxSystemStats -> loadAverage1
-LinuxSystemStats -> loadAverage5
 LinuxSystemStats -> loadAverage15
-LinuxSystemStats -> pagesSwappedOut
+LinuxSystemStats -> loadAverage5
 LinuxSystemStats -> pagesSwappedIn
+LinuxSystemStats -> pagesSwappedOut
 LinuxSystemStats -> tcpExtListenDrops
-LinuxSystemStats -> cachedMemory
-LinuxSystemStats -> freeMemory
 
 
 
