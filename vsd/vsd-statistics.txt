@@ -8,13 +8,13 @@ StatSampler -> delayDuration
 
 
 DistributionStats -> Nodes
-DistributionStats -> partitionedRegionThreads
 DistributionStats -> functionExecutionsThreads
 DistributionStats -> highPriorityThreads
+DistributionStats -> partitionedRegionThreads
 DistributionStats -> replyWaitsInProgress
 DistributionStats -> senderCreatesInProgress
-DistributionStats -> sendersTO
 DistributionStats -> senderTimeouts
+DistributionStats -> sendersTO
 
 
 PartitionedRegionStats -> dataStoreBytesInUse
