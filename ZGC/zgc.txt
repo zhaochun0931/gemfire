@@ -1,1 +1,4 @@
+-XX:+UseZGC
+
+
 java helloworld -XX:+UseZGC -Xmx8m
