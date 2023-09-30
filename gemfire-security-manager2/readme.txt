@@ -66,5 +66,27 @@ locator1 | 192.168.1.4(locator1:9732:locator)<ec><v0>:41000 [Coordinator]
 server1  | 192.168.1.4(server1:10741)<v1>:41001
 
 gfsh>
+gfsh>start server --name=server3 --server-port=0 --classpath=/Users/zchun/Downloads/362449/0927/my-app-test-security/target/my-app-test-security-1.0-SNAPSHOT.jar --user=myuser --password=mypassword
+Starting a Geode Server in /Users/zchun/Downloads/362449/0927/server3...
+..
+Server in /Users/zchun/Downloads/362449/0927/server3 on 192.168.1.4[59252] as server3 is currently online.
+Process ID: 57622
+Uptime: 2 seconds
+Geode Version: 9.15.1
+Java Version: 11.0.18
+Log File: /Users/zchun/Downloads/362449/0927/server3/server3.log
+JVM Arguments: --add-exports=java.management/com.sun.jmx.remote.security=ALL-UNNAMED --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED -Dgemfire.default.locators=192.168.1.4[10334] -Dgemfire.start-dev-rest-api=false -Dgemfire.security-username=myuser -Dgemfire.use-cluster-configuration=true -Dgemfire.security-password=******** -Dgemfire.launcher.registerSignalHandlers=true -Djava.awt.headless=true -Dsun.rmi.dgc.server.gcInterval=9223372036854775806
+Class-Path: /Users/zchun/Downloads/vmware-gemfire-9.15.1/lib/geode-core-9.15.1.jar:/Users/zchun/Downloads/362449/0927/my-app-test-security/target/my-app-test-security-1.0-SNAPSHOT.jar:/Users/zchun/Downloads/vmware-gemfire-9.15.1/lib/geode-server-all-9.15.1.jar
 
+gfsh>
+gfsh>list members
+Member Count : 3
+
+  Name   | Id
+-------- | ---------------------------------------------------------------
+locator1 | 192.168.1.4(locator1:56724:locator)<ec><v0>:41000 [Coordinator]
+server2  | 192.168.1.4(server2:57512)<v1>:41001
+server3  | 192.168.1.4(server3:57622)<v2>:41002
+
+gfsh>
 
