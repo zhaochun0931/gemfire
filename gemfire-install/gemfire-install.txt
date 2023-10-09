@@ -36,9 +36,13 @@ gfsh version
 
 
 # start locator and server
-start locator
-start server
+start locator --name=locator1
+start server --name=server1
 list members
+
+
+
+
 
 # or run the scipt
 gfsh run --file demo.gfsh
