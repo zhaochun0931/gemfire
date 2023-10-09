@@ -45,7 +45,7 @@ list members
 
 
 # or run the scipt
-gfsh run --file demo.gfsh
+gfsh run --file start.gfsh
 
 
 
