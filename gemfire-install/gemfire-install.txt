@@ -54,18 +54,18 @@ gfsh run --file start.gfsh
 
 
 
-create region --name=demo --type=REPLICATE_PERSISTENT
+create region --name=exampleRegion --type=REPLICATE_PERSISTENT
 list regions
 
 
 
-describe region --name=/demo
+describe region --name=/exampleRegion
 
-put --region=demo --key="1" --value="hello_1"
+put --region=exampleRegion --key="1" --value="hello_1"
 
-locate entry --key="1" --region=/demo
+locate entry --key="1" --region=/exampleRegion
 
-query --query="select * from /demo"
+query --query="select * from /exampleRegion"
 
 show metrics --member=server1
 
@@ -73,7 +73,7 @@ show metrics --member=server1
 
 
 gfsh -e "connect" -e "list members"
-gfsh -e 'connect' -e 'put --region=demo --key=10 --value=hello_10'
+gfsh -e 'connect' -e 'put --region=exampleRegion --key=10 --value=hello_10'
 
 
 
