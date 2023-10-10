@@ -18,7 +18,7 @@ public class ClientWorkerPut {
 
     ClientCache cache = new ClientCacheFactory()
         .set("name", "ClientWorkerPut")
-        .set("cache-xml-file", "xml/ClientProducer.xml")
+        .set("cache-xml-file", "ClientProducer.xml")
         .set("log-level", "config")
         .set("log-file", "producer.log")
         .create();
