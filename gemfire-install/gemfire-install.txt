@@ -12,7 +12,7 @@ java -version
 tar -xzvf vmware-gemfire-9.15.1.tgz
 
 
-~/.bash_profile
+vi ~/.bash_profile
 
 export GEMFIRE_HOME=/root/vmware-gemfire-9.15.1
 export PATH=$GEMFIRE_HOME/bin:$PATH
