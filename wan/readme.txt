@@ -1,3 +1,3 @@
-gemfireA 10.0.0.4
+gemfire1 10.0.0.4
 
-gemfireB 10.0.0.5
+gemfire2 10.0.0.5
