@@ -24,10 +24,6 @@ source ~/.bash_profile
 
 gfsh version
 
-# gfsh version
-9.15.1
-
-#
 
 
 
