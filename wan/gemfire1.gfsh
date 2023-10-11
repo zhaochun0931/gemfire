@@ -6,6 +6,4 @@ create region --name=exampleRegion --type=REPLICATE_PERSISTENT --gateway-sender-
 
 list gateways
 
-stop gateway-sender --id=demoGW
 
-start gateway-sender --id=demoGW
