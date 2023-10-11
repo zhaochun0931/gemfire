@@ -1,1 +1,13 @@
+kubectl create secret docker-registry image-pull-secret --namespace=gemfire --docker-server=registry.tanzu.vmware.com --docker-username='zchun@vmware.com' --docker-password='password'
 
+
+
+helm registry login -u 'zchun@vmware.com' registry.tanzu.vmware.com
+
+
+helm install gemfire-crd oci://registry.tanzu.vmware.com/tanzu-gemfire-for-kubernetes/gemfire-crd --version 2.3.0 --namespace gemfire --set operatorReleaseName=gemfire-operator --plain-http
+
+helm install gemfire-operator oci://registry.tanzu.vmware.com/tanzu-gemfire-for-kubernetes/gemfire-operator --version 2.3.0 --namespace gemfire --plain-http
+
+kubectl get crd gemfireclusters.gemfire.vmware.com
+kubectl get pods --namespace gemfire
