@@ -1,4 +1,4 @@
-register the applicaiton in the azure portal
+register the applicaiton in the azure portal with web type not the single page application
 
 generate the client secret
 
