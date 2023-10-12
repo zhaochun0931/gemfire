@@ -1,0 +1,4 @@
+register the applicaiton in the azure portal
+
+generate the client secret
+
