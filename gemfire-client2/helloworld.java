@@ -19,7 +19,7 @@ public class helloworld
                 .create();
         Region<String, String> region = cache
                 .<String, String>createClientRegionFactory(ClientRegionShortcut.CACHING_PROXY)
-                .create("hello");
+                .create("exampleRegion");
 
         region.put("1", "Hello");
         region.put("2", "World");
