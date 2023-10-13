@@ -16,9 +16,9 @@ public class App {
         gemfireProperties.put("log-level", "all");
         gemfireProperties.put("log-file", "/tmp/GFSSLClient.log");
 
-        String keyStoreFilePath1="/Users/zchun/Downloads/365687/tls.keystore";
+        String keyStoreFilePath1="/tmp/tls.keystore";
         String keyStorePassword1="password";
-        String trustStoreFilePath1="/Users/zchun/Downloads/365687/tls.truststore";
+        String trustStoreFilePath1="/tmp/tls.truststore";
         String trustStorePassword1="password";
 
         gemfireProperties.setProperty("log-level", "config");
@@ -32,7 +32,6 @@ public class App {
     }
 
     public static void main(String[] args) {
-        final String HOSTNAME = "localhost";
 
         System.out.println("Sample GemFire client");
 
@@ -41,13 +40,12 @@ public class App {
         props.put("log-file", "/tmp/GFSSLClient.log");*/
         //props.put("xxxx", "yyyy");
 
-        ClientCache cache = new ClientCacheFactory(gemfireProperties()).addPoolLocator(HOSTNAME, 10334).create();
+        ClientCache cache = new ClientCacheFactory(gemfireProperties()).addPoolLocator("localhost", 10334).create();
 
-        final String regionName = "exampleRegion";
 
         // create a local region that matches the server region
         Region<String, String> region = cache.<String, String>createClientRegionFactory(ClientRegionShortcut.CACHING_PROXY)
-                .create(regionName);
+                .create("exampleRegion");
 
         region.put("k1", "v1");
         region.put("k2", "v2");
