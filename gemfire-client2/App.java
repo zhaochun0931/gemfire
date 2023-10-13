@@ -6,7 +6,7 @@ import org.apache.geode.cache.client.*;
 //        input some values to the region
 
 
-public class helloworld 
+public class App 
 {
     public static void main( String[] args ) throws Exception
     {
