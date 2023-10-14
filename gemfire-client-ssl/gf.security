@@ -1,11 +1,11 @@
-ssl-enabled-components=locator
+ssl-enabled-components=all
 
 ssl-keystore-type=PKCS12
-ssl-keystore=/root/gemfire.keystore
+ssl-keystore=/tmp/tls.keystore
 ssl-keystore-password=password
 
 ssl-truststore-type=PKCS12
-ssl-truststore=/root/gemfire.truststore
+ssl-truststore=/tmp/tls.truststore
 ssl-truststore-password=password
 
 ssl-ciphers=any
