@@ -1,0 +1,10 @@
+ssl-enabled-components=all
+
+ssl-keystore=/tmp/tls.keystore
+ssl-keystore-password=password
+
+ssl-truststore=/tmp/tls.truststore
+ssl-truststore-password=password
+
+ssl-ciphers=any
+ssl-protocols=any
