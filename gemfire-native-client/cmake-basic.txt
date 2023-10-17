@@ -27,4 +27,11 @@ cd vmware-gemfire-native/examples/putgetremove/
 #
 #
 #
-
+# ./cpp-putgetremove
+Storing id and username in the region
+Getting the user info from the region
+  rtimmons = Robert Timmons
+  scharles = Sylvia Charles
+Removing rtimmons info from the region
+rtimmons's info successfully deleted
+#
