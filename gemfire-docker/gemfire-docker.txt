@@ -1,0 +1,9 @@
+docker network create gemfire-vnet
+
+
+docker run -d -it --name gemfire1 --hostname gemfire1 --network gemfire-vnet ubuntu
+
+docker run -d -it --name client1 --hostname client1 --network gemfire-vnet ubuntu
+
+docker run -d -it --name client2 --hostname client2 --network gemfire-vnet ubuntu
+
