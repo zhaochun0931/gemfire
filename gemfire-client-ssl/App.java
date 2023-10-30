@@ -8,7 +8,7 @@ import org.apache.geode.cache.InterestResultPolicy;
 
 
 
-public class ClientWorkerPutSSL {
+public class App {
 
   public static final String EXAMPLE_REGION_NAME = "exampleRegion";
 
@@ -21,10 +21,10 @@ public class ClientWorkerPutSSL {
         .set("cache-xml-file", "ClientProducer.xml")
         .set("log-level", "config")
         .set("log-file", "producer.log")
-	.set("ssl-enabled-components", "locator")
-	.set("ssl-keystore","/root/gemfire.keystore")
+	.set("ssl-enabled-components", "all")
+	.set("ssl-keystore","/tmp/tls.keystore")
 	.set("ssl-keystore-password", "password")
-	.set("ssl-truststore", "/root/gemfire.truststore")
+	.set("ssl-truststore", "/tmp/gemfire.truststore")
 	.set("ssl-truststore-password", "password")
 	.addPoolLocator("10.0.0.4", 10334)
         .create();
