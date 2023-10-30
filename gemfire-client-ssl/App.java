@@ -24,7 +24,7 @@ public class App {
 	.set("ssl-enabled-components", "all")
 	.set("ssl-keystore","/tmp/tls.keystore")
 	.set("ssl-keystore-password", "password")
-	.set("ssl-truststore", "/tmp/gemfire.truststore")
+	.set("ssl-truststore", "/tmp/tls.truststore")
 	.set("ssl-truststore-password", "password")
 	.addPoolLocator("10.0.0.4", 10334)
         .create();
