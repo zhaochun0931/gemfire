@@ -2,6 +2,8 @@ start locator --name=locator1 --security-properties-file=/root/gf.security
 
 start server --name=server1 --security-properties-file=/root/gf.security
 
+create region --name=exampleRegion --type=REPLICATE_PERSISTENT
+
 # connect --locator=10.0.0.4[10334] --use-ssl --security-properties-file=/root/gf.security
 
 connect --use-ssl --security-properties-file=/root/gf.security
