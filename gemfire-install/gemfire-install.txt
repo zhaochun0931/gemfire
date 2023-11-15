@@ -27,6 +27,15 @@ export PATH=$GEMFIRE_HOME/bin:$PATH
 export CLASSPATH=$GEMFIRE_HOME/lib/geode-dependencies.jar:$GEMFIRE_HOME/lib/geode-core-9.15.1.jar:$CLASSPATH
 
 
+
+
+export GEMFIRE_HOME=/root/vmware-gemfire-10.0.0
+export PATH=$GEMFIRE_HOME/bin:$PATH
+export CLASSPATH=$GEMFIRE_HOME/lib/geode-dependencies.jar:$GEMFIRE_HOME/lib/gemfire-core-10.0.0.jar:$CLASSPATH
+
+
+
+
 source ~/.bash_profile
 
 
