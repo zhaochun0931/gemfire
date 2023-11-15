@@ -1,0 +1,9 @@
+<settings>
+  <servers>
+      <server>
+          <id>gemfire-release-repo</id>
+          <username>MY-USERNAME@vmware.com</username>
+          <password>MY-DECRYPTED-PASSWORD</password>
+      </server>
+  </servers>
+</settings>
