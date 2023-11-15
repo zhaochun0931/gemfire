@@ -1,3 +1,25 @@
+wget https://dlcdn.apache.org/maven/maven-3/3.9.5/binaries/apache-maven-3.9.5-bin.tar.gz
+
+tar xzvf apache-maven-3.9.5-bin.tar.gz
+
+export PATH=/root/apache-maven-3.9.5/bin:$PATH
+
+
+# mvn -v
+Apache Maven 3.9.5 (57804ffe001d7215b5e7bcb531cf83df38f93546)
+Maven home: /root/apache-maven-3.9.5
+Java version: 1.8.0_382, vendor: Private Build, runtime: /usr/lib/jvm/java-8-openjdk-amd64/jre
+Default locale: en, platform encoding: UTF-8
+OS name: "linux", version: "5.15.0-1050-azure", arch: "amd64", family: "unix"
+#
+
+
+
+
+
+
+
+
 # Creating a Project
 
 mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
