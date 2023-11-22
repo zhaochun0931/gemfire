@@ -1,0 +1,3 @@
+start locator --name=locator1 --classpath=/Users/zchun/Downloads/vmware-gemfire-9.15.1/tools/Modules/gemfire-prometheus-metrics/* --J=-Dgemfire.prometheus.metrics.port=7003
+
+start server --name=server1 --classpath=/Users/zchun/Downloads/vmware-gemfire-9.15.1/tools/Modules/gemfire-prometheus-metrics/* --J=-Dgemfire.prometheus.metrics.port=7004
