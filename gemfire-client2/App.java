@@ -6,14 +6,14 @@ import org.apache.geode.cache.client.*;
 //        input some values to the region
 
 
-public class App 
+public class App
 {
     public static void main( String[] args ) throws Exception
     {
 
 //        System.out.println( "Hello World!" );
 
-        
+
         ClientCache cache = new ClientCacheFactory()
                 .addPoolLocator("localhost", 10334)
                 .create();
@@ -23,6 +23,14 @@ public class App
 
         region.put("1", "Hello");
         region.put("2", "World");
+
+	    try{
+            Thread.sleep(60000);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+
+        }
 
         for (Map.Entry<String, String>  entry : region.entrySet()) {
             System.out.format("key = %s, value = %s\n", entry.getKey(), entry.getValue());
