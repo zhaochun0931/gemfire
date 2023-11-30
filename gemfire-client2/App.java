@@ -22,15 +22,18 @@ public class App
                 .create("exampleRegion");
 
         region.put("1", "Hello");
-        region.put("2", "World");
 
-	    try{
-            Thread.sleep(60000);
+	try{
+            Thread.sleep(30000);
         }
         catch (Exception e){
             e.printStackTrace();
 
         }
+	    
+        region.put("2", "World");
+
+
 
         for (Map.Entry<String, String>  entry : region.entrySet()) {
             System.out.format("key = %s, value = %s\n", entry.getKey(), entry.getValue());
