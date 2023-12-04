@@ -1,0 +1,26 @@
+cf m
+
+
+# create service
+cf create-service p-cloudcache small gemfire1
+cf services
+
+
+
+
+# create service key
+cf create-service-key gemfire1 gemfire1_key
+cf service-key gemfire1 gemfire1_key
+
+
+
+# open another gfsh terminal and connect to gfsh specified in the service key
+
+gfsh
+connect --url=https://cloudcache-ace1f78e-4c83-4872-a24f-43c8464c466f.run-13.slot-34.tanzu-gss-labs.vmware.com/gemfire/v1 --user=cluster_operator_jLuFkfexHiHXzk6noRg --password=1SJTZoI4xW2S3mXUBUaYw --skip-ssl-validation
+
+
+
+sudo -i
+/var/vcap/sys/log/
+
