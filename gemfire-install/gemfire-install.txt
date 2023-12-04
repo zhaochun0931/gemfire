@@ -19,6 +19,7 @@ tar -xzvf vmware-gemfire-9.15.1.tgz
 
 vi ~/.bash_profile
 
+# gemfire 9.15.1
 export GEMFIRE_HOME=/root/vmware-gemfire-9.15.1
 export PATH=$GEMFIRE_HOME/bin:$PATH
 export CLASSPATH=$GEMFIRE_HOME/lib/geode-dependencies.jar:$GEMFIRE_HOME/lib/geode-core-9.15.1.jar:$CLASSPATH
@@ -28,7 +29,7 @@ export CLASSPATH=$GEMFIRE_HOME/lib/geode-dependencies.jar:$GEMFIRE_HOME/lib/geod
 
 
 
-# gemfire 10
+# gemfire 10.0.0
 export GEMFIRE_HOME=/root/vmware-gemfire-10.0.0
 export PATH=$GEMFIRE_HOME/bin:$PATH
 export CLASSPATH=$GEMFIRE_HOME/lib/geode-dependencies.jar:$GEMFIRE_HOME/lib/gemfire-core-10.0.0.jar:$CLASSPATH
