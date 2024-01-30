@@ -1,0 +1,4 @@
+npm init
+npm install gemfire-nodejs-client-2.0.1-build.33.tgz
+
+
