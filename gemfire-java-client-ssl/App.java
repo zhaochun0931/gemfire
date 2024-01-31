@@ -18,7 +18,7 @@ public class App {
 
     ClientCache cache = new ClientCacheFactory()
         .set("name", "ClientWorkerPut")
-        .set("cache-xml-file", "ClientProducer.xml")
+        .set("cache-xml-file", "/tmp/ClientProducer.xml")
         .set("log-level", "config")
         .set("log-file", "producer.log")
 	.set("ssl-enabled-components", "all")
