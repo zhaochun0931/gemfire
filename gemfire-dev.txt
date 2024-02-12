@@ -2,3 +2,9 @@ https://gemfire.dev/quickstart/java/
 
 
 getgemfire
+
+
+
+
+
+https://gemfire.dev/blog/creating-and-configuring-an-encrypted-gemfire-client-in-java/
