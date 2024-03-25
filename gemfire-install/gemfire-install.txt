@@ -109,3 +109,15 @@ gfsh -e 'connect' -e 'put --region=exampleRegion --key=10 --value=hello_10'
 http://localhost:7070/pulse/
 admin/admin
 
+
+
+
+
+# debug gfsh log
+export JAVA_ARGS="-Dgfsh.log-level=fine"
+export JAVA_ARGS="-Dgfsh.log-level=fine -verbose:class"
+
+
+gfsh-0_0.log
+
+
