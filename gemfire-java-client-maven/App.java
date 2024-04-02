@@ -13,7 +13,6 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
 
         ClientCache cache = new ClientCacheFactory().addPoolLocator("127.0.0.1", 10334).create();
         Region<String, String>
