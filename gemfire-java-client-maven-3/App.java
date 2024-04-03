@@ -8,7 +8,7 @@ import org.apache.geode.cache.InterestResultPolicy;
 
 
 
-public class ClientWorkerPut {
+public class App {
 
   public static final String EXAMPLE_REGION_NAME = "exampleRegion";
 
