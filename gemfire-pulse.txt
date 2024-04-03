@@ -1,0 +1,11 @@
+Copy the geode-pulse-9.15.1.war from the directory tools/Pulse of the Gemfire 9.15.1 to the Tomcat webapps directory
+cp geode-pulse-9.15.1.war CATALINA_HOME/webapps
+Modify the file $CATALINA_HOME/webapps/geode-pulse-9.15.1/WEB-INF/classes/pulse.properties as below
+pulse.useLocator=false
+pulse.host=localhost
+pulse.port=1099
+Start the locator with --J=-Dgemfire.http-service-port=0
+gfsh>start locator --name=locator2 --J=-Dgemfire.http-service-port=0
+Start up the tomcat
+Open below address from the Chrome:
+http://localhost:8080/geode-pulse-9.15.1/login.html
