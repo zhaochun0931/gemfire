@@ -1,4 +1,0 @@
-start locator --name=locator1
-start server --name=server1
-
-create region --name=exampleRegion --type=REPLICATE_PERSISTENT
