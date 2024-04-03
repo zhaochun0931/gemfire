@@ -2,8 +2,8 @@
        <servers>
            <server>
                <id>gemfire-release-repo</id>
-               <username>zchun@vmware.com</username>
-               <password>Emc@606sd66484U68</password>
+               <username>USERNAME</username>
+               <password>PASSWORD</password>
            </server>
        </servers>
 </settings>
