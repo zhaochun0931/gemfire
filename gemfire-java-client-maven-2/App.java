@@ -5,7 +5,7 @@ import org.apache.geode.cache.client.ClientCacheFactory;
 public class App {
     public static void main(String[] args) {
         ClientCache cache = new ClientCacheFactory()
-                .set("cache-xml-file", "/root/my-app/client-cache.xml")
+                .set("cache-xml-file", "/root/client-cache.xml")
                 .create();
 
         Region<String, String> region = cache.getRegion("exampleRegion");
