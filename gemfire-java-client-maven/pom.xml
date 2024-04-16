@@ -23,17 +23,20 @@
 
      # gemfire 10.x
 
+  
        <dependency>
     <groupId>com.vmware.gemfire</groupId>
     <artifactId>gemfire-core</artifactId>
     <version>10.0.0</version>
   </dependency>
-  <dependency>
+  
+       <dependency>
     <groupId>com.vmware.gemfire</groupId>
     <artifactId>gemfire-wan</artifactId>
     <version>10.0.0</version>
   </dependency>
-  <dependency>
+  
+       <dependency>
   <groupId>com.vmware.gemfire</groupId>
     <artifactId>gemfire-cq</artifactId>
     <version>10.0.0</version>
