@@ -1,4 +1,4 @@
-kubectl create secret docker-registry image-pull-secret --namespace=gemfire --docker-server=registry.tanzu.vmware.com --docker-username='zchun@vmware.com' --docker-password='password'
+kubectl create secret docker-registry image-pull-secret --namespace=gemfire --docker-server=registry.tanzu.vmware.com --docker-username='username' --docker-password='password'
 
 
 
@@ -17,4 +17,4 @@ kubectl get pods --namespace gemfire
 
 # create gemfire cluster
 
-kubectl create secret docker-registry image-pull-secret --namespace=gemfire --docker-server=registry.tanzu.vmware.com --docker-username='zchun@vmware.com' --docker-password='password'
+kubectl create secret docker-registry image-pull-secret --namespace=gemfire --docker-server=registry.tanzu.vmware.com --docker-username='username' --docker-password='password'
