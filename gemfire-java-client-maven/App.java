@@ -5,10 +5,7 @@ import org.apache.geode.cache.client.ClientCache;
 import org.apache.geode.cache.client.ClientCacheFactory;
 import org.apache.geode.cache.client.ClientRegionShortcut;
 
-/**
- * Hello world!
- *
- */
+
 public class App
 {
     public static void main( String[] args )
@@ -26,5 +23,12 @@ public class App
         }
 
         cache.close();
+
+        if (cache.isClosed()) {
+            System.out.println("GemFire cache is closed.");
+        } else {
+            System.out.println("GemFire cache is open.");
+        }
+
     }
 }
