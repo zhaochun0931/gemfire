@@ -2,7 +2,12 @@ wget https://dlcdn.apache.org/maven/maven-3/3.9.5/binaries/apache-maven-3.9.5-bi
 
 tar xzvf apache-maven-3.9.5-bin.tar.gz
 
+
+.bash_profile
+
 export PATH=/root/apache-maven-3.9.5/bin:$PATH
+
+source .bash_profile
 
 
 # mvn -v
