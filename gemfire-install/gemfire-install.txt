@@ -76,11 +76,6 @@ gfsh run --file start.gfsh
 
 
 
-create region --name=exampleRegion --type=REPLICATE_PERSISTENT
-list regions
-
-
-
 describe region --name=/exampleRegion
 
 put --region=exampleRegion --key="1" --value="hello_1"
