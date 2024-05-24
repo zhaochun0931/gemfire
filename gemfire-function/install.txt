@@ -1,12 +1,33 @@
-maven project
+# create a maven project
 
-put these two files to src/main/java/com/mycompany/app
+# put these two files to src/main/java/com/mycompany/app
 
 mvn clean install
 
 
 
-go to target/classes directory and create a manifest.mf
+# go to target/classes directory and create a manifest.mf
 
+
+
+jar cvf function.jar manifest.mf Example.class PrimeNumber.class
+
+
+
+
+# open a gfsh and start a locator, a server and create a region and deploy the function.jar
+
+
+
+start locator --name=locator
+start server --name=server
+create region --name=example-region --type=REPLICATE
+
+deploy --jar=function.jar
+list functions
+
+
+# open another terminal and run
+mvn exec:java -Dexec.mainClass=Example
 
 
