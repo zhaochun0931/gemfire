@@ -1,0 +1,12 @@
+maven project
+
+put these two files to src/main/java/com/mycompany/app
+
+mvn clean install
+
+
+
+go to target/classes directory and create a manifest.mf
+
+
+
