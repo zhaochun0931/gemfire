@@ -63,12 +63,6 @@ gfsh version --full
 
 
 
-# start locator and server
-start locator --name=locator1
-start server --name=server1
-list members
-
-
 
 
 
