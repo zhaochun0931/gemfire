@@ -1,5 +1,7 @@
+sender:
 node1 10.0.0.4
 
+receiver:
 node2 10.0.0.5
 
 
