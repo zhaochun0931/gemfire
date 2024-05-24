@@ -9,10 +9,13 @@ list members
 
 
 
-create region --name=pp-demo1 --type=PARTITION_PERSISTENT
-create region --name=rp-demo1 --type=REPLICATE_PERSISTENT
+create region --name=demoPR --type=PARTITION_PERSISTENT
+create region --name=demoRR --type=REPLICATE_PERSISTENT
 
 list regions
+
+
+put --region=demoPR --key=1 --value=hello1
 
 
 
