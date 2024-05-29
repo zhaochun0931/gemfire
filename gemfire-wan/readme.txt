@@ -23,3 +23,7 @@ gfsh run --file gemfire1.gfsh
 
 stop gateway-sender --id=gwxxx
 start gateway-sender --id=gwxxx
+
+
+
+# Parallel Gateway Sender can not be used with replicated region
