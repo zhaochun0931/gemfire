@@ -10,6 +10,12 @@ cf service gemfire1 --guid
 # delete service
 cf delete-service gemfire1
 
+# delete deployement
+bosh delete-deployment -d deployment_id
+
+
+bosh task task_id --debug
+
 
 
 # create service key
