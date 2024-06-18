@@ -7,10 +7,15 @@ cf services
 cf service gemfire1 --guid
 
 
+# delete service
+cf delete-service gemfire1
+
+
 
 # create service key
 cf create-service-key gemfire1 gemfire1_key
 cf service-key gemfire1 gemfire1_key
+
 
 
 
