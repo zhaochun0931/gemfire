@@ -3,3 +3,6 @@ start locator --name=locator1 --properties-file=/tmp/gemfire.properties --securi
 start server --name=server1 --properties-file=/tmp/gemfire.properties --security-properties-file=/tmp/gfsecurity.properties
 
 create region --name=exampleRegion --type=REPLICATE_PERSISTENT
+
+
+connect --use-ssl=true --security-properties-file=/tmp/gfsecurity.properties
