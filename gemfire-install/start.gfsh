@@ -9,9 +9,6 @@ list members
 
 
 
-create region --name=demoPR --type=PARTITION_PERSISTENT
-create region --name=demoRR --type=REPLICATE_PERSISTENT
-
 list regions
 
 
@@ -19,3 +16,19 @@ put --region=demoPR --key=1 --value=hello1
 
 
 
+
+
+
+
+
+
+
+
+
+alter runtime --enable-statistics=yes --statistic-archive-file=server1.gfs
+
+
+create region --name=exampleRegion --type=REPLICATE_PERSISTENT
+
+
+PARTITION_PERSISTENT
