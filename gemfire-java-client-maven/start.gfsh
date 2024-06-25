@@ -1,8 +1,0 @@
-start locator --name=locator1
-
-start server --name=server1
-
-alter runtime --enable-statistics=yes --statistic-archive-file=server1.gfs
-
-
-create region --name=exampleRegion --type=REPLICATE_PERSISTENT
