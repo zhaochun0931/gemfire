@@ -33,8 +33,7 @@
 <dependencies>
 
 
-
-<dependencies>
+     # gemfire 10.1
   <dependency>
     <groupId>com.vmware.gemfire</groupId>
     <artifactId>gemfire-core</artifactId>
@@ -51,7 +50,6 @@
     <artifactId>gemfire-cq</artifactId>
     <version>10.1.0</version>
   </dependency>
-</dependencies>
 
 
 
@@ -59,8 +57,7 @@
        
 
      # gemfire 10.x
-
-  
+       
        <dependency>
     <groupId>com.vmware.gemfire</groupId>
     <artifactId>gemfire-core</artifactId>
