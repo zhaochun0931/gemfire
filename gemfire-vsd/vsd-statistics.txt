@@ -1,19 +1,36 @@
 https://gemfire.dev/blog/the-most-useful-statistics-for-troubleshooting-vmware-gemfire-deployments/
 
 
-egrep -Ri 'Running on' *log
-egrep -Ri 'Dgemfire.locators' *log
-egrep -Ri 'Dgemfire.bind-address' *log
-
 
 
 # common error message
+
+Running on
+
+Dgemfire.locators
+
+Dgemfire.bind-address
 
 Unable to form a TCP/IP connection in a reasonable amount of time
 
 received suspect message from
 
 Member isn't responding to heartbeat requests
+
+
+Thread 28457877 (0x1b23b95) is stuck
+
+
+has been stuck for
+
+
+
+
+
+
+
+
+
 
 
 
