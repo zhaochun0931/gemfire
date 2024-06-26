@@ -1,7 +1,10 @@
 https://gemfire.dev/blog/the-most-useful-statistics-for-troubleshooting-vmware-gemfire-deployments/
 
 
-egrep -Ri 'running on' *log
+egrep -Ri 'Running on' *log
+egrep -Ri 'Dgemfire.locators' *log
+egrep -Ri 'Dgemfire.bind-address' *log
+
 
 
 
