@@ -1,4 +1,4 @@
-# do not run the locators or servers in the different directory with the Java keystore
+# do not run the locators or servers in the same directory with the Java keystore
 
 
 
