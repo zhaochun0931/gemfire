@@ -7,6 +7,17 @@ egrep -Ri 'Dgemfire.bind-address' *log
 
 
 
+# common error message
+
+Unable to form a TCP/IP connection in a reasonable amount of time
+
+received suspect message from
+
+Member isn't responding to heartbeat requests
+
+
+
+
 
 # the time and date of the gfs is from the OS and you can check it with head command.
 head -n 1 *gfs
