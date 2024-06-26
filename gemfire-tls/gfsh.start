@@ -1,8 +1,17 @@
+# do not run the locators or servers in the different directory with the Java keystore
+
+
+
+
+
+
+
+
 start locator --name=locator1 --properties-file=/tmp/gemfire.properties --security-properties-file=/tmp/gfsecurity.properties
 
-start server --name=server1 --properties-file=/tmp/gemfire.properties --security-properties-file=/tmp/gfsecurity.properties
+# start server --name=server1 --properties-file=/tmp/gemfire.properties --security-properties-file=/tmp/gfsecurity.properties
 
-create region --name=exampleRegion --type=REPLICATE_PERSISTENT
+# create region --name=exampleRegion --type=REPLICATE_PERSISTENT
 
 
-connect --use-ssl=true --security-properties-file=/tmp/gfsecurity.properties
+# connect --use-ssl=true --security-properties-file=/tmp/gfsecurity.properties
