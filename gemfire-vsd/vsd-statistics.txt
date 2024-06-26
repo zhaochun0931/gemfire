@@ -1,6 +1,9 @@
 https://gemfire.dev/blog/the-most-useful-statistics-for-troubleshooting-vmware-gemfire-deployments/
 
 
+egrep -Ri 'running on' *log
+
+
 
 # the time and date of the gfs is from the OS and you can check it with head command.
 head -n 1 *gfs
