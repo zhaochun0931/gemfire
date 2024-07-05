@@ -28,7 +28,9 @@ public class App implements SecurityManager {
         System.out.println("username = [" + username + "]");
 
         // Hardcoded username/password
-        if ("admin".equals(username) && "xyz1234".equals(password)) {
+
+        // admin password
+        if ("admin".equals(username) && "password".equals(password)) {
             result = username;
         } else {
             System.out.println(MESSAGE);
