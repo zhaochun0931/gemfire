@@ -1,5 +1,3 @@
-//package com.mycompany.app;
-
 import java.util.Properties;
 
 import org.apache.geode.distributed.DistributedMember;
