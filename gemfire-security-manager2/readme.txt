@@ -34,7 +34,8 @@ curl -i --user admin:password http://localhost:8080/gemfire-api/v1
 
 client:
 
-
+mvn clean install
+mvn exec:java -Dexec.mainClass=App
 
 
 
