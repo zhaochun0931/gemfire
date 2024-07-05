@@ -5,7 +5,7 @@ import org.apache.geode.security.SecurityManager;
 import org.apache.geode.security.AuthenticationFailedException;
 import org.apache.geode.security.ResourcePermission;
 
-public class SimpleSecurityManager implements SecurityManager {
+public class App implements SecurityManager {
 
     public static final String MESSAGE = "Invalid username/password";
 
