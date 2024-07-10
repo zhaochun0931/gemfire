@@ -15,6 +15,6 @@ docker run -it -e 'ACCEPT_TERMS=y' --rm -d --name gf-server2 --network=gf-networ
 
 
 
-docker run -it -e 'ACCEPT_TERMS=y' --rm --network=gf-network gemfire/gemfire:9.15.6 gfsh
+docker run -it -e 'ACCEPT_TERMS=y' --rm --network=gf-network gemfire/gemfire:9.15.6 gfsh connect --jmx-manager=gf-locator[1099]
 
 connect --jmx-manager=gf-locator[1099]
