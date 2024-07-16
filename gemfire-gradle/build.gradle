@@ -13,6 +13,12 @@ repositories {
 
 
 
+def gemfire_version="10.1.0"
+
+
 dependencies {
-  implementation "com.vmware.gemfire:gemfire-core:9.15.1"
+ //  implementation "com.vmware.gemfire:gemfire-core:$gemfire_version"
+ //  implementation "com.vmware.gemfire:gemfire-logging:$gemfire_version"
+  // if using continuous queries
+ // implementation "com.vmware.gemfire:gemfire-cq:$gemfire_version"
 }
