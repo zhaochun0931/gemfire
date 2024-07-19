@@ -27,9 +27,8 @@ chown -R gpadmin:gpadmin /usr/local/greenplum*
 
 
 # create the directory
-
 mkdir -p /data/master /data/primary /data/mirror
-chown gpadmin:gpadmin /data/master /data/primary /data/mirror
+chown -R gpadmin:gpadmin /data/master /data/primary /data/mirror
 
 
 
