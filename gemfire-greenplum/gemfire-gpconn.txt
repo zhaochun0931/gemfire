@@ -1,20 +1,17 @@
-
 start locator --name=locator1
 start server --name=server1
 
-
-
 configure pdx --read-serialized=true --auto-serializable-classes=io.pivotal.gemfire.demo.entity.*
 
-
-create jndi-binding --name=datasource --type=SIMPLE --jdbc-driver-class="org.postgresql.Driver" --username="postgres" --password="postgres" --connection-url="jdbc:postgresql://172.16.204.132:5432/postgres"
-
+create jndi-binding --name=datasource --type=SIMPLE --jdbc-driver-class="org.postgresql.Driver" --username="gpadmin" --password="changeme" --connection-url="jdbc:postgresql://localhost:5432/DATABASE"
 
 
 configure gpfdist-protocol --port=8000
 
-create region --name=student --type=REPLICATE_PERSISTENT
+create region --name=student --type=REPLICATE
 
+create gpdb-mapping --region=/student --data-source=datasource --pdx-name="io.pivotal.gemfire.demo.entity.student" --table=student --id=id,age
 
-create gpdb-mapping --region=/Child --data-source=datasource --pdx-name="io.pivotal.gemfire.demo.entity.Child" --table=child --id=id,parent_id
-  
+import gpdb --region=/student
+
+query --query="select * from /student"
