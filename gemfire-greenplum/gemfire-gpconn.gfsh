@@ -8,7 +8,12 @@ create jndi-binding --name=datasource --type=SIMPLE --jdbc-driver-class="org.pos
 
 configure gpfdist-protocol --port=8000
 
-create region --name=student --type=REPLICATE
+
+# GemFire Search indexes are supported only on partitioned regions. Replicated region types are not supported.
+
+create region --name=student --type=PARTITION
+
+
 
 create gpdb-mapping --region=/student --data-source=datasource --pdx-name="io.pivotal.gemfire.demo.entity.student" --table=student --id=id,age
 
