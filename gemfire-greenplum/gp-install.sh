@@ -1,4 +1,4 @@
-install greenplum database in redhat linux
+#install greenplum database in redhat linux
 
 
 greenplum-db-6.24.3-rhel8-x86_64.rpm
