@@ -1,10 +1,3 @@
-.bash_profile
-
-export GEMFIRE_HOME=/root/pivotal-gemfire-9.10.5
-export PATH=$GEMFIRE_HOME/bin:$PATH
-export CLASSPATH=$GEMFIRE_HOME/lib/geode-dependencies.jar:$GEMFIRE_HOME/lib/geode-core-9.10.5.jar:$GEMFIRE_HOME/extensions/gemfire-greenplum-3.5.0.jar:$GEMFIRE_HOME/extensions/gemfire-greenplum-3.5.0-javadoc.jar:$CLASSPATH
-
-
 
 start locator --name=locator1
 start server --name=server1
@@ -19,6 +12,9 @@ create jndi-binding --name=datasource --type=SIMPLE --jdbc-driver-class="org.pos
 
 
 configure gpfdist-protocol --port=8000
+
+create region --name=student --type=REPLICATE_PERSISTENT
+
 
 create gpdb-mapping --region=/Child --data-source=datasource --pdx-name="io.pivotal.gemfire.demo.entity.Child" --table=child --id=id,parent_id
   
