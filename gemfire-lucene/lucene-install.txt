@@ -1,0 +1,32 @@
+
+create lucene index --name=indexName --region=/student --field=id,address
+
+
+search lucene --name=indexName --region=/student --queryString="beijing" --defaultField=address
+search lucene --name=indexName --region=/student --queryString="address:beijing" --defaultField=address
+search lucene --name=indexName --region=/student --queryString="address:beijing*" --defaultField=address
+search lucene --name=indexName --region=/student --queryString="b*" --defaultField=address
+
+
+
+
+
+
+
+  
+
+gfsh>search lucene --name=indexName --region=/student --queryString="address:b*" --defaultField=address
+                key                 |                                                 value                                                  | score
+----------------------------------- | ------------------------------------------------------------------------------------------------------ | -----
+{age=30, id=3, address=beijing 888} | PDX[15207690,io.pivotal.gemfire.demo.entity.student]{address=beijing 888, age=30, id=3, parent_id=301} | 1.0
+{age=10, id=1, address=bejing 101}  | PDX[15207690,io.pivotal.gemfire.demo.entity.student]{address=bejing 101, age=10, id=1, parent_id=101}  | 1.0
+
+gfsh>
+gfsh>
+gfsh>search lucene --name=indexName --region=/student --queryString="b*" --defaultField=address
+                key                 |                                                 value                                                  | score
+----------------------------------- | ------------------------------------------------------------------------------------------------------ | -----
+{age=30, id=3, address=beijing 888} | PDX[15207690,io.pivotal.gemfire.demo.entity.student]{address=beijing 888, age=30, id=3, parent_id=301} | 1.0
+{age=10, id=1, address=bejing 101}  | PDX[15207690,io.pivotal.gemfire.demo.entity.student]{address=bejing 101, age=10, id=1, parent_id=101}  | 1.0
+
+gfsh>
