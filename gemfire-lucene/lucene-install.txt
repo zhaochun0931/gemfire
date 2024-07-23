@@ -1,4 +1,3 @@
-
 create lucene index --name=indexName --region=/student --field=id,address
 
 
