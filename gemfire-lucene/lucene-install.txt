@@ -1,5 +1,11 @@
 create lucene index --name=indexName --region=/student --field=id,address
 
+list lucene indexes
+
+
+
+
+
 
 search lucene --name=indexName --region=/student --queryString="beijing" --defaultField=address
 search lucene --name=indexName --region=/student --queryString="address:beijing" --defaultField=address
