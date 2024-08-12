@@ -5,7 +5,16 @@ https://gemfire.dev/blog/the-most-useful-statistics-for-troubleshooting-vmware-g
 
 # common error message
 
-Running on
+egrep -Ri 'Running on' *log
+
+  -XX:NewSize=4G
+  -XX:MaxNewSize=4G
+
+  -Xms32G
+  -Xmx32G
+
+
+
 
 Dgemfire.locators
 
