@@ -5,7 +5,17 @@ https://gemfire.dev/blog/the-most-useful-statistics-for-troubleshooting-vmware-g
 
 # common error message
 
-egrep -Ri 'Running on' *log
+egrep -Ri '^locators='
+
+egrep -Ri 'Running on'
+
+egrep -Ri '\-Dtype=' 
+
+
+
+
+
+
 
   -XX:NewSize=4G
   -XX:MaxNewSize=4G
@@ -14,6 +24,15 @@ egrep -Ri 'Running on' *log
   -Xmx32G
 
 
+
+
+Command Line Parameters:
+
+
+
+-Dtype=CacheServer
+
+bind-address=prod-genesis-cache-prod-d08-001
 
 
 Dgemfire.locators
