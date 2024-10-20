@@ -1,5 +1,7 @@
 # install JDK
 
+apt update
+apt install -y openjdk-8-jdk
 
 
 # gemfire installation on Ubuntu linux
