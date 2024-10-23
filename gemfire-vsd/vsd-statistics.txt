@@ -65,6 +65,8 @@ has been stuck for
 
 
 
+# check the balanced
+Here’s a chart of PartitionedRegionStats.dataStoreBytesInUse for all regions:
 
 
 
