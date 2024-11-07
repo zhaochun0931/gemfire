@@ -22,6 +22,7 @@ egrep -Ri 'Product-Version'
 egrep -Ri 'java.version'
 egrep -Ri 'java.runtime.version'
 
+egrep -Ri 'received new view'
 
 
 
