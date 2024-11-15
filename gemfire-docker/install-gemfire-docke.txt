@@ -2,7 +2,7 @@ docker network create gf-network
 
 
 
-# how to st
+# 
 docker run -it -e 'ACCEPT_TERMS=y' --rm -d --name gf-locator --network=gf-network -p 10334:10334 -p 7070:7070 gemfire/gemfire:9.15.6 gfsh start locator --name=gf-locator
 
 
