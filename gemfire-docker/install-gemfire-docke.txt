@@ -56,3 +56,21 @@ gf-server2 | 297990f8003b(gf-server2:1)<v2>:41000
 
 gfsh>
 
+
+
+
+
+
+Pulse: 
+http://localhost:7070/pulse
+
+Data API: 
+http://localhost:7071/gemfire-api/v1/
+
+Vector Database API: 
+http://localhost:7071/gemfire-vectordb/v1
+
+
+At the Pulse login screen, type in the default username admin and password admin
+
+
