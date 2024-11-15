@@ -1,16 +1,13 @@
 docker network create gf-network
 
 
-docker run -it -e 'ACCEPT_TERMS=y' --rm -d --name gf-locator --network=gf-network \
--p 10334:10334 -p 7070:7070 gemfire/gemfire:9.15.6 gfsh start locator --name=locator1
+
+# how to st
+docker run -it -e 'ACCEPT_TERMS=y' --rm -d --name gf-locator --network=gf-network -p 10334:10334 -p 7070:7070 gemfire/gemfire:9.15.6 gfsh start locator --name=gf-locator
 
 
-docker run -it -e 'ACCEPT_TERMS=y' --rm -d --name gf-server1 --network=gf-network \
--p 40404:40404 gemfire/gemfire:9.15.6 gfsh start server --name=server1 --locators=gf-locator\[10334\]
-
-
-docker run -it -e 'ACCEPT_TERMS=y' --rm -d --name gf-server2 --network=gf-network \
--p 40405:40405 gemfire/gemfire:9.15.6 gfsh start server --name=server2 --locators=gf-locator\[10334\]
+docker run -it -e 'ACCEPT_TERMS=y' --rm -d --name gf-server1 --network=gf-network -p 40404:40404 gemfire/gemfire:9.15.6 gfsh start server --name=gf-server1 --locators=gf-locator\[10334\]
+docker run -it -e 'ACCEPT_TERMS=y' --rm -d --name gf-server2 --network=gf-network -p 40405:40405 gemfire/gemfire:9.15.6 gfsh start server --name=gf-server2 --locators=gf-locator\[10334\]
 
 
 
@@ -18,3 +15,35 @@ docker run -it -e 'ACCEPT_TERMS=y' --rm -d --name gf-server2 --network=gf-networ
 docker run -it -e 'ACCEPT_TERMS=y' --rm --network=gf-network gemfire/gemfire:9.15.6 gfsh
 
 connect --jmx-manager=gf-locator[1099]
+
+
+
+
+$ docker run -it -e 'ACCEPT_TERMS=y' --rm --network=gf-network gemfire/gemfire:9.15.6 gfsh
+VMware General Terms accepted on Fri Nov 15 03:12:28 UTC 2024
+See VMware General Terms at /application/VMware-General-Terms
+
+    _________________________     __
+   / _____/ ______/ ______/ /____/ /
+  / /  __/ /___  /_____  / _____  /
+ / /__/ / ____/  _____/ / /    / /
+/______/_/      /______/_/    /_/    9.15.6
+
+Monitor and Manage VMware GemFire
+gfsh>connect --jmx-manager=gf-locator[1099]
+Connecting to Manager at [host=gf-locator, port=1099] ..
+Successfully connected to: [host=gf-locator, port=1099]
+
+You are connected to a cluster of version 9.15.6.
+
+gfsh>list members
+Member Count : 3
+
+   Name    | Id
+---------- | --------------------------------------------------------------
+gf-locator | f38fa7d1533f(gf-locator:1:locator)<ec><v0>:41000 [Coordinator]
+gf-server1 | dcf491bcb9fe(gf-server1:1)<v1>:41000
+gf-server2 | 297990f8003b(gf-server2:1)<v2>:41000
+
+gfsh>
+
