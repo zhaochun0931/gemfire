@@ -1,6 +1,9 @@
 https://gemfire.dev/blog/the-most-useful-statistics-for-troubleshooting-vmware-gemfire-deployments/
 
 
+../../vsd5.6.1-arm64.Darwin/bin/vsd */*/*gfs
+
+
 
 
 # common error message
