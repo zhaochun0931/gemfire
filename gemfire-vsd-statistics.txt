@@ -13,7 +13,10 @@ egrep -Ri '\-Dtype='
 
 egrep -Ri 'received leave request from'
 
-egrep -Ri 'region name' 
+egrep -Ri 'region name'
+
+egrep -Ri '^name'
+
 
 egrep -Ri 'redundant-copies' 
 
