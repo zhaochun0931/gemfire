@@ -27,6 +27,10 @@ egrep -Ri 'process id'
 egrep -Ri 'Attempting to reconnect to the distributed system.  This is attempt'
 
 
+egrep -Ri 'remote-locators'
+
+
+
 
   -XX:NewSize=4G
   -XX:MaxNewSize=4G
