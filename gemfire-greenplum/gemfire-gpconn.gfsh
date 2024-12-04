@@ -7,7 +7,8 @@ start server --name=server1 --start-rest-api=true --http-service-port=8080 --htt
 
 configure pdx --read-serialized=true --auto-serializable-classes=io.pivotal.gemfire.demo.entity.*
 
-create jndi-binding --name=datasource --type=SIMPLE --jdbc-driver-class="org.postgresql.Driver" --username="gpadmin" --password="changeme" --connection-url="jdbc:postgresql://localhost:5432/gemfire_db"
+create jndi-binding --name=datasource --type=SIMPLE --jdbc-driver-class="org.postgresql.Driver" --username="gpadmin" --password="changeme" \
+--connection-url="jdbc:postgresql://localhost:5432/gemfire_db"
 
 
 configure gpfdist-protocol --port=8000
@@ -19,7 +20,7 @@ create region --name=student --type=PARTITION
 
 
 
-create gpdb-mapping --region=/student --data-source=datasource --pdx-name="io.pivotal.gemfire.demo.entity.student" --table=child --id=id,parent_id,created_at
+create gpdb-mapping --region=/student --data-source=datasource --pdx-name="io.pivotal.gemfire.demo.entity.student" --table=student --id=id,created_at
 list gpdb-mapping
 
 
