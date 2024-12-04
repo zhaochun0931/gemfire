@@ -1,0 +1,6 @@
+gemfire-greenplum-4.0.1.tar.gz
+
+
+tar -xzvf gemfire-greenplum-4.0.1.tar.gz
+
+
