@@ -4,3 +4,9 @@ gemfire-greenplum-4.0.1.tar.gz
 tar -xzvf gemfire-greenplum-4.0.1.tar.gz
 
 
+gemfire-greenplum-4.0.1
+├── gemfire-greenplum-4.0.1.jar
+├── gemfire-greenplum-4.0.1-javadoc.jar
+└── open_source_licenses.txt
+
+cp gemfire-greenplum-4.0.1/* /root/vmware-gemfire-9.15.1/tools/Extensions
