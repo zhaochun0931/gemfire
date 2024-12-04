@@ -25,8 +25,8 @@ drop database student;
 
 
 \c test
-create table Child(id int, parent_id int);
-insert into Child select generate_series(1,100000),generate_series(1,100000);
+create table child(id int, parent_id int);
+insert into child select generate_series(1,100000),generate_series(1,100000);
 
 
 
