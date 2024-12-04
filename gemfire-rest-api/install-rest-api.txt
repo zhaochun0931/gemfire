@@ -6,3 +6,13 @@ start server --name=server1 --start-rest-api=true --http-service-port=8080 --htt
 
 
 curl -i http://localhost:8080/geode/v1
+curl -i http://localhost:8080/gemfire-api/v1
+
+
+select * from /student
+curl -i "http://localhost:8080/geode/v1/queries/adhoc?q=select%20*%20%20from%20/student"
+
+
+
+
+
