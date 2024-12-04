@@ -18,7 +18,7 @@ create region --name=student --type=PARTITION
 
 
 
-create gpdb-mapping --region=/student --data-source=datasource --pdx-name="io.pivotal.gemfire.demo.entity.student" --table=student --id=id,age
+create gpdb-mapping --region=/student --data-source=datasource --pdx-name="io.pivotal.gemfire.demo.entity.student" --table=student --id=id,parent_id
 
 import gpdb --region=/student
 
