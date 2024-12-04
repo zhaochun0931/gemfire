@@ -13,7 +13,6 @@ select * from /student
 curl -i "http://localhost:8080/geode/v1/queries/adhoc?q=select%20*%20%20from%20/student"
 
 
-curl -i "http://localhost:8080/geode/v1/queries/adhoc?q=select%20*%20%20from%20/student%20where%20to_date(created_at)%20=%20to%20date(2021-09-19)"
 
 
 
