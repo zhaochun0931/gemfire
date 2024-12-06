@@ -7,8 +7,7 @@ start server --name=server1 --start-rest-api=true --http-service-port=8080 --htt
 
 configure pdx --read-serialized=true --auto-serializable-classes=io.pivotal.gemfire.demo.entity.*
 
-create jndi-binding --name=datasource --type=SIMPLE --jdbc-driver-class="org.postgresql.Driver" --username="gpadmin" --password="changeme" \
---connection-url="jdbc:postgresql://localhost:5432/gemfire_db"
+create jndi-binding --name=datasource --type=SIMPLE --jdbc-driver-class="org.postgresql.Driver" --username="gpadmin" --password="changeme" --connection-url="jdbc:postgresql://localhost:5432/gemfire_db"
 
 
 configure gpfdist-protocol --port=8000
