@@ -1,20 +1,50 @@
-kubectl create secret docker-registry image-pull-secret --namespace=gemfire --docker-server=registry.tanzu.vmware.com --docker-username='username' --docker-password='password'
+# install gemfire operator
 
 
 
-helm registry login -u 'zchun@vmware.com' registry.tanzu.vmware.com
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.12.0/cert-manager.yaml
+kubectl create secret docker-registry image-pull-secret --docker-server=registry.packages.broadcom.com --docker-username='USERNAME' --docker-password='PASSWORD'
+helm registry login -u 'USERNAME' registry.packages.broadcom.com
+helm install gemfire-crd oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-crd --version 2.4.0 --set operatorReleaseName=gemfire-operator
+helm install gemfire-operator oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-operator --version 2.4.0
+kubectl get crd gemfireclusters.gemfire.vmware.com
+kubectl get pods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# install gemfire cluster
+
+kubectl apply -f gemfire.yaml
+
+$ kubectl get pods
+NAME                                                  READY   STATUS    RESTARTS   AGE
+gemfire-operator-controller-manager-5798c94fd-5brw6   1/1     Running   0          11m
+gemfire1-locator-0                                    1/1     Running   0          8m1s
+gemfire1-server-0                                     1/1     Running   0          2m38s
+gemfire1-server-1                                     1/1     Running   0          2m38s
+$
+
+
+
 
 
 helm install gemfire-crd oci://registry.tanzu.vmware.com/tanzu-gemfire-for-kubernetes/gemfire-crd --version 2.3.0 --namespace gemfire --set operatorReleaseName=gemfire-operator --plain-http
 
 helm install gemfire-operator oci://registry.tanzu.vmware.com/tanzu-gemfire-for-kubernetes/gemfire-operator --version 2.3.0 --namespace gemfire --plain-http
 
-kubectl get crd gemfireclusters.gemfire.vmware.com
-kubectl get pods --namespace gemfire
 
 
-
-
-# create gemfire cluster
-
-kubectl create secret docker-registry image-pull-secret --namespace=gemfire --docker-server=registry.tanzu.vmware.com --docker-username='username' --docker-password='password'
