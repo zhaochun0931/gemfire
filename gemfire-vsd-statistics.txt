@@ -11,9 +11,11 @@ https://gemfire.dev/blog/the-most-useful-statistics-for-troubleshooting-vmware-g
 egrep -Ri '^locators='
 
 egrep -Ri 'Running on'
-egrep -Ri 'user.timezone'
+egrep -Ri 'Duser.timezone'
 
 egrep -Ri '\-Dtype='
+egrep -Ri '-DCacheServer'
+
 
 egrep -Ri 'received leave request from'
 
