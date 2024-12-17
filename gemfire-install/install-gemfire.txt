@@ -1,32 +1,16 @@
-# install JDK
-
-apt update
-apt install -y openjdk-8-jdk
-
-
 # gemfire installation on Ubuntu linux
-tar -xzvf vmware-gemfire-9.15.1.tgz
+tar -xzvf vmware-gemfire-10.1.2.tgz
+
+
 
 vi ~/.bash_profile
 
 
-
-
-
-
-
-
-
-# gemfire 10.0.0
-export GEMFIRE_HOME=/root/vmware-gemfire-10.0.0
+export GEMFIRE_HOME=/root/vmware-gemfire-10.1.2
 export PATH=$GEMFIRE_HOME/bin:$PATH
-export CLASSPATH=$GEMFIRE_HOME/lib/geode-dependencies.jar:$GEMFIRE_HOME/lib/gemfire-core-10.0.0.jar:$CLASSPATH
+export CLASSPATH=$GEMFIRE_HOME/lib/geode-dependencies.jar:$GEMFIRE_HOME/lib/gemfire-core-10.1.2.jar:$CLASSPATH
 
 
-# gemfire 10.1.0
-export GEMFIRE_HOME=/root/vmware-gemfire-10.1.0
-export PATH=$GEMFIRE_HOME/bin:$PATH
-export CLASSPATH=$GEMFIRE_HOME/lib/geode-dependencies.jar:$GEMFIRE_HOME/lib/gemfire-core-10.1.0.jar:$CLASSPATH
 
 
 
