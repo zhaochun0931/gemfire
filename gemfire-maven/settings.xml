@@ -1,9 +1,9 @@
 <settings>
-       <servers>
-           <server>
-               <id>gemfire-release-repo</id>
-               <username>email_id</username>
-               <password>access_token</password>
-           </server>
-       </servers>
+  <servers>
+    <server>
+      <id>gemfire-release-repo</id>
+      <username>USERNAME</username>
+      <password>PASSWORD</password>
+    </server>
+  </servers>
 </settings>
