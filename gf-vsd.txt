@@ -7,6 +7,7 @@ https://gemfire.dev/blog/the-most-useful-statistics-for-troubleshooting-vmware-g
 
 
 # common error message
+egrep -Ri '^locators'
 
 egrep -Ri '^locators='
 
