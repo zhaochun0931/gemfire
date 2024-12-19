@@ -12,7 +12,7 @@ public class App
         ClientCache cache = new ClientCacheFactory().addPoolLocator("127.0.0.1", 10334).create();
         Region<String, String>
                 xxx =
-                cache.<String, String>createClientRegionFactory(ClientRegionShortcut.PROXY).create("exampleRegion");
+                cache.<String, String>createClientRegionFactory(ClientRegionShortcut.PROXY).create("example-region");
 
         for (int i=0; i<1000; i++){
             xxx.put(String.valueOf(i), "HelloWorldValue");
