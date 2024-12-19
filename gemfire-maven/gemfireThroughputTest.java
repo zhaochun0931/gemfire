@@ -6,7 +6,7 @@ import org.apache.geode.cache.client.ClientRegionShortcut; // Updated import for
 
 import java.util.Random;
 
-public class App {
+public class gemfireThroughputTest {
 
     private static final String REGION_NAME = "exampleRegion";
     private static final int TOTAL_OPERATIONS = 1000000; // Total write operations
