@@ -1,5 +1,5 @@
 start locator --name=locator1
-start server --name=server1 --start-rest-api=true --http-service-port=8080 --http-service-bind-address=localhost
+start server --name=server1 --start-rest-api=true --http-service-port=8080
 create region --name=example-region --type=REPLICATE_PERSISTENT
 
 
