@@ -4,7 +4,7 @@ import org.apache.geode.cache.client.ClientCacheFactory;
 import org.apache.geode.cache.client.ClientRegionShortcut;
 
 
-public class App
+public class gemfireBasic
 {
     public static void main( String[] args )
     {
