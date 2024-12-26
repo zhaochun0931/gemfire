@@ -39,6 +39,10 @@ egrep -Ri 'process id'
 egrep -Ri 'Attempting to reconnect to the distributed system.  This is attempt'
 
 
+# replce the , with new line char
+vi
+s/,/\n/g
+
 egrep -Ri 'remote-locators'
 
 
