@@ -32,6 +32,8 @@ egrep -Ri 'Product-Version'
 egrep -Ri 'java.version'
 egrep -Ri 'java.runtime.version'
 
+
+# membership 
 egrep -Ri 'received new view'
 egrep -Ri 'process id'
 egrep -Ri 'Attempting to reconnect to the distributed system.  This is attempt'
