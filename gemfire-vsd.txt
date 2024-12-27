@@ -81,7 +81,7 @@ Thread 28457877 (0x1b23b95) is stuck
 
 
 has been stuck for
-
+egrep -Ri 'network partition has occurred'
 
 
 
