@@ -92,6 +92,10 @@ Here’s a chart of PartitionedRegionStats.dataStoreBytesInUse for all regions:
 
 
 
+[info 2024/12/30 02:11:17.887 IST ch01locator1 <unicast receiver,ngetrsch01-46633> tid=0x2f] received ping-pong response from /192.168.240.2<v15>:41004
+
+[info 2024/12/30 02:11:17.888 IST ch01locator1 <unicast receiver,ngetrsch01-46633> tid=0x2f] quorum check: mapped address to member ID 192.168.240.2(ch02node6:106272)<v15>:41004
+
 
 
 
