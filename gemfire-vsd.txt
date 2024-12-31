@@ -86,6 +86,14 @@ egrep -Ri 'network partition has occurred'
 
 
 
+
+This "OOM: unable to create new native thread" is not running out of heap memory. It's running out of native threads. If the member keeps spawning thread to connect and failed, then it will exhaust the thread the JVM allows to use.
+
+It could be out of allocateable stack space, file handles, and other kernel resources
+
+
+
+
 # check the balanced
 Here’s a chart of PartitionedRegionStats.dataStoreBytesInUse for all regions:
 
