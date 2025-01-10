@@ -1,6 +1,9 @@
+set variable --name=regionName --value=exampleRegion
+
+
 start locator --name=locator1
 start server --name=server1
-create region --name=exampleRegion --type=REPLICATE
+create region --name=${regionName} --type=REPLICATE
 
 
 list members
