@@ -7,6 +7,9 @@ https://gemfire.dev/blog/the-most-useful-statistics-for-troubleshooting-vmware-g
 
 
 # common error message
+
+egrep -Ri 'Statistics sampling thread detected a wakeup delay'
+
 egrep -Ri '^locators'
 
 egrep -Ri '^locators='
