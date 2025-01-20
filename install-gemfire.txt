@@ -86,12 +86,16 @@ start locator --name=locator1 --J=-Dlog4j.configurationFile=/tmp/log4j2.xml
 
 
 
-
 # debug gfsh log
 export JAVA_ARGS="-Dgfsh.log-level=fine"
 export JAVA_ARGS="-Dgfsh.log-level=fine -verbose:class"
 
 
 gfsh-0_0.log
+
+
+
+
+
 
 
