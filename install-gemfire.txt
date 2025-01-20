@@ -64,7 +64,7 @@ show metrics --member=server1
 
 
 
-
+gfsh -e 'start server --name=s1 --locators=10.211.55.22[10334]'
 gfsh -e "connect" -e "list members"
 gfsh -e 'connect' -e 'put --region=exampleRegion --key=10 --value=hello_10'
 
