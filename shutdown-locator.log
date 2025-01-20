@@ -1,0 +1,29 @@
+[info 2025/01/20 02:54:27.265 UTC l1 <Shutdown member> tid=0x60] GemFireCache[id = 1405826232; isClosing = true; isShutDownAll = false; created = Mon Jan 20 02:52:13 UTC 2025; server = false; copyOnRead = false; lockLease = 120; lockTimeout = 60]: Now closing.
+
+[info 2025/01/20 02:54:27.306 UTC l1 <Shutdown member> tid=0x60] Created oplog#1 krf for disk store cluster_config_0.
+
+[info 2025/01/20 02:54:27.314 UTC l1 <org.apache.geode.distributed.internal.InternalLocator$$Lambda$457/0x000000100145e658@62f11ebb> tid=0x61] Stopping Locator on 0.0.0.0/0.0.0.0:10334:10334
+
+[info 2025/01/20 02:54:27.314 UTC l1 <Distribution Locator on ubuntu1.shared: 10334> tid=0x16] locator shutting down
+
+[info 2025/01/20 02:54:27.314 UTC l1 <Distribution Locator on ubuntu1.shared: 10334> tid=0x16] Closing locator's cache
+
+[info 2025/01/20 02:54:27.314 UTC l1 <main> tid=0x1] locator is exiting normally
+
+[info 2025/01/20 02:54:27.315 UTC l1 <main> tid=0x1] Distribution Locator on ubuntu1.shared is stopped
+
+[info 2025/01/20 02:54:27.315 UTC l1 <org.apache.geode.distributed.internal.InternalLocator$$Lambda$457/0x000000100145e658@62f11ebb> tid=0x61] Distribution Locator on ubuntu1.shared is stopped
+
+[info 2025/01/20 02:54:27.326 UTC l1 <Shutdown member> tid=0x60] Shutting down DistributionManager ubuntu1(l1:2030:locator)<ec><v0>:45557.
+
+[info 2025/01/20 02:54:27.433 UTC l1 <Shutdown member> tid=0x60] Now closing distribution for ubuntu1(l1:2030:locator)<ec><v0>:45557
+
+[info 2025/01/20 02:54:27.434 UTC l1 <Shutdown member> tid=0x60] Stopping membership services
+
+[info 2025/01/20 02:54:27.434 UTC l1 <Geode Membership View Creator> tid=0x31] View Creator thread is exiting
+
+[info 2025/01/20 02:54:27.434 UTC l1 <Geode Failure Detection Server thread 1> tid=0x2c] GMSHealthMonitor server thread exiting
+
+[info 2025/01/20 02:54:27.439 UTC l1 <Shutdown member> tid=0x60] DistributionManager stopped in 113ms.
+
+[info 2025/01/20 02:54:27.439 UTC l1 <Shutdown member> tid=0x60] Marking DistributionManager ubuntu1(l1:2030:locator)<ec><v0>:45557 as closed.
