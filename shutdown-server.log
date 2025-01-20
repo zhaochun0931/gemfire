@@ -1,0 +1,15 @@
+[info 2025/01/20 02:58:52.055 UTC s1 <Shutdown member> tid=0x4b] GemFireCache[id = 320952798; isClosing = true; isShutDownAll = false; created = Mon Jan 20 02:58:38 UTC 2025; server = true; copyOnRead = false; lockLease = 120; lockTimeout = 60]: Now closing.
+
+[info 2025/01/20 02:58:52.062 UTC s1 <Shutdown member> tid=0x4b] Cache server on port 40404 is shutting down.
+
+[info 2025/01/20 02:58:52.071 UTC s1 <Shutdown member> tid=0x4b] Shutting down DistributionManager ubuntu1(s1:2644)<v1>:47856.
+
+[info 2025/01/20 02:58:52.175 UTC s1 <Shutdown member> tid=0x4b] Now closing distribution for ubuntu1(s1:2644)<v1>:47856
+
+[info 2025/01/20 02:58:52.176 UTC s1 <Shutdown member> tid=0x4b] Stopping membership services
+
+[info 2025/01/20 02:58:52.177 UTC s1 <Geode Failure Detection Server thread 1> tid=0x27] GMSHealthMonitor server thread exiting
+
+[info 2025/01/20 02:58:53.208 UTC s1 <Shutdown member> tid=0x4b] DistributionManager stopped in 1136ms.
+
+[info 2025/01/20 02:58:53.208 UTC s1 <Shutdown member> tid=0x4b] Marking DistributionManager ubuntu1(s1:2644)<v1>:47856 as closed.
