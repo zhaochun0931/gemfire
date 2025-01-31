@@ -1,0 +1,13 @@
+create region --name=helloWorld --type=PARTITION
+
+
+There are three important steps to connect a client application to the GemFire cluster.
+
+The client application must have a class that implements the AuthInitialize interface. This class is used by GemFire to provide the credentials to the cluster.
+The client application must set its credentials composed of two properties, security username and security-password.
+The client application must set the security-client-auth-init property, which indicates to GemFire the class that implements the AuthInitialize interface
+
+In this example, you will set the security-username and security-password in the class that implements the AuthInitialize interface. 
+
+
+
