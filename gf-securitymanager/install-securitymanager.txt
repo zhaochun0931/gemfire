@@ -87,3 +87,34 @@ You are connected to a cluster of version 10.1.2.
 gfsh>
 
 
+
+
+
+
+
+
+start server --name=server1 --classpath=/root/gemfire-securitymanager/my-app/target/my-app-1.0-SNAPSHOT.jar --user=default --password=reallyBadPassword
+
+gfsh>start server --name=server1 --classpath=/root/gemfire-securitymanager/my-app/target/my-app-1.0-SNAPSHOT.jar --user=default --password=reallyBadPassword
+Starting a GemFire Server in /root/gemfire-securitymanager/server2...
+...
+Server in /root/gemfire-securitymanager/server2 on ubuntu1.shared[34557] as server2 is currently online.
+Process ID: 15427
+Uptime: 2 seconds
+Geode Version: 10.1.2
+Java Version: 17.0.13
+Log File: /root/gemfire-securitymanager/server2/server2.log
+JVM Arguments: --add-exports=java.management/com.sun.jmx.remote.security=ALL-UNNAMED --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED -Dgemfire.default.locators=10.211.55.22[10334] -Dgemfire.start-dev-rest-api=false -Dgemfire.security-username=default -Dgemfire.use-cluster-configuration=true -Dgemfire.security-password=******** -XX:OnOutOfMemoryError=kill -KILL %p -XX:+UseZGC -Dgemfire.launcher.registerSignalHandlers=true -Djava.awt.headless=true -Dsun.rmi.dgc.server.gcInterval=9223372036854775806
+Class-Path: /root/vmware-gemfire-10.1.2/lib/gemfire-bootstrap-10.1.2.jar
+
+gfsh>list members
+Member Count : 3
+
+  Name   |                             Id                              |  Type   | Status
+-------- | ----------------------------------------------------------- | ------- | ------
+locator1 | ubuntu1(locator1:14851:locator)<ec><v0>:54985 [Coordinator] | Locator | Ready
+server1  | ubuntu1(server1:15089)<v1>:49520                            | Server  | Ready
+
+gfsh>
+
+
