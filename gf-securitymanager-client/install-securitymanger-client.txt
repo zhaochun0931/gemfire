@@ -11,3 +11,7 @@ In this example, you will set the security-username and security-password in the
 
 
 
+
+
+
+create region --name=helloWorld --type=REPLICATE
