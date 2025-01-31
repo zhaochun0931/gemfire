@@ -52,6 +52,38 @@
 
 start locator --name=locator1 --J=-Dgemfire.security-manager=mySecurityManager --classpath=/root/gemfire-securitymanager/my-app/target/my-app-1.0-SNAPSHOT.jar
 
+gfsh>start locator --name=locator1 --J=-Dgemfire.security-manager=mySecurityManager --classpath=/root/gemfire-securitymanager/my-app/target/my-app-1.0-SNAPSHOT.jar
+Starting a GemFire Locator in /root/gemfire-securitymanager/locator1...
+...........
+Locator in /root/gemfire-securitymanager/locator1 on ubuntu1.shared[10334] as locator1 is currently online.
+Process ID: 14851
+Uptime: 6 seconds
+Geode Version: 10.1.2
+Java Version: 17.0.13
+Log File: /root/gemfire-securitymanager/locator1/locator1.log
+JVM Arguments: --add-exports=java.management/com.sun.jmx.remote.security=ALL-UNNAMED --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED -Dgemfire.enable-cluster-configuration=true -Dgemfire.load-cluster-configuration-from-dir=false -Dgemfire.security-manager=mySecurityManager -XX:+UseZGC -Dgemfire.launcher.registerSignalHandlers=true -Djava.awt.headless=true -Dsun.rmi.dgc.server.gcInterval=9223372036854775806
+Class-Path: /root/vmware-gemfire-10.1.2/lib/gemfire-bootstrap-10.1.2.jar
 
+Unable to auto-connect (Security Manager may be enabled). Please use "connect --locator=ubuntu1.shared[10334] --user --password" to connect Gfsh to the locator.
+
+Authentication required to connect to the Manager.
+
+gfsh>
+
+
+
+
+
+
+connect --username=default --password=reallyBadPassword
+
+gfsh>connect --username=default --password=reallyBadPassword
+Connecting to Locator at [host=localhost, port=10334] ..
+Connecting to Manager at [host=ubuntu1.shared, port=1099] ..
+Successfully connected to: [host=ubuntu1.shared, port=1099]
+
+You are connected to a cluster of version 10.1.2.
+
+gfsh>
 
 
