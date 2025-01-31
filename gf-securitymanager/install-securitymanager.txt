@@ -44,10 +44,14 @@
                     └── AppTest.class
 
 29 directories, 13 files
-root@ubuntu1:~/gemfire-securitymanager/my-app#
+#
 
 
 
 
 
-start locator --name=locator1 --J=-Dgemfire.securitymanager=mySecurityManager --classpath=/root/gemfire-securitymanager/my-app/target/my-app-1.0-SNAPSHOT.jar
+start locator --name=locator1 --J=-Dgemfire.security-manager=mySecurityManager --classpath=/root/gemfire-securitymanager/my-app/target/my-app-1.0-SNAPSHOT.jar
+
+
+
+
