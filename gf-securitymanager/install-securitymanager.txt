@@ -1,0 +1,53 @@
+# tree .
+.
+├── pom.xml
+├── src
+│   ├── main
+│   │   └── java
+│   │       └── com
+│   │           └── mycompany
+│   │               └── app
+│   │                   └── mySecurityManager.java
+│   └── test
+│       └── java
+│           └── com
+│               └── mycompany
+│                   └── app
+│                       └── AppTest.java
+└── target
+    ├── classes
+    │   └── mySecurityManager.class
+    ├── generated-sources
+    │   └── annotations
+    ├── generated-test-sources
+    │   └── test-annotations
+    ├── maven-archiver
+    │   └── pom.properties
+    ├── maven-status
+    │   └── maven-compiler-plugin
+    │       ├── compile
+    │       │   └── default-compile
+    │       │       ├── createdFiles.lst
+    │       │       └── inputFiles.lst
+    │       └── testCompile
+    │           └── default-testCompile
+    │               ├── createdFiles.lst
+    │               └── inputFiles.lst
+    ├── my-app-1.0-SNAPSHOT.jar
+    ├── surefire-reports
+    │   ├── com.mycompany.app.AppTest.txt
+    │   └── TEST-com.mycompany.app.AppTest.xml
+    └── test-classes
+        └── com
+            └── mycompany
+                └── app
+                    └── AppTest.class
+
+29 directories, 13 files
+root@ubuntu1:~/gemfire-securitymanager/my-app#
+
+
+
+
+
+start locator --name=locator1 --J=-Dgemfire.securitymanager=mySecurityManager --classpath=/root/gemfire-securitymanager/my-app/target/my-app-1.0-SNAPSHOT.jar
