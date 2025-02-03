@@ -1,10 +1,5 @@
-start locator --name=cluster2-locator --properties-file=cluster2-gemfire.properties --port=10335
-
-
-
-
-
-start server --name=cluster2-server --server-port=0
+start locator --name=locator1 --properties-file=gemfire2.properties
+start server --name=server1
 
 create region --name=exampleRegion --type=REPLICATE_PERSISTENT
 create region --name=exampleRegion002 --type=REPLICATE_PERSISTENT
