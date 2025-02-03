@@ -1,4 +1,4 @@
-start locator --name=locato1 --properties-file=gemfire1.properties
+start locator --name=locato1 --properties-file=/root/gemfire1.properties
 start server --name=server1
 
 create gateway-sender --id=gw1 --remote-distributed-system-id=2
