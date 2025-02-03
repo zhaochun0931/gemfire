@@ -1,4 +1,4 @@
-start locator --name=locator1 --properties-file=gemfire2.properties
+start locator --name=locator1 --properties-file=/root/gemfire2.properties
 start server --name=server1
 
 create region --name=exampleRegion --type=REPLICATE_PERSISTENT
