@@ -6,9 +6,10 @@
     version="1.0">
 
 
-	    <region
+<region
   name="exampleRegion"
   refid="PARTITION_REDUNDANT">
-    </region>
+</region>
+	
 
 </cache>
