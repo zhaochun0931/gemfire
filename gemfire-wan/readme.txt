@@ -26,4 +26,3 @@ start gateway-sender --id=gwxxx
 
 
 
-# Parallel Gateway Sender can not be used with replicated region
