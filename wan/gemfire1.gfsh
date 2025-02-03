@@ -8,3 +8,6 @@ create region --name=exampleRegion002 --type=REPLICATE_PERSISTENT --gateway-send
 
 
 list gateways
+
+
+# Parallel Gateway Sender can not be used with replicated region
