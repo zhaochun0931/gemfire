@@ -6,3 +6,4 @@ create region --name=exampleRegion002 --type=REPLICATE_PERSISTENT
 
 create gateway-receiver --hostname-for-senders=10.0.0.5 --start-port=2000 --end-port=3000
 list gateways
+destroy gateway-receiver
