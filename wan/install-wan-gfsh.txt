@@ -1,0 +1,14 @@
+cluster1:
+set variable --name remoteLocators --value 10.211.55.23[10334]
+start locator --name=locator1 --J=-Dgemfire.distributed-system-id=1 --J=-Dgemfire.remote-locators=${remoteLocators} 
+start server --name=server1
+
+
+
+cluster2:
+set variable --name remoteLocators --value 10.211.55.22[10334]
+start locator --name=locator1 --J=-Dgemfire.distributed-system-id=2 --J=-Dgemfire.remote-locators=${remoteLocators} 
+start server --name=server1
+
+
+
