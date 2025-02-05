@@ -3,6 +3,15 @@ set variable --name remoteLocators --value 10.211.55.23[10334]
 start locator --name=locator1 --J=-Dgemfire.distributed-system-id=1 --J=-Dgemfire.remote-locators=${remoteLocators} 
 start server --name=server1
 
+create gateway-sender --id=gw1 --remote-distributed-system-id=2
+create region --name=exampleRegion --type=REPLICATE_PERSISTENT --gateway-sender-id=gw1
+
+list gateways
+stop gateway-sender --id=gw1
+start gateway-sender --id=gw1
+
+
+
 
 
 cluster2:
@@ -11,4 +20,5 @@ start locator --name=locator1 --J=-Dgemfire.distributed-system-id=2 --J=-Dgemfir
 start server --name=server1
 
 
-
+create gateway-receiver --hostname-for-senders=10.211.55.23 --start-port=2000 --end-port=3000
+create region --name=exampleRegion --type=REPLICATE_PERSISTENT
