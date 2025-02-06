@@ -10,7 +10,7 @@ public class gemfireBasic
     {
 
         ClientCache cache = new ClientCacheFactory().addPoolLocator("127.0.0.1", 10334).create();
-        Region<String, String> region = cache.<String, String>createClientRegionFactory(ClientRegionShortcut.PROXY).create("example-region");
+        Region<String, String> region = cache.<String, String>createClientRegionFactory(ClientRegionShortcut.PROXY).create("exampleRegion");
 
         for (int i=0; i<1000; i++){
             region.put(String.valueOf(i), "HelloWorldValue");
