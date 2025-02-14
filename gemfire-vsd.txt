@@ -161,8 +161,6 @@ LinuxSystemStats - cpuActive
 
 
 VMStats -> cpus
-VMStats -> fdsOpen
-VMStats -> threads
 
 
 
