@@ -141,6 +141,25 @@ from the output, we can see this timezone is UTC. but in the vsd, it shows the l
 
 
 
+cachePerf - gets/sec
+cachePerf - puts/sec
+statSampler - delayDuration
+statSampler - jvmPauses
+vmStats - fdsOpen
+vmStats - freeMemory
+vmStats - maxMemory
+vmStats - threads
+cacheServerStats - currentClients
+cacheServerStats - currentClientConnections
+cacheServerStats - connectionThreads
+cacheServerStats - threadQueueSize
+LinuxSystemStats - contextSwitches
+LinuxSystemStats - cpuActive
+
+
+
+
+
 VMStats -> cpus
 VMStats -> fdsOpen
 VMStats -> threads
