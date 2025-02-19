@@ -4,7 +4,7 @@ start server --name=s1 --server-port=0 --enable-time-statistics=1 --statistic-ar
 start server --name=s2 --server-port=0 --enable-time-statistics=1 --statistic-archive-file=/tmp/s2.gfs
 start server --name=s3 --server-port=0 --enable-time-statistics=1 --statistic-archive-file=/tmp/s3.gfs
 
-create region --name=exampleRegion --type=PARTITION_PERSISTENT --redundant-copies=1 --total-num-buckets=7
+create region --name=exampleRegion --type=PARTITION_PERSISTENT --redundant-copies=1 --total-num-buckets=5
 
 put --key=1  --value=hello1  --region=/exampleRegion
 put --key=2  --value=hello2  --region=/exampleRegion
