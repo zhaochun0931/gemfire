@@ -1,0 +1,5 @@
+query --query="select distinct p.bucketId as bucketId,p.bucketAdvisor.primary.equals(o) as isPrimary, o.name from (select * from /exampleRegion.cache.rootRegions r where r.name='exampleRegion') r, r.regionAdvisor.proxyBucketArray p, p.bucketOwners o order by bucketId,isPrimary desc limit 1000000"
+
+
+
+
