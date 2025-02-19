@@ -8,7 +8,7 @@ start server --name=s5 --server-port=0 --enable-time-statistics=1 --statistic-ar
 
 
 create region --name=exampleRegion1 --type=PARTITION_PERSISTENT --redundant-copies=1 --total-num-buckets=3
-create region --name=exampleRegion2 --type=PARTITION_PERSISTENT --redundant-copies=2 --total-num-buckets=3
+create region --name=exampleRegion2 --type=PARTITION_PERSISTENT --redundant-copies=2 --total-num-buckets=7
 
 
 
