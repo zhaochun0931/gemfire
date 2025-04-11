@@ -208,6 +208,8 @@ LinuxSystemStats -> tcpExtListenDrops
 
 
 
+# locator
+LocatorStats
 
 
 # G1 GC
