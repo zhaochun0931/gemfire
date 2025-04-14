@@ -11,5 +11,10 @@
   refid="PARTITION_REDUNDANT">
 </region>
 	
+<disk-store name="myds2" >
+    <disk-dirs>
+            <disk-dir>/root/gemfire/myds2</disk-dir>
+    </disk-dirs>
+</disk-store>
 
 </cache>
