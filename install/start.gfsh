@@ -7,8 +7,9 @@ start server --name=server1
 create disk-store --name=myds1 --dir=/root/gemfire/myds1
 
 
+create disk-store --name=myds2 --dir=/root/gemfire/myds2
+
 start server --name=server2 --server-port=0
-create disk-store --name=myds1 --dir=/root/gemfire/myds1
 
 start server --name=server3 --server-port=0
 
