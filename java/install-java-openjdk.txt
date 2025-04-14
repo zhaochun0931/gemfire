@@ -1,0 +1,147 @@
+# ubuntu
+apt update
+apt install default-jdk
+apt install -y openjdk-8-jdk
+apt install -y openjdk-11-jdk
+apt install -y openjdk-17-jdk
+
+
+
+# redhat, centos
+yum update
+yum install java-17-openjdk-devel
+yum install java-11-openjdk-devel
+yum install -y java-1.8.0-openjdk-devel
+
+
+wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.rpm
+rpm -ivh jdk-17_linux-x64_bin.rpm
+
+
+
+
+
+
+
+
+
+
+
+java -version
+echo
+javac -version
+
+
+
+# JDK installation successfully
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JAVA_HOME=xxx
+PATH=$JAVA_HOME/bin:$PATH
+
+
+
+
+
+/etc/environment 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+update-alternatives --list java
+
+update-java-alternatives --list
+
+update-alternatives --config java
+update-alternatives --config javac
+
+
+
+
+https://www.logicbig.com/how-to/java-command/jvm-option-list.html
+
+
+
+https://www.baeldung.com/java-find-class-version
+https://www.baeldung.com/java-lang-unsupportedclassversion
+
+45 = Java 1.1
+46 = Java 1.2
+47 = Java 1.3
+48 = Java 1.4
+49 = Java 5
+50 = Java 6
+51 = Java 7
+52 = Java 8
+53 = Java 9
+54 = Java 10
+55 = Java 11
+56 = Java 12
+57 = Java 13
+58 = Java 14
+59 = Java 15
+60 = Java 16
+61 = Java 17
+62 = Java 18
+63 = Java 19
+64 = Java 20
+65 = Java 21
+66 = Java 22
+
+
+javap -verbose App
+
+
+
+java -XX:+PrintFlagsFinal
+
+
+
+
+
+The class path and library path are both concepts related to Java and how it locates classes and native libraries.
+
+The classpath is a parameter that tells the Java Virtual Machine (JVM) where to look for user-defined classes and packages. When you run a Java application, the JVM searches for the necessary classes and resources using the classpath.
+The classpath can be set using the -classpath or -cp command-line option when running Java programs. It can consist of directories, JAR files, or ZIP files containing class files and resources.
+If you don't specify a classpath, the JVM uses the current directory as the default classpath.
+
+
+
+Library Path:
+
+The library path is an environment variable (LD_LIBRARY_PATH on Unix/Linux, PATH on Windows) that tells the operating system where to find native libraries (.dll files on Windows, .so files on Unix/Linux).
+Native libraries are typically used when Java needs to interface with platform-specific functionality, such as accessing system resources or using native code written in languages like C or C++.
+When a Java application loads a native library using System.loadLibrary() or System.load(), it looks for the library in directories specified by the library path.
+In summary, the classpath is used by the JVM to locate Java classes and resources, while the library path is used by the operating system to locate native libraries required by the Java application. Both are essential for running Java applications successfully.
+
