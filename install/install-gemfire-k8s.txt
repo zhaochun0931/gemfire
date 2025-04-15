@@ -54,3 +54,21 @@ helm install gemfire-operator oci://registry.tanzu.vmware.com/tanzu-gemfire-for-
 
 
 
+
+
+
+# how to access the gemfire cluster
+
+kubectl get secret
+
+kubectl get secret gemfire1-cert -o=jsonpath='{.data.password}' | base64 --decode
+
+
+kubectl exec -it gemfire1-locator-0 -- gfsh
+
+connect --locator=gemfire1-locator-0[10334] --trust-store=/certs/truststore.p12 --trust-store-password="tls_password" --key-store=/certs/keystore.p12 --key-store-password="tls_password"
+
+
+
+
+
