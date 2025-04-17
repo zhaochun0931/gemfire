@@ -1,6 +1,52 @@
 start locator --name=locator1 --properties-file=/root/gemfire1.properties
 start server --name=server1
 
+
+# gfsh
+    _________________________     __
+   / _____/ ______/ ______/ /____/ /
+  / /  __/ /___  /_____  / _____  /
+ / /__/ / ____/  _____/ / /    / /
+/______/_/      /______/_/    /_/    9.15.8
+
+Monitor and Manage VMware GemFire
+gfsh>start locator --name=locator1 --properties-file=/root/gemfire1.properties
+Starting a Geode Locator in /root/gemfire/locator1...
+......
+Locator in /root/gemfire/locator1 on ubuntu1.shared[10334] as locator1 is currently online.
+Process ID: 4648
+Uptime: 8 seconds
+Geode Version: 9.15.8
+Java Version: 1.8.0_442
+Log File: /root/gemfire/locator1/locator1.log
+JVM Arguments: -DgemfirePropertyFile=/root/gemfire1.properties -Dgemfire.enable-cluster-configuration=true -Dgemfire.load-cluster-configuration-from-dir=false -Dgemfire.launcher.registerSignalHandlers=true -Djava.awt.headless=true -Dsun.rmi.dgc.server.gcInterval=9223372036854775806
+Class-Path: /root/vmware-gemfire-9.15.8/lib/geode-core-9.15.8.jar:/root/vmware-gemfire-9.15.8/lib/geode-server-all-9.15.8.jar
+
+Successfully connected to: JMX Manager [host=ubuntu1.shared, port=1099]
+
+Cluster configuration service is up and running.
+
+Cluster-1 gfsh>start server --name=server1
+Starting a Geode Server in /root/gemfire/server1...
+..
+Server in /root/gemfire/server1 on ubuntu1.shared[40404] as server1 is currently online.
+Process ID: 4745
+Uptime: 3 seconds
+Geode Version: 9.15.8
+Java Version: 1.8.0_442
+Log File: /root/gemfire/server1/server1.log
+JVM Arguments: -Dgemfire.default.locators=10.211.55.27[10334] -Dgemfire.start-dev-rest-api=false -Dgemfire.use-cluster-configuration=true -Dgemfire.launcher.registerSignalHandlers=true -Djava.awt.headless=true -Dsun.rmi.dgc.server.gcInterval=9223372036854775806
+Class-Path: /root/vmware-gemfire-9.15.8/lib/geode-core-9.15.8.jar:/root/vmware-gemfire-9.15.8/lib/geode-server-all-9.15.8.jar
+
+Cluster-1 gfsh>
+
+
+
+
+
+
+
+
 create gateway-sender --id=gw1 --remote-distributed-system-id=2
 
 create region --name=exampleRegion --type=REPLICATE_PERSISTENT --gateway-sender-id=gw1
