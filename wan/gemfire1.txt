@@ -58,7 +58,7 @@ create gateway-sender --id=gw1 --remote-distributed-system-id=2 --alert-threshol
 
 
 
-create region --name=exampleRegion --type=REPLICATE_PERSISTENT --gateway-sender-id=gw1
+create region --name=region1 --type=REPLICATE_PERSISTENT --gateway-sender-id=gw1
 
 create region --name=exampleRegion002 --type=REPLICATE_PERSISTENT --gateway-sender-id=gw1
 
