@@ -2,21 +2,15 @@ mkdir gemfire
 cd gemfire
 
 start locator --name=locator1
-
 start server --name=server1
-create disk-store --name=myds1 --dir=/root/gemfire/myds1
-
-
-create disk-store --name=myds2 --dir=/root/gemfire/myds2
-
 start server --name=server2 --server-port=0
-
 start server --name=server3 --server-port=0
 
 list members
 
 
-create region --name=exampleRegion --type=REPLICATE_PERSISTENT
+create region --name=test1 --type=REPLICATE_PERSISTENT
+create region --name=test1 --type=PARTITION_REDUNDANT --redundant-copies=2
 
 
 list regions
