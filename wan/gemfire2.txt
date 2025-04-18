@@ -10,6 +10,8 @@ start server --name=server1
 /______/_/      /______/_/    /_/    9.15.8
 
 Monitor and Manage VMware GemFire
+gfsh>
+gfsh>
 gfsh>start locator --name=locator1 --properties-file=/root/gemfire2.properties
 Starting a Geode Locator in /root/gemfire/locator1...
 .....
@@ -26,6 +28,8 @@ Successfully connected to: JMX Manager [host=ubuntu2.shared, port=1099]
 
 Cluster configuration service is up and running.
 
+Cluster-2 gfsh>
+Cluster-2 gfsh>
 Cluster-2 gfsh>start server --name=server1
 Starting a Geode Server in /root/gemfire/server1...
 ..
