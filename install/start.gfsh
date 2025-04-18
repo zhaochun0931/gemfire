@@ -21,6 +21,15 @@ put --region=test1 --key=1 --value=hello1
 
 
 
+locate entry --key=1 --region=/test1
+
+query --query="select distinct p.bucketId as bucketId,p.bucketAdvisor.primary.equals(o) as isPrimary, o.name from (select * from /test1.cache.rootRegions r where r.name='test1') r, r.regionAdvisor.proxyBucketArray p, p.bucketOwners o order by bucketId,isPrimary desc limit 1000000"
+
+
+
+
+
+
 
 
 
