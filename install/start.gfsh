@@ -16,7 +16,7 @@ create region --name=test1 --type=PARTITION_REDUNDANT --redundant-copies=2
 list regions
 
 
-put --region=demoPR --key=1 --value=hello1
+put --region=test1 --key=1 --value=hello1
 
 
 
