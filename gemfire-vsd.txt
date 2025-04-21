@@ -3,6 +3,15 @@ vsd will convert automatially the time in the gfs file to your local timezone
 
 
 
+export TZ= vsd
+
+
+
+VMMemoryUsageStats
+initMemory: -xms
+maxMemory: -xmx
+
+
 
 
 
