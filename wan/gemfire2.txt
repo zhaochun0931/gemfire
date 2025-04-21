@@ -1,5 +1,7 @@
 gfsh
+
 start locator --name=locator1 --properties-file=/root/gemfire2.properties
+
 start server --name=server1
 
 # gfsh
