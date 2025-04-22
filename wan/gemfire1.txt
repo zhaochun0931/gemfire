@@ -58,6 +58,10 @@ create gateway-sender --id=gw1 --remote-distributed-system-id=2
 
 create gateway-sender --id=gw1 --remote-distributed-system-id=2 --alert-threshold=3
 
+create gateway-sender --id=gw1 --remote-distributed-system-id=2 --parallel=true --alert-threshold=1
+
+
+
 
 
 create region --name=region1 --type=REPLICATE_PERSISTENT --gateway-sender-id=gw1
@@ -69,3 +73,7 @@ list gateways
 
 
 # Parallel Gateway Sender can not be used with replicated region
+
+create region --name=region1 --type=PARTITION --gateway-sender-id=gw1
+
+
