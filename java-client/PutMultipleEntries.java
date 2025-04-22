@@ -2,7 +2,7 @@ import org.apache.geode.cache.Region;
 import org.apache.geode.cache.client.*;
 import java.util.Date;
 
-public class App {
+public class PutMultipleEntries {
 
     public static void main(String[] args) throws Exception {
 
