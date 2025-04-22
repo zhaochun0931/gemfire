@@ -14,3 +14,17 @@ Allows remote clients (like JConsole, VisualVM, or your own tools) to talk to th
 
 JMX Agent
 The JVM component that hosts the MBeanServer, connector(s), and adapter(s). It can be embedded in your application or run as a separate process.
+
+
+
+
+
+javac Main.java
+
+java \
+-Dcom.sun.management.jmxremote \
+-Dcom.sun.management.jmxremote.port=1099 \
+-Dcom.sun.management.jmxremote.authenticate=false \
+-Dcom.sun.management.jmxremote.ssl=false \
+Main
+
