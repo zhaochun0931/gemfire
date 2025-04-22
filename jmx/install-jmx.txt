@@ -3,3 +3,14 @@ Java Management Extensions (JMX) is a standard Java technology for monitoring an
 
 
 
+MBean (Managed Bean)
+A Java object that represents a manageable resource. There are four types—Standard, Dynamic, Open, and Model MBeans—but most use Standard MBeans, which are simple POJOs implementing a naming convention (e.g. MyResourceMBean interface and MyResource class).
+
+MBeanServer
+The registry that holds all your MBeans. It’s the core “hub” of the JMX agent.
+
+Connector / Adapter
+Allows remote clients (like JConsole, VisualVM, or your own tools) to talk to the MBeanServer over protocols such as RMI or HTTP.
+
+JMX Agent
+The JVM component that hosts the MBeanServer, connector(s), and adapter(s). It can be embedded in your application or run as a separate process.
