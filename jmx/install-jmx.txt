@@ -1,0 +1,5 @@
+Java Management Extensions (JMX) is a standard Java technology for monitoring and management.
+
+
+
+
