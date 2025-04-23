@@ -1,3 +1,6 @@
+gemfire2: 10.0.0.5
+
+
 gfsh
 
 start locator --name=locator1 --properties-file=/root/gemfire2.properties
@@ -57,9 +60,14 @@ Cluster-2 gfsh>
 
 create region --name=region1 --type=REPLICATE_PERSISTENT
 
-create region --name=exampleRegion002 --type=REPLICATE_PERSISTENT
+create region --name=region1 --type=PARTITION
 
 create gateway-receiver --hostname-for-senders=10.0.0.5 --start-port=2000 --end-port=3000
+
+
+
+
+
 
 
 
