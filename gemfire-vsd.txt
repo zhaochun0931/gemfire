@@ -15,6 +15,21 @@ maxMemory: -xmx
 
 
 
+
+
+[info 2025/04/24 11:35:27.666 UTC locator2 <Pooled High Priority Message Processor 2> tid=0x28] Checking to see if I should become coordinator.  My address is ubuntu2(locator2:3609:locator)<ec><v1>:41001
+
+[info 2025/04/24 11:35:27.666 UTC locator2 <Pooled High Priority Message Processor 2> tid=0x28] View with removed and left members removed is View[ubuntu2(locator1:3495:locator)<ec><v0>:41000|3] members: [ubuntu2(locator2:3609:locator)<ec><v1>:41001, ubuntu2(locator3:3837:locator)<ec><v2>:41002] and coordinator would be ubuntu2(locator2:3609:locator)<ec><v1>:41001
+
+[info 2025/04/24 11:35:27.666 UTC locator2 <Pooled High Priority Message Processor 2> tid=0x28] This member is becoming the membership coordinator with address ubuntu2(locator2:3609:locator)<ec><v1>:41001
+
+[info 2025/04/24 11:35:27.666 UTC locator2 <Pooled High Priority Message P
+
+
+
+
+
+
 https://gemfire.dev/blog/the-most-useful-statistics-for-troubleshooting-vmware-gemfire-deployments/
 
 
