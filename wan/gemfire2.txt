@@ -68,7 +68,7 @@ create region --name=region1 --type=REPLICATE_PERSISTENT
 create region --name=region1 --type=PARTITION
 
 create gateway-receiver --hostname-for-senders=10.0.0.5 --start-port=2000 --end-port=3000
-
+create gateway-receiver --hostname-for-senders="" --start-port=2000 --end-port=3000
 
 
 
