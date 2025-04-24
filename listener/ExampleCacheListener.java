@@ -6,6 +6,6 @@ public class ExampleCacheListener extends CacheListenerAdapter<Integer, String> 
 
   @Override
   public void afterCreate(EntryEvent<Integer, String> event) {
-    System.out.println("xxxx received create for key " + event.getKey());
+    System.out.println("received create for key " + event.getKey());
   }
 }
