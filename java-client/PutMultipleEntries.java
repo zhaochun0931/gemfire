@@ -6,14 +6,24 @@ public class PutMultipleEntries {
 
     public static void main(String[] args) throws Exception {
 
-        ClientCache cache = new ClientCacheFactory().addPoolLocator("localhost", 10334).create();
-        Region<String, String> region = cache.<String, String>createClientRegionFactory(ClientRegionShortcut.CACHING_PROXY).create("exampleRegion");
+        ClientCacheFactory ccf = new ClientCacheFactory();
+
+        ccf.addPoolLocator("localhost", 10334);
+        ccf.addPoolLocator("localhost", 10335);
+        ccf.addPoolLocator("localhost", 10336);
+
+
+        ClientCache cache = ccf.create();
+
+
+        Region<String, String> region = cache.<String, String>createClientRegionFactory(ClientRegionShortcut.CACHING_PROXY).create("region1");
 
         System.out.println("Putting 10000 entries");
         System.out.println("Start: " + new Date());
 
-        for (int i = 1; i < 10001; i++){
+        for (int i = 1; i < 10; i++){
             region.put("" + i, " " + i + " hello world");
+	    Thread.sleep(1000);
 
         }
 
