@@ -1,6 +1,8 @@
 gfsh
 
 start locator --name=locator1 --properties-file=/root/gemfire1.properties
+start locator --name=locator2 --properties-file=/root/gemfire1.properties --port=10335
+start locator --name=locator3 --properties-file=/root/gemfire1.properties --port=10336
 
 start server --name=server1
 
