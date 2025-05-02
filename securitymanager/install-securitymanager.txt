@@ -1,3 +1,11 @@
+The "SecurityManager" recommendation is for authentication in GemFire, not the Java's Security Manager, which is deprecated and being removed. 
+
+
+
+
+
+
+
 # tree .
 .
 ├── pom.xml
