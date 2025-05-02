@@ -2,8 +2,7 @@ vsd will convert automatially the time in the gfs file to your local timezone
 
 
 
-
-export TZ= vsd
+export TZ=America/New_York vsd
 
 
 
