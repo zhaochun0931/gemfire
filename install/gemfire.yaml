@@ -4,3 +4,7 @@ metadata:
   name: gemfire1
 spec:
   image: registry.packages.broadcom.com/pivotal-gemfire/vmware-gemfire:10.1.2
+  locators:
+    replicas: 1
+  servers:
+    replicas: 1
