@@ -14,7 +14,7 @@ kubectl get pod -n cert-manager
 
 kubectl create secret docker-registry image-pull-secret --docker-server=registry.packages.broadcom.com --docker-username=$USERNAME --docker-password=$PASSWORD
 
-helm registry login -u $USERNAME registry.packages.broadcom.com
+helm registry login registry.packages.broadcom.com -u $USERNAME -p $PASSWORD
 helm install gemfire-crd oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-crd --version 2.4.0 --set operatorReleaseName=gemfire-operator
 helm install gemfire-operator oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-operator --version 2.4.0
 
