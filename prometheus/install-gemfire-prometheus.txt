@@ -1,0 +1,15 @@
+start locator --name=locator1 \
+--classpath=/root/vmware-gemfire-9.15.8/tools/Modules/gemfire-prometheus-metrics/* \
+--J=-Dgemfire.prometheus.metrics.emission=Default --J=-Dgemfire.prometheus.metrics.host=localhost --J=-Dgemfire.prometheus.metrics.port=8001
+
+
+
+
+
+start server --name=server1 \
+--classpath=/root/vmware-gemfire-9.15.8/tools/Modules/gemfire-prometheus-metrics/* \
+--J=-Dgemfire.prometheus.metrics.port=8002
+
+
+
+
