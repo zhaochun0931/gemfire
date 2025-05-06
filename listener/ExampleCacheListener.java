@@ -8,4 +8,9 @@ public class ExampleCacheListener extends CacheListenerAdapter<Integer, String> 
   public void afterCreate(EntryEvent<Integer, String> event) {
     System.out.println("received create for key " + event.getKey());
   }
+
+  @Override
+  public void afterDestroy(EntryEvent<Integer, String> event) {
+    System.out.println("received deletion for key " + event.getKey());
+  }
 }
