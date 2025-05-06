@@ -21,7 +21,14 @@ public class Example {
 
         // Put 10 entries into the region
         for (int i = 1; i <= 10; i++) {
-            region.put(i, "Value " + i);
+            region.put(i, "hello-" + i);
+        }
+
+        // remove 10 entries from the region
+        for (int i = 1; i <= 10; i++) {
+            region.remove(i);
+            Thread.sleep(1000);
+
         }
         
         System.out.println("Created 10 entries.");
