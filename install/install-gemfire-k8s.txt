@@ -1,6 +1,10 @@
 # install gemfire operator
 
 
+kubectl create namespace gemfire
+
+
+
 export USERNAME=""
 export PASSWORD=""
 
@@ -12,7 +16,7 @@ kubectl get pod -n cert-manager
 
 
 
-kubectl create secret docker-registry image-pull-secret --docker-server=registry.packages.broadcom.com --docker-username=$USERNAME --docker-password=$PASSWORD
+kubectl create secret docker-registry image-pull-secret --docker-server=registry.packages.broadcom.com --docker-username=$USERNAME --docker-password=$PASSWORD --namespace=gemfire
 
 
 
