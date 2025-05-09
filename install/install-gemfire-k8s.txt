@@ -28,6 +28,21 @@ kubectl create rolebinding psp-gemfire --namespace=gemfire --clusterrole=psp:vmw
 
 
 
+kubectl get rolebinding -n gemfire
+
+ubuntu@jumpbox:~$ kubectl get rolebinding -n gemfire
+NAME                                                                                         ROLE                                       AGE
+cs-rid-org-0dbe4818-7b67-4909-a1f4-fbc0a87a2677-rbac.authorization.k8s.io-ClusterRole-view   ClusterRole/view                           31m
+psp-gemfire                                                                                  ClusterRole/psp:vmware-system-privileged   23m
+ubuntu@jumpbox:~$
+
+
+
+
+
+
+
+
 helm registry login registry.packages.broadcom.com -u $USERNAME -p $PASSWORD
 
 helm install gemfire-crd oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-crd --version 2.4.0 \
