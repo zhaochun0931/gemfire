@@ -1,0 +1,65 @@
+apiVersion: gemfire.vmware.com/v1
+kind: GemFireCluster
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"gemfire.vmware.com/v1","kind":"GemFireCluster","metadata":{"annotations":{},"name":"gemfire1","namespace":"gemfire"},"spec":{"image":"registry.packages.broadcom.com/pivotal-gemfire/vmware-gemfire:10.1.2"}}
+  creationTimestamp: "2025-05-09T01:02:47Z"
+  finalizers:
+  - gemfire.vmware.com/finalizer
+  generation: 1
+  name: gemfire1
+  namespace: gemfire
+  resourceVersion: "14414522"
+  uid: da1d6d64-00c2-413a-8694-6bf3f5984394
+spec:
+  antiAffinityPolicy: None
+  image: registry.packages.broadcom.com/pivotal-gemfire/vmware-gemfire:10.1.2
+  imagePullSecrets:
+  - name: image-pull-secret
+  ingress: {}
+  locators:
+    overrides: {}
+    persistentVolumeClaim:
+      resources:
+        requests:
+          storage: 2Gi
+    replicas: 1
+    resources:
+      limits: {}
+      requests:
+        memory: 1Gi
+  metrics:
+    emission: Default
+  persistentVolumeClaim:
+    resources:
+      requests: {}
+  resourceManager:
+    criticalHeapPercentage: 90
+    evictionHeapPercentage: 75
+  security:
+    tls:
+      clientAuthenticationRequired: false
+      secretName: gemfire1-cert
+  serialization:
+    pdx:
+      readSerialized: true
+  servers:
+    overrides: {}
+    persistentVolumeClaim:
+      resources:
+        requests:
+          storage: 4Gi
+    replicas: 2
+    resources:
+      limits: {}
+      requests:
+        memory: 1Gi
+  sysctls:
+  - name: net.ipv4.tcp_syncookies
+    value: "0"
+status:
+  clusterImage: registry.packages.broadcom.com/pivotal-gemfire/vmware-gemfire:10.1.2
+  locators: 1/1
+  operatorVersion: 2.4.0-build.32
+  servers: 2/2
