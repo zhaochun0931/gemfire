@@ -19,8 +19,7 @@ kubectl get pod -n cert-manager
 kubectl create secret docker-registry image-pull-secret \
 --docker-server=registry.packages.broadcom.com \
 --docker-username=$USERNAME \
---docker-password=$PASSWORD \
---namespace=gemfire
+--docker-password=$PASSWORD
 
 
 
