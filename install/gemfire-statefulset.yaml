@@ -1,0 +1,175 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  creationTimestamp: "2025-05-09T01:19:25Z"
+  generation: 1
+  name: gemfire1-locator
+  namespace: default
+  ownerReferences:
+  - apiVersion: gemfire.vmware.com/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: GemFireCluster
+    name: gemfire1
+    uid: 24d02b41-9b81-4490-8c41-15c1397e11cc
+  resourceVersion: "14420090"
+  uid: 9b5b9bf7-f05c-466d-be94-ee6c4794f72c
+spec:
+  persistentVolumeClaimRetentionPolicy:
+    whenDeleted: Retain
+    whenScaled: Retain
+  podManagementPolicy: Parallel
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      gemfire.vmware.com/app: gemfire1-locator
+  serviceName: gemfire1-locator
+  template:
+    metadata:
+      annotations:
+        prometheus.io/collectionInterval: 1m
+        prometheus.io/port: "4321"
+        prometheus.io/scrape: "true"
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/component: gemfire-locator
+        app.kubernetes.io/instance: gemfire1
+        app.kubernetes.io/name: gemfire
+        gemfire.vmware.com/app: gemfire1-locator
+    spec:
+      containers:
+      - command:
+        - /init/locator
+        env:
+        - name: LOCATOR_SERVICE
+          value: gemfire1-locator.default.svc.cluster.local
+        - name: JVM_OPTIONS
+          value: "null"
+        - name: MAX_MEMORY
+          value: "1024"
+        - name: GEMFIRE_METRICS
+          value: '{"emission":"Default"}'
+        - name: DISK_SPACE_LIMIT
+          value: "204"
+        - name: GEMFIRE_PROPERTIES
+          value: '{}'
+        - name: OPERATOR_VERSION
+          valueFrom:
+            configMapKeyRef:
+              key: operator-version
+              name: gemfire1-config
+        - name: LOCATORS
+          valueFrom:
+            configMapKeyRef:
+              key: locators
+              name: gemfire1-config
+        - name: ZONE_AWARE
+          value: "false"
+        - name: TLS_CLIENT_AUTHENTICATION
+          value: "false"
+        - name: SECURITY_MOUNT_PATH
+          value: /security
+        image: registry.packages.broadcom.com/pivotal-gemfire/vmware-gemfire:10.1.2
+        imagePullPolicy: IfNotPresent
+        name: locator
+        resources:
+          requests:
+            memory: 1Gi
+        startupProbe:
+          exec:
+            command:
+            - startup
+            - gemfire1-locator.default.svc.cluster.local
+            - "5"
+          failureThreshold: 8640
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 10
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /init
+          name: init
+        - mountPath: /data
+          name: data
+        - mountPath: /gemfire/extensions
+          name: extensions
+        - mountPath: /certs
+          name: certs
+          readOnly: true
+        - mountPath: /security
+          name: security
+          readOnly: true
+        workingDir: /data
+      dnsPolicy: ClusterFirst
+      imagePullSecrets:
+      - name: image-pull-secret
+      initContainers:
+      - args:
+        - cp -r /gfinit/* /init/;sync;echo Finished preparing init volume
+        command:
+        - /bin/sh
+        - -c
+        image: registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-controller:2.4.0
+        imagePullPolicy: IfNotPresent
+        name: gemfire-init
+        resources:
+          requests:
+            memory: 1Gi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /init
+          name: init
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext:
+        sysctls:
+        - name: net.ipv4.tcp_syncookies
+          value: "0"
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - emptyDir: {}
+        name: init
+      - emptyDir: {}
+        name: extensions
+      - name: certs
+        secret:
+          defaultMode: 420
+          secretName: gemfire1-cert
+      - name: security
+        projected:
+          defaultMode: 420
+          sources:
+          - secret:
+              name: gemfire1-security-properties
+  updateStrategy:
+    rollingUpdate:
+      partition: 0
+    type: RollingUpdate
+  volumeClaimTemplates:
+  - apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      creationTimestamp: null
+      name: data
+      namespace: default
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 2Gi
+      volumeMode: Filesystem
+    status:
+      phase: Pending
+status:
+  availableReplicas: 0
+  collisionCount: 0
+  currentReplicas: 1
+  currentRevision: gemfire1-locator-7694cc56d4
+  observedGeneration: 1
+  replicas: 1
+  updateRevision: gemfire1-locator-7694cc56d4
+  updatedReplicas: 1
