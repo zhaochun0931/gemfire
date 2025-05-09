@@ -32,12 +32,9 @@ kubectl create rolebinding psp-gemfire --namespace=gemfire --clusterrole=psp:vmw
 helm registry login registry.packages.broadcom.com -u $USERNAME -p $PASSWORD
 
 helm install gemfire-crd oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-crd --version 2.4.0 \
---set operatorReleaseName=gemfire-operator \
---namespace default
+--set operatorReleaseName=gemfire-operator
 
-
-helm install gemfire-operator oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-operator --version 2.4.0 \
---namespace default
+helm install gemfire-operator oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-operator --version 2.4.0
 
 helm list
 
