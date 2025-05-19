@@ -15,4 +15,4 @@ services:
 
 networks:
   hazelcast-network:
-    external: true
+    driver: bridge
