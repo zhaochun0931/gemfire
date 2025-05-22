@@ -24,3 +24,11 @@ export offline-disk-store --name=DEFAULT --disk-dirs=/root/gemfire/server2 --dir
 
 
 
+
+
+start server --name=server3
+start server --name=server4 --server-port=0
+
+
+import data --region=/region1 --member=server3 --dir=/tmp/x/
+import data --region=/region1 --member=server4 --dir=/tmp/y/
