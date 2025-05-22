@@ -1,0 +1,5 @@
+create region --name=region1 --type=PARTITION_PERSISTENT
+
+create region --name=region2 --type=PARTITION_PERSISTENT --colocated-with=/region1
+
+
