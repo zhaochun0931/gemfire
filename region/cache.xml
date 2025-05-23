@@ -4,13 +4,13 @@
 
     <disk-store name="ds1" auto-compact="true" compaction-threshold="50" allow-force-compaction="false" max-oplog-size="1024" time-interval="1000" write-buffer-size="32768" queue-size="0" disk-usage-warning-percentage="90" disk-usage-critical-percentage="99" segments="0">
         <disk-dirs>
-            <disk-dir dir-size="2147483647">/root/gemfire/ds1</disk-dir>
+            <disk-dir dir-size="2147483647">ds1</disk-dir>
         </disk-dirs>
     </disk-store>
 
     <disk-store name="ds2" auto-compact="true" compaction-threshold="50" allow-force-compaction="false" max-oplog-size="1024" time-interval="1000" write-buffer-size="32768" queue-size="0" disk-usage-warning-percentage="90" disk-usage-critical-percentage="99" segments="0">
         <disk-dirs>
-            <disk-dir dir-size="2147483647">/root/gemfire/ds2</disk-dir>
+            <disk-dir dir-size="2147483647">ds2</disk-dir>
         </disk-dirs>
     </disk-store>
 
