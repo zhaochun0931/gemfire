@@ -1,7 +1,33 @@
-  <dependencies>
-    <dependency>
-      <groupId>org.springframework.geode</groupId>
-      <artifactId>spring-geode-starter</artifactId>
-      <version>1.7.12</version>
-    </dependency>
-  </dependencies>
+<repositories>
+    <repository>
+      <id>gemfire-release-repo</id>
+      <name>GemFire Release Repository</name>
+      <url>https://packages.broadcom.com/artifactory/gemfire/</url>
+    </repository>
+</repositories>
+
+
+
+    <properties>
+        <springBootForGemFire.version>1.0.4</springBootForGemFire.version>
+        <vmwareGemFire.version>10.1.2</vmwareGemFire.version>
+    </properties>    
+    
+    <dependencies>
+       <dependency>
+           <groupId>com.vmware.gemfire</groupId>
+           <artifactId>spring-boot-3.3-gemfire-10.1</artifactId>
+           <version>${springBootForGemFire.version}</version>
+       </dependency>
+       <dependency>
+           <groupId>com.vmware.gemfire</groupId>
+           <artifactId>gemfire-core</artifactId>
+           <version>${vmwareGemFire.version}</version>
+       </dependency>
+    <!--if using continuous queries-->
+       <dependency>
+            <groupId>com.vmware.gemfire</groupId>
+            <artifactId>gemfire-cq</artifactId>
+            <version>${vmwareGemFire.version}</version>
+       </dependency>
+    </dependencies>
