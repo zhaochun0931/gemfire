@@ -1,10 +1,10 @@
-start locator --name=l1
+start locator --name=locator1
 
-start server --name=s1 --server-port=0 --enable-time-statistics=1 --statistic-archive-file=/tmp/s1.gfs
-start server --name=s2 --server-port=0 --enable-time-statistics=1 --statistic-archive-file=/tmp/s2.gfs
-start server --name=s3 --server-port=0 --enable-time-statistics=1 --statistic-archive-file=/tmp/s3.gfs
-start server --name=s4 --server-port=0 --enable-time-statistics=1 --statistic-archive-file=/tmp/s4.gfs
-start server --name=s5 --server-port=0 --enable-time-statistics=1 --statistic-archive-file=/tmp/s5.gfs
+start server --name=server1 --server-port=0 --enable-time-statistics=1 --statistic-archive-file=/tmp/server1.gfs
+start server --name=server2 --server-port=0 --enable-time-statistics=1 --statistic-archive-file=/tmp/server2.gfs
+start server --name=server3 --server-port=0 --enable-time-statistics=1 --statistic-archive-file=/tmp/server3.gfs
+start server --name=server4 --server-port=0 --enable-time-statistics=1 --statistic-archive-file=/tmp/server3.gfs
+start server --name=server5 --server-port=0 --enable-time-statistics=1 --statistic-archive-file=/tmp/server4.gfs
 
 
 create region --name=exampleRegion1 --type=PARTITION_PERSISTENT --redundant-copies=1 --total-num-buckets=3
