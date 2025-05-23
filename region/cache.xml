@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<cache version="1.0" xsi:schemaLocation="http://geode.apache.org/schema/query-config-service http://geode.apache.org/schema/query-config-service/query-config-service-1.0.xsd http://geode.apache.org/schema/cache http://geode.apache.org/schema/cache/cache-1.0.xsd http://geode.apache.org/schema/jdbc http://geode.apache.org/schema/jdbc/jdbc-1.0.xsd" xmlns="http://geode.apache.org/schema/cache" xmlns:query-config-service="http://geode.apache.org/schema/query-config-service" xmlns:jdbc="http://geode.apache.org/schema/jdbc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <disk-store name="ds1" auto-compact="true" compaction-threshold="50" allow-force-compaction="false" max-oplog-size="1024" time-interval="1000" write-buffer-size="32768" queue-size="0" disk-usage-warning-percentage="90" disk-usage-critical-percentage="99" segments="0">
+        <disk-dirs>
+            <disk-dir dir-size="2147483647">ds1</disk-dir>
+        </disk-dirs>
+    </disk-store>
+
+    <disk-store name="ds2" auto-compact="true" compaction-threshold="50" allow-force-compaction="false" max-oplog-size="1024" time-interval="1000" write-buffer-size="32768" queue-size="0" disk-usage-warning-percentage="90" disk-usage-critical-percentage="99" segments="0">
+        <disk-dirs>
+            <disk-dir dir-size="2147483647">ds2</disk-dir>
+        </disk-dirs>
+    </disk-store>
+
+    <region name="exampleRegion1" refid="PARTITION_PERSISTENT">
+        <region-attributes data-policy="persistent-partition" disk-store-name="ds1">
+            <partition-attributes redundant-copies="1" total-num-buckets="3"/>
+        </region-attributes>
+    </region>
+
+    <region name="exampleRegion2" refid="PARTITION_PERSISTENT">
+    <region-attributes data-policy="persistent-partition" disk-store-name="ds2">
+        <partition-attributes redundant-copies="1" total-num-buckets="3"/>
+    </region-attributes>
+    </region>
+</cache>
