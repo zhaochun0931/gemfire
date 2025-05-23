@@ -42,3 +42,25 @@ put --key=7  --value=world7  --region=/exampleRegion2
 put --key=8  --value=world8  --region=/exampleRegion2
 put --key=9  --value=world9  --region=/exampleRegion2
 put --key=10  --value=world10  --region=/exampleRegion2
+
+
+
+
+
+
+
+shutdown --include-locators=yes
+
+
+export offline-disk-store --name=ds1 --disk-dirs=/root/gemfire/server1/ds1 --dir=/tmp/backup/server1
+export offline-disk-store --name=ds1 --disk-dirs=/root/gemfire/server2/ds1 --dir=/tmp/backup/server2
+export offline-disk-store --name=ds1 --disk-dirs=/root/gemfire/server3/ds1 --dir=/tmp/backup/server3
+
+export offline-disk-store --name=ds2 --disk-dirs=/root/gemfire/server1/ds2 --dir=/tmp/backup/server1
+export offline-disk-store --name=ds2 --disk-dirs=/root/gemfire/server2/ds2 --dir=/tmp/backup/server2
+export offline-disk-store --name=ds2 --disk-dirs=/root/gemfire/server3/ds2 --dir=/tmp/backup/server3
+
+
+
+
+
