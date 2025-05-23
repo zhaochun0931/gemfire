@@ -26,6 +26,11 @@ put --key=10  --value=hello10  --region=/exampleRegion1
 
 
 
+locate entry --key=1 --region=/exampleRegion1
+
+
+
+
 
 put --key=1  --value=world1  --region=/exampleRegion2
 put --key=2  --value=world2  --region=/exampleRegion2
