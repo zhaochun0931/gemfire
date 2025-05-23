@@ -64,3 +64,16 @@ export offline-disk-store --name=ds2 --disk-dirs=/root/gemfire/server3/ds2 --dir
 
 
 
+
+
+
+import data --member=server1 --region=/exampleRegion1 --file=/tmp/backup/server1/snapshot-ds1-exampleRegion1.gfd
+import data --member=server1 --region=/exampleRegion1 --file=/tmp/backup/server2/snapshot-ds1-exampleRegion1.gfd
+import data --member=server1 --region=/exampleRegion1 --file=/tmp/backup/server3/snapshot-ds1-exampleRegion1.gfd
+
+
+
+
+
+
+
