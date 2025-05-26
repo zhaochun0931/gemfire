@@ -1,0 +1,12 @@
+git clone https://github.com/gemfire/spring-for-gemfire-examples.git
+
+
+
+cd spring-for-gemfire-examples/hello-world
+
+./gradlew build
+
+./gradlew bootRun
+
+
+
