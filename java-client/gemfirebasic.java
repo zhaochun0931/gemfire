@@ -13,7 +13,10 @@ import java.time.format.DateTimeFormatter;
 
 
 
-public class gemfireThroughputTest {
+public class gemfirebasic {
+
+    // Formatter with milliseconds
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
 
     private static final String REGION_NAME = "exampleRegion";
     private static final int TOTAL_OPERATIONS = 1000000; // Total write operations
@@ -21,6 +24,12 @@ public class gemfireThroughputTest {
     private static final int SERVER_PORT = 10334; // Default GemFire server port
 
     public static void main(String[] args) {
+
+                // Capture start timestamp
+        LocalDateTime start = LocalDateTime.now();
+        System.out.println("⏱️ Before connecting: " + start.format(formatter));
+
+        
         ClientCache clientCache = new ClientCacheFactory()
                 .addPoolLocator(SERVER_ADDRESS, SERVER_PORT)
                 .create();
@@ -44,5 +53,22 @@ public class gemfireThroughputTest {
         System.out.printf("Wrote %d entries in %d ms (throughput: %.2f ops/sec)%n", TOTAL_OPERATIONS, duration, throughput);
 
         clientCache.close();
+
+        if (clientCache.isClosed()) {
+            System.out.println("GemFire cache is closed.");
+        } else {
+            System.out.println("GemFire cache is open.");
+        }
+        
+
+                // Capture end timestamp
+        LocalDateTime end = LocalDateTime.now();
+        System.out.println("✅ After connecting: " + end.format(formatter));
+
+        // Calculate and print duration
+        Duration duration = Duration.between(start, end);
+        System.out.println("🕒 Connection took: " + duration.toMillis() + " ms");
+
+        
     }
 }
