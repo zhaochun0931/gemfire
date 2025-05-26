@@ -15,15 +15,19 @@ import java.time.format.DateTimeFormatter;
 
 public class gemfirebasic {
 
-    // Formatter with milliseconds
+
+
+    public static void main(String[] args) {
+
+            // Formatter with milliseconds
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
 
     private static final String REGION_NAME = "exampleRegion";
-    private static final int TOTAL_OPERATIONS = 1000000; // Total write operations
+    private static final int TOTAL_OPERATIONS = 10000; // Total write operations
     private static final String SERVER_ADDRESS = "localhost"; // Change to your server's address
     private static final int SERVER_PORT = 10334; // Default GemFire server port
 
-    public static void main(String[] args) {
+        
 
                 // Capture start timestamp
         LocalDateTime start = LocalDateTime.now();
