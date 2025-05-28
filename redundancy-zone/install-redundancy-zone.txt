@@ -7,6 +7,20 @@ start server --name=server5 --server-port=0 --properties-file=gemfire-rack1.prop
 
 
 
+
+
+
+start server --name=server2 --server-port=0 --properties-file=gemfire-rack2.properties --log-level=ALL
+start server --name=server4 --server-port=0 --properties-file=gemfire-rack2.properties
+start server --name=server6 --server-port=0 --properties-file=gemfire-rack2.properties
+
+
+
+
+
+
+
+
 create region --name=exampleRegion --type=PARTITION --redundant-copies=1
 
 create region --name=exampleRegion --type=PARTITION --redundant-copies=1 --recovery-delay=15000 --startup-recovery-delay=30000
