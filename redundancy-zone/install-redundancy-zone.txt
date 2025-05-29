@@ -21,9 +21,9 @@ start server --name=server6 --server-port=0 --properties-file=gemfire-rack2.prop
 
 
 
-create region --name=exampleRegion --type=PARTITION --redundant-copies=1
+create region --name=exampleRegion --type=PARTITION --redundant-copies=2
 
-create region --name=exampleRegion --type=PARTITION --redundant-copies=1 --total-num-buckets=10
+create region --name=exampleRegion --type=PARTITION --redundant-copies=2 --total-num-buckets=9
 
 
 
