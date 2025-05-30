@@ -93,3 +93,20 @@ query --query="select distinct p.bucketId as bucketId,p.bucketAdvisor.primary.eq
 
 
 status redundancy
+
+
+list members --verbose
+
+
+
+gfsh>list members --verbose
+Member Count : 5
+
+  Name   |                             Id                              |  Type   | Status |  Host  | Port  | LoadAverage1 | Max-Heap  |  Used-Heap  | Cache-Entries | Redundancy-Zone | Uptime
+-------- | ----------------------------------------------------------- | ------- | ------ | ------ | ----- | ------------ | --------- | ----------- | ------------- | --------------- | --------------------
+locator1 | data74(locator1:197684:locator)<ec><v0>:41560 [Coordinator] | Locator | Ready  | data74 | 10334 | 0.06         | 1.234 GiB | 102.605 MiB | 1             |                 | 9 minutes 55 seconds
+server1  | data74(server1:197941)<v1>:53925                            | Server  | Ready  | data74 | 38229 | 0.06         | 1.234 GiB | 87.874 MiB  | 0             | rack1           | 7 minutes 33 seconds
+server2  | data74(server2:198167)<v2>:50282                            | Server  | Ready  | data74 | 39687 | 0.06         | 1.234 GiB | 50.025 MiB  | 0             | rack1           | 5 minutes 26 seconds
+server3  | data74(server3:198366)<v3>:41795                            | Server  | Ready  | data74 | 46437 | 0.06         | 1.234 GiB | 165.593 MiB | 0             | rack3           | 4 minutes 32 seconds
+server4  | data74(server4:198507)<v4>:57347                            | Server  | Ready  | data74 | 34781 | 0.06         | 1.234 GiB | 162.645 MiB | 0             | rack4           | 4 minutes 25 seconds
+
