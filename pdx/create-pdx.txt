@@ -1,1 +1,7 @@
 start locator --name=locator1
+
+
+configure pdx --read-serialized=true
+
+
+
