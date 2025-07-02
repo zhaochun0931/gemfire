@@ -3,6 +3,12 @@ vsd will convert automatially the time in the gfs file to your local timezone
 
 
 export TZ=America/New_York vsd
+../../vsd5.6.1-arm64.Darwin/bin/vsd */*/*gfs
+
+
+
+
+
 
 
 
@@ -32,7 +38,6 @@ maxMemory: -xmx
 https://gemfire.dev/blog/the-most-useful-statistics-for-troubleshooting-vmware-gemfire-deployments/
 
 
-../../vsd5.6.1-arm64.Darwin/bin/vsd */*/*gfs
 
 
 
