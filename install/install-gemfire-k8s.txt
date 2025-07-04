@@ -84,7 +84,7 @@ kubectl get pods
 
 
 
-# install gemfire cluster
+# create a gemfire cluster
 
 kubectl apply -f gemfire.yaml -n gemfire
 
