@@ -9,13 +9,16 @@ export USERNAME=""
 export PASSWORD=""
 
 
-# install cert-manager
+# install the cert-manager
 
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.12.0/cert-manager.yaml
 
 
 kubectl get pod -n cert-manager
 
+
+
+# install the operator
 
 # the secret image-pull-secret should in the same namespace with the gemfire operator
 kubectl create secret docker-registry image-pull-secret \
