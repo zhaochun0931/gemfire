@@ -41,6 +41,7 @@ kubectl get rolebinding -n gemfire
 
 
 
+# install with helm
 
 
 helm registry login registry.packages.broadcom.com -u $USERNAME -p $PASSWORD
