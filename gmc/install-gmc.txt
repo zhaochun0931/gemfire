@@ -2,3 +2,13 @@ docker login registry.packages.broadcom.com
 
 
 docker run -p 8080:8080 registry.packages.broadcom.com/gemfire-management-console/gemfire-management-console:1.3.0
+
+
+nc -vz localhost 8080
+
+
+
+http://localhost:8080/login
+
+
+
