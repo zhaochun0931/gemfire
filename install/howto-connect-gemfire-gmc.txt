@@ -1,0 +1,12 @@
+docker compose up
+
+login the gmc
+
+
+
+
+Host: 
+10.1.1.1
+  
+Port: 
+7070
