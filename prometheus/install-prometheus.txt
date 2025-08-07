@@ -13,3 +13,11 @@ start server --name=server1 \
 
 
 
+
+
+
+
+
+http://localhost:8001/metrics
+
+http://localhost:8002/metrics
