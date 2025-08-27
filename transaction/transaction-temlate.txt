@@ -1,0 +1,6 @@
+In Spring Framework, TransactionTemplate is a programmatic way to manage transactions.
+Instead of using the @Transactional annotation, you explicitly wrap your code inside a transaction block.
+
+
+
+
