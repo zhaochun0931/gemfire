@@ -73,7 +73,7 @@
 		    <dependency>
         <groupId>com.vmware.gemfire</groupId>
         <artifactId>spring-boot-3.1-gemfire-10.1</artifactId>
-        <version>VERSION</version>
+        <version>2.0.0</version>
     </dependency>
     <dependency>
         <groupId>com.vmware.gemfire</groupId>
