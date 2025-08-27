@@ -45,7 +45,7 @@
 
 
 
-		<dependencies>
+
   <dependency>
     <groupId>com.vmware.gemfire</groupId>
     <artifactId>gemfire-core</artifactId>
@@ -62,7 +62,37 @@
     <artifactId>gemfire-cq</artifactId>
     <version>10.1.0</version>
   </dependency>
-</dependencies>
+
+
+
+
+
+		
+<!--Spring Boot for GemFire -->
+
+		    <dependency>
+        <groupId>com.vmware.gemfire</groupId>
+        <artifactId>spring-boot-3.1-gemfire-10.1</artifactId>
+        <version>VERSION</version>
+    </dependency>
+    <dependency>
+        <groupId>com.vmware.gemfire</groupId>
+        <artifactId>gemfire-core</artifactId>
+        <version>10.1.0</version>
+    </dependency>
+    <dependency>
+        <groupId>com.vmware.gemfire</groupId>
+        <artifactId>gemfire-logging</artifactId>
+        <version>10.1.0</version>
+    </dependency>
+    <!--if using continuous queries-->
+    <dependency>
+        <groupId>com.vmware.gemfire</groupId>
+        <artifactId>gemfire-cq</artifactId>
+        <version>10.1.0</version>
+    </dependency>
+
+		
 
 
 
