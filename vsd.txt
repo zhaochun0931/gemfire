@@ -72,6 +72,13 @@ egrep -Ri 'java.version'
 egrep -Ri 'java.runtime.version'
 
 
+egrep -Ri 'GemFire-Version'
+
+
+
+
+
+
 # membership 
 egrep -Ri 'received new view'
 egrep -Ri 'process id'
