@@ -93,6 +93,12 @@ kubectl apply -f gemfire.yaml -n gemfire
 
 kubectl get gemfireclusters.gemfire.vmware.com
 
+$ kubectl get gemfireclusters.gemfire.vmware.com
+NAME       LOCATORS   SERVERS   CLUSTER IMAGE                                                          OPERATOR VERSION
+gemfire1   1/1        1/1       registry.packages.broadcom.com/pivotal-gemfire/vmware-gemfire:10.1.4   2.5.0
+$
+
+
 kubectl get gemfireclusters.gemfire.vmware.com gemfire1
 
 
