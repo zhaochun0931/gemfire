@@ -1,1 +1,61 @@
+export USERNAME="username@broadcom.com"
+export PASSWORD="password"
+
+
+# install the cert-manager
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.12.0/cert-manager.yaml
+kubectl get pod -n cert-manager
+
+
+
+# install the operator
+
+# the secret image-pull-secret should in the same namespace with the gemfire operator
+kubectl create secret docker-registry image-pull-secret \
+--docker-server=registry.packages.broadcom.com \
+--docker-username=$USERNAME \
+--docker-password=$PASSWORD
+
+
+
+
+kubectl get rolebinding -n gemfire
+
+
+
+
+
+
+
+# install with helm
+
+
+helm registry login registry.packages.broadcom.com -u $USERNAME -p $PASSWORD
+
+helm install gemfire-crd \
+oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-crd --version 2.5.0
+
+helm install gemfire-operator \
+oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-operator --version 2.5.0
+
+
+
+helm list
+
+
+# helm list
+NAME            	NAMESPACE	REVISION	UPDATED                                	STATUS  	CHART                 	APP VERSION
+gemfire-crd     	default  	1       	2025-05-08 14:45:37.635674484 +0000 UTC	deployed	gemfire-crd-2.4.0     	2.4.0
+gemfire-operator	default  	1       	2025-05-08 14:45:53.229036755 +0000 UTC	deployed	gemfire-operator-2.4.0	2.4.0
+#
+
+
+
+kubectl get crd gemfireclusters.gemfire.vmware.com
+kubectl get pods
+
+
+
+
+
 
