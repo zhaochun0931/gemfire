@@ -68,13 +68,12 @@ kubectl apply -f gemfire.yaml
 
 
 kubectl create secret generic gemfire-tls \
-        --from-file=keystore.jks \
-        --from-file=truststore.jks \
-        --from-file=server.crt \
-        --from-file=server.key \
-        --from-file=ca.crt \
+        --from-file=keystore.p12=keystore.p12 \
+        --from-file=truststore.p12=truststore.p12 \
+        --from-file=tls.crt=server.crt \
+        --from-file=tls.key=server.key \
+        --from-file=ca.crt=ca.crt \
         --from-literal=password='changeit'
-
 
 
 
