@@ -64,8 +64,8 @@ gemfire-operator	default  	1       	2025-05-08 14:45:53.229036755 +0000 UTC	depl
 #
 
 
-
 kubectl get crd gemfireclusters.gemfire.vmware.com
+kubectl get gemfireclusters.gemfire.vmware.com
 kubectl get pods
 
 
