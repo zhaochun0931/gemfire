@@ -3,7 +3,7 @@ export PASSWORD="password"
 
 
 # install the cert-manager
-kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.12.0/cert-manager.yaml
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.18.2/cert-manager.yaml
 kubectl get pod -n cert-manager
 
 
@@ -32,11 +32,9 @@ kubectl get rolebinding -n gemfire
 
 helm registry login registry.packages.broadcom.com -u $USERNAME -p $PASSWORD
 
-helm install gemfire-crd \
-oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-crd --version 2.5.0
+helm install gemfire-crd oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-crd --version 2.5.0
 
-helm install gemfire-operator \
-oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-operator --version 2.5.0
+helm install gemfire-operator oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-operator --version 2.5.0
 
 
 
