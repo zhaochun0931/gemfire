@@ -1,0 +1,18 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: gemfire-tls
+  namespace: default
+spec:
+  secretName: gemfire-tls # Secret will be created with cert+key
+  duration: 8760h         # 1 year
+  renewBefore: 720h       # renew 30 days before expiry
+  issuerRef:
+    name: gemfire-ca-issuer
+    kind: Issuer
+  commonName: gemfire1-locator.default.svc.cluster.local
+  dnsNames:
+    - gemfire1-locator.default.svc.cluster.local
+    - '*.gemfire1-locator.default.svc.cluster.local'
+    - '*.gemfire1-server.default.svc.cluster.local'
+    - localhost
