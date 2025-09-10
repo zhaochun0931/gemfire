@@ -75,7 +75,7 @@ kubectl create secret generic gemfire-tls \
 --from-file=tls.crt=server.crt \
 --from-file=tls.key=server.key \
 --from-file=ca.crt=ca.crt \
---from-literal=password='changeit' \
+--from-literal=password=changeit \
 -n gemfire
 
 
