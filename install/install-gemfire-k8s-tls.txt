@@ -2,6 +2,8 @@ export USERNAME="username@broadcom.com"
 export PASSWORD="password"
 
 
+kubectl create ns gemfire
+
 # install the cert-manager
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.18.2/cert-manager.yaml
 kubectl get pod -n cert-manager
@@ -14,7 +16,11 @@ kubectl get pod -n cert-manager
 kubectl create secret docker-registry image-pull-secret \
 --docker-server=registry.packages.broadcom.com \
 --docker-username=$USERNAME \
---docker-password=$PASSWORD
+--docker-password=$PASSWORD \
+-n gemfire
+
+
+
 
 
 
@@ -31,10 +37,8 @@ kubectl get rolebinding -n gemfire
 
 
 helm registry login registry.packages.broadcom.com -u $USERNAME -p $PASSWORD
-
-helm install gemfire-crd oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-crd --version 2.5.0
-
-helm install gemfire-operator oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-operator --version 2.5.0
+helm install gemfire-crd oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-crd --version 2.5.0 -n gemfire
+helm install gemfire-operator oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-operator --version 2.5.0 -n gemfire
 
 
 
@@ -66,12 +70,14 @@ kubectl apply -f gemfire.yaml
 
 
 kubectl create secret generic gemfire-tls \
-        --from-file=keystore.p12=keystore.p12 \
-        --from-file=truststore.p12=truststore.p12 \
-        --from-file=tls.crt=server.crt \
-        --from-file=tls.key=server.key \
-        --from-file=ca.crt=ca.crt \
-        --from-literal=password='changeit'
+--from-file=keystore.p12=keystore.p12 \
+--from-file=truststore.p12=truststore.p12 \
+--from-file=tls.crt=server.crt \
+--from-file=tls.key=server.key \
+--from-file=ca.crt=ca.crt \
+--from-literal=password='changeit' \
+-n gemfire
+
 
 
 
