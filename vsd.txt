@@ -61,6 +61,27 @@ But can still expand up to 2 GB if memory pressure is high.
 
 
 
+How They Work Together
+
+Xms = where heap starts
+
+SoftMaxHeapSize = where JVM tries to stay under
+
+Xmx = the absolute ceiling
+
+So think of it like:
+
+[ Xms (start) ] ----> [ SoftMaxHeapSize (preferred max) ] ----> [ Xmx (hard max) ]
+
+
+
+
+
+
+
+
+
+
 
 [info 2025/04/24 11:35:27.666 UTC locator2 <Pooled High Priority Message Processor 2> tid=0x28] Checking to see if I should become coordinator.  My address is ubuntu2(locator2:3609:locator)<ec><v1>:41001
 
