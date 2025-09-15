@@ -14,7 +14,24 @@ export TZ=America/New_York vsd
 
 VMMemoryUsageStats
 initMemory: -xms
+
+-Xms
+
+Meaning: Initial heap size (the amount of memory allocated when the JVM starts).
+
+
+
+
 maxMemory: -xmx
+
+-Xmx
+
+Meaning: Maximum heap size (the hard limit that the heap can grow to).
+Important: If the heap needs more than this and cannot allocate, you’ll get an OutOfMemoryError.
+
+
+
+
 
 
 
