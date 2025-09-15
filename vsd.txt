@@ -83,6 +83,47 @@ So think of it like:
 
 
 
+📌 What is Off-Heap Memory?
+
+Normally, Java objects live in the heap, managed by the Garbage Collector (GC).
+
+Off-heap memory is memory allocated outside the Java heap, not managed by GC.
+
+The JVM or libraries (e.g., Netty, Aerospike client, Spark, RocksDB, Ignite, Flink) use it for performance reasons:
+
+Avoid GC overhead (GC never scans off-heap data).
+
+Control memory more precisely (manual allocation/free).
+
+Interop with native code (e.g., Direct I/O, DMA, GPU buffers).
+
+📌 Meaning of off-heap-memory-size
+
+When you see a config like:
+
+off-heap-memory-size = 2g
+
+
+It means:
+
+The system (e.g., a cache, database, or framework) will reserve up to 2 GB of memory outside the Java heap.
+
+This is in addition to -Xmx.
+
+👉 Example:
+If you run with -Xmx2g and off-heap-memory-size=2g, your process could consume ~4 GB total (2G heap + 2G off-heap).
+
+
+
+
+
+
+
+
+
+
+
+
 [info 2025/04/24 11:35:27.666 UTC locator2 <Pooled High Priority Message Processor 2> tid=0x28] Checking to see if I should become coordinator.  My address is ubuntu2(locator2:3609:locator)<ec><v1>:41001
 
 [info 2025/04/24 11:35:27.666 UTC locator2 <Pooled High Priority Message Processor 2> tid=0x28] View with removed and left members removed is View[ubuntu2(locator1:3495:locator)<ec><v0>:41000|3] members: [ubuntu2(locator2:3609:locator)<ec><v1>:41001, ubuntu2(locator3:3837:locator)<ec><v2>:41002] and coordinator would be ubuntu2(locator2:3609:locator)<ec><v1>:41001
