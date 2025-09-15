@@ -2,3 +2,7 @@ JAVA_ARGS="-Xms100g -Xmx100g" /path/to/gfsh
 
 
 
+export JAVA_ARGS=-Dgfsh.log-level=finest
+gfsh
+
+
