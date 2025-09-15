@@ -9,3 +9,14 @@ docker container prune -f
 
 docker compose up
 
+
+
+
+
+
+docker exec -it gf-locator1 gfsh
+
+connect
+
+list member
+
