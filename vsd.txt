@@ -15,65 +15,12 @@ export TZ=America/New_York vsd
 VMMemoryUsageStats
 initMemory: -xms
 
--Xms
 
-Meaning: Initial heap size (the amount of memory allocated when the JVM starts).
 
 
 
 
 maxMemory: -xmx
-
--Xmx
-
-Meaning: Maximum heap size (the hard limit that the heap can grow to).
-Important: If the heap needs more than this and cannot allocate, you’ll get an OutOfMemoryError.
-
-
-
-
--XX:SoftMaxHeapSize (newer G1GC feature, JDK 17+)
-
-Meaning: A soft limit for heap usage.
-
-JVM prefers to keep the heap under this size, but can exceed it if needed (up to -Xmx).
-
-Works with G1 Garbage Collector to reduce memory footprint in containerized / cloud environments.
-
-Example:
-
-java -Xms512m -Xmx2g -XX:SoftMaxHeapSize=1g MyApp
-
-
-JVM starts with 512 MB
-
-Will try to keep heap under 1 GB (garbage collecting more aggressively)
-
-But can still expand up to 2 GB if memory pressure is high.
-
-
-
-
-
-
-
-
-
-
-
-How They Work Together
-
-Xms = where heap starts
-
-SoftMaxHeapSize = where JVM tries to stay under
-
-Xmx = the absolute ceiling
-
-So think of it like:
-
-[ Xms (start) ] ----> [ SoftMaxHeapSize (preferred max) ] ----> [ Xmx (hard max) ]
-
-
 
 
 
