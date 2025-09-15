@@ -32,6 +32,29 @@ Important: If the heap needs more than this and cannot allocate, you’ll get an
 
 
 
+-XX:SoftMaxHeapSize (newer G1GC feature, JDK 17+)
+
+Meaning: A soft limit for heap usage.
+
+JVM prefers to keep the heap under this size, but can exceed it if needed (up to -Xmx).
+
+Works with G1 Garbage Collector to reduce memory footprint in containerized / cloud environments.
+
+Example:
+
+java -Xms512m -Xmx2g -XX:SoftMaxHeapSize=1g MyApp
+
+
+JVM starts with 512 MB
+
+Will try to keep heap under 1 GB (garbage collecting more aggressively)
+
+But can still expand up to 2 GB if memory pressure is high.
+
+
+
+
+
 
 
 
