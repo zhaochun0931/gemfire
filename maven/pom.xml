@@ -9,24 +9,6 @@
 
 
 
-<dependencies>
-  <dependency>
-    <groupId>com.vmware.gemfire</groupId>
-    <artifactId>geode-core</artifactId>
-    <version>9.15.8</version>
-  </dependency>
-  <dependency>
-    <groupId>com.vmware.gemfire</groupId>
-    <artifactId>geode-logging</artifactId>
-    <version>9.15.8</version>
-  </dependency>
-  <!--if using continuous queries-->
-  <dependency>
-    <groupId>com.vmware.gemfire</groupId>
-    <artifactId>geode-cq</artifactId>
-    <version>9.15.8</version>
-  </dependency>
-</dependencies>
 
 
 
