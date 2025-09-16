@@ -1,0 +1,16 @@
+services:
+  jdk:
+    image: openjdk:8-jdk
+    container_name: gemfire-support-shell
+    stdin_open: true   # same as -it
+    tty: true          # same as -it
+    working_dir: /workspace
+    volumes:
+      - /Users/zchun/Downloads/gemfire-case:/workspace
+      - /Users/zchun/Downloads/geode-support-shell/v.1.2.0.tar.gz:/workspace/v.1.2.0.tar.gz
+    networks:
+      - jdknet
+
+networks:
+  jdknet:
+    driver: bridge
