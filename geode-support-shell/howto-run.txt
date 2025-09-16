@@ -1,5 +1,19 @@
+├── compose.yaml
+└── v.1.2.0.tar.gz
+
+
+
 docker compose up
 
 
 docker exec -it geode-support-shell bash
+
+java -jar geode-support-shell-v.1.2.0/build/libs/geode-support-shell-1.2.0.jar
+
+
+
+
+
+show statistics metadata *gfs
+
 
