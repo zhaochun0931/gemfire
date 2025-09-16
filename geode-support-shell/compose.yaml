@@ -1,7 +1,7 @@
 services:
   jdk:
     image: openjdk:8-jdk
-    container_name: gemfire-support-shell
+    container_name: geode-support-shell
     stdin_open: true   # same as -it
     tty: true          # same as -it
     working_dir: /workspace
