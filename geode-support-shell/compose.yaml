@@ -8,6 +8,7 @@ services:
     volumes:
       - /Users/zchun/Downloads/gemfire-case:/workspace
       - /Users/zchun/Downloads/geode-support-shell/v.1.2.0.tar.gz:/workspace/v.1.2.0.tar.gz
+    command: /bin/bash -c "tar -xzvf v.1.2.0.tar.gz && cd geode-support-shell-v.1.2.0 && ./gradlew build && java -jar ./build/libs/geode-support-shell-1.2.0.jar"
     networks:
       - jdknet
 
