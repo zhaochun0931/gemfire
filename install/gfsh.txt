@@ -6,3 +6,12 @@ export JAVA_ARGS=-Dgfsh.log-level=finest
 gfsh
 
 
+
+
+
+# debug gfsh log
+export JAVA_ARGS="-Dgfsh.log-level=fine"
+export JAVA_ARGS="-Dgfsh.log-level=fine -verbose:class"
+
+
+gfsh-0_0.log
