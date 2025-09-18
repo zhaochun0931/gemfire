@@ -17,7 +17,6 @@ services:
     ports:
       - "1389:1389"
 
-
   gemfire-management-console:
     image: registry.packages.broadcom.com/gemfire-management-console/gemfire-management-console:1.3.0
     container_name: gemfire-management-console
@@ -27,7 +26,6 @@ services:
     networks:
       - gf-network
 
-
   gf-locator1:
     image: gemfire/gemfire:9.15.6
     container_name: gf-locator1
@@ -35,6 +33,8 @@ services:
       - ACCEPT_TERMS=y
     networks:
       - gf-network
+    volumes:
+      - ./gf-locator1:/data/gf-locator1
     ports:
       - "10334:10334"
       - "7070:7070"
@@ -48,6 +48,8 @@ services:
       - ACCEPT_TERMS=y
     networks:
       - gf-network
+    volumes:
+      - ./gf-locator2:/data/gf-locator2
     ports:
       - "10335:10334"
       - "7071:7070"
@@ -63,6 +65,8 @@ services:
       - ACCEPT_TERMS=y
     networks:
       - gf-network
+    volumes:
+      - ./gf-server1:/data/gf-server1
     ports:
       - "40404:40404"
     command: gfsh start server --name=gf-server1 --locators=gf-locator1[10334]
@@ -77,9 +81,27 @@ services:
       - ACCEPT_TERMS=y
     networks:
       - gf-network
+    volumes:
+      - ./gf-server2:/data/gf-server2
     ports:
       - "40405:40404"
     command: gfsh start server --name=gf-server2 --locators=gf-locator1[10334]
+    depends_on:
+      - gf-locator1
+    restart: unless-stopped
+
+  gf-server3:
+    image: gemfire/gemfire:9.15.6
+    container_name: gf-server3
+    environment:
+      - ACCEPT_TERMS=y
+    networks:
+      - gf-network
+    volumes:
+      - ./gf-server3:/data/gf-server3
+    ports:
+      - "40406:40404"
+    command: gfsh start server --name=gf-server3 --locators=gf-locator1[10334]
     depends_on:
       - gf-locator1
     restart: unless-stopped
