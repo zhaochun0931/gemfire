@@ -1,5 +1,6 @@
-create region --name=test --type=REPLICATE --enable-statistics=1
-create region --name=test --type=PARTITION_PERSISTENT --enable-statistics=1
+create region --name=test --type=REPLICATE_PERSISTENT --enable-statistics=yes
+
+create region --name=test --type=PARTITION_PERSISTENT --enable-statistics=yes
 
 
 
