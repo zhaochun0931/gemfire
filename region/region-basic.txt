@@ -81,4 +81,53 @@ gfsh>
 
 
 
+
+show metrics --region=/test
+
+
+
+gfsh>show metrics --region=/test
+Cluster-wide Region Metrics
+
+Category  |            Metric            | Value
+--------- | ---------------------------- | -------------
+cluster   | member count                 | 2
+          | region entry count           | 1
+region    | lastModifiedTime             | 1758171430587
+          | lastAccessedTime             | 1758171430587
+          | missCount                    | 0
+          | hitCount                     | 0
+          | hitRatio                     | 0.0
+          | getsRate                     | 0.0
+          | putsRate                     | 0.0
+          | createsRate                  | -1.0
+          | destroyRate                  | 0.0
+          | putAllRate                   | 0.0
+partition | putLocalRate                 | -1.0
+          | putRemoteRate                | -1.0
+          | putRemoteLatency             | 0
+          | putRemoteAvgLatency          | 0
+          | bucketCount                  | -1
+          | primaryBucketCount           | -1
+          | numBucketsWithoutRedundancy  | -1
+          | totalBucketSize              | -1
+          | averageBucketSize            | -1
+diskstore | totalEntriesOnlyOnDisk       | 0
+          | diskReadsRate                | 0.0
+          | diskWritesRate               | 0.0
+          | totalDiskWriteInProgress     | 0
+          | diskTaskWaiting              | 0
+callback  | cacheWriterCallsAvgLatency   | 0
+          | cacheListenerCallsAvgLatency | 0
+eviction  | lruEvictionRate              | 0.0
+          | lruDestroyRate               | 0.0
+
+gfsh>
+
+
+
+
+
+
+
 destroy region --name=/test --if-exists=yes
