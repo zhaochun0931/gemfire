@@ -1,0 +1,53 @@
+create region --name=test --type=REPLICATE --enable-statistics=1
+
+
+
+put --key=1 --value=hello1 --region=/test
+
+
+
+
+
+
+
+query --query="select * from /test"
+
+
+query --query="SELECT e.getStatistics() FROM /test.entrySet() e"
+
+
+gfsh>query --query="SELECT e.getStatistics() FROM /test.entrySet() e"
+Result : true
+Limit  : 100
+Rows   : 1
+
+lastModifiedTime | lastAccessedTime | missCount | hitCount | hitRatio
+---------------- | ---------------- | --------- | -------- | --------
+1758171430587    | 1758171430587    | 0         | 0        | 0.0
+
+gfsh>
+
+
+
+
+query --query="SELECT e.getStatistics().getLastModifiedTime() FROM /test.entrySet() e"
+
+gfsh>query --query="SELECT e.getStatistics().getLastModifiedTime() FROM /test.entrySet() e"
+Result : true
+Limit  : 100
+Rows   : 1
+
+Result
+-------------
+1758171430587
+
+gfsh>
+
+
+
+
+
+
+
+
+destroy region --name=/test --if-exists=yes
