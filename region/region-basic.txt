@@ -2,7 +2,38 @@ create region --name=test --type=REPLICATE --enable-statistics=1
 
 
 
+describe region --name=test
+
+
+
+gfsh>describe region --name=test
+Name            : test
+Data Policy     : replicate
+Hosting Members : gf-server2
+                  gf-server1
+
+Non-Default Attributes Shared By Hosting Members
+
+ Type  |        Name        | Value
+------ | ------------------ | ---------------
+Region | data-policy        | REPLICATE
+       | size               | 1
+       | statistics-enabled | true
+       | scope              | distributed-ack
+
+
+gfsh>
+
+
+
+
+
+
+
 put --key=1 --value=hello1 --region=/test
+
+
+
 
 
 
