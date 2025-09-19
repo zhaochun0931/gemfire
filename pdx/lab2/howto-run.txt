@@ -1,0 +1,42 @@
+mvn clean package
+jar cvf ltv.jar -C target/classes .
+
+mvn exec:java -Dexec.mainClass=GemfireClientApp
+
+
+  
+
+
+
+
+
+
+
+start locator --name=locator --port=10334
+
+start server --name=server1 --server-port=40404
+
+configure pdx --read-serialized=true --disk-store=DEFAULT
+
+create region --name=LTVData --type=REPLICATE
+
+
+gfsh> deploy --jar=ltv.jar
+
+gfsh> query --query="select * from /LTVData"
+
+
+gfsh>query --query="select * from /LTVData"
+Result : true
+Limit  : 100
+Rows   : 1
+
+  ltvValue   | expiryTime
+------------ | ----------
+20250831,111 | 222
+
+gfsh>
+
+
+
+  
