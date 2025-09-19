@@ -12,7 +12,7 @@ mvn exec:java -Dexec.mainClass=GemfireClientApp
 
 
 
-start locator --name=locator --port=10334
+start locator --name=locator1 --port=10334
 
 start server --name=server1 --server-port=40404
 
