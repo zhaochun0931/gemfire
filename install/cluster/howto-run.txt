@@ -2,11 +2,6 @@ docker network prune -f
 
 docker container prune -f
 
-
-
-
-
-
 docker compose up
 
 
@@ -20,3 +15,33 @@ connect
 
 list member
 
+
+
+
+$ docker exec -it gf-locator1 gfsh
+    _________________________     __
+   / _____/ ______/ ______/ /____/ /
+  / /  __/ /___  /_____  / _____  /
+ / /__/ / ____/  _____/ / /    / /
+/______/_/      /______/_/    /_/    9.15.6
+
+Monitor and Manage VMware GemFire
+gfsh>connect
+Connecting to Locator at [host=localhost, port=10334] ..
+Connecting to Manager at [host=4719f70fab88, port=1099] ..
+Successfully connected to: [host=4719f70fab88, port=1099]
+
+You are connected to a cluster of version 9.15.6.
+
+gfsh>list members
+Member Count : 5
+
+   Name     | Id
+----------- | ---------------------------------------------------------------
+gf-locator1 | 4719f70fab88(gf-locator1:1:locator)<ec><v0>:41000 [Coordinator]
+gf-server1  | 7c5900454fbd(gf-server1:1)<v2>:41000
+gf-locator2 | 690f95a807ae(gf-locator2:1:locator)<ec><v1>:41000
+gf-server2  | be54f9bde165(gf-server2:1)<v2>:41000
+gf-server3  | 7c117e7847db(gf-server3:1)<v2>:41000
+
+gfsh>
