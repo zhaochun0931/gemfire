@@ -1,0 +1,44 @@
+docker compose up
+
+
+docker exec -it gf-locator1 gfsh
+
+$ docker exec -it gf-locator1 gfsh
+    _________________________     __
+   / _____/ ______/ ______/ /____/ /
+  / /  __/ /___  /_____  / _____  /
+ / /__/ / ____/  _____/ / /    / /
+/______/_/      /______/_/    /_/    9.15.6
+
+Monitor and Manage VMware GemFire
+gfsh>
+
+
+
+
+
+
+
+connect --use-ssl --security-properties-file=/gemfire/gfsecurity.properties --ciphers=any --protocols=any
+
+
+  
+gfsh>connect --use-ssl --security-properties-file=/gemfire/gfsecurity.properties --ciphers=any --protocols=any
+Connecting to Locator at [host=localhost, port=10334] ..
+Connecting to Manager at [host=bc50c66f1ce5, port=1099] ..
+Successfully connected to: [host=bc50c66f1ce5, port=1099]
+
+You are connected to a cluster of version 9.15.6.
+
+gfsh>list members
+Member Count : 5
+
+   Name     | Id
+----------- | ---------------------------------------------------------------
+gf-locator2 | fa23e6d98ae7(gf-locator2:1:locator)<ec><v2>:41000
+gf-locator1 | bc50c66f1ce5(gf-locator1:1:locator)<ec><v0>:41000 [Coordinator]
+gf-server1  | b385cebbaa52(gf-server1:1)<v1>:41000
+gf-server3  | 7f2c60453e20(gf-server3:1)<v1>:41000
+gf-server2  | ba4f6d84dfe2(gf-server2:1)<v1>:41000
+
+gfsh>
