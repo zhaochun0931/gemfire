@@ -8,6 +8,11 @@ docker compose up
 
 gfb:
 
+
+docker exec -it gfb-locator1 gfsh
+
+connect
+
 create gateway-receiver --hostname-for-senders=gfb-locator1 --start-port=2000 --end-port=3000
 
 create gateway-receiver --hostname-for-senders=gfb-locator1,gfb-locator2 --start-port=2000 --end-port=3000
@@ -39,9 +44,14 @@ Cluster-200 gfsh>
 
 gfa:
 
-list gateways
+
+docker exec -it gfa-locator1 gfsh
+
+connect
+
 create gateway-sender --id=gw1 --remote-distributed-system-id=200
 
+list gateways
 
 
 
@@ -159,7 +169,7 @@ Cluster-100 gfsh>
 
 
 
-
+# create region
 
 
 
@@ -177,6 +187,16 @@ create region --name=exampleRegion --type=REPLICATE_PERSISTENT --gateway-sender-
 gfb:
 
 create region --name=exampleRegion --type=REPLICATE_PERSISTENT
+
+
+
+
+
+# create the entry
+
+gfa:
+
+put --key=1 --value=hello1 --region=/exampleRegion
 
 
 
