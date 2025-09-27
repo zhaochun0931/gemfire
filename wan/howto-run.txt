@@ -10,7 +10,88 @@ create gateway-sender --id=gw1 --remote-distributed-system-id=200
 
 
 
+Cluster-100 gfsh>destroy gateway-sender --id=gw1 --if-exists=yes
+  Member    | Status | Message
+----------- | ------ | -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+gfa-server1 | ERROR  |  org.apache.geode.internal.cache.wan.GatewaySenderException: The GatewaySender SerialGatewaySender{id=gw1,remoteDsId=200,isRunning =false,isPrimary =false} could not be destroyed as it is still used by regio..
+gfa-server2 | ERROR  |  org.apache.geode.internal.cache.wan.GatewaySenderException: The GatewaySender SerialGatewaySender{id=gw1,remoteDsId=200,isRunning =false,isPrimary =false} could not be destroyed as it is still used by regio..
+gfa-server3 | ERROR  |  org.apache.geode.internal.cache.wan.GatewaySenderException: The GatewaySender SerialGatewaySender{id=gw1,remoteDsId=200,isRunning =false,isPrimary =false} could not be destroyed as it is still used by regio..
+
+Did not complete waiting for GatewaySenderMBean proxy deletion
+
+Cluster-100 gfsh>
+
+
+
+
+gfsh>describe region --name=/exampleRegion
+Name            : exampleRegion
+Data Policy     : persistent replicate
+Hosting Members : gfa-server3
+                  gfa-server2
+                  gfa-server1
+
+Non-Default Attributes Shared By Hosting Members
+
+ Type  |       Name        | Value
+------ | ----------------- | --------------------
+Region | data-policy       | PERSISTENT_REPLICATE
+       | size              | 0
+       | scope             | distributed-ack
+       | gateway-sender-id | gw1
+
+
+Cluster-100 gfsh>
+
+
+
+alter region --name=/exampleRegion --gateway-sender-id
+
+
+
+gfsh>alter region --name=/exampleRegion --gateway-sender-id
+  Member    | Status | Message
+----------- | ------ | ----------------------------
+gfa-server1 | OK     | Region exampleRegion altered
+gfa-server2 | OK     | Region exampleRegion altered
+gfa-server3 | OK     | Region exampleRegion altered
+
+Cluster configuration for group 'cluster' is updated.
+
+Cluster-100 gfsh>describe region --name=/exampleRegion
+Name            : exampleRegion
+Data Policy     : persistent replicate
+Hosting Members : gfa-server3
+                  gfa-server2
+                  gfa-server1
+
+Non-Default Attributes Shared By Hosting Members
+
+ Type  |    Name     | Value
+------ | ----------- | --------------------
+Region | data-policy | PERSISTENT_REPLICATE
+       | size        | 0
+       | scope       | distributed-ack
+
+
+Cluster-100 gfsh>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 gfb:
+
+create gateway-receiver --hostname-for-senders=gfb-locator1 --start-port=2000 --end-port=3000
 
 create gateway-receiver --hostname-for-senders=gfb-locator1,gfb-locator2 --start-port=2000 --end-port=3000
