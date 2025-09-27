@@ -80,9 +80,9 @@ import data --member=server1 --region=/exampleRegion1 --file=/tmp/backup/server3
 
 
 
-for i in $(seq 100000); do echo "put --key=$i --value=hello_$i --region=/exampleRegion1" >> region1.txt; done
+for i in $(seq 1000); do echo "put --key=$i --value=hello_$i --region=/exampleRegion1" >> region1.txt; done
 
-for i in $(seq 200000); do echo "put --key=$i --value=helloworld_$i --region=/exampleRegion2" >> region2.txt; done
+for i in $(seq 2000); do echo "put --key=$i --value=helloworld_$i --region=/exampleRegion2" >> region2.txt; done
 
 
 
