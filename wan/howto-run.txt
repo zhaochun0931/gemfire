@@ -2,6 +2,41 @@ docker compose up
 
 
 
+
+# create the gateway receiver first
+
+
+gfb:
+
+create gateway-receiver --hostname-for-senders=gfb-locator1 --start-port=2000 --end-port=3000
+
+create gateway-receiver --hostname-for-senders=gfb-locator1,gfb-locator2 --start-port=2000 --end-port=3000
+
+
+# or just run
+
+create gateway-receiver
+
+Cluster-200 gfsh>create gateway-receiver
+  Member    | Status | Message
+----------- | ------ | ----------------------------------------------------------------------------------
+gfb-server1 | OK     | GatewayReceiver created on member "gfb-server1" and will listen on the port "5479"
+gfb-server2 | OK     | GatewayReceiver created on member "gfb-server2" and will listen on the port "5283"
+gfb-server3 | OK     | GatewayReceiver created on member "gfb-server3" and will listen on the port "5027"
+
+Cluster configuration for group 'cluster' is updated.
+
+Cluster-200 gfsh>
+
+
+
+
+
+
+
+
+
+
 gfa:
 
 list gateways
@@ -90,27 +125,63 @@ Cluster-100 gfsh>
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Cluster-100 gfsh>list gateways
+GatewaySender Section
+
+GatewaySender Id | Member | Remote Cluster Id |  Type  |        Status         | Queued Events | Receiver Location
+---------------- | ------ | ----------------- | ------ | --------------------- | ------------- | -----------------
+gw1              | 24f8.. | 200               | Serial | Running and Connected | 0             | 6fe91d2bf603:5479
+gw1              | a917.. | 200               | Serial | Running and Connected | 0             | 6fe91d2bf603:5479
+gw1              | fe8b.. | 200               | Serial | Running and Connected | 0             | 6fe91d2bf603:5479
+
+Cluster-100 gfsh>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+gfa:
+
+create region --name=exampleRegion --type=REPLICATE_PERSISTENT --gateway-sender-id=gw1
+
+
+
+
+
+
+
+
 gfb:
 
-create gateway-receiver --hostname-for-senders=gfb-locator1 --start-port=2000 --end-port=3000
-
-create gateway-receiver --hostname-for-senders=gfb-locator1,gfb-locator2 --start-port=2000 --end-port=3000
+create region --name=exampleRegion --type=REPLICATE_PERSISTENT
 
 
-# or just run
 
-create gateway-receiver
 
-Cluster-200 gfsh>create gateway-receiver
-  Member    | Status | Message
------------ | ------ | ----------------------------------------------------------------------------------
-gfb-server1 | OK     | GatewayReceiver created on member "gfb-server1" and will listen on the port "5479"
-gfb-server2 | OK     | GatewayReceiver created on member "gfb-server2" and will listen on the port "5283"
-gfb-server3 | OK     | GatewayReceiver created on member "gfb-server3" and will listen on the port "5027"
 
-Cluster configuration for group 'cluster' is updated.
-
-Cluster-200 gfsh>
 
 
 
