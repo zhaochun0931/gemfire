@@ -52,6 +52,7 @@ services:
       - ./gf-server1:/data
     ports:
       - "40404:40404"
+      - "8090:8080"
     command: gfsh start server --name=gf-server1 --locators=gf-locator1[10334] --start-rest-api=true --http-service-port=8080
     depends_on:
       - gf-locator1
