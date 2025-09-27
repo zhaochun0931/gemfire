@@ -1,3 +1,16 @@
 docker compose up
 
 
+
+gfa:
+
+list gateways
+create gateway-sender --id=gw1 --remote-distributed-system-id=200
+
+
+
+
+
+gfb:
+
+create gateway-receiver --hostname-for-senders=gfb-locator1,gfb-locator2 --start-port=2000 --end-port=3000
