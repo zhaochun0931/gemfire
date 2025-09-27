@@ -94,6 +94,55 @@ gfsh>
 
 
 
+export data --member=gf-server1 --region=/exampleRegion2 --dir=/data
+
+gfsh>export data --member=gf-server1 --region=/exampleRegion2 --dir=/data
+  Member   | Status | Message
+---------- | ------ | ----------------------------------------------------------------------------------------------
+gf-server1 | OK     | Data successfully exported from region : /exampleRegion2 to file : /data/exampleRegion2.gfd ..
+
+gfsh>
+
+
+
+
+
+
+
+import data --member=gf-server1 --region=/exampleRegion2 --file=/data/exampleRegion2.gfd
+import data --member=gf-server2 --region=/exampleRegion2 --file=/data/exampleRegion2.gfd
+import data --member=gf-server3 --region=/exampleRegion2 --file=/data/exampleRegion2.gfd
+
+
+gfsh>import data --member=gf-server1 --region=/exampleRegion2 --file=/data/exampleRegion2.gfd
+  Member   | Status | Message
+---------- | ------ | ----------------------------------------------------------------------------------------------
+gf-server1 | OK     | Data imported from file : /data/exampleRegion2.gfd on host : 5b3bba73d481 to region : /examp..
+
+gfsh>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
