@@ -1,0 +1,72 @@
+# shutdown the cluster
+
+gfsh
+
+
+
+create region --name=/exampleRegion1 --type=PARTITION_PERSISTENT --redundant-copies=2
+create region --name=/exampleRegion2 --type=REPLICATE_PERSISTENT
+
+
+
+
+
+
+
+export data --member=gf-server1 --region=exampleRegion1 --dir=/data --parallel=true
+
+gfsh>export data --member=gf-server1 --region=exampleRegion1 --dir=/data --parallel=true
+  Member   | Status | Message
+---------- | ------ | ------------------------------------------------------------------------------------------------------------------
+gf-server1 | OK     | Data successfully exported from region : /exampleRegion1 to file : /data/exampleRegion1.gfd on host : 9519277ecdac
+
+gfsh>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export offline-disk-store --name=DEFAULT --disk-dirs=/root/gemfire/server1 --dir=/tmp/x
+export offline-disk-store --name=DEFAULT --disk-dirs=/root/gemfire/server2 --dir=/tmp/y
+
+
+
+
+
+# tree /tmp/x/ /tmp/y/
+/tmp/x/
+└── snapshot-DEFAULT-region1.gfd
+/tmp/y/
+└── snapshot-DEFAULT-region1.gfd
+
+0 directories, 1 file
+#
+
+
+
+
+
+
+
+
+start server --name=server3
+start server --name=server4 --server-port=0
+
+
+import data --region=/region1 --member=server3 --dir=/tmp/x/
+import data --region=/region1 --member=server4 --dir=/tmp/y/
