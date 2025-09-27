@@ -1,0 +1,180 @@
+services:
+
+  gemfire-management-console:
+    image: registry.packages.broadcom.com/gemfire-management-console/gemfire-management-console:1.3.0
+    container_name: gemfire-management-console
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    networks:
+      - gf-network
+
+  gfa-locator1:
+    image: gemfire/gemfire:9.15.6
+    container_name: gfa-locator1
+    environment:
+      - ACCEPT_TERMS=y
+    networks:
+      - gf-network
+    volumes:
+      - ./gfa-locator1:/data
+      - ./gemfire1.properties:/gemfire/gemfire1.properties
+    ports:
+      - "10334:10334"
+      - "7070:7070"
+    command: gfsh start locator --name=gfa-locator1 --properties-file=/gemfire/gemfire1.properties
+    restart: unless-stopped
+
+  gfa-locator2:
+    image: gemfire/gemfire:9.15.6
+    container_name: gfa-locator2
+    environment:
+      - ACCEPT_TERMS=y
+    networks:
+      - gf-network
+    volumes:
+      - ./gfa-locator2:/data
+    ports:
+      - "10335:10334"
+      - "7071:7070"
+    command: gfsh start locator --name=gfa-locator2 --locators=gfa-locator1[10334]
+    depends_on:
+      - gfa-locator1
+    restart: unless-stopped
+
+  gfa-server1:
+    image: gemfire/gemfire:9.15.6
+    container_name: gfa-server1
+    environment:
+      - ACCEPT_TERMS=y
+    networks:
+      - gf-network
+    volumes:
+      - ./gfa-server1:/data
+    ports:
+      - "40404:40404"
+    command: gfsh start server --name=gfa-server1 --locators=gfa-locator1[10334]
+    depends_on:
+      - gfa-locator1
+    restart: unless-stopped
+
+  gfa-server2:
+    image: gemfire/gemfire:9.15.6
+    container_name: gfa-server2
+    environment:
+      - ACCEPT_TERMS=y
+    networks:
+      - gf-network
+    volumes:
+      - ./gfa-server2:/data
+    ports:
+      - "40405:40404"
+    command: gfsh start server --name=gfa-server2 --locators=gfa-locator1[10334]
+    depends_on:
+      - gfa-locator1
+    restart: unless-stopped
+
+  gfa-server3:
+    image: gemfire/gemfire:9.15.6
+    container_name: gfa-server3
+    environment:
+      - ACCEPT_TERMS=y
+    networks:
+      - gf-network
+    volumes:
+      - ./gfa-server3:/data
+    ports:
+      - "40406:40404"
+    command: gfsh start server --name=gfa-server3 --locators=gfa-locator1[10334]
+    depends_on:
+      - gfa-locator1
+    restart: unless-stopped
+
+
+
+
+
+  gfb-locator1:
+    image: gemfire/gemfire:9.15.6
+    container_name: gfb-locator1
+    environment:
+      - ACCEPT_TERMS=y
+    networks:
+      - gf-network
+    volumes:
+      - ./gfb-locator1:/data
+      - ./gemfire2.properties:/gemfire/gemfire2.properties
+    ports:
+      - "20334:10334"
+      - "8070:7070"
+    command: gfsh start locator --name=gfb-locator1 --properties-file=/gemfire/gemfire2.properties
+    restart: unless-stopped
+
+  gfb-locator2:
+    image: gemfire/gemfire:9.15.6
+    container_name: gfb-locator2
+    environment:
+      - ACCEPT_TERMS=y
+    networks:
+      - gf-network
+    volumes:
+      - ./gfb-locator2:/data
+    ports:
+      - "20335:10334"
+      - "8071:7070"
+    command: gfsh start locator --name=gfb-locator2 --locators=gfb-locator1[10334]
+    depends_on:
+      - gfb-locator1
+    restart: unless-stopped
+
+  gfb-server1:
+    image: gemfire/gemfire:9.15.6
+    container_name: gfb-server1
+    environment:
+      - ACCEPT_TERMS=y
+    networks:
+      - gf-network
+    volumes:
+      - ./gfb-server1:/data
+    ports:
+      - "50404:40404"
+    command: gfsh start server --name=gfb-server1 --locators=gfb-locator1[10334]
+    depends_on:
+      - gfb-locator1
+    restart: unless-stopped
+
+  gfb-server2:
+    image: gemfire/gemfire:9.15.6
+    container_name: gfb-server2
+    environment:
+      - ACCEPT_TERMS=y
+    networks:
+      - gf-network
+    volumes:
+      - ./gfb-server2:/data
+    ports:
+      - "50405:40404"
+    command: gfsh start server --name=gfb-server2 --locators=gfb-locator1[10334]
+    depends_on:
+      - gfb-locator1
+    restart: unless-stopped
+
+  gfb-server3:
+    image: gemfire/gemfire:9.15.6
+    container_name: gfb-server3
+    environment:
+      - ACCEPT_TERMS=y
+    networks:
+      - gf-network
+    volumes:
+      - ./gfb-server3:/data
+    ports:
+      - "50406:40404"
+    command: gfsh start server --name=gfb-server3 --locators=gfb-locator1[10334]
+    depends_on:
+      - gfb-locator1
+    restart: unless-stopped
+
+networks:
+  gf-network:
+    driver: bridge
