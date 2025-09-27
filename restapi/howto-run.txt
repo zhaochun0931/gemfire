@@ -1,3 +1,20 @@
+docker compose up
+
+
+
+nc -vz localhost 8090
+
+curl -i http://localhost:8090/geode/v1
+curl -i http://localhost:8090/gemfire-api/v1
+
+
+
+
+
+
+
+
+
 start locator --name=locator1
 start server --name=server1 --start-rest-api=true --http-service-port=8080
 create region --name=example-region --type=REPLICATE_PERSISTENT
