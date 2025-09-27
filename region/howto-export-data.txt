@@ -24,6 +24,44 @@ gfsh>
 
 
 
+tree 
+
+gf-server1
+├── Accepted-terms-on-2025-09-27T06:42:07+00:00
+├── BACKUPDEFAULT_1.crf
+├── BACKUPDEFAULT_1.drf
+├── BACKUPDEFAULT.if
+├── DRLK_IFDEFAULT.lk
+├── exampleRegion1-172180741000.gfd
+├── gf-server1
+├── gf-server1.log
+└── vf.gf.server.pid
+gf-server2
+├── Accepted-terms-on-2025-09-27T06:42:07+00:00
+├── BACKUPDEFAULT_1.crf
+├── BACKUPDEFAULT_1.drf
+├── BACKUPDEFAULT.if
+├── DRLK_IFDEFAULT.lk
+├── exampleRegion1-172180541000.gfd
+├── gf-server2
+├── gf-server2.log
+└── vf.gf.server.pid
+gf-server3
+├── Accepted-terms-on-2025-09-27T06:42:07+00:00
+├── BACKUPDEFAULT_1.crf
+├── BACKUPDEFAULT_1.drf
+├── BACKUPDEFAULT.if
+├── DRLK_IFDEFAULT.lk
+├── exampleRegion1-172180841000.gfd
+├── gf-server3
+├── gf-server3.log
+└── vf.gf.server.pid
+
+
+
+
+
+
 
 
 
