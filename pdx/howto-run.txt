@@ -1,11 +1,15 @@
 start locator --name=locator1
 
 
-# This command should be issued before starting any data members
+# below command should be issued before starting any data members
 
 configure pdx --read-serialized=true
 
 
 
 
+start server --name=server1
 
+
+
+create region --name=exampleRegion1 --type=REPLICATE_PERSISTENT
