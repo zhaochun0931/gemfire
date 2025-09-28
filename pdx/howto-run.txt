@@ -1,7 +1,11 @@
 start locator --name=locator1
 
 
+# This command should be issued before starting any data members
+
 configure pdx --read-serialized=true
+
+
 
 
 
