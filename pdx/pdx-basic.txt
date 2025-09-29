@@ -1,0 +1,32 @@
+It’s a PDX type metadata entry that is still registered in the cluster’s type registry, but no longer has any live objects in regions using it.
+
+Background
+
+When you serialize an object with PDX serialization, GemFire assigns it a PDX type ID and stores the type metadata (class name, field names, types, etc.) in the distributed PDX type registry.
+
+These PDX type definitions are persistent in memory (and optionally on disk if pdx-persistent=true).
+
+Even if you no longer store any objects of that class in regions, the PDX type definition stays registered so that other members (or clients) can still interpret serialized data if it appears.
+
+
+
+
+"Unused" means:
+
+The PDX type ID exists in the registry.
+
+But no region entries currently reference objects of that type.
+
+They remain in the registry until you restart the cluster (if pdx-persistent=false) or until you manually clear them (if persisted).
+
+
+
+
+
+Why does this matter?
+
+Over time, lots of unused PDX types can accumulate, especially in development or dynamic schema environments.
+
+This bloats the PDX type registry, which can impact memory usage and type lookup performance.
+
+Some versions of GemFire provide management tools (e.g., gfsh list pdx types, gfsh compact-disk-store) to check and manage them.
