@@ -1,3 +1,27 @@
+Portable Data Exchange (PDX) is Apache Geode’s data serialization protocol for cross-language objects and JSON data. When a PDX-serializable object is serialized for the first time, a PdxType is generated for it. The PdxType represents the data structure of that object and is used to serialize and deserialize it.
+
+PdxTypes can proliferate in the TypeRegistry especially with unstructured JSON data. The structure of a class is the same for every instance of that class. The same is not necessarily true of JSON data. If uniquely-structured JSON data is added to a Region, it generates a PdxType specific to it. If that data is then deleted, its PdxType remains in the TypeRegistry and becomes an unused orphan.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 start locator --name=locator1
 
 
@@ -5,6 +29,7 @@ start locator --name=locator1
 
 configure pdx --read-serialized=true
 
+configure pdx --read-serialized=true --disk-store=pdx_store
 
 
 
