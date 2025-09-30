@@ -52,6 +52,7 @@ gfsh>
 
 
 create region --name=exampleRegion1 --type=REPLICATE_PERSISTENT --disk-store=data_store
+create region --name=People --type=REPLICATE_PERSISTENT --disk-store=data_store
 
 
 
