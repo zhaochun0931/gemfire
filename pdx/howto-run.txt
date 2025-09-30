@@ -74,3 +74,40 @@ gfsh>
 
 
 
+
+
+
+
+
+
+
+
+shutdown --include-locators=yes
+
+
+gfsh>describe offline-disk-store --name=data_store --disk-dirs=/root/pdx/server1/ --pdx=true
+Regions in the disk store:
+  /People: -lru=none -concurrencyLevel=16 -initialCapacity=16 -loadFactor=0.75 -offHeap=false -compressor=none -statisticsEnabled=false
+PDX Types:
+PDX Enums:
+
+
+gfsh>
+gfsh>
+gfsh>
+gfsh>describe offline-disk-store --name=pdx_store --disk-dirs=/root/pdx/server1/ --pdx=true
+Regions in the disk store:
+  /PdxTypes: -lru=none -concurrencyLevel=16 -initialCapacity=16 -loadFactor=0.75 -offHeap=false -compressor=none -statisticsEnabled=false
+PDX Types:
+  App$Person: id=8334571
+    String name;
+    int age;
+PDX Enums:
+
+
+gfsh>
+
+
+
+
+
