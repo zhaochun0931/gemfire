@@ -67,3 +67,10 @@ server1 | ERROR  | Disk store is currently in use by these regions [/PdxTypes]
 
 gfsh>
 
+
+
+
+
+
+
+
