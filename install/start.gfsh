@@ -1,6 +1,3 @@
-mkdir gemfire
-cd gemfire
-
 start locator --name=locator1
 start server --name=server1
 start server --name=server2 --server-port=0
@@ -14,35 +11,3 @@ create region --name=test1 --type=PARTITION_REDUNDANT --redundant-copies=2
 
 
 list regions
-
-
-put --region=test1 --key=1 --value=hello1
-
-
-
-
-locate entry --key=1 --region=/test1
-
-query --query="select distinct p.bucketId as bucketId,p.bucketAdvisor.primary.equals(o) as isPrimary, o.name from (select * from /test1.cache.rootRegions r where r.name='test1') r, r.regionAdvisor.proxyBucketArray p, p.bucketOwners o order by bucketId,isPrimary desc limit 1000000"
-
-
-# with redundancy zone
-query --query="select distinct p.bucketId as bucketId,p.bucketAdvisor.primary.equals(o) as isPrimary,r.distributionManager.getRedundancyZone(o) as zone, o.name from (select * from /test1.cache.rootRegions r where r.name='test1') r, r.regionAdvisor.proxyBucketArray p, p.bucketOwners o order by bucketId,isPrimary desc, zone desc limit 1000000"
-
-
-
-
-
-
-
-
-
-
-
-
-alter runtime --enable-statistics=yes --statistic-archive-file=server1.gfs
-
-
-
-
-PARTITION_PERSISTENT
