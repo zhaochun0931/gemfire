@@ -24,7 +24,62 @@ start server --name=server
 create region --name=example-region --type=REPLICATE
 
 deploy --jar=function.jar
+
+list deployed
+
+gfsh>list deployed
+Member  |           JAR           | JAR Location
+------- | ----------------------- | --------------------------------------------------------------------------
+server1 | my-app-1.0-SNAPSHOT.jar | /root/function/server1/deployments/my-app/main/lib/my-app-1.0-SNAPSHOT.jar
+server2 | my-app-1.0-SNAPSHOT.jar | /root/function/server2/deployments/my-app/main/lib/my-app-1.0-SNAPSHOT.jar
+server3 | my-app-1.0-SNAPSHOT.jar | /root/function/server3/deployments/my-app/main/lib/my-app-1.0-SNAPSHOT.jar
+
+gfsh>
+
+
+
+
+
 list functions
+
+gfsh>list functions
+Member  | Function
+------- | ---------------------------------
+server1 | CountAllRegionsFunction
+server1 | ListRegionsFunction
+server1 | RegionEntryAndBucketCountFunction
+server1 | RegionEntryCountFunction
+server2 | CountAllRegionsFunction
+server2 | ListRegionsFunction
+server2 | RegionEntryAndBucketCountFunction
+server2 | RegionEntryCountFunction
+server3 | CountAllRegionsFunction
+server3 | ListRegionsFunction
+server3 | RegionEntryAndBucketCountFunction
+server3 | RegionEntryCountFunction
+
+gfsh>
+
+
+
+execute function --id=RegionEntryAndBucketCountFunction
+
+gfsh>execute function --id=RegionEntryAndBucketCountFunction
+Member  | Status | Message
+------- | ------ | -----------------------------------------------------------------------------------
+server1 | OK     | [[/test1 => entries=0, /test3 => entries=2, primaryBuckets=1, /test2 => entries=0]]
+server2 | OK     | [[/test2 => entries=0, /test3 => entries=2, primaryBuckets=0, /test1 => entries=0]]
+server3 | OK     | [[/test2 => entries=0, /test3 => entries=2, primaryBuckets=1, /test1 => entries=0]]
+
+gfsh>
+
+
+
+
+
+
+
+
 
 
 # open another terminal and run
