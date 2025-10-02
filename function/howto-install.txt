@@ -23,7 +23,9 @@ start locator --name=locator
 start server --name=server
 create region --name=example-region --type=REPLICATE
 
-deploy --jar=function.jar
+deploy --jar=/root/pdx/my-app/target/my-app-1.0-SNAPSHOT.jar
+
+
 
 list deployed
 
