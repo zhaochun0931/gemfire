@@ -25,7 +25,6 @@ services:
       - "7070:7070"
       - "8001:8001"
     command: gfsh start locator --name=gf-locator1 --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/* --J=-Dgemfire.prometheus.metrics.emission=Default --J=-Dgemfire.prometheus.metrics.port=8001
-
     restart: unless-stopped
 
   gf-locator2:
