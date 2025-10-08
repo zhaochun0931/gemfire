@@ -120,7 +120,7 @@ services:
     container_name: prometheus
     hostname: prometheus
     volumes:
-      - ./prometheus.yaml:/etc/prometheus/prometheus.yml
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
       - ./prometheus-data:/prometheus
     ports:
       - "9090:9090"
