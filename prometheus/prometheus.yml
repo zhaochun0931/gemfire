@@ -26,6 +26,9 @@ scrape_configs:
 
     static_configs:
       - targets: ['gf-locator1:8001']
+    fallback_scrape_protocol: PrometheusText0.0.4
+
+
 
   - job_name: 'gf-locator2'
          # metrics_path defaults to '/metrics'
@@ -33,6 +36,9 @@ scrape_configs:
 
     static_configs:
       - targets: ['gf-locator2:8002']
+    fallback_scrape_protocol: PrometheusText0.0.4
+
+
 
   - job_name: 'gf-server1'
          # metrics_path defaults to '/metrics'
@@ -40,6 +46,9 @@ scrape_configs:
 
     static_configs:
       - targets: ['gf-server1:8003']
+    fallback_scrape_protocol: PrometheusText0.0.4
+
+
 
   - job_name: 'gf-server2'
          # metrics_path defaults to '/metrics'
@@ -47,6 +56,9 @@ scrape_configs:
 
     static_configs:
       - targets: ['gf-server2:8004']
+    fallback_scrape_protocol: PrometheusText0.0.4
+
+
 
   - job_name: 'gf-server3'
          # metrics_path defaults to '/metrics'
@@ -54,3 +66,4 @@ scrape_configs:
 
     static_configs:
       - targets: ['gf-server3:8005']
+    fallback_scrape_protocol: PrometheusText0.0.4
