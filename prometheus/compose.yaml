@@ -128,6 +128,22 @@ services:
     networks:
       - gf-network
 
+
+  maven:
+    image: arm64v8/maven:3.9-amazoncorretto-24
+    container_name: maven
+    working_dir: /workspace
+    networks:
+      - gf-network
+    volumes:
+      - ./my-app:/workspace        # mount your project folder
+      - ${HOME}/.m2:/root/.m2          # cache Maven dependencies
+    command: tail -f /dev/null   # keep container alive
+    stdin_open: true
+    tty: true
+
+
+
 networks:
   gf-network:
     driver: bridge
