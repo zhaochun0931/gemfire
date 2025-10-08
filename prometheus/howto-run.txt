@@ -12,12 +12,16 @@ gfsh
 start locator --name=locator1 --classpath=$GEMFIRE_HOME/tools/Modules/gemfire-prometheus-metrics/* --J=-Dgemfire.prometheus.metrics.emission=Default \
 --J=-Dgemfire.prometheus.metrics.host=localhost --J=-Dgemfire.prometheus.metrics.port=8001
 
-start server --name=server1 --classpath=$GEMFIRE_HOME/tools/Modules/gemfire-prometheus-metrics/* --J=-Dgemfire.prometheus.metrics.emission=Default \
+start server --name=server2 --classpath=$GEMFIRE_HOME/tools/Modules/gemfire-prometheus-metrics/* --J=-Dgemfire.prometheus.metrics.emission=Default \
 --J=-Dgemfire.prometheus.metrics.host=localhost --J=-Dgemfire.prometheus.metrics.port=8002
 
+start server --name=server3 --server-port=0 --classpath=$GEMFIRE_HOME/tools/Modules/gemfire-prometheus-metrics/* --J=-Dgemfire.prometheus.metrics.emission=Default \
+--J=-Dgemfire.prometheus.metrics.host=localhost --J=-Dgemfire.prometheus.metrics.port=8003
 
+start server --name=server4 --server-port= 0 --classpath=$GEMFIRE_HOME/tools/Modules/gemfire-prometheus-metrics/* --J=-Dgemfire.prometheus.metrics.emission=Default \
+--J=-Dgemfire.prometheus.metrics.host=localhost --J=-Dgemfire.prometheus.metrics.port=8004
 
-
+alter runtime --enable-statistics=1 --statistic-archive-file=./mystats.gfs
 
 
 
