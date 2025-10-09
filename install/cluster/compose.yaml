@@ -1,25 +1,9 @@
 services:
 
-  openldap:
-    image: bitnami/openldap:latest
-    container_name: openldap
-    hostname: openldap
-    restart: unless-stopped
-    networks:
-      - gf-network
-    environment:
-      LDAP_ADMIN_USERNAME: admin
-      LDAP_ADMIN_PASSWORD: password
-      LDAP_USERS: user01,user02
-      LDAP_PASSWORDS: password,password
-      LDAP_ROOT: dc=example,dc=com
-      LDAP_ADMIN_DN: cn=admin,dc=example,dc=com
-    ports:
-      - "1389:1389"
-
   gemfire-management-console:
     image: registry.packages.broadcom.com/gemfire-management-console/gemfire-management-console:1.3.0
     container_name: gemfire-management-console
+    hostname: gmc
     ports:
       - "8080:8080"
     restart: unless-stopped
@@ -29,6 +13,7 @@ services:
   gf-locator1:
     image: gemfire/gemfire:9.15.6
     container_name: gf-locator1
+    hostname: gf-locator1
     environment:
       - ACCEPT_TERMS=y
     networks:
@@ -38,12 +23,14 @@ services:
     ports:
       - "10334:10334"
       - "7070:7070"
-    command: gfsh start locator --name=gf-locator1
+      - "8001:8001"
+    command: gfsh start locator --name=gf-locator1 --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/* --J=-Dgemfire.prometheus.metrics.emission=Default --J=-Dgemfire.prometheus.metrics.port=8001
     restart: unless-stopped
 
   gf-locator2:
     image: gemfire/gemfire:9.15.6
     container_name: gf-locator2
+    hostname: gf-locator2
     environment:
       - ACCEPT_TERMS=y
     networks:
@@ -53,7 +40,8 @@ services:
     ports:
       - "10335:10334"
       - "7071:7070"
-    command: gfsh start locator --name=gf-locator2 --locators=gf-locator1[10334]
+      - "8002:8002"
+    command: gfsh start locator --name=gf-locator2 --locators=gf-locator1[10334] --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/* --J=-Dgemfire.prometheus.metrics.emission=Default --J=-Dgemfire.prometheus.metrics.port=8002
     depends_on:
       - gf-locator1
     restart: unless-stopped
@@ -61,6 +49,7 @@ services:
   gf-server1:
     image: gemfire/gemfire:9.15.6
     container_name: gf-server1
+    hostname: gf-server1
     environment:
       - ACCEPT_TERMS=y
     networks:
@@ -69,7 +58,8 @@ services:
       - ./gf-server1:/data
     ports:
       - "40404:40404"
-    command: gfsh start server --name=gf-server1 --locators=gf-locator1[10334]
+      - "8003:8003"
+    command: gfsh start server --name=gf-server1 --locators=gf-locator1[10334] --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/* --J=-Dgemfire.prometheus.metrics.emission=Default --J=-Dgemfire.prometheus.metrics.port=8003
     depends_on:
       - gf-locator1
     restart: unless-stopped
@@ -77,6 +67,7 @@ services:
   gf-server2:
     image: gemfire/gemfire:9.15.6
     container_name: gf-server2
+    hostname: gf-server2
     environment:
       - ACCEPT_TERMS=y
     networks:
@@ -85,7 +76,8 @@ services:
       - ./gf-server2:/data
     ports:
       - "40405:40404"
-    command: gfsh start server --name=gf-server2 --locators=gf-locator1[10334]
+      - "8004:8004"
+    command: gfsh start server --name=gf-server2 --locators=gf-locator1[10334] --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/* --J=-Dgemfire.prometheus.metrics.emission=Default --J=-Dgemfire.prometheus.metrics.port=8004
     depends_on:
       - gf-locator1
     restart: unless-stopped
@@ -93,6 +85,7 @@ services:
   gf-server3:
     image: gemfire/gemfire:9.15.6
     container_name: gf-server3
+    hostname: gf-server3                # specify the hostname
     environment:
       - ACCEPT_TERMS=y
     networks:
@@ -101,9 +94,48 @@ services:
       - ./gf-server3:/data
     ports:
       - "40406:40404"
-    command: gfsh start server --name=gf-server3 --locators=gf-locator1[10334]
+      - "8005:8005"
+    command: gfsh start server --name=gf-server3 --locators=gf-locator1[10334] --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/* --J=-Dgemfire.prometheus.metrics.emission=Default --J=-Dgemfire.prometheus.metrics.port=8005
     depends_on:
       - gf-locator1
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    hostname: grafana
+    ports:
+      - "3000:3000"   # access Grafana via http://localhost:3000
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    networks:
+      - gf-network
+    volumes:
+      - ./grafana-data:/var/lib/grafana
+    restart: unless-stopped
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    hostname: prometheus
+    user: "0:0"
+    volumes:
+      - ./prometheus.yaml:/etc/prometheus/prometheus.yml
+      - ./prometheus-data:/prometheus
+    ports:
+      - "9090:9090"
+    restart: unless-stopped
+    networks:
+      - gf-network
+
+  busybox:
+    image: busybox:latest
+    container_name: busybox
+    hostname: busybox
+    command: sh -c "while true; do sleep 3600; done"
+    networks:
+      - gf-network
     restart: unless-stopped
 
 networks:
