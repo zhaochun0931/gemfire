@@ -87,6 +87,9 @@ create region --name=exampleRegion2 --type=REPLICATE_PERSISTENT --disk-store=dat
 create region --name=People --type=REPLICATE_PERSISTENT --disk-store=data_store
 
 
+query --query='select * from /exampleRegion1'
+
+
 
 query --query='select * from /PdxTypes' --member=server1
 
