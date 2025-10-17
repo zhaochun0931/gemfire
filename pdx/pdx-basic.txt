@@ -1,3 +1,21 @@
+🧠 What’s Happening
+
+/PdxTypes is an internal, hidden region used by GemFire to store PDX (Portable Data eXchange) type metadata.
+
+Every time you serialize a new PDX class, GemFire writes its type definition into /PdxTypes and persists it if PDX persistence is enabled.
+
+
+
+
+
+
+
+
+
+
+
+
+
 It’s a PDX type metadata entry that is still registered in the cluster’s type registry, but no longer has any live objects in regions using it.
 
 Background
