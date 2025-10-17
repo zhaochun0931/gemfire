@@ -240,6 +240,17 @@ gfsh>
 
 # delete the pdx_store will cause the following error:
 
+
+
+gfsh>query --query='select * from /exampleRegion1'
+Result  : false
+Message : Unknown pdx type=12117126
+
+gfsh>
+
+
+
+
 [info 2025/10/17 14:26:29.292 UTC server1 <Function Execution Processor2> tid=0x48] Exception occurred:
 java.lang.IllegalStateException: Unknown pdx type=12117126
 	at org.apache.geode.internal.InternalDataSerializer.readPdxSerializable(InternalDataSerializer.java:3125)
