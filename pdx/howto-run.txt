@@ -113,6 +113,39 @@ gfsh>
 
 
 
+[info 2025/10/17 13:14:27.407 UTC server1 <main> tid=0x1] Initializing region PdxTypes
+
+[info 2025/10/17 13:14:27.410 UTC server1 <main> tid=0x1] Region /PdxTypes recovered from the local disk. Old persistent ID: /172.16.204.135:/root/pdx/server1/. created at timestamp 1760705959651 version 0 diskStoreId 1819bc775ab045d6-86a923be2d87725b name server1, new persistent ID 172.16.204.135/172.16.204.135:/root/pdx/server1/. created at timestamp 1760706867406 version 0 diskStoreId 1819bc775ab045d6-86a923be2d87725b name server1
+
+[info 2025/10/17 13:14:27.412 UTC server1 <main> tid=0x1] Initialization of region PdxTypes completed
+
+
+
+
+
+
+
+[info 2025/10/17 13:03:38.647 UTC server1 <ServerConnection on port 40404 Thread 2> tid=0x4e] Adding new type: PdxType[dsid=0, typenum=7868271
+        name=Person
+        fields=[
+        id:String:0:idx0(relativeOffset)=0:idx1(vlfOffsetIndex)=-1
+        name:String:1:1:idx0(relativeOffset)=0:idx1(vlfOffsetIndex)=1
+        age:int:2:1:idx0(relativeOffset)=-4:idx1(vlfOffsetIndex)=-1]]
+
+[info 2025/10/17 13:03:38.669 UTC server1 <ServerConnection on port 40404 Thread 2> tid=0x4e] Caching PdxType[dsid=0, typenum=7868271
+        name=Person
+        fields=[
+        id:String:0:idx0(relativeOffset)=0:idx1(vlfOffsetIndex)=-1
+        name:String:1:1:idx0(relativeOffset)=0:idx1(vlfOffsetIndex)=1
+        age:int:2:1:idx0(relativeOffset)=-4:idx1(vlfOffsetIndex)=-1]]
+
+
+
+
+
+
+
+
 
 
 
