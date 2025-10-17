@@ -9,6 +9,30 @@ PdxTypes can proliferate in the TypeRegistry especially with unstructured JSON d
 
 
 
+[error 2025/10/17 14:36:18.731 UTC server1 <Function Execution Processor2> tid=0x48] The region PdxTypes is an internal region that a client is never allowed to access
+org.apache.geode.security.NotAuthorizedException: The region PdxTypes is an internal region that a client is never allowed to access
+	at org.apache.geode.internal.cache.InternalCacheForClientAccess.checkForInternalRegion(InternalCacheForClientAccess.java:142)
+	at org.apache.geode.internal.cache.InternalCacheForClientAccess.getRegion(InternalCacheForClientAccess.java:157)
+	at org.apache.geode.management.internal.cli.functions.ExportDataFunction.executeFunction(ExportDataFunction.java:65)
+	at org.apache.geode.management.cli.CliFunction.execute(CliFunction.java:41)
+	at org.apache.geode.internal.cache.MemberFunctionStreamingMessage.process(MemberFunctionStreamingMessage.java:205)
+	at org.apache.geode.distributed.internal.DistributionMessage.scheduleAction(DistributionMessage.java:349)
+	at org.apache.geode.distributed.internal.DistributionMessage$1.run(DistributionMessage.java:414)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.geode.distributed.internal.ClusterOperationExecutors.runUntilShutdown(ClusterOperationExecutors.java:517)
+	at org.apache.geode.distributed.internal.ClusterOperationExecutors.doFunctionExecutionThread(ClusterOperationExecutors.java:421)
+	at org.apache.geode.logging.internal.executors.LoggingThreadFactory.lambda$newThread$0(LoggingThreadFactory.java:124)
+	at java.lang.Thread.run(Thread.java:750)
+
+
+
+
+
+
+
+
+
 
 
 
