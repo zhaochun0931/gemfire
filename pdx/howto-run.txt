@@ -24,7 +24,11 @@ docker run -it -d -v $(pwd)/gf-server2:/data -e 'ACCEPT_TERMS=y' --rm --name gf-
 
 
 
+docker exec -it gf-locator gfsh
 
+connect
+
+list members
 
 
 
