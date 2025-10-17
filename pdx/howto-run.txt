@@ -63,6 +63,10 @@ start server --name=server1
 create disk-store --name=pdx_store --dir=. --max-oplog-size=10
 create disk-store --name=data_store --dir=. --max-oplog-size=10
 
+list disk-stores
+
+
+
 gfsh>list disk-stores
 Member Name |               Member Id                | Disk Store Name | Disk Store ID
 ----------- | -------------------------------------- | --------------- | ------------------------------------
@@ -70,6 +74,8 @@ server1     | 172.16.204.135(server1:6065)<v1>:56935 | data_store      | 9c3509e
 server1     | 172.16.204.135(server1:6065)<v1>:56935 | pdx_store       | a25aa90f-6591-4cea-9a8a-09f0d4779c98
 
 gfsh>
+
+
 
 
 
