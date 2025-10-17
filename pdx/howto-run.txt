@@ -88,7 +88,7 @@ create region --name=People --type=REPLICATE_PERSISTENT --disk-store=data_store
 
 
 
-
+query --query='select * from /PdxTypes' --member=server1
 
 gfsh>query --query='select * from /PdxTypes' --member=server1
 Result : true
