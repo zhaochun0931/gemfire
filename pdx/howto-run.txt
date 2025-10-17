@@ -116,6 +116,23 @@ gfsh>
 
 
 
+gfsh>query --query='select * from /PdxTypes' --member=server1
+Result : true
+Limit  : 100
+Rows   : 2
+
+ typeId  | className | noDomainClass | hasDeletedField |           fields           | typeNum  | undeletedFieldCount |        sortedFields        |     fieldNames      |    sortedIdentityFields    | variableLengthFieldCount | fieldCount | dsid
+-------- | --------- | ------------- | --------------- | -------------------------- | -------- | ------------------- | -------------------------- | ------------------- | -------------------------- | ------------------------ | ---------- | ----
+12117126 | "Student" | false         | false           | [{"fieldName":"id","fiel.. | 12117126 | 0                   | [{"fieldName":"age","fie.. | ["id","name","age"] | [{"fieldName":"age","fie.. | 1                        | 3          | 0
+6994697  | "Person"  | false         | false           | [{"fieldName":"id","fiel.. | 6994697  | 0                   | [{"fieldName":"age","fie.. | ["id","name","age"] | [{"fieldName":"age","fie.. | 1                        | 3          | 0
+
+gfsh>
+
+
+
+
+
+
 [info 2025/10/17 13:14:27.407 UTC server1 <main> tid=0x1] Initializing region PdxTypes
 
 [info 2025/10/17 13:14:27.410 UTC server1 <main> tid=0x1] Region /PdxTypes recovered from the local disk. Old persistent ID: /172.16.204.135:/root/pdx/server1/. created at timestamp 1760705959651 version 0 diskStoreId 1819bc775ab045d6-86a923be2d87725b name server1, new persistent ID 172.16.204.135/172.16.204.135:/root/pdx/server1/. created at timestamp 1760706867406 version 0 diskStoreId 1819bc775ab045d6-86a923be2d87725b name server1
