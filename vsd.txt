@@ -1,6 +1,7 @@
 vsd will convert automatially the time in the gfs file to your local timezone
 
 
+export TZ=Etc/UTC vsd
 
 export TZ=America/New_York vsd
 ../../vsd5.6.1-arm64.Darwin/bin/vsd */*/*gfs
