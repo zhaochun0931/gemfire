@@ -10,7 +10,7 @@
 
 
 
-    	<region name="exampleRegion">
+    <region name="exampleRegion">
 		<region-attributes refid="CACHING_PROXY" pool-name="gemfirePool">
 		</region-attributes>
 	</region>
