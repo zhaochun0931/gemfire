@@ -18,6 +18,30 @@ create region --name=exampleRegion --type=REPLICATE
 
 
 
+
+
+
+
+
+├── cache.xml
+├── pom.xml
+└── src
+    ├── main
+    │   └── java
+    │       └── com
+    │           └── mycompany
+    │               └── app
+    │                   └── GemfireClient.java
+    └── test
+        └── java
+            └── com
+                └── mycompany
+                    └── app
+                        └── AppTest.java
+
+
+
+
 docker exec -it gf-client bash
 
 yum install tree vi -y
