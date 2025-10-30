@@ -2,7 +2,7 @@ import org.apache.geode.cache.Region;
 import org.apache.geode.cache.client.ClientCache;
 import org.apache.geode.cache.client.ClientCacheFactory;
 
-public class gfbasicclient {
+public class GemfireClient {
     public static void main(String[] args) {
         ClientCache cache = new ClientCacheFactory()
                 .set("cache-xml-file", "/root/client-cache.xml")
