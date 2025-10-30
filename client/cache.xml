@@ -5,7 +5,7 @@
               version="1.0">
 
     <pool name="gemfirePool">
-        <locator host="localhost" port="10334"/>
+        <locator host="gf-locator1" port="10334"/>
     </pool>
 
 
