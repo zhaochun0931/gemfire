@@ -1,0 +1,12 @@
+docker compose up
+
+
+
+
+docker exec -it gf-locator1 gfsh
+
+connect
+
+list members
+
+
