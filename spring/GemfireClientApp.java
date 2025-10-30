@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Bean;
 public class GemfireClientApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(HelloworldApplication.class, args);
+        SpringApplication.run(GemfireClientApp.class, args);
     }
 
     @Bean
