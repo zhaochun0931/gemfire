@@ -1,4 +1,4 @@
-package com.example.HelloworldApplication;
+package com.example.GemfireClientApp;
 
 import org.apache.geode.cache.Region;
 import org.apache.geode.cache.client.ClientCache;
