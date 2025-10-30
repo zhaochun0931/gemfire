@@ -1,0 +1,141 @@
+services:
+
+  gemfire-management-console:
+    image: registry.packages.broadcom.com/gemfire-management-console/gemfire-management-console:1.3.0
+    container_name: gemfire-management-console
+    hostname: gmc
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    networks:
+      - gf-network
+
+  gf-locator1:
+    image: gemfire/gemfire:9.15.6
+    container_name: gf-locator1
+    hostname: gf-locator1
+    environment:
+      - ACCEPT_TERMS=y
+    networks:
+      - gf-network
+    volumes:
+      - ./gf-locator1:/data
+    ports:
+      - "10334:10334"
+      - "7070:7070"
+      - "8001:8001"
+    command: gfsh start locator --name=gf-locator1 --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/* --J=-Dgemfire.prometheus.metrics.emission=Default --J=-Dgemfire.prometheus.metrics.port=8001
+    restart: unless-stopped
+
+  gf-locator2:
+    image: gemfire/gemfire:9.15.6
+    container_name: gf-locator2
+    hostname: gf-locator2
+    environment:
+      - ACCEPT_TERMS=y
+    networks:
+      - gf-network
+    volumes:
+      - ./gf-locator2:/data
+    ports:
+      - "10335:10334"
+      - "7071:7070"
+      - "8002:8002"
+    command: gfsh start locator --name=gf-locator2 --locators=gf-locator1[10334] --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/* --J=-Dgemfire.prometheus.metrics.emission=Default --J=-Dgemfire.prometheus.metrics.port=8002
+    depends_on:
+      - gf-locator1
+    restart: unless-stopped
+
+  gf-server1:
+    image: gemfire/gemfire:9.15.6
+    container_name: gf-server1
+    hostname: gf-server1
+    environment:
+      - ACCEPT_TERMS=y
+    networks:
+      - gf-network
+    volumes:
+      - ./gf-server1:/data
+    ports:
+      - "40404:40404"
+      - "8003:8003"
+    command: gfsh start server --name=gf-server1 --locators=gf-locator1[10334] --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/* --J=-Dgemfire.prometheus.metrics.emission=Default --J=-Dgemfire.prometheus.metrics.port=8003
+    depends_on:
+      - gf-locator1
+    restart: unless-stopped
+
+  gf-server2:
+    image: gemfire/gemfire:9.15.6
+    container_name: gf-server2
+    hostname: gf-server2
+    environment:
+      - ACCEPT_TERMS=y
+    networks:
+      - gf-network
+    volumes:
+      - ./gf-server2:/data
+    ports:
+      - "40405:40404"
+      - "8004:8004"
+    command: gfsh start server --name=gf-server2 --locators=gf-locator1[10334] --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/* --J=-Dgemfire.prometheus.metrics.emission=Default --J=-Dgemfire.prometheus.metrics.port=8004
+    depends_on:
+      - gf-locator1
+    restart: unless-stopped
+
+  gf-server3:
+    image: gemfire/gemfire:9.15.6
+    container_name: gf-server3
+    hostname: gf-server3                # specify the hostname
+    environment:
+      - ACCEPT_TERMS=y
+    networks:
+      - gf-network
+    volumes:
+      - ./gf-server3:/data
+    ports:
+      - "40406:40404"
+      - "8005:8005"
+    command: gfsh start server --name=gf-server3 --locators=gf-locator1[10334] --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/* --J=-Dgemfire.prometheus.metrics.emission=Default --J=-Dgemfire.prometheus.metrics.port=8005
+    depends_on:
+      - gf-locator1
+    restart: unless-stopped
+
+  busybox:
+    image: busybox:latest
+    container_name: busybox
+    hostname: busybox
+    command: sh -c "while true; do sleep 3600; done"
+    networks:
+      - gf-network
+    restart: unless-stopped
+
+  gf-client-maven:
+    image: arm64v8/maven:3.9-amazoncorretto-24
+    container_name: gf-client-maven
+    working_dir: /usr/src/mymaven
+    volumes:
+      - ./:/usr/src/mymaven      # Mount current project directory
+      - ~/.m2:/root/.m2          # Mount local Maven repo
+    tty: true                     # Keep STDIN open for interactive bash
+    stdin_open: true
+    command: bash
+    networks:
+      - gf-network
+
+  gf-client-gradle:
+    image: gradle:8.10-jdk17
+    container_name: gf-client-gradle
+    user: gradle
+    working_dir: /home/gradle/project
+    volumes:
+      - ./:/home/gradle/project
+    tty: true
+    stdin_open: true
+    command: bash
+    networks:
+      - gf-network
+
+
+networks:
+  gf-network:
+    driver: bridge
