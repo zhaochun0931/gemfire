@@ -1,0 +1,13 @@
+docker compose up
+
+
+
+docker exec -it gf-client-gradle bash
+
+mkdir gf-client
+
+cd gf-client/
+
+gradle init --type java-application
+
+
