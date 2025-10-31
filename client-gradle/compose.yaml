@@ -125,7 +125,7 @@ services:
   gf-client-gradle:
     image: gradle:8.10-jdk17
     container_name: gf-client-gradle
-    user: gradle
+    # user: gradle
     working_dir: /home/gradle/project
     volumes:
       - ./:/home/gradle/project
