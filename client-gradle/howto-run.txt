@@ -2,6 +2,22 @@ docker compose up
 
 
 
+
+docker exec -it gf-locator1 gfsh
+
+connect
+
+list members
+
+create region --name=exampleRegion --type=REPLICATE
+
+
+
+
+
+
+
+
 docker exec -it gf-client-gradle bash
 
 mkdir gf-client
