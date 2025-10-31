@@ -1,0 +1,30 @@
+repositories {
+    // Use Maven Central for resolving dependencies.
+
+    mavenCentral()
+
+
+    maven {
+        credentials {
+        username "$gemfireRepoUsername"
+        password "$gemfireRepoPassword"
+        }
+
+        url = uri("https://packages.broadcom.com/artifactory/gemfire/")
+    }
+
+}
+
+
+
+
+
+dependencies {
+
+
+  implementation "com.vmware.gemfire:gemfire-core:10.2.0"
+  implementation "com.vmware.gemfire:gemfire-logging:10.2.0"
+  implementation "com.vmware.gemfire:gemfire-cq:10.2.0"
+
+
+}
