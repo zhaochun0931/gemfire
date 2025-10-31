@@ -21,10 +21,9 @@ repositories {
 
 dependencies {
 
-
-  implementation "com.vmware.gemfire:gemfire-core:10.2.0"
-  implementation "com.vmware.gemfire:gemfire-logging:10.2.0"
-  implementation "com.vmware.gemfire:gemfire-cq:10.2.0"
+    implementation "com.vmware.gemfire:gemfire-core:10.2.0"
+    implementation "com.vmware.gemfire:gemfire-logging:10.2.0"
+    implementation "com.vmware.gemfire:gemfire-cq:10.2.0"
 
 
 }
