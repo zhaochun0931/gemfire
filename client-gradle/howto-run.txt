@@ -8,6 +8,14 @@ mkdir gf-client
 
 cd gf-client/
 
-gradle init --type java-application
 
 
+gradle init
+
+or 
+
+gradle init --type java-application --dsl groovy
+
+
+
+copy the build.gradle and gradle.properties to your project directory (app)
