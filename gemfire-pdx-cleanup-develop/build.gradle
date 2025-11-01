@@ -1,0 +1,40 @@
+plugins {
+  id 'java-library'
+}
+
+group = 'dev.gemfire'
+version = '1.0.0'
+
+ext {
+  gemfireVersion = '10.1.4'
+}
+
+repositories {
+  mavenCentral()
+
+  maven {
+    name = 'Broadcom Repository'
+    url = project.findProperty("commercialRepository") ?: "https://packages.broadcom.com/artifactory/gemfire"
+    credentials {
+      username = System.getenv("COMMERCIAL_MAVEN_USERNAME")
+      password = System.getenv("COMMERCIAL_MAVEN_PASSWORD")
+    }
+  }
+}
+
+dependencies {
+  api("com.vmware.gemfire:gemfire-core:${gemfireVersion}")
+
+  implementation("com.vmware.gemfire:gemfire-membership:${gemfireVersion}")
+  implementation("com.vmware.gemfire:gemfire-logging:${gemfireVersion}")
+  implementation("com.vmware.gemfire:gemfire-logging:${gemfireVersion}")
+
+  testImplementation('org.assertj:assertj-core:3.24.2')
+  testImplementation("com.vmware.gemfire:gemfire-junit:${gemfireVersion}")
+  testImplementation("com.vmware.gemfire:gemfire-dunit:${gemfireVersion}")
+  testImplementation("com.vmware.gemfire:gemfire-wan:${gemfireVersion}")
+}
+
+test {
+  useJUnit()
+}
