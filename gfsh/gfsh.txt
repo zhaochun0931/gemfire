@@ -3,3 +3,6 @@ gfsh
 start locator --name=locator1
 
 start server --name=server1 --server-port=0
+
+create region --name=exampleRegion --type=REPLICATE
+
