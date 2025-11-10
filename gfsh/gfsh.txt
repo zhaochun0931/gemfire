@@ -4,5 +4,13 @@ start locator --name=locator1
 
 start server --name=server1 --server-port=0
 
-create region --name=exampleRegion --type=REPLICATE
+start server --name=server2 --server-port=0
 
+create region --name=exampleRegion --type=REPLICATE_PERSISTENT
+
+
+
+
+stop server --name=server2
+
+stop server --name=server1
