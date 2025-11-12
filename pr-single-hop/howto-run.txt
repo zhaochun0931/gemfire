@@ -1,5 +1,18 @@
 docker compose up
 
 
+
+
+# create the region
+
+docker exec -it gf-locator1 gfsh
+
+create region --name=exampleRegion --type=PARTITION_PERSISTENT
+
+
+
+
+
+
 docker exec -it gf-client bash
 
