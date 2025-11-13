@@ -1,0 +1,18 @@
+start locator --name=locator1
+
+
+start server --name=server1 --group=group1
+
+start server --name=server2 --server-port=0 --group=group2
+
+start server --name=server3 --server-port=0 --group=group1
+
+
+describe member --name=server1
+
+describe member --name=server2
+
+describe member --name=server3
+
+create region --name=exampleRegion --type=REPLICATE
+
