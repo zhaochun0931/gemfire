@@ -16,3 +16,8 @@ describe member --name=server3
 
 create region --name=exampleRegion --type=REPLICATE
 
+
+
+put --key=1 --value=hello1 --region=/exampleRegion
+
+
