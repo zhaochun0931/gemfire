@@ -19,9 +19,12 @@ jar cvf function.jar manifest.mf Example.class PrimeNumber.class
 
 
 
-start locator --name=locator
-start server --name=server
-create region --name=example-region --type=REPLICATE
+start locator --name=locator1
+start server --name=server1
+start server --name=server2 --server-port=0
+
+
+create region --name=exampleRegion --type=REPLICATE
 
 deploy --jar=/root/pdx/my-app/target/my-app-1.0-SNAPSHOT.jar
 
