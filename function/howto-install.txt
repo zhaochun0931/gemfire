@@ -26,6 +26,7 @@ start server --name=server2 --server-port=0
 
 create region --name=exampleRegion --type=REPLICATE
 
+
 deploy --jar=/root/pdx/my-app/target/my-app-1.0-SNAPSHOT.jar
 
 
@@ -89,5 +90,46 @@ gfsh>
 
 # open another terminal and run
 mvn exec:java -Dexec.mainClass=Example
+
+
+
+
+
+
+
+list deployed
+
+list functions
+
+
+
+
+gfsh>list deployed
+Member  |   JAR   | JAR Location
+------- | ------- | --------------------------------------------------
+server1 | app.jar | /root/xxx/server1/deployments/app/main/lib/app.jar
+server2 | app.jar | /root/xxx/server2/deployments/app/main/lib/app.jar
+
+gfsh>
+gfsh>list functions
+Member  | Function
+------- | --------
+server1 | App
+server2 | App
+
+
+
+
+execute function --id=App --arguments=/exampleRegion
+
+gfsh>execute function --id=App --arguments=/exampleRegion
+Member  | Status | Message
+------- | ------ | -------
+server1 | OK     | [1]
+server2 | OK     | [1]
+
+gfsh>
+
+
 
 
