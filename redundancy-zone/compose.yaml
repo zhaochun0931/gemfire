@@ -93,7 +93,7 @@ services:
     command: |
       gfsh start server --name=gf-server2 --locators=gf-locator1[10334] \
       --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/* --J=-Dgemfire.prometheus.metrics.emission=Default --J=-Dgemfire.prometheus.metrics.port=8004 \
-      --properties-file=/data/config/rack1.properties
+      --properties-file=/data/config/rack2.properties
     depends_on:
       - gf-locator1
     restart: unless-stopped
@@ -113,7 +113,7 @@ services:
     ports:
       - "40406:40404"
       - "8005:8005"
-    command: gfsh start server --name=gf-server3 --locators=gf-locator1[10334] --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/* --J=-Dgemfire.prometheus.metrics.emission=Default --J=-Dgemfire.prometheus.metrics.port=8005 --properties-file=/data/config/rack2.properties
+    command: gfsh start server --name=gf-server3 --locators=gf-locator1[10334] --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/* --J=-Dgemfire.prometheus.metrics.emission=Default --J=-Dgemfire.prometheus.metrics.port=8005 --properties-file=/data/config/rack3.properties
     depends_on:
       - gf-locator1
     restart: unless-stopped
