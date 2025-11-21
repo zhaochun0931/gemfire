@@ -1,0 +1,67 @@
+docker compose up
+
+
+docker exec -it gf-locator1 gfsh
+
+connect
+
+list members
+
+
+
+
+
+
+create region --name=exampleRegion1 --type=REPLICATE_PERSISTENT
+create region --name=exampleRegion2 --type=REPLICATE_PERSISTENT
+
+
+put --key=key1 --value=hello1 --region=/exampleRegion1
+put --key=key2 --value=hello2 --region=/exampleRegion1
+put --key=key3 --value=hello3 --region=/exampleRegion1
+
+
+put --key=key1 --value=world1 --region=/exampleRegion2
+put --key=key2 --value=world2 --region=/exampleRegion2
+put --key=key3 --value=world3 --region=/exampleRegion2
+
+query --query='select * from /exampleRegion1'
+query --query='select * from /exampleRegion2'
+
+
+
+backup disk-store --dir=./backup-test
+
+
+gf-server3/backup-test
+└── 2025-11-21-00-58-39
+    └── gf_server3_gf_server3_1_v2_48282
+        ├── config
+        ├── diskstores
+        │   └── DEFAULT_bdb4b552abea4b6d-a36be7b45424f1dc
+        │       └── dir0
+        │           ├── BACKUPDEFAULT_3.crf
+        │           ├── BACKUPDEFAULT_3.drf
+        │           ├── BACKUPDEFAULT_3.krf
+        │           └── BACKUPDEFAULT.if
+        ├── README_FILE.txt
+        ├── restore.sh
+        └── user
+
+
+destroy region --name=/exampleRegion1
+destroy region --name=/exampleRegion2
+
+
+
+
+copy all the files in the dir0 to the current working directory of each cache server 
+
+docker compose up
+
+
+
+
+create region --name=exampleRegion1 --type=REPLICATE_PERSISTENT
+create region --name=exampleRegion2 --type=REPLICATE_PERSISTENT
+
