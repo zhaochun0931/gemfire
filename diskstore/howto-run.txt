@@ -53,13 +53,21 @@ destroy region --name=/exampleRegion1
 destroy region --name=/exampleRegion2
 
 
+docker compose down -v
+
+
+
+
+
+
+
+
+
 
 
 copy all the files in the dir0 to the current working directory of each cache server 
 
 docker compose up
-
-
 
 
 create region --name=exampleRegion1 --type=REPLICATE_PERSISTENT
