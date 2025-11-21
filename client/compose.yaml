@@ -109,9 +109,10 @@ services:
       - gf-network
     restart: unless-stopped
 
-  gf-client:
+  maven-client:
     image: arm64v8/maven:3.9-amazoncorretto-24
-    container_name: gf-client
+    container_name: maven-client
+    hostname: maven-client
     working_dir: /usr/src/mymaven
     volumes:
       - ./:/usr/src/mymaven      # Mount current project directory
