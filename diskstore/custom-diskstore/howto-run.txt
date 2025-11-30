@@ -24,6 +24,57 @@ create region --name=exampleRegion2 --type=REPLICATE_PERSISTENT --disk-store=myd
 
 
 
+gf-server1
+├── Accepted-terms-on-2025-11-30T04:41:54+00:00
+├── gf-server1
+├── gf-server1.log
+├── myds1
+│   ├── BACKUPmyds1_1.crf
+│   ├── BACKUPmyds1_1.drf
+│   ├── BACKUPmyds1.if
+│   └── DRLK_IFmyds1.lk
+├── myds2
+│   ├── BACKUPmyds2_1.crf
+│   ├── BACKUPmyds2_1.drf
+│   ├── BACKUPmyds2.if
+│   └── DRLK_IFmyds2.lk
+└── vf.gf.server.pid
+gf-server2
+├── Accepted-terms-on-2025-11-30T04:41:54+00:00
+├── gf-server2
+├── gf-server2.log
+├── myds1
+│   ├── BACKUPmyds1_1.crf
+│   ├── BACKUPmyds1_1.drf
+│   ├── BACKUPmyds1.if
+│   └── DRLK_IFmyds1.lk
+├── myds2
+│   ├── BACKUPmyds2_1.crf
+│   ├── BACKUPmyds2_1.drf
+│   ├── BACKUPmyds2.if
+│   └── DRLK_IFmyds2.lk
+└── vf.gf.server.pid
+gf-server3
+├── Accepted-terms-on-2025-11-30T04:41:54+00:00
+├── gf-server3
+├── gf-server3.log
+├── myds1
+│   ├── BACKUPmyds1_1.crf
+│   ├── BACKUPmyds1_1.drf
+│   ├── BACKUPmyds1.if
+│   └── DRLK_IFmyds1.lk
+├── myds2
+│   ├── BACKUPmyds2_1.crf
+│   ├── BACKUPmyds2_1.drf
+│   ├── BACKUPmyds2.if
+│   └── DRLK_IFmyds2.lk
+└── vf.gf.server.pid
+
+
+
+
+
+
 
 put --key=key1 --value=hello1 --region=/exampleRegion1
 put --key=key2 --value=hello2 --region=/exampleRegion1
