@@ -90,23 +90,64 @@ query --query='select * from /exampleRegion2'
 
 
 
-backup disk-store --dir=./backup-test
 
 
-gf-server3/backup-test
-└── 2025-11-21-00-58-39
-    └── gf_server3_gf_server3_1_v2_48282
-        ├── config
-        ├── diskstores
-        │   └── DEFAULT_bdb4b552abea4b6d-a36be7b45424f1dc
-        │       └── dir0
-        │           ├── BACKUPDEFAULT_3.crf
-        │           ├── BACKUPDEFAULT_3.drf
-        │           ├── BACKUPDEFAULT_3.krf
-        │           └── BACKUPDEFAULT.if
-        ├── README_FILE.txt
-        ├── restore.sh
-        └── user
+
+
+
+
+
+backup disk-store --dir=./mybackup
+
+
+
+gf-server1/
+├── Accepted-terms-on-2025-11-30T04:41:54+00:00
+├── gf-server1
+├── gf-server1.log
+├── mybackup
+│   └── 2025-11-30-04-48-03
+│       └── gf_server1_gf_server1_1_v1_41000
+│           ├── config
+│           ├── diskstores
+│           │   ├── myds1_ec0e8a3ea3b5480e-bfbe41f6e2b7f4c0
+│           │   │   └── dir0
+│           │   │       ├── BACKUPmyds1_1.crf
+│           │   │       ├── BACKUPmyds1_1.drf
+│           │   │       ├── BACKUPmyds1_1.krf
+│           │   │       └── BACKUPmyds1.if
+│           │   └── myds2_a61f1514230848da-99146f8c4b02cb59
+│           │       └── dir0
+│           │           ├── BACKUPmyds2_1.crf
+│           │           ├── BACKUPmyds2_1.drf
+│           │           ├── BACKUPmyds2_1.krf
+│           │           └── BACKUPmyds2.if
+│           ├── README_FILE.txt
+│           ├── restore.sh
+│           └── user
+├── myds1
+│   ├── BACKUPmyds1_1.crf
+│   ├── BACKUPmyds1_1.drf
+│   ├── BACKUPmyds1_1.krf
+│   ├── BACKUPmyds1_2.crf
+│   ├── BACKUPmyds1_2.drf
+│   ├── BACKUPmyds1.if
+│   └── DRLK_IFmyds1.lk
+├── myds2
+│   ├── BACKUPmyds2_1.crf
+│   ├── BACKUPmyds2_1.drf
+│   ├── BACKUPmyds2_1.krf
+│   ├── BACKUPmyds2_2.crf
+│   ├── BACKUPmyds2_2.drf
+│   ├── BACKUPmyds2.if
+│   └── DRLK_IFmyds2.lk
+└── vf.gf.server.pid
+
+
+
+
+
+
 
 
 destroy region --name=/exampleRegion1
@@ -125,11 +166,15 @@ docker compose down -v
 
 
 
-copy all the files in the dir0 to the current working directory of each cache server 
+🔥 copy all the files in the dir0 to the current working directory of each cache server 
+🔥 remove vf.gf.server.pid file
 
 docker compose up
 
 
-create region --name=exampleRegion1 --type=REPLICATE_PERSISTENT
-create region --name=exampleRegion2 --type=REPLICATE_PERSISTENT
+
+🔥 create the region first otherwise the data is not restored
+
+create region --name=exampleRegion1 --type=REPLICATE_PERSISTENT --disk-store=myds1
+create region --name=exampleRegion2 --type=REPLICATE_PERSISTENT --disk-store=myds2
 
