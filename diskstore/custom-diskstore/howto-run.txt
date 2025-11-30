@@ -12,10 +12,17 @@ list members
 
 
 create disk-store --dir=./myds1 --name=myds1
-create disk-store --dir=./myds2 --name=myds2
 
-create region --name=exampleRegion1 --type=REPLICATE_PERSISTENT --disk-store=ds1
-create region --name=exampleRegion2 --type=REPLICATE_PERSISTENT --disk-store=ds2
+create disk-store --dir=./myds2 --name=myds2 --max-oplog-size=100
+
+create region --name=exampleRegion1 --type=REPLICATE_PERSISTENT --disk-store=myds1
+
+create region --name=exampleRegion2 --type=REPLICATE_PERSISTENT --disk-store=myds2
+
+
+
+
+
 
 
 put --key=key1 --value=hello1 --region=/exampleRegion1
