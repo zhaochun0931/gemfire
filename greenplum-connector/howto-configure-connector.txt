@@ -1,0 +1,134 @@
+✅ vmware-gemfire-10.0.0.tgz
+✅ gemfire-greenplum-4.0.1.tar.gz
+✅ Greenplum Database 6.28.2
+
+
+
+
+
+test=# \d
+             List of relations
+ Schema | Name | Type  |  Owner  | Storage
+--------+------+-------+---------+---------
+ public | t1   | table | gpadmin | heap
+ public | t2   | table | gpadmin | heap
+(2 rows)
+
+test=# \d+ t1
+                          Table "public.t1"
+ Column |  Type   | Modifiers | Storage | Stats target | Description
+--------+---------+-----------+---------+--------------+-------------
+ id     | integer |           | plain   |              |
+Distributed by: (id)
+
+test=#
+test=#
+test=# \d+ t2
+                               Table "public.t2"
+ Column |       Type        | Modifiers | Storage  | Stats target | Description
+--------+-------------------+-----------+----------+--------------+-------------
+ id     | integer           |           | plain    |              |
+ name   | character varying |           | extended |              |
+Distributed by: (id)
+
+test=#
+
+
+
+
+
+
+
+
+✅
+
+
+start locator --name=locator1
+
+start server --name=server1
+
+
+
+
+
+
+configure pdx --read-serialized=true --auto-serializable-classes=io.pivotal.gemfire.demo.entity.*
+
+create jndi-binding --name=datasource --type=SIMPLE --jdbc-driver-class="org.postgresql.Driver" \
+--username="gpadmin" --password="changeme" --connection-url="jdbc:postgresql://localhost:5432/test"
+
+list jndi-binding
+
+
+
+
+gfsh>list jndi-binding
+Configured JNDI bindings:
+
+Group Name | JNDI Name  | JDBC Driver Class
+---------- | ---------- | ---------------------
+cluster    | datasource | org.postgresql.Driver
+
+Active JNDI bindings found on each member:
+
+Member  |        JNDI Name        | JDBC Driver Class
+------- | ----------------------- | -----------------------------------------------------------
+server1 | java:datasource         | org.apache.geode.internal.datasource.GemFireBasicDataSource
+server1 | java:UserTransaction    | org.apache.geode.internal.jta.UserTransactionImpl
+server1 | java:TransactionManager | org.apache.geode.internal.jta.TransactionManagerImpl
+
+gfsh>
+
+
+
+
+
+
+configure gpfdist-protocol --port=8848
+
+
+# GemFire Search indexes are supported only on partitioned regions. Replicated region types are not supported.
+
+create region --name=t1 --type=PARTITION
+
+create region --name=t2 --type=PARTITION
+
+
+
+create gpdb-mapping --region=/t1 --data-source=datasource --pdx-name="io.pivotal.gemfire.demo.entity.t1" --table=t1 --id=id
+
+create gpdb-mapping --region=/t2 --data-source=datasource --pdx-name="io.pivotal.gemfire.demo.entity.t2" --table=t2 --id=id,name
+
+
+list gpdb-mapping
+
+
+
+
+import gpdb --region=/t1
+
+import gpdb --region=/t2
+
+
+
+
+2025-12-02 11:40:14.128434 UTC,"gpadmin","test",p34218,th-25275776,"10.1.0.12","57266",2025-12-02 11:40:14 UTC,0,con43,cmd1,seg-1,,,,sx1,"LOG","00000","execute <unnamed>: SET extra_float_digits = 3",,,,,,"SET extra_float_digits = 3",0,,"postgres.c",2753,
+2025-12-02 11:40:14.137673 UTC,"gpadmin","test",p34218,th-25275776,"10.1.0.12","57266",2025-12-02 11:40:14 UTC,0,con43,cmd2,seg-1,,,,sx1,"LOG","00000","execute <unnamed>: SET application_name = 'PostgreSQL JDBC Driver'",,,,,,"SET application_name = 'PostgreSQL JDBC Driver'",0,,"postgres.c",2753,
+2025-12-02 11:40:14.141259 UTC,"gpadmin","test",p34218,th-25275776,"10.1.0.12","57266",2025-12-02 11:40:14 UTC,0,con43,cmd3,seg-1,,,,sx1,"LOG","00000","execute <unnamed>: BEGIN",,,,,,"BEGIN",0,,"postgres.c",2753,
+2025-12-02 11:40:14.164581 UTC,"gpadmin","test",p34218,th-25275776,"10.1.0.12","57266",2025-12-02 11:40:14 UTC,0,con43,cmd4,seg-1,,dx15,,sx1,"LOG","00000","execute <unnamed>: SELECT x.distributed_id FROM pg_settings s, gp_distributed_xacts x WHERE s.setting::int = x.gp_session_id AND s.name = 'gp_session_id' AND x.state IN ('Active Distributed', 'None')",,,,,,"SELECT x.distributed_id FROM pg_settings s, gp_distributed_xacts x WHERE s.setting::int = x.gp_session_id AND s.name = 'gp_session_id' AND x.state IN ('Active Distributed', 'None')",0,,"postgres.c",2753,
+2025-12-02 11:40:14.361288 UTC,"gpadmin","test",p34218,th-25275776,"10.1.0.12","57266",2025-12-02 11:40:14 UTC,0,con43,cmd5,seg-1,,dx15,,sx1,"LOG","00000","execute <unnamed>: DROP TABLE IF EXISTS ""gf_tmp_1764663023-0000000015""",,,,,,"DROP TABLE IF EXISTS ""gf_tmp_1764663023-0000000015""",0,,"postgres.c",2753,
+2025-12-02 11:40:14.363276 UTC,"gpadmin","test",p34218,th-25275776,"10.1.0.12","57266",2025-12-02 11:40:14 UTC,0,con43,cmd6,seg-1,,dx15,,sx1,"LOG","00000","execute <unnamed>: CREATE TEMPORARY TABLE ""gf_tmp_1764663023-0000000015"" (""id"" int4,""name"" varchar,PRIMARY KEY (""id"",""name""))",,,,,,"CREATE TEMPORARY TABLE ""gf_tmp_1764663023-0000000015"" (""id"" int4,""name"" varchar,PRIMARY KEY (""id"",""name""))",0,,"postgres.c",2753,
+2025-12-02 11:40:14.374034 UTC,"gpadmin","test",p34218,th-25275776,"10.1.0.12","57266",2025-12-02 11:40:14 UTC,733,con43,cmd8,seg-1,,dx15,x733,sx1,"LOG","00000","execute <unnamed>: DROP EXTERNAL TABLE IF EXISTS ""gf_ext_1764663023-0000000015""",,,,,,"DROP EXTERNAL TABLE IF EXISTS ""gf_ext_1764663023-0000000015""",0,,"postgres.c",2753,
+2025-12-02 11:40:14.375154 UTC,"gpadmin","test",p34218,th-25275776,"10.1.0.12","57266",2025-12-02 11:40:14 UTC,733,con43,cmd9,seg-1,,dx15,x733,sx1,"LOG","00000","execute <unnamed>: CREATE WRITABLE EXTERNAL TABLE ""gf_ext_1764663023-0000000015"" (LIKE ""gf_tmp_1764663023-0000000015"") LOCATION ('gpfdist://10.1.0.12:8848/1764663023-0000000015') FORMAT 'TEXT' (DELIMITER E'') ENCODING 'UTF8'",,,,,,"CREATE WRITABLE EXTERNAL TABLE ""gf_ext_1764663023-0000000015"" (LIKE ""gf_tmp_1764663023-0000000015"") LOCATION ('gpfdist://10.1.0.12:8848/1764663023-0000000015') FORMAT 'TEXT' (DELIMITER E'') ENCODING 'UTF8'",0,,"postgres.c",2753,
+2025-12-02 11:40:14.386291 UTC,"gpadmin","test",p34218,th-25275776,"10.1.0.12","57266",2025-12-02 11:40:14 UTC,733,con43,cmd9,seg-1,,dx15,x733,sx1,"LOG","00000","execute <unnamed>: INSERT INTO ""gf_ext_1764663023-0000000015"" (""id"",""name"") SELECT ""id"",""name"" FROM ""public"".""t2""",,,,,,"INSERT INTO ""gf_ext_1764663023-0000000015"" (""id"",""name"") SELECT ""id"",""name"" FROM ""public"".""t2""",0,,"postgres.c",2753,
+2025-12-02 11:40:14.431153 UTC,"gpadmin","test",p34218,th-25275776,"10.1.0.12","57266",2025-12-02 11:40:14 UTC,733,con43,cmd11,seg-1,,dx15,x733,sx1,"LOG","00000","execute <unnamed>: DROP EXTERNAL TABLE IF EXISTS ""gf_ext_1764663023-0000000015""",,,,,,"DROP EXTERNAL TABLE IF EXISTS ""gf_ext_1764663023-0000000015""",0,,"postgres.c",2753,
+2025-12-02 11:40:14.433418 UTC,"gpadmin","test",p34218,th-25275776,"10.1.0.12","57266",2025-12-02 11:40:14 UTC,733,con43,cmd12,seg-1,,dx15,x733,sx1,"LOG","00000","execute <unnamed>: DROP TABLE IF EXISTS ""gf_tmp_1764663023-0000000015""",,,,,,"DROP TABLE IF EXISTS ""gf_tmp_1764663023-0000000015""",0,,"postgres.c",2753,
+2025-12-02 11:40:14.437175 UTC,"gpadmin","test",p34218,th-25275776,"10.1.0.12","57266",2025-12-02 11:40:14 UTC,733,con43,cmd13,seg-1,,dx15,x733,sx1,"LOG","00000","execute S_1: COMMIT",,,,,,"COMMIT",0,,"postgres.c",2753,
+
+
+
+
+
+query --query="select * from /t1"
+
+query --query="select * from /t2"
