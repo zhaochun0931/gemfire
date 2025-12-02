@@ -1,0 +1,17 @@
+psql postgres
+
+
+create database test;
+
+\c test
+
+create table t1 (id int);
+
+create table t2 (id int, name varchar);
+
+
+insert into t1 select * from generate_series(1,10);
+
+insert into t2 values(11, 'xiaoming');
+
+insert into t2 values(12, 'xiaoming2');
