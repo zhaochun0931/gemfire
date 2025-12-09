@@ -1,1 +1,58 @@
+create region --name=example-region --type=REPLICATE
+
+
+
 show subscription-queue-size --durable-client-id=1
+
+
+
+put --region=/example-region --key=hello-1 --value=test-1
+put --region=/example-region --key=hello-2 --value=test-2
+put --region=/example-region --key=hello-3 --value=test-3
+put --region=/example-region --key=hello-4 --value=test-4
+put --region=/example-region --key=hello-5 --value=test-5
+put --region=/example-region --key=hello-6 --value=test-6
+put --region=/example-region --key=hello-7 --value=test-7
+put --region=/example-region --key=hello-8 --value=test-8
+put --region=/example-region --key=hello-9 --value=test-9
+put --region=/example-region --key=hello-10 --value=test-10
+put --region=/example-region --key=hello-11 --value=test-11
+put --region=/example-region --key=hello-12 --value=test-12
+put --region=/example-region --key=hello-13 --value=test-13
+put --region=/example-region --key=hello-14 --value=test-14
+put --region=/example-region --key=hello-15 --value=test-15
+put --region=/example-region --key=hello-16 --value=test-16
+put --region=/example-region --key=hello-17 --value=test-17
+put --region=/example-region --key=hello-18 --value=test-18
+put --region=/example-region --key=hello-19 --value=test-19
+put --region=/example-region --key=hello-20 --value=test-20
+put --region=/example-region --key=hello-21 --value=test-21
+put --region=/example-region --key=hello-22 --value=test-22
+put --region=/example-region --key=hello-23 --value=test-23
+put --region=/example-region --key=hello-24 --value=test-24
+put --region=/example-region --key=hello-25 --value=test-25
+put --region=/example-region --key=hello-26 --value=test-26
+put --region=/example-region --key=hello-27 --value=test-27
+put --region=/example-region --key=hello-28 --value=test-28
+put --region=/example-region --key=hello-29 --value=test-29
+put --region=/example-region --key=hello-30 --value=test-30
+put --region=/example-region --key=hello-31 --value=test-31
+put --region=/example-region --key=hello-32 --value=test-32
+put --region=/example-region --key=hello-33 --value=test-33
+put --region=/example-region --key=hello-34 --value=test-34
+put --region=/example-region --key=hello-35 --value=test-35
+put --region=/example-region --key=hello-36 --value=test-36
+put --region=/example-region --key=hello-37 --value=test-37
+put --region=/example-region --key=hello-38 --value=test-38
+put --region=/example-region --key=hello-39 --value=test-39
+put --region=/example-region --key=hello-40 --value=test-40
+put --region=/example-region --key=hello-41 --value=test-41
+put --region=/example-region --key=hello-42 --value=test-42
+put --region=/example-region --key=hello-43 --value=test-43
+put --region=/example-region --key=hello-44 --value=test-44
+put --region=/example-region --key=hello-45 --value=test-45
+put --region=/example-region --key=hello-46 --value=test-46
+put --region=/example-region --key=hello-47 --value=test-47
+put --region=/example-region --key=hello-48 --value=test-48
+put --region=/example-region --key=hello-49 --value=test-49
+put --region=/example-region --key=hello-50 --value=test-50
