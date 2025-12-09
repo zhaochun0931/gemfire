@@ -1,0 +1,1 @@
+show subscription-queue-size --durable-client-id=1
