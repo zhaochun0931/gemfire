@@ -5,7 +5,7 @@ import org.apache.geode.cache.client.ClientCacheFactory;
 public class GemfireClient {
     public static void main(String[] args) {
         ClientCache cache = new ClientCacheFactory()
-                .set("cache-xml-file", "/usr/src/mymaven/my-app/cache.xml")
+                .set("cache-xml-file", "/usr/src/mymaven/my-app/client-cache.xml")
                 .create();
 
         Region<String, String> region = cache.getRegion("exampleRegion");
