@@ -56,3 +56,7 @@ put --region=/example-region --key=hello-47 --value=test-47
 put --region=/example-region --key=hello-48 --value=test-48
 put --region=/example-region --key=hello-49 --value=test-49
 put --region=/example-region --key=hello-50 --value=test-50
+
+
+
+close durable-client --durable-client-id=1
