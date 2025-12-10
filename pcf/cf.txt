@@ -1,0 +1,3 @@
+CF = Cloud Foundry
+
+In VMware Tanzu Application Service, the application runtime is Cloud Foundry.
