@@ -2,7 +2,14 @@ cf m
 
 
 # create service
+
+cf create-service [offering] [plans] [servicename]
+
 cf create-service p-cloudcache small gemfire1
+
+
+
+
 cf services
 cf service gemfire1 --guid
 
