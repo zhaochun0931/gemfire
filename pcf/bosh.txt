@@ -1,0 +1,5 @@
+✅ What Is BOSH in VMware TAS?
+
+BOSH = Deployment and lifecycle manager for infrastructure
+
+BOSH is the foundation that deploys and manages all the CF components on VMs.
