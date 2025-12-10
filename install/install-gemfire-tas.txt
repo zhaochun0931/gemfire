@@ -34,4 +34,3 @@ connect --url=https://cloudcache-ace1f78e-4c83-4872-a24f-43c8464c466f.run-13.slo
 
 sudo -i
 /var/vcap/sys/log/
-
