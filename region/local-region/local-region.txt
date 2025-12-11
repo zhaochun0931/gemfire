@@ -1,0 +1,1 @@
+If your client region is LOCAL, it does not send data to the server
