@@ -1,11 +1,21 @@
+🚀
+
 cf m
 
 
-# create service
+
+🚀 create service
 
 cf create-service [offering] [plans] [servicename]
 
-cf create-service p-cloudcache small gemfire1
+cf create-service p-cloudcache extra-small gemfire1
+
+
+
+
+
+
+
 
 
 
@@ -14,8 +24,16 @@ cf services
 cf service gemfire1 --guid
 
 
+
+
+
+🚀
 # delete service
 cf delete-service gemfire1
+
+
+
+🚀
 
 # delete deployement
 bosh delete-deployment -d deployment_id
