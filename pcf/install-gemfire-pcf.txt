@@ -105,6 +105,9 @@ Getting key my-gemfire-key for service instance my-gemfire as admin...
 
 bosh vms -d service-instance_e7d79b1b-93f7-4103-81d3-f42fa1315190
 
+
+
+
 # bosh vms -d service-instance_e7d79b1b-93f7-4103-81d3-f42fa1315190
 Using environment '192.168.6.11' as client 'ops_manager'
 
