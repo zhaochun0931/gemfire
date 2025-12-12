@@ -30,15 +30,140 @@ bosh task task_id --debug
 
 🚀 create service key
 cf create-service-key my-gemfire my-gemfire-key
+
 cf service-key my-gemfire my-gemfire-key
 
 
 
 
-🚀 open another gfsh terminal and connect to gfsh specified in the service key
+# cf service-key my-gemfire my-gemfire-key
+Getting key my-gemfire-key for service instance my-gemfire as admin...
+
+{
+  "credentials": {
+    "distributed_system_id": "0",
+    "gfsh_login_string": "connect --url=https://cloudcache-e7d79b1b-93f7-4103-81d3-f42fa1315190.lab29sys-tanzu-gss.lvn.broadcom.net/gemfire/v1 --user=cluster_operator_bOpydmKECaof7keTz6Aw --password=JRa4JFjbEVXRKcN07XX1A --skip-ssl-validation",
+    "locators": [
+      "539a1f92-cee9-4e06-a587-3872c6617989.locator.infra.service-instance-e7d79b1b-93f7-4103-81d3-f42fa1315190.bosh[55221]"
+    ],
+    "remote_cluster_info": {
+      "recursors": {
+        "infra.service-instance-e7d79b1b-93f7-4103-81d3-f42fa1315190.bosh": [
+          "192.168.6.37:1053"
+        ]
+      },
+      "remote_locators": [
+        "539a1f92-cee9-4e06-a587-3872c6617989.locator.infra.service-instance-e7d79b1b-93f7-4103-81d3-f42fa1315190.bosh[55221]"
+      ],
+      "trusted_sender_credentials": [
+        {
+          "password": "vBN12W0MdjtyfUybdNkQ",
+          "username": "gateway_sender_qMut6181O1DW7HDIqpahGg"
+        }
+      ]
+    },
+    "tls-enabled": "false",
+    "urls": {
+      "gemfiredataapi": "https://gemfire-server-e7d79b1b-93f7-4103-81d3-f42fa1315190.lab29sys-tanzu-gss.lvn.broadcom.net/gemfire-api/v1",
+      "gfsh": "https://cloudcache-e7d79b1b-93f7-4103-81d3-f42fa1315190.lab29sys-tanzu-gss.lvn.broadcom.net/gemfire/v1",
+      "management": "https://cloudcache-e7d79b1b-93f7-4103-81d3-f42fa1315190.lab29sys-tanzu-gss.lvn.broadcom.net/management/docs",
+      "pulse": "https://cloudcache-e7d79b1b-93f7-4103-81d3-f42fa1315190.lab29sys-tanzu-gss.lvn.broadcom.net/pulse",
+      "vectordb": "https://gemfire-server-e7d79b1b-93f7-4103-81d3-f42fa1315190.lab29sys-tanzu-gss.lvn.broadcom.net/gemfire-vectordb/v1"
+    },
+    "users": [
+      {
+        "password": "JRa4JFjbEVXRKcN07XX1A",
+        "roles": [
+          "cluster_operator"
+        ],
+        "username": "cluster_operator_bOpydmKECaof7keTz6Aw"
+      },
+      {
+        "password": "9VY4LoAU96bcaJkgtTDyQ",
+        "roles": [
+          "developer"
+        ],
+        "username": "developer_MyzZ8Y8LgPqq90Wkyu8RSw"
+      },
+      {
+        "password": "ZaN6TyTQsGkhZoxzDmXMdA",
+        "roles": [
+          "readonly"
+        ],
+        "username": "readonly_xZ7kXliwOhkoorsclIKODQ"
+      }
+    ],
+    "wan": {}
+  }
+}
+
+#
+
+
+
+🚀
+
+bosh vms -d service-instance_e7d79b1b-93f7-4103-81d3-f42fa1315190
+
+# bosh vms -d service-instance_e7d79b1b-93f7-4103-81d3-f42fa1315190
+Using environment '192.168.6.11' as client 'ops_manager'
+
+Task 2672. Done
+
+Deployment 'service-instance_e7d79b1b-93f7-4103-81d3-f42fa1315190'
+
+Instance                                      Process State  AZ   IPs           VM CID                                   VM Type    Active  Stemcell
+locator/539a1f92-cee9-4e06-a587-3872c6617989  running        az1  192.168.6.37  vm-53ba70e4-bdf4-4ed4-a8b0-5a2df7c0290a  medium     true    bosh-vsphere-esxi-ubuntu-jammy-go_agent/1.954
+server/61ce89b7-62de-4682-946e-66c9cf7e74f0   running        az1  192.168.6.38  vm-605b7276-9052-4de4-be65-44b5ea8d896e  large.cpu  true    bosh-vsphere-esxi-ubuntu-jammy-go_agent/1.954
+
+2 vms
+
+Succeeded
+#
+
+
+
+🚀 open another gfsh terminal from anywhere and connect to gfsh specified in the service key
 
 gfsh
-connect --url=https://cloudcache-ace1f78e-4c83-4872-a24f-43c8464c466f.run-13.slot-34.tanzu-gss-labs.vmware.com/gemfire/v1 --user=cluster_operator_jLuFkfexHiHXzk6noRg --password=1SJTZoI4xW2S3mXUBUaYw --skip-ssl-validation
+connect --url=https://cloudcache-e7d79b1b-93f7-4103-81d3-f42fa1315190.lab29sys-tanzu-gss.lvn.broadcom.net/gemfire/v1 --user=cluster_operator_bOpydmKECaof7keTz6Aw --password=JRa4JFjbEVXRKcN07XX1A --skip-ssl-validation
+
+
+
+root@linux1:~# gfsh
+    _________________________     __
+   / _____/ ______/ ______/ /____/ /
+  / /  __/ /___  /_____  / _____  /
+ / /__/ / ____/  _____/ / /    / /
+/______/_/      /______/_/    /_/    10.0.0
+
+Monitor and Manage VMware GemFire
+gfsh>connect --url=https://cloudcache-e7d79b1b-93f7-4103-81d3-f42fa1315190.lab29sys-tanzu-gss.lvn.broadcom.net/gemfire/v1 --user=cluster_operator_bOpydmKECaof7keTz6Aw --password=JRa4JFjbEVXRKcN07XX1A --skip-ssl-validation
+key-store:
+key-store-password:
+key-store-type(default: JKS):
+trust-store:
+trust-store-password:
+trust-store-type(default: JKS):
+ssl-ciphers(default: any):
+ssl-protocols(default: any):
+ssl-enabled-components(default: all):
+Successfully connected to: GemFire Manager HTTP service @ https://cloudcache-e7d79b1b-93f7-4103-81d3-f42fa1315190.lab29sys-tanzu-gss.lvn.broadcom.net/gemfire/v1
+
+You are connected to a cluster of version 10.1.4. Your gfsh client version is 10.0.0.
+Version mismatch might lead to command failures if commands/options are not available on the cluster.
+
+Cluster-0 gfsh>list members
+Member Count : 2
+
+                      Name                       |                         Id                          |  Type   | Status
+------------------------------------------------ | --------------------------------------------------- | ------- | ------
+locator-539a1f92-cee9-4e06-a587-3872c6617989     | 539a1f92-cee9-4e06-a587-3872c6617989.locator.infr.. | Locator | Ready
+cacheserver-61ce89b7-62de-4682-946e-66c9cf7e74f0 | 61ce89b7-62de-4682-946e-66c9cf7e74f0.server.infra.. | Server  | Ready
+
+Cluster-0 gfsh>
+
+
 
 
 
