@@ -1,0 +1,8 @@
+🚀 delete deployement
+bosh delete-deployment -d deployment_id
+
+
+and then 
+
+🚀 delete service
+cf delete-service my-gemfire
