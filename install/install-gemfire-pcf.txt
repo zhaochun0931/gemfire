@@ -8,7 +8,7 @@ cf m
 
 cf create-service [offering] [plans] [servicename]
 
-cf create-service p-cloudcache extra-small gemfire1
+cf create-service p-cloudcache extra-small my-gemfire
 
 
 
@@ -21,7 +21,7 @@ cf create-service p-cloudcache extra-small gemfire1
 
 
 cf services
-cf service gemfire1 --guid
+cf service my-gemfire --guid
 
 
 
@@ -43,9 +43,9 @@ bosh task task_id --debug
 
 
 
-# create service key
-cf create-service-key gemfire1 gemfire1_key
-cf service-key gemfire1 gemfire1_key
+🚀 create service key
+cf create-service-key my-gemfire my-gemfire-key
+cf service-key my-gemfire my-gemfire-key
 
 
 
