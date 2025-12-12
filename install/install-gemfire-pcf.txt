@@ -10,30 +10,18 @@ cf create-service [offering] [plans] [servicename]
 
 cf create-service p-cloudcache extra-small my-gemfire
 
-
-
-
-
-
-
-
-
-
-
 cf services
+
 cf service my-gemfire --guid
 
 
 
 
 
-🚀 delete service
-cf delete-service gemfire1
 
 
 
-🚀 delete deployement
-bosh delete-deployment -d deployment_id
+
 
 
 bosh task task_id --debug
