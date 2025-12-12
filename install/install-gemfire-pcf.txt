@@ -27,15 +27,12 @@ cf service my-gemfire --guid
 
 
 
-🚀
-# delete service
+🚀 delete service
 cf delete-service gemfire1
 
 
 
-🚀
-
-# delete deployement
+🚀 delete deployement
 bosh delete-deployment -d deployment_id
 
 
@@ -50,7 +47,7 @@ cf service-key my-gemfire my-gemfire-key
 
 
 
-# open another gfsh terminal and connect to gfsh specified in the service key
+🚀 open another gfsh terminal and connect to gfsh specified in the service key
 
 gfsh
 connect --url=https://cloudcache-ace1f78e-4c83-4872-a24f-43c8464c466f.run-13.slot-34.tanzu-gss-labs.vmware.com/gemfire/v1 --user=cluster_operator_jLuFkfexHiHXzk6noRg --password=1SJTZoI4xW2S3mXUBUaYw --skip-ssl-validation
