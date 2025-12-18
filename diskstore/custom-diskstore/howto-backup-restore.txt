@@ -1,6 +1,11 @@
 docker compose up
 
 
+
+
+
+✅
+
 docker exec -it gf-locator1 gfsh
 
 connect
@@ -9,7 +14,9 @@ list members
 
 
 
+✅
 
+list disk-stores
 
 create disk-store --dir=./myds1 --name=myds1
 
@@ -22,6 +29,26 @@ create region --name=exampleRegion2 --type=REPLICATE_PERSISTENT --disk-store=myd
 
 
 
+list disk-stores
+
+
+gfsh>list disk-stores
+Member Name |             Member Id              | Disk Store Name | Disk Store ID
+----------- | ---------------------------------- | --------------- | ------------------------------------
+gf-server1  | gf-server1(gf-server1:1)<v1>:43973 | myds1           | 5ad87478-4cbe-4ad6-9686-94ae9e03726a
+gf-server1  | gf-server1(gf-server1:1)<v1>:43973 | myds2           | 944fe659-61e8-4a0a-913c-4630cb993709
+gf-server2  | gf-server2(gf-server2:1)<v1>:44169 | myds1           | 7dbc521c-a949-4415-b97d-6a9953c75489
+gf-server2  | gf-server2(gf-server2:1)<v1>:44169 | myds2           | 21618b51-7fef-4b42-b635-67d7ff2b85c3
+
+gfsh>
+
+
+
+
+
+
+
+✅
 
 
 gf-server1
@@ -75,17 +102,23 @@ gf-server3
 
 
 
-
-put --key=key1 --value=hello1 --region=/exampleRegion1
-put --key=key2 --value=hello2 --region=/exampleRegion1
-put --key=key3 --value=hello3 --region=/exampleRegion1
+✅
 
 
-put --key=key1 --value=world1 --region=/exampleRegion2
-put --key=key2 --value=world2 --region=/exampleRegion2
-put --key=key3 --value=world3 --region=/exampleRegion2
+put --key=key1 --value=a1 --region=/exampleRegion1
+put --key=key2 --value=a2 --region=/exampleRegion1
+put --key=key3 --value=a3 --region=/exampleRegion1
+
+
+put --key=key1 --value=b1 --region=/exampleRegion2
+put --key=key2 --value=b2 --region=/exampleRegion2
+put --key=key3 --value=b3 --region=/exampleRegion2
+
+
+
 
 query --query='select * from /exampleRegion1'
+
 query --query='select * from /exampleRegion2'
 
 
@@ -96,6 +129,7 @@ query --query='select * from /exampleRegion2'
 
 
 
+✅
 
 backup disk-store --dir=./mybackup
 
@@ -148,10 +182,23 @@ gf-server1/
 
 
 
-
+✅
 
 destroy region --name=/exampleRegion1
 destroy region --name=/exampleRegion2
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 docker compose down -v
