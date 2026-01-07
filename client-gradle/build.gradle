@@ -27,3 +27,12 @@ dependencies {
 
 
 }
+
+
+jar {
+    manifest {
+        attributes(
+            'Main-Class': application.mainClass
+        )
+    }
+}
