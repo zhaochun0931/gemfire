@@ -1,0 +1,5 @@
+cf delete my-app1
+
+cf push
+
+
