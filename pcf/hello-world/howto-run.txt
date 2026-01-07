@@ -1,0 +1,21 @@
+cf push
+
+
+curl hello-world.lab26apps-tanzu-gss.lvn.broadcom.net
+
+
+# curl hello-world.lab26apps-tanzu-gss.lvn.broadcom.net
+<html><body><i>key:</i> hello<br><i>value:</i> 2026-01-07T15:35:56.672<br><i>time to look up:</i> <b>3ms</b></body></html>
+#
+
+
+Cluster-0 gfsh>query --query='select * from /Hello'
+Result : true
+Limit  : 100
+Rows   : 1
+
+Result
+-----------------------
+2026-01-07T15:35:56.672
+
+Cluster-0 gfsh>
