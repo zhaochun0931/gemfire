@@ -1,0 +1,9 @@
+# Copyright 2019 - 2021 $today.year. VMware, Inc.
+# SPDX-License-Identifier: Apache-2.0
+
+---
+applications:
+  - name: hello-world
+    path: ./build/libs/hello-world-0.0.1-SNAPSHOT.jar
+    services:
+      - <your-gemfire-for-tas-service-instance-name>
