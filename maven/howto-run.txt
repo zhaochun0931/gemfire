@@ -1,7 +1,14 @@
+✅
 mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
 
 
-  
+
+✅
+mvn clean install
+
+
+
+✅
 mvn exec:java -Dexec.mainClass=com.mycompany.app.App
 
 mvn exec:java -Dexec.mainClass=App
