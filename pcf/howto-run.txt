@@ -156,6 +156,7 @@ Succeeded
 ✅ open another gfsh terminal from anywhere and connect to gfsh specified in the service key
 
 gfsh
+
 connect --url=https://cloudcache-e7d79b1b-93f7-4103-81d3-f42fa1315190.lab29sys-tanzu-gss.lvn.broadcom.net/gemfire/v1 --user=cluster_operator_bOpydmKECaof7keTz6Aw --password=JRa4JFjbEVXRKcN07XX1A --skip-ssl-validation
 
 
