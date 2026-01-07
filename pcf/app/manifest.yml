@@ -4,3 +4,5 @@ applications:
   path: /root/helloworld/app/build/libs/app.jar
   services:
     - my-gemfire
+  env:
+    JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 21.+ } }'
