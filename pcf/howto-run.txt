@@ -1,10 +1,30 @@
-🚀
+✅
+
 
 cf m
 
 
 
-🚀 create service
+$ cf m
+Getting all service offerings from marketplace in org system / space system as admin...
+
+offering                      plans                           description                                                                                                                                                                                    broker
+app-autoscaler                standard                        Scales bound applications in response to load                                                                                                                                                  app-autoscaler
+p-cloudcache                  extra-small                     VMware Tanzu GemFire on Tanzu Platform(version 2.2.1, VMware GemFire version 10.1.5) offers the ability to deploy a VMware GemFire cluster as a service in Tanzu Platform for Cloud Foundry.   cloudcache-broker
+
+TIP: Use 'cf marketplace -e SERVICE_OFFERING' to view descriptions of individual plans of a given service offering.
+$
+
+
+
+
+
+
+
+
+
+
+✅ create service
 
 cf create-service [offering] [plans] [servicename]
 
@@ -28,7 +48,10 @@ bosh task task_id --debug
 
 
 
-🚀 create service key
+
+
+✅ create service key
+
 cf create-service-key my-gemfire my-gemfire-key
 
 cf service-key my-gemfire my-gemfire-key
@@ -101,7 +124,7 @@ Getting key my-gemfire-key for service instance my-gemfire as admin...
 
 
 
-🚀
+✅
 
 bosh vms -d service-instance_e7d79b1b-93f7-4103-81d3-f42fa1315190
 
@@ -130,7 +153,7 @@ Succeeded
 
 
 
-🚀 open another gfsh terminal from anywhere and connect to gfsh specified in the service key
+✅ open another gfsh terminal from anywhere and connect to gfsh specified in the service key
 
 gfsh
 connect --url=https://cloudcache-e7d79b1b-93f7-4103-81d3-f42fa1315190.lab29sys-tanzu-gss.lvn.broadcom.net/gemfire/v1 --user=cluster_operator_bOpydmKECaof7keTz6Aw --password=JRa4JFjbEVXRKcN07XX1A --skip-ssl-validation
