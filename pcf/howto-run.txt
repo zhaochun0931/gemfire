@@ -8,3 +8,16 @@ p-cloudcache                  extra-small                     VMware Tanzu GemFi
 TIP: Use 'cf marketplace -e SERVICE_OFFERING' to view descriptions of individual plans of a given service offering.
 $
 
+
+
+
+
+
+✅
+
+cf create-service p-cloudcache extra-small my-gemfire
+
+
+
+cf service my-gemfire --guid
+
