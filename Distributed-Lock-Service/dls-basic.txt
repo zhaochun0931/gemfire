@@ -1,0 +1,55 @@
+In VMware GemFire / Apache Geode, the distributed lock function is provided through the DistributedLockService (DLS).
+
+  org.apache.geode.distributed.DistributedLockService
+
+
+This service allows multiple JVMs (members) in a GemFire distributed system to coordinate access to shared resources using cluster-wide locks.
+
+
+✅
+📌 How it works (conceptually)
+
+Locks are named
+
+Locks are cluster-wide
+
+Only one member can hold a lock at a time
+
+Lock state is managed internally by GemFire
+
+Automatically released if the owning member disconnects or crashes
+
+
+
+✅ 
+🔑 Key Methods
+Create a lock service
+DistributedLockService dls =
+    DistributedLockService.create("MyLockService", cache.getDistributedSystem());
+
+
+
+✅
+Acquire a lock
+boolean locked = dls.lock("myLock", 10000, -1);
+
+
+Parameters:
+
+"myLock" → lock name
+
+10000 → wait time (ms)
+
+-1 → lease time (infinite)
+
+
+
+
+✅
+Try-lock (non-blocking)
+boolean locked = dls.tryLock("myLock");
+
+✅
+Release a lock
+dls.unlock("myLock");
+  
