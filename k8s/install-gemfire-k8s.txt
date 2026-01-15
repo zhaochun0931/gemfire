@@ -150,8 +150,7 @@ helm install gemfire-operator oci://registry.tanzu.vmware.com/tanzu-gemfire-for-
 
 
 
-
-# how to access the gemfire cluster
+✅ how to access the gemfire cluster
 
 kubectl get secret
 
