@@ -4,5 +4,16 @@ wget https://github.com/apache/geode/releases/download/rel%2Fv2.0.0/apache-geode
 tar -xzvf apache-geode-2.0.0.tgz
 
 
-export GEODE_HOME=/apache-geode-2.0.0
-export $PATH=$GEODE_HOME/bin:$PATH
+
+
+
+export GEODE_HOME=/root//apache-geode-2.0.0
+export PATH=$GEODE_HOME/bin:$PATH
+export CLASSPATH=$GEODE_HOME/lib/geode-dependencies.jar:$GEODE_HOME/lib/geode-core-2.0.0.jar:$CLASSPATH
+
+
+
+
+
+
+
