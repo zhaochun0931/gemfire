@@ -4,6 +4,8 @@ docker container prune -f
 docker compose up
 
 
+
+✅
 docker exec -it gf-locator1 gfsh
 
 $ docker exec -it gf-locator1 gfsh
@@ -20,7 +22,7 @@ gfsh>
 
 
 
-
+✅
 
 connect --use-ssl --security-properties-file=/gemfire/gfsecurity.properties --ciphers=any --protocols=any
 
