@@ -154,14 +154,56 @@ helm install gemfire-operator oci://registry.tanzu.vmware.com/tanzu-gemfire-for-
 
 kubectl get secret
 
-kubectl get secret gemfire1-cert -o=jsonpath='{.data.password}' | base64 --decode
+
+
+kubectl get secret gemfire1-cert -o=jsonpath='{.data.password}' | base64 --decode; echo
+
+$ kubectl get secret gemfire1-cert -o=jsonpath='{.data.password}' | base64 --decode; echo
+G03kRN0-iv8Ed26kQC0MlWOo5jeLn6Qbd0GCdoW7JDw=
+$
+
+
+✅ copy the token as password to login the gfsh
 
 
 kubectl exec -it gemfire1-locator-0 -- gfsh
 
 connect --locator=gemfire1-locator-0[10334] --trust-store=/certs/truststore.p12 --trust-store-password="tls_password" --key-store=/certs/keystore.p12 --key-store-password="tls_password"
 
+connect --locator=gemfire1-locator-0[10334] --trust-store=/certs/truststore.p12 --trust-store-password="G03kRN0-iv8Ed26kQC0MlWOo5jeLn6Qbd0GCdoW7JDw=" --key-store=/certs/keystore.p12 --key-store-password="G03kRN0-iv8Ed26kQC0MlWOo5jeLn6Qbd0GCdoW7JDw="
 
 
 
 
+
+
+$ kubectl exec -it gemfire1-locator-0 -- gfsh
+Defaulted container "locator" out of: locator, gemfire-init (init)
+    _________________________     __
+   / _____/ ______/ ______/ /____/ /
+  / /  __/ /___  /_____  / _____  /
+ / /__/ / ____/  _____/ / /    / /
+/______/_/      /______/_/    /_/    10.1.2
+
+Monitor and Manage Tanzu GemFire
+gfsh>connect --locator=gemfire1-locator-0[10334] --trust-store=/certs/truststore.p12 --trust-store-password="G03kRN0-iv8Ed26kQC0MlWOo5jeLn6Qbd0GCdoW7JDw=" --key-store=/certs/keystore.p12 --key-store-password="G03kRN0-iv8Ed26kQC0MlWOo5jeLn6Qbd0GCdoW7JDw="
+key-store-type(default: JKS):
+trust-store-type(default: JKS):
+ssl-ciphers(default: any):
+ssl-protocols(default: any):
+ssl-enabled-components(default: all):
+Connecting to Locator at [host=gemfire1-locator-0, port=10334] ..
+Connecting to Manager at [host=gemfire1-locator-0.gemfire1-locator.default.svc.cluster.local, port=1099] ..
+Successfully connected to: [host=gemfire1-locator-0.gemfire1-locator.default.svc.cluster.local, port=1099]
+
+You are connected to a cluster of version 10.1.2.
+
+gfsh>list members
+Member Count : 2
+
+       Name        |                                      Id                                      |  Type   | Status
+------------------ | ---------------------------------------------------------------------------- | ------- | ------
+gemfire1-locator-0 | gemfire1-locator-0(gemfire1-locator-0:1:locator)<ec><v0>:57880 [Coordinator] | Locator | Ready
+gemfire1-server-0  | gemfire1-server-0(gemfire1-server-0:1)<v1>:54281                             | Server  | Ready
+
+gfsh>
