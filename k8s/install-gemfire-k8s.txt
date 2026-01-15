@@ -1,6 +1,4 @@
-# install gemfire operator
-
-
+✅
 kubectl create namespace gemfire
 
 
@@ -9,7 +7,11 @@ export USERNAME=""
 export PASSWORD=""
 
 
-# install the cert-manager
+
+
+
+
+✅ install the cert-manager
 
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.12.0/cert-manager.yaml
 
@@ -18,13 +20,22 @@ kubectl get pod -n cert-manager
 
 
 
-# install the operator
 
-# the secret image-pull-secret should in the same namespace with the gemfire operator
+
+
+✅ install the gemfire operator
+
+✅ the secret image-pull-secret should in the same namespace with the gemfire operator
+
+
+
 kubectl create secret docker-registry image-pull-secret \
 --docker-server=registry.packages.broadcom.com \
---docker-username=$USERNAME \
---docker-password=$PASSWORD
+--docker-username='USERNAME' \
+--docker-password='PASSWD'
+
+
+
 
 
 
@@ -41,18 +52,26 @@ kubectl get rolebinding -n gemfire
 
 
 
-# install with helm
+✅ Use Helm to install the Custom Resource Definition (CRD) and operator
 
 
 helm registry login registry.packages.broadcom.com -u $USERNAME -p $PASSWORD
 
-helm install gemfire-crd \
-oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-crd --version 2.4.0
 
-helm install gemfire-operator \
-oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-operator --version 2.4.0
+helm registry login registry.packages.broadcom.com -u 'username'
+
+helm registry login registry.packages.broadcom.com -u username
 
 
+helm install gemfire-crd oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-crd --version 2.4.0
+
+helm install gemfire-operator oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-operator --version 2.4.0
+
+
+
+
+
+✅
 
 helm list
 
@@ -64,8 +83,10 @@ gemfire-operator	default  	1       	2025-05-08 14:45:53.229036755 +0000 UTC	depl
 #
 
 
+
+
 kubectl get crd gemfireclusters.gemfire.vmware.com
-kubectl get gemfireclusters.gemfire.vmware.com
+
 kubectl get pods
 
 
@@ -84,9 +105,15 @@ kubectl get pods
 
 
 
-# create a gemfire cluster
+✅ create a gemfire cluster
 
 kubectl apply -f gemfire.yaml -n gemfire
+
+
+
+✅ Verify the installation
+
+kubectl get gemfireclusters.gemfire.vmware.com
 
 
 
