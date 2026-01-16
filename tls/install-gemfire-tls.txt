@@ -1,11 +1,10 @@
-# do not run the locators or servers in the same directory with the Java keystore
+# do not run the locators or servers in the same directory with the Java keystore or the gemfire properties file
 
 
+mkdir test
+cd test
 
-
-
-
-
+gfsh
 
 start locator --name=locator1 --properties-file=/root/gemfire.properties --security-properties-file=/root/gfsecurity.properties
 
@@ -15,7 +14,11 @@ start server --name=server1 --properties-file=/root/gemfire.properties --securit
 --start-rest-api=true --http-service-bind-address=localhost --http-service-port=8080
 
 
-# create region --name=exampleRegion --type=REPLICATE_PERSISTENT
+create region --name=exampleRegion --type=REPLICATE_PERSISTENT
 
 
-# connect --use-ssl=true --security-properties-file=/tmp/gfsecurity.properties
+
+
+
+
+connect --use-ssl=true --security-properties-file=/tmp/gfsecurity.properties
