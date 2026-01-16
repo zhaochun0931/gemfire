@@ -18,8 +18,19 @@ export CLASSPATH=$GEMFIRE_HOME/lib/geode-dependencies.jar:$GEMFIRE_HOME/lib/gemf
 source ~/.bash_profile
 
 
-gfsh version
+✅
 gfsh version --full
+
+
+✅
+gfsh version
+
+
+
+
+
+
+
 
 
 
