@@ -130,6 +130,13 @@ kubectl get gemfireclusters.gemfire.vmware.com gemfire1
 
 
 
+
+
+kubectl describe gemfirecluster gemfire1
+
+
+
+
 $ kubectl get pods
 NAME                                                  READY   STATUS    RESTARTS   AGE
 gemfire-operator-controller-manager-5798c94fd-5brw6   1/1     Running   0          11m
