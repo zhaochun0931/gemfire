@@ -1,3 +1,9 @@
+mkdir test
+
+cd test
+
+gfsh
+
 start locator
 
 start server --cache-xml-file=./cache.xml
