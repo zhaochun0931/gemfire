@@ -9,6 +9,20 @@ kubectl create secret generic my-secret-tls --namespace default \
         --from-file=password=password-file
 
 
+or
+
+
+kubectl create secret generic my-secret-tls --namespace default \
+        --from-file=keystore.p12=server.keystore.jks \
+        --from-file=truststore.p12=server.truststore.jks \
+        --from-file=tls.crt=server.crt \
+        --from-file=tls.key=server.key \
+        --from-file=ca.crt=ca-crt.pem \
+        --from-literal=password=changeit
+
+
+
+
 kubectl get secret my-secret-tls
 
 
