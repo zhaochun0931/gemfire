@@ -181,6 +181,12 @@ connect --locator=gemfire1-locator-0[10334] --trust-store=/certs/truststore.p12 
 
 
 
+use the following command if you use the custom cert:
+
+connect --locator=gemfire1-locator-0[10334] --trust-store=/certs/truststore.p12 --trust-store-password="changeit" --key-store=/certs/keystore.p12 --key-store-password="changeit"
+
+
+
 
 
 
