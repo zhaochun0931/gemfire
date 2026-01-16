@@ -1,3 +1,14 @@
+kubectl create secret generic my-secret-tls-operator --namespace default \
+  --from-file=tls.crt=server.crt \
+  --from-file=tls.key=server.key \
+  --from-file=ca.crt=ca-crt.pem
+
+
+
+
+
+
+
 echo changeit > password-file
 
 kubectl create secret generic my-secret-tls --namespace default \
