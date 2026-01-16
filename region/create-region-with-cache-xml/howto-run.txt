@@ -1,0 +1,3 @@
+start locator
+
+start server --cache-xml-file=./cache.xml
