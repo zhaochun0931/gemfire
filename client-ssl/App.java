@@ -19,7 +19,7 @@ public class App {
     System.out.println("Connecting to the distributed system and creating the cache.");
 
     ClientCache cache = new ClientCacheFactory()
-      .set("name", "ClientWorkerPut")
+      .set("name", "my-client")
       .set("cache-xml-file", "/tmp/ClientProducer.xml")
       .set("log-level", "config")
       .set("log-file", "producer.log")
