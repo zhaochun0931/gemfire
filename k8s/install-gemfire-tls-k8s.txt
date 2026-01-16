@@ -6,6 +6,11 @@ kubectl create secret generic my-secret-tls-operator --namespace default \
 
 
 
+helm install gemfire-operator oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-operator --version 2.4.0 --namespace default --set tlsSecretName=my-secret-tls-operator
+
+
+
+
 
 
 
