@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: metallb-gemfire
+spec:
+  type: LoadBalancer
+  selector:
+    app.kubernetes.io/instance: gemfire1
+  ports:
+  - name: locator
+    protocol: TCP
+    port: 10334       # external port
+    targetPort: 10334  # container port
+  - name: server
+    protocol: TCP
+    port: 40404       # external port
+    targetPort: 40404  # container port
