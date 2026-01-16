@@ -1,3 +1,5 @@
+package com.mycompany.app;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
@@ -17,17 +19,17 @@ public class App {
     System.out.println("Connecting to the distributed system and creating the cache.");
 
     ClientCache cache = new ClientCacheFactory()
-        .set("name", "ClientWorkerPut")
-        .set("cache-xml-file", "/tmp/ClientProducer.xml")
-        .set("log-level", "config")
-        .set("log-file", "producer.log")
-	.set("ssl-enabled-components", "all")
-	.set("ssl-keystore","/tmp/tls.keystore")
-	.set("ssl-keystore-password", "password")
-	.set("ssl-truststore", "/tmp/tls.truststore")
-	.set("ssl-truststore-password", "password")
-	.addPoolLocator("10.0.0.4", 10334)
-        .create();
+      .set("name", "ClientWorkerPut")
+      .set("cache-xml-file", "/tmp/ClientProducer.xml")
+      .set("log-level", "config")
+      .set("log-file", "producer.log")
+      .set("ssl-enabled-components", "all")
+      .set("ssl-keystore","/root/tls/server.keystore.jks")
+      .set("ssl-keystore-password", "changeit")
+      .set("ssl-truststore", "/root/tls/server.truststore.jks")
+      .set("ssl-truststore-password", "changeit")
+      .addPoolLocator("localhost", 10334)
+      .create();
 
 
     // Get the exampleRegion
@@ -42,4 +44,5 @@ public class App {
     System.out.println("Closing the cache and disconnecting.");
     cache.close();
   }
+	
 }
