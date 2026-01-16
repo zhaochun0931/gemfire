@@ -2,13 +2,18 @@
 
 
 mkdir test
+
 cd test
 
 gfsh
 
-start locator --name=locator1 --properties-file=/root/gemfire.properties --security-properties-file=/root/gfsecurity.properties
+start locator --name=locator1 --properties-file=/root/gemfire.properties --security-properties-file=/root/gfsecurity.properties 
 
-start server --name=server1 --properties-file=/root/gemfire.properties --security-properties-file=/root/gfsecurity.properties
+start server --name=server1 --properties-file=/root/gemfire.properties --security-properties-file=/root/gfsecurity.properties --cache-xml-file=./cache.xml
+
+
+
+
 
 # start server --name=server1 --properties-file=/tmp/gemfire.properties --security-properties-file=/tmp/gfsecurity.properties \
 --start-rest-api=true --http-service-bind-address=localhost --http-service-port=8080
