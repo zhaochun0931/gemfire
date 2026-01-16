@@ -1,3 +1,29 @@
+mkdir test
+
+cd test
+
+gfsh
+
+start locator --name=locator1 --security-properties-file=/tmp/gf.security
+
+start server --name=server1 --security-properties-file=/tmp/gf.security
+
+connect --locator=10.0.0.4[10334] --use-ssl --security-properties-file=/tmp/gf.security
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 java  -Djavax.net.debug=ssl,handshake App
 
 
