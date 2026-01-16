@@ -69,3 +69,12 @@ metadata:
   uid: 624a80dd-ca9a-4ba8-afbf-b58d540fd06d
 type: Opaque
 #
+
+
+
+
+
+
+
+
+kubectl apply -f gemfire-tls.yaml
