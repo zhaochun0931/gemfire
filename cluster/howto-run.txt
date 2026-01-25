@@ -7,6 +7,16 @@ docker compose up
 
 
 
+Critical Note on Docker Networking
+
+
+When GemFire servers start inside a container, they often report their internal Docker IP (e.g., 172.18.0.2) to the locator. If your Java client is running outside Docker, it might fail to connect to the server because it can't reach that internal IP.
+
+If you run into "Connection Refused" errors even though the ports are open, add this property to your Server start command in the entrypoint section: --hostname-for-clients=localhost
+
+
+
+
 
 
 docker exec -it gf-locator1 gfsh
