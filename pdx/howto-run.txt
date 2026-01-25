@@ -62,7 +62,14 @@ In GemFire, if you use PDX (which is the default serialization for most modern c
 start locator --name=locator1
 
 # 2. Configure PDX with persistence BEFORE starting servers
+
 configure pdx --persistent=true --disk-store=DEFAULT
+
+configure pdx --read-serialized=true --disk-store=pdx_store
+
+
+
+
 
 # 3. Start Server
 start server --name=server1 --server-port=40404
@@ -71,26 +78,8 @@ start server --name=server1 --server-port=40404
 
 
 
-
-
-
-
-start locator --name=locator1
-
-
-# below command should be issued before starting any data members
-
-configure pdx --read-serialized=true
-
-configure pdx --read-serialized=true --disk-store=pdx_store
-
-
-
-start server --name=server1
-
-
-
 create disk-store --name=pdx_store --dir=. --max-oplog-size=10
+
 create disk-store --name=data_store --dir=. --max-oplog-size=10
 
 list disk-stores
@@ -374,6 +363,10 @@ gfsh>
 
 
 
-
+gf-server1   | [info 2026/01/25 07:29:34.698 GMT gf-server1 <Function Execution Processor2> tid=0x4f] Adding: PdxType[dsid=0, typenum=12800566
+gf-server1   |         name=org.example.User
+gf-server1   |         fields=[
+gf-server1   |         age:int:0:idx0(relativeOffset)=0:idx1(vlfOffsetIndex)=0
+gf-server1   |         name:String:1:idx0(relativeOffset)=4:idx1(vlfOffsetIndex)=-1]]
 
 
