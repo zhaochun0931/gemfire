@@ -1,0 +1,16 @@
+query --query='select * from /exampleRegion'
+
+
+
+gfsh>query --query='select * from /exampleRegion'
+Result : true
+Limit  : 100
+Rows   : 3
+
+age | name
+--- | -------
+35  | Charlie
+25  | Bob
+30  | Alice
+
+gfsh>
