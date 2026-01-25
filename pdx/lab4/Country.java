@@ -1,3 +1,5 @@
+package org.example;
+
 public class Country {
   protected String name;
   protected String capitol;
