@@ -20,9 +20,26 @@ list disk-stores
 
 create disk-store --dir=./myds1 --name=myds1
 
+
+├── myds1
+│   ├── BACKUPmyds1.if
+│   └── DRLK_IFmyds1.lk
+
+
+
 create disk-store --dir=./myds2 --name=myds2 --max-oplog-size=100
 
+
+
 create region --name=exampleRegion1 --type=REPLICATE_PERSISTENT --disk-store=myds1
+
+├── myds1
+│   ├── BACKUPmyds1_1.crf
+│   ├── BACKUPmyds1_1.drf
+│   ├── BACKUPmyds1.if
+│   └── DRLK_IFmyds1.lk
+
+
 
 create region --name=exampleRegion2 --type=REPLICATE_PERSISTENT --disk-store=myds2
 
