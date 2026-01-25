@@ -256,26 +256,13 @@ gf-server3/
 destroy region --name=/exampleRegion1
 destroy region --name=/exampleRegion2
 
+or 
 
-
-
-
-
-
-
-
-
-
-
+remove the disk store files from ds1
 
 
 
 docker compose down -v
-
-
-
-
-
 
 
 
