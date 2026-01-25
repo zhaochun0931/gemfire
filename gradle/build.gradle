@@ -1,6 +1,5 @@
 repositories {
     // Use Maven Central for resolving dependencies.
-
     mavenCentral()
 
 
@@ -21,6 +20,7 @@ repositories {
 
 dependencies {
 
+    // This dependency is used by the application.
     implementation "com.vmware.gemfire:gemfire-core:10.2.0"
     implementation "com.vmware.gemfire:gemfire-logging:10.2.0"
     implementation "com.vmware.gemfire:gemfire-cq:10.2.0"
