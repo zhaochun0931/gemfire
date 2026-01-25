@@ -32,23 +32,7 @@ org.apache.geode.security.NotAuthorizedException: The region PdxTypes is an inte
 
 
 
-
-
-
-
-
-
-docker network create gf-network
-
-docker run -it -d -v $(pwd)/gf-locator1:/data -e 'ACCEPT_TERMS=y' --rm --name gf-locator --network=gf-network -p 10334:10334 -p 7070:7070 gemfire/gemfire:10.1.3 gfsh start locator --name=locator1
-
-docker run -it -d -v $(pwd)/gf-server1:/data -e 'ACCEPT_TERMS=y' --rm --name gf-server1 --network=gf-network -p 40404:40404 gemfire/gemfire:10.1.3 gfsh start server --name=server1 --locators=gf-locator\[10334\]
-
-docker run -it -d -v $(pwd)/gf-server2:/data -e 'ACCEPT_TERMS=y' --rm --name gf-server2 --network=gf-network -p 40405:40405 gemfire/gemfire:10.1.3 gfsh start server --name=server2 --locators=gf-locator\[10334\]
-
-
-
-docker exec -it gf-locator gfsh
+docker exec -it gf-locator1 gfsh
 
 connect
 
