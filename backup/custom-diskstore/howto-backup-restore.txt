@@ -18,30 +18,35 @@ list members
 
 list disk-stores
 
-create disk-store --dir=./myds1 --name=myds1
+create disk-store --dir=./ds1 --name=ds1
 
 
-├── myds1
-│   ├── BACKUPmyds1.if
-│   └── DRLK_IFmyds1.lk
-
-
-
-create disk-store --dir=./myds2 --name=myds2 --max-oplog-size=100
+gf-server1/ds1/
+├── BACKUPds1.if
+└── DRLK_IFds1.lk
 
 
 
-create region --name=exampleRegion1 --type=REPLICATE_PERSISTENT --disk-store=myds1
-
-├── myds1
-│   ├── BACKUPmyds1_1.crf
-│   ├── BACKUPmyds1_1.drf
-│   ├── BACKUPmyds1.if
-│   └── DRLK_IFmyds1.lk
 
 
 
-create region --name=exampleRegion2 --type=REPLICATE_PERSISTENT --disk-store=myds2
+
+
+create disk-store --dir=./ds2 --name=ds2 --max-oplog-size=100
+
+
+
+create region --name=exampleRegion1 --type=REPLICATE_PERSISTENT --disk-store=ds1
+
+gf-server1/ds1/
+├── BACKUPds1_1.crf
+├── BACKUPds1_1.drf
+├── BACKUPds1.if
+└── DRLK_IFds1.lk
+
+
+
+create region --name=exampleRegion2 --type=REPLICATE_PERSISTENT --disk-store=ds2
 
 
 
@@ -52,10 +57,9 @@ list disk-stores
 gfsh>list disk-stores
 Member Name |             Member Id              | Disk Store Name | Disk Store ID
 ----------- | ---------------------------------- | --------------- | ------------------------------------
-gf-server1  | gf-server1(gf-server1:1)<v1>:43973 | myds1           | 5ad87478-4cbe-4ad6-9686-94ae9e03726a
-gf-server1  | gf-server1(gf-server1:1)<v1>:43973 | myds2           | 944fe659-61e8-4a0a-913c-4630cb993709
-gf-server2  | gf-server2(gf-server2:1)<v1>:44169 | myds1           | 7dbc521c-a949-4415-b97d-6a9953c75489
-gf-server2  | gf-server2(gf-server2:1)<v1>:44169 | myds2           | 21618b51-7fef-4b42-b635-67d7ff2b85c3
+gf-server1  | gf-server1(gf-server1:1)<v1>:41000 | ds1             | 156705a5-38f4-4b9f-b502-20ffcf62a427
+gf-server2  | gf-server2(gf-server2:1)<v1>:41000 | ds1             | 35725147-8ee0-4a3b-a73e-996fb9473231
+gf-server3  | gf-server3(gf-server3:1)<v1>:41000 | ds1             | 801f5031-0627-44c6-a3bd-55d4357ff5c1
 
 gfsh>
 
@@ -68,50 +72,37 @@ gfsh>
 ✅
 
 
-gf-server1
-├── Accepted-terms-on-2025-11-30T04:41:54+00:00
+gf-server1/
+├── Accepted-terms-on-2026-01-25T02:19:41+00:00
+├── ds1
+│   ├── BACKUPds1_1.crf
+│   ├── BACKUPds1_1.drf
+│   ├── BACKUPds1.if
+│   └── DRLK_IFds1.lk
 ├── gf-server1
 ├── gf-server1.log
-├── myds1
-│   ├── BACKUPmyds1_1.crf
-│   ├── BACKUPmyds1_1.drf
-│   ├── BACKUPmyds1.if
-│   └── DRLK_IFmyds1.lk
-├── myds2
-│   ├── BACKUPmyds2_1.crf
-│   ├── BACKUPmyds2_1.drf
-│   ├── BACKUPmyds2.if
-│   └── DRLK_IFmyds2.lk
 └── vf.gf.server.pid
-gf-server2
-├── Accepted-terms-on-2025-11-30T04:41:54+00:00
+
+gf-server2/
+├── Accepted-terms-on-2026-01-25T02:19:41+00:00
+├── ds1
+│   ├── BACKUPds1_1.crf
+│   ├── BACKUPds1_1.drf
+│   ├── BACKUPds1.if
+│   └── DRLK_IFds1.lk
 ├── gf-server2
 ├── gf-server2.log
-├── myds1
-│   ├── BACKUPmyds1_1.crf
-│   ├── BACKUPmyds1_1.drf
-│   ├── BACKUPmyds1.if
-│   └── DRLK_IFmyds1.lk
-├── myds2
-│   ├── BACKUPmyds2_1.crf
-│   ├── BACKUPmyds2_1.drf
-│   ├── BACKUPmyds2.if
-│   └── DRLK_IFmyds2.lk
 └── vf.gf.server.pid
-gf-server3
-├── Accepted-terms-on-2025-11-30T04:41:54+00:00
+
+gf-server3/
+├── Accepted-terms-on-2026-01-25T02:19:41+00:00
+├── ds1
+│   ├── BACKUPds1_1.crf
+│   ├── BACKUPds1_1.drf
+│   ├── BACKUPds1.if
+│   └── DRLK_IFds1.lk
 ├── gf-server3
 ├── gf-server3.log
-├── myds1
-│   ├── BACKUPmyds1_1.crf
-│   ├── BACKUPmyds1_1.drf
-│   ├── BACKUPmyds1.if
-│   └── DRLK_IFmyds1.lk
-├── myds2
-│   ├── BACKUPmyds2_1.crf
-│   ├── BACKUPmyds2_1.drf
-│   ├── BACKUPmyds2.if
-│   └── DRLK_IFmyds2.lk
 └── vf.gf.server.pid
 
 
@@ -148,51 +139,112 @@ query --query='select * from /exampleRegion2'
 
 ✅
 
-backup disk-store --dir=./mybackup
+backup disk-store --dir=./backup
+
+
+gfsh>backup disk-store --dir=./backup
+The following disk stores were backed up successfully
+
+  Member    |                UUID                |            Directory            | Host
+----------- | ---------------------------------- | ------------------------------- | -------------------------------
+gf-server3  | 801f5031-0627-44c6-a3bd-55d4357f.. | /data/./ds1                     | gf-server3.36775006_gf-network
+gf-server2  | 35725147-8ee0-4a3b-a73e-996fb947.. | /data/./ds1                     | gf-server2.36775006_gf-network
+gf-server1  | 156705a5-38f4-4b9f-b502-20ffcf62.. | /data/./ds1                     | gf-server1.36775006_gf-network
+gf-locator2 | 37c1b854-918f-444d-9818-aee5ff95.. | /data/ConfigDiskDir_gf-locator2 | gf-locator2.36775006_gf-network
+gf-locator1 | 735eb7dc-799b-406a-8113-540d8a94.. | /data/ConfigDiskDir_gf-locator1 | gf-locator1
+
+gfsh>
+
 
 
 
 gf-server1/
-├── Accepted-terms-on-2025-11-30T04:41:54+00:00
-├── gf-server1
-├── gf-server1.log
-├── mybackup
-│   └── 2025-11-30-04-48-03
+├── Accepted-terms-on-2026-01-25T02:19:41+00:00
+├── backup
+│   └── 2026-01-25-02-24-21
 │       └── gf_server1_gf_server1_1_v1_41000
 │           ├── config
 │           ├── diskstores
-│           │   ├── myds1_ec0e8a3ea3b5480e-bfbe41f6e2b7f4c0
-│           │   │   └── dir0
-│           │   │       ├── BACKUPmyds1_1.crf
-│           │   │       ├── BACKUPmyds1_1.drf
-│           │   │       ├── BACKUPmyds1_1.krf
-│           │   │       └── BACKUPmyds1.if
-│           │   └── myds2_a61f1514230848da-99146f8c4b02cb59
+│           │   └── ds1_156705a538f44b9f-b50220ffcf62a427
 │           │       └── dir0
-│           │           ├── BACKUPmyds2_1.crf
-│           │           ├── BACKUPmyds2_1.drf
-│           │           ├── BACKUPmyds2_1.krf
-│           │           └── BACKUPmyds2.if
+│           │           ├── BACKUPds1_1.crf
+│           │           ├── BACKUPds1_1.drf
+│           │           ├── BACKUPds1_1.krf
+│           │           └── BACKUPds1.if
 │           ├── README_FILE.txt
 │           ├── restore.sh
 │           └── user
-├── myds1
-│   ├── BACKUPmyds1_1.crf
-│   ├── BACKUPmyds1_1.drf
-│   ├── BACKUPmyds1_1.krf
-│   ├── BACKUPmyds1_2.crf
-│   ├── BACKUPmyds1_2.drf
-│   ├── BACKUPmyds1.if
-│   └── DRLK_IFmyds1.lk
-├── myds2
-│   ├── BACKUPmyds2_1.crf
-│   ├── BACKUPmyds2_1.drf
-│   ├── BACKUPmyds2_1.krf
-│   ├── BACKUPmyds2_2.crf
-│   ├── BACKUPmyds2_2.drf
-│   ├── BACKUPmyds2.if
-│   └── DRLK_IFmyds2.lk
+├── ds1
+│   ├── BACKUPds1_1.crf
+│   ├── BACKUPds1_1.drf
+│   ├── BACKUPds1_1.krf
+│   ├── BACKUPds1_2.crf
+│   ├── BACKUPds1_2.drf
+│   ├── BACKUPds1.if
+│   └── DRLK_IFds1.lk
+├── gf-server1
+├── gf-server1.log
 └── vf.gf.server.pid
+
+
+gf-server2/
+├── Accepted-terms-on-2026-01-25T02:19:41+00:00
+├── backup
+│   └── 2026-01-25-02-24-21
+│       └── gf_server2_gf_server2_1_v1_41000
+│           ├── config
+│           ├── diskstores
+│           │   └── ds1_357251478ee04a3b-a73e996fb9473231
+│           │       └── dir0
+│           │           ├── BACKUPds1_1.crf
+│           │           ├── BACKUPds1_1.drf
+│           │           ├── BACKUPds1_1.krf
+│           │           └── BACKUPds1.if
+│           ├── README_FILE.txt
+│           ├── restore.sh
+│           └── user
+├── ds1
+│   ├── BACKUPds1_1.crf
+│   ├── BACKUPds1_1.drf
+│   ├── BACKUPds1_1.krf
+│   ├── BACKUPds1_2.crf
+│   ├── BACKUPds1_2.drf
+│   ├── BACKUPds1.if
+│   └── DRLK_IFds1.lk
+├── gf-server2
+├── gf-server2.log
+└── vf.gf.server.pid
+
+
+gf-server3/
+├── Accepted-terms-on-2026-01-25T02:19:41+00:00
+├── backup
+│   └── 2026-01-25-02-24-21
+│       └── gf_server3_gf_server3_1_v1_41000
+│           ├── config
+│           ├── diskstores
+│           │   └── ds1_801f5031062744c6-a3bd55d4357ff5c1
+│           │       └── dir0
+│           │           ├── BACKUPds1_1.crf
+│           │           ├── BACKUPds1_1.drf
+│           │           ├── BACKUPds1_1.krf
+│           │           └── BACKUPds1.if
+│           ├── README_FILE.txt
+│           ├── restore.sh
+│           └── user
+├── ds1
+│   ├── BACKUPds1_1.crf
+│   ├── BACKUPds1_1.drf
+│   ├── BACKUPds1_1.krf
+│   ├── BACKUPds1_2.crf
+│   ├── BACKUPds1_2.drf
+│   ├── BACKUPds1.if
+│   └── DRLK_IFds1.lk
+├── gf-server3
+├── gf-server3.log
+└── vf.gf.server.pid
+
+
 
 
 
@@ -239,6 +291,7 @@ docker compose up
 
 🔥 create the region first otherwise the data is not restored
 
-create region --name=exampleRegion1 --type=REPLICATE_PERSISTENT --disk-store=myds1
-create region --name=exampleRegion2 --type=REPLICATE_PERSISTENT --disk-store=myds2
+create region --name=exampleRegion1 --type=REPLICATE_PERSISTENT --disk-store=ds1
+
+create region --name=exampleRegion2 --type=REPLICATE_PERSISTENT --disk-store=ds2
 
