@@ -1,0 +1,9 @@
+Adjusting your build.gradle
+  
+Since we put the code in the org.example package, your build.gradle must reflect this:
+
+Gradle
+application {
+    // Make sure this matches the package and class name above
+    mainClass = 'org.example.GemFirePdxClient'
+}
