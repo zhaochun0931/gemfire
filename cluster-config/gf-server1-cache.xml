@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><cache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://geode.apache.org/schema/cache" xsi:schemaLocation="http://geode.apache.org/schema/cache http://geode.apache.org/schema/cache/cache-1.0.xsd" version="1.0" is-server="true">
+  <cache-server/>
+  <disk-store name="ds1">
+    <disk-dirs>
+      <disk-dir>./ds1</disk-dir>
+    </disk-dirs>
+  </disk-store>
+  <region name="exampleRegion1">
+    <region-attributes scope="distributed-ack" data-policy="persistent-replicate" disk-store-name="ds1"/>
+  </region>
+</cache>
