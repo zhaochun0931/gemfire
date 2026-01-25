@@ -45,6 +45,28 @@ list members
 
 
 
+Caused by: org.apache.geode.pdx.PdxInitializationException: The PDX metadata must be persistent in a member that has persistent data. See CacheFactory.setPdxPersistent.
+
+
+
+This error is a classic GemFire "gotcha." It happens because your Server has PDX persistence enabled, but the region it uses to store that PDX metadata isn't finding a disk store to save it to.
+
+In GemFire, if you use PDX (which is the default serialization for most modern clients), the cluster needs to store the "type registry" (the map of your Java classes to GemFire types).
+
+
+
+
+
+
+# 1. Start Locator
+start locator --name=locator1
+
+# 2. Configure PDX with persistence BEFORE starting servers
+configure pdx --persistent=true --disk-store=DEFAULT
+
+# 3. Start Server
+start server --name=server1 --server-port=40404
+
 
 
 
@@ -88,14 +110,14 @@ gfsh>
 
 
 
-create region --name=exampleRegion1 --type=REPLICATE_PERSISTENT --disk-store=data_store
+create region --name=People --type=REPLICATE_PERSISTENT --disk-store=data_store
 
 create region --name=exampleRegion2 --type=REPLICATE_PERSISTENT --disk-store=data_store
 
 create region --name=People --type=REPLICATE_PERSISTENT --disk-store=data_store
 
 
-query --query='select * from /exampleRegion1'
+query --query='select * from /People'
 
 
 
