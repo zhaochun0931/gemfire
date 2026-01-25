@@ -1,0 +1,73 @@
+export config --dir=./
+
+gfsh>export config --dir=./
+
+File saved to /data/./gf-server1-cache.xml
+File saved to /data/./gf-server1-gf.properties
+File saved to /data/./gf-server2-cache.xml
+File saved to /data/./gf-server2-gf.properties
+File saved to /data/./gf-server3-cache.xml
+File saved to /data/./gf-server3-gf.properties
+
+gfsh>
+
+
+gf-locator1/
+├── Accepted-terms-on-2026-01-25T02:19:41+00:00
+├── Accepted-terms-on-2026-01-25T02:29:47+00:00
+├── Accepted-terms-on-2026-01-25T02:30:17+00:00
+├── Accepted-terms-on-2026-01-25T02:42:30+00:00
+├── Accepted-terms-on-2026-01-25T02:42:48+00:00
+├── backup
+├── ConfigDiskDir_gf-locator1
+├── GemFire_root
+├── gf-locator1
+├── gf-locator1.log
+├── gf-server1-cache.xml
+├── gf-server1-gf.properties
+├── gf-server2-cache.xml
+├── gf-server2-gf.properties
+├── gf-server3-cache.xml
+├── gf-server3-gf.properties
+├── locator10334view.dat
+├── pulse.log
+├── test.xml
+└── vf.gf.locator.pid
+
+
+
+
+
+
+export cluster-configuration --xml-file=./my-cluster-config.xml
+
+gfsh>export cluster-configuration --xml-file=./my-cluster-config.xml
+cluster.xml:
+xml content exported to /data/./my-cluster-config.xml
+
+gfsh>
+
+
+
+gf-locator1/
+├── Accepted-terms-on-2026-01-25T02:19:41+00:00
+├── Accepted-terms-on-2026-01-25T02:29:47+00:00
+├── Accepted-terms-on-2026-01-25T02:30:17+00:00
+├── Accepted-terms-on-2026-01-25T02:42:30+00:00
+├── Accepted-terms-on-2026-01-25T02:42:48+00:00
+├── backup
+├── ConfigDiskDir_gf-locator1
+├── GemFire_root
+├── gf-locator1
+├── gf-locator1.log
+├── gf-server1-cache.xml
+├── gf-server1-gf.properties
+├── gf-server2-cache.xml
+├── gf-server2-gf.properties
+├── gf-server3-cache.xml
+├── gf-server3-gf.properties
+├── locator10334view.dat
+├── my-cluster-config.xml
+├── pulse.log
+├── test.xml
+└── vf.gf.locator.pid
