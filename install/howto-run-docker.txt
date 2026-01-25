@@ -1,0 +1,3 @@
+start locator --name=locator1
+
+start server --name=server1 --hostname-for-clients=localhost
