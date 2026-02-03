@@ -57,15 +57,18 @@ kubectl get rolebinding -n gemfire
 
 helm registry login registry.packages.broadcom.com -u $USERNAME -p $PASSWORD
 
+helm registry login registry.packages.broadcom.com -u USERNAME -p PASSWORD
 
 helm registry login registry.packages.broadcom.com -u 'username'
 
 helm registry login registry.packages.broadcom.com -u username
 
 
-helm install gemfire-crd oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-crd --version 2.4.0
 
-helm install gemfire-operator oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-operator --version 2.4.0
+
+helm install gemfire-crd oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-crd --version 2.6.0
+
+helm install gemfire-operator oci://registry.packages.broadcom.com/tanzu-gemfire-for-kubernetes/gemfire-operator --version 2.6.0
 
 
 
