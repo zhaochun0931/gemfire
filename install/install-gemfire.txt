@@ -3,13 +3,14 @@ tar -xzvf vmware-gemfire-10.1.2.tgz
 
 
 
-vi ~/.bash_profile
+cat << done >>  ~/.bash_profile
 
 
 export GEMFIRE_HOME=/root/vmware-gemfire-10.1.2
 export PATH=$GEMFIRE_HOME/bin:$PATH
 export CLASSPATH=$GEMFIRE_HOME/lib/geode-dependencies.jar:$GEMFIRE_HOME/lib/gemfire-core-10.1.2.jar:$CLASSPATH
 
+done
 
 
 
