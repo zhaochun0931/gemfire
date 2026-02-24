@@ -9,8 +9,9 @@ start server --name=server3 --server-port=0
 list members
 
 
-create region --name=test1 --type=REPLICATE_PERSISTENT
-create region --name=test1 --type=PARTITION_REDUNDANT --redundant-copies=2
+create region --name=exampleRegion1 --type=REPLICATE_PERSISTENT
+
+create region --name=exampleRegion2 --type=PARTITION_REDUNDANT --redundant-copies=2
 
 
 list regions
