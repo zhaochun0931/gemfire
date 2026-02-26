@@ -85,3 +85,31 @@ followed by:
 ForcedDisconnectException: Your member is no longer a member of the distributed system.
 
 Note: When a ForcedDisconnectException occurs, the server will usually attempt to Auto-Reconnect. You’ll see it try to contact the Locators to join as a "brand new" member.
+
+
+
+
+
+
+
+
+
+🔥 Real Production Example
+
+Node B hits 30s Full GC
+
+Other nodes miss heartbeat for 10s
+
+Coordinator suspects B
+
+B does not respond
+
+New view installed
+
+B wakes up
+
+B tries to send message
+
+Gets ForcedDisconnectException
+
+B shuts itself down
