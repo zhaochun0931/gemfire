@@ -46,3 +46,42 @@ A "Check" is performed to see if the member is truly dead.
 If it doesn't respond, the Coordinator issues a new View excluding that member.
 
 Network Partitioning: If the network cuts the cluster in half, the GMS uses a Quorum requirement. The side with the majority (and usually the Locator) survives, while the minority side shuts itself down to prevent data inconsistency.
+
+
+
+
+
+
+
+
+1. The "Suspect" Message (The Trigger)
+When a member stops responding to heartbeats or a TCP connection fails, another member will issue a Suspect message to the Coordinator.
+
+Look for this in the logs:
+Suspecting member <MemberID> - reason: <Reason>
+
+Reason: "Entry-point connection failure" → The TCP/IP socket was closed (likely a process crash or a hard kill).
+
+Reason: "Heartbeat timeout" → The member didn't reply to UDP pings (likely a long GC pause or a network partition).
+
+2. The "View" Message (The Execution)
+Once the Coordinator confirms the member is gone, it issues a new View. This is the most important log line for understanding cluster topology history.
+
+Example log line:
+Membership: View Message: [MemberA(123)<v1>:1001, MemberB(456)<v2>:1002] members: 2, viewId: 5
+
+viewId: This increments every time the membership changes.
+
+<v2>: The version of that specific member. If you see a member with <v1> leave and a new one with <v3> join, it means the server restarted.
+
+The Difference: If you compare a "View" from 10:00 AM to a "View" from 10:01 AM, the missing member is the one that was kicked.
+
+3. The "Forced Disconnect" (The Victim's Side)
+If a server was just "slow" (e.g., a 20-second Stop-the-World GC) and the cluster kicked it out, the server will realize it's no longer in the View when it "wakes up."
+
+Look for this in the kicked server's log:
+Membership service failure: Member unexpectedly left the group
+followed by:
+ForcedDisconnectException: Your member is no longer a member of the distributed system.
+
+Note: When a ForcedDisconnectException occurs, the server will usually attempt to Auto-Reconnect. You’ll see it try to contact the Locators to join as a "brand new" member.
