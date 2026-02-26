@@ -1,0 +1,3 @@
+the Group Membership Service (GMS) is essentially the "heartbeat" of a GemFire cluster. It is the underlying component (part of the JGroups-based stack) that manages the lifecycle of every node in the distributed system.
+
+Without a robust GMS, the cluster wouldn't know who is "in" and who is "out," leading to data corruption or the dreaded "Split-Brain" scenario.
