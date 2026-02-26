@@ -113,3 +113,70 @@ B tries to send message
 Gets ForcedDisconnectException
 
 B shuts itself down
+
+
+
+
+
+🔎 Step-by-Step: How a Member Gets Kicked Out
+1️⃣ Heartbeat Monitoring
+
+Each member periodically sends:
+
+Heartbeat messages
+
+Distribution acks
+
+View acknowledgements
+
+If a member does not respond within:
+
+member-timeout  (default ~10s)
+
+Other members mark it as suspect.
+
+2️⃣ Suspicion Phase (Important)
+
+When a member A suspects B:
+
+A sends a SuspectMember message to the coordinator.
+
+Other members may try to ping B directly.
+
+This avoids false positives (e.g., one-way network issue).
+
+This prevents split-brain due to transient network glitches.
+
+3️⃣ Coordinator Decision
+
+There is always a membership coordinator
+(usually the oldest surviving member).
+
+The coordinator:
+
+Collects suspicion reports
+
+Attempts final verification
+
+If no response → declares member dead
+
+Then it installs a new membership view excluding that member.
+
+Example:
+
+Old view: [A, B, C, D]
+New view: [A, C, D]
+4️⃣ Forced Disconnect
+
+The removed member (if it later wakes up, e.g., after GC pause):
+
+Tries to send a message
+
+Sees its membership ID no longer valid
+
+Receives a ForcedDisconnectException
+
+It must fully restart to rejoin.
+
+It cannot rejoin automatically without reinitializing.
+
