@@ -1,0 +1,34 @@
+Consistency checking requires additional overhead for storing and distributing version and timestamp information, as well as for maintaining destroyed entries for a period of time to meet consistency requirements.
+
+To provide consistency checking, each region entry uses an additional 16 bytes. 
+When an entry is deleted, a tombstone entry of approximately 13 bytes is created and maintained until the tombstone expires or is garbage-collected in the member. 
+
+(When an entry is destroyed, the member temporarily retains the entry with its current version stamp to detect possible conflicts with operations that have occurred. The retained entry is referred to as a tombstone.)
+
+
+
+
+
+RVV stands for Region Version Vector.
+
+If you think of a GemFire cluster as a team of people all trying to edit the same shared notebook, the RVV is the system that ensures no one's notes get scrambled or lost, even if two people write at the same time.
+
+The RVV is a consistency mechanism. Its primary job is Conflict Detection and Resolution.
+
+
+
+In a distributed system, updates can arrive at different servers at different times or even out of order due to network lag. The RVV acts as a "clock" for every entry in a region to determine which update is the "newest" and should be kept.
+
+✅ How it Works
+Every member (server) in the cluster maintains its own RVV for each region. It tracks:
+
+Member ID: Which server performed the update.
+
+Version Number: A monotonically increasing counter (1, 2, 3...) for changes made by that member.
+
+When a put happens, GemFire attaches a Version Tag to that entry. When that entry is replicated to another server, the receiving server compares the incoming version tag against its local RVV.
+
+The Rule: If the incoming version is older than what the server already has, the update is ignored. This prevents "stale" data from overwriting "fresh" data.
+
+
+
