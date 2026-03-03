@@ -1,0 +1,2 @@
+deploy the function in the gemfire server
+
