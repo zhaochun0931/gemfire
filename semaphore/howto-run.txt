@@ -1,0 +1,31 @@
+# 1. Start a locator and a server
+start locator --name=locator1
+start server --name=server1
+
+# 2. Create a REPLICATE region to store semaphore counts
+# Replicate ensures the data is available on all nodes for high availability
+create region --name=SemaphoreRegion --type=REPLICATE
+
+# 3. Deploy your jar containing the SemaphoreFunction (after building with Maven)
+deploy --jar=target/gemfire-semaphore-1.0-SNAPSHOT.jar
+
+# 4. Verify the function is registered
+list functions
+
+
+
+
+
+
+
+
+
+
+
+mvn clean install
+
+
+
+put --key='my-api-limit' --value='0' --region=SemaphoreRegion
+
+mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
