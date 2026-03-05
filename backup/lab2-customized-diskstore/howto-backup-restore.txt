@@ -1,0 +1,284 @@
+docker compose up
+
+
+
+
+
+✅
+
+docker exec -it gf-locator1 gfsh
+
+connect
+
+list members
+
+
+
+✅
+
+list disk-stores
+
+create disk-store --dir=./ds1 --name=ds1
+
+
+gf-server1/ds1/
+├── BACKUPds1.if
+└── DRLK_IFds1.lk
+
+
+
+
+
+
+
+
+create disk-store --dir=./ds2 --name=ds2 --max-oplog-size=100
+
+
+
+create region --name=exampleRegion1 --type=REPLICATE_PERSISTENT --disk-store=ds1
+
+gf-server1/ds1/
+├── BACKUPds1_1.crf
+├── BACKUPds1_1.drf
+├── BACKUPds1.if
+└── DRLK_IFds1.lk
+
+
+
+create region --name=exampleRegion2 --type=REPLICATE_PERSISTENT --disk-store=ds2
+
+
+
+
+list disk-stores
+
+
+gfsh>list disk-stores
+Member Name |             Member Id              | Disk Store Name | Disk Store ID
+----------- | ---------------------------------- | --------------- | ------------------------------------
+gf-server1  | gf-server1(gf-server1:1)<v1>:41000 | ds1             | 156705a5-38f4-4b9f-b502-20ffcf62a427
+gf-server2  | gf-server2(gf-server2:1)<v1>:41000 | ds1             | 35725147-8ee0-4a3b-a73e-996fb9473231
+gf-server3  | gf-server3(gf-server3:1)<v1>:41000 | ds1             | 801f5031-0627-44c6-a3bd-55d4357ff5c1
+
+gfsh>
+
+
+
+
+
+
+
+✅
+
+
+gf-server1/
+├── Accepted-terms-on-2026-01-25T02:19:41+00:00
+├── ds1
+│   ├── BACKUPds1_1.crf
+│   ├── BACKUPds1_1.drf
+│   ├── BACKUPds1.if
+│   └── DRLK_IFds1.lk
+├── gf-server1
+├── gf-server1.log
+└── vf.gf.server.pid
+
+gf-server2/
+├── Accepted-terms-on-2026-01-25T02:19:41+00:00
+├── ds1
+│   ├── BACKUPds1_1.crf
+│   ├── BACKUPds1_1.drf
+│   ├── BACKUPds1.if
+│   └── DRLK_IFds1.lk
+├── gf-server2
+├── gf-server2.log
+└── vf.gf.server.pid
+
+gf-server3/
+├── Accepted-terms-on-2026-01-25T02:19:41+00:00
+├── ds1
+│   ├── BACKUPds1_1.crf
+│   ├── BACKUPds1_1.drf
+│   ├── BACKUPds1.if
+│   └── DRLK_IFds1.lk
+├── gf-server3
+├── gf-server3.log
+└── vf.gf.server.pid
+
+
+
+
+
+
+✅
+
+
+put --key=key1 --value=a1 --region=/exampleRegion1
+put --key=key2 --value=a2 --region=/exampleRegion1
+put --key=key3 --value=a3 --region=/exampleRegion1
+
+
+put --key=key1 --value=b1 --region=/exampleRegion2
+put --key=key2 --value=b2 --region=/exampleRegion2
+put --key=key3 --value=b3 --region=/exampleRegion2
+
+
+
+
+query --query='select * from /exampleRegion1'
+
+query --query='select * from /exampleRegion2'
+
+
+
+
+
+
+
+
+
+✅
+
+backup disk-store --dir=./backup
+
+
+gfsh>backup disk-store --dir=./backup
+The following disk stores were backed up successfully
+
+  Member    |                UUID                |            Directory            | Host
+----------- | ---------------------------------- | ------------------------------- | -------------------------------
+gf-server3  | 801f5031-0627-44c6-a3bd-55d4357f.. | /data/./ds1                     | gf-server3.36775006_gf-network
+gf-server2  | 35725147-8ee0-4a3b-a73e-996fb947.. | /data/./ds1                     | gf-server2.36775006_gf-network
+gf-server1  | 156705a5-38f4-4b9f-b502-20ffcf62.. | /data/./ds1                     | gf-server1.36775006_gf-network
+gf-locator2 | 37c1b854-918f-444d-9818-aee5ff95.. | /data/ConfigDiskDir_gf-locator2 | gf-locator2.36775006_gf-network
+gf-locator1 | 735eb7dc-799b-406a-8113-540d8a94.. | /data/ConfigDiskDir_gf-locator1 | gf-locator1
+
+gfsh>
+
+
+
+
+gf-server1/
+├── Accepted-terms-on-2026-01-25T02:19:41+00:00
+├── backup
+│   └── 2026-01-25-02-24-21
+│       └── gf_server1_gf_server1_1_v1_41000
+│           ├── config
+│           ├── diskstores
+│           │   └── ds1_156705a538f44b9f-b50220ffcf62a427
+│           │       └── dir0
+│           │           ├── BACKUPds1_1.crf
+│           │           ├── BACKUPds1_1.drf
+│           │           ├── BACKUPds1_1.krf
+│           │           └── BACKUPds1.if
+│           ├── README_FILE.txt
+│           ├── restore.sh
+│           └── user
+├── ds1
+│   ├── BACKUPds1_1.crf
+│   ├── BACKUPds1_1.drf
+│   ├── BACKUPds1_1.krf
+│   ├── BACKUPds1_2.crf
+│   ├── BACKUPds1_2.drf
+│   ├── BACKUPds1.if
+│   └── DRLK_IFds1.lk
+├── gf-server1
+├── gf-server1.log
+└── vf.gf.server.pid
+
+
+gf-server2/
+├── Accepted-terms-on-2026-01-25T02:19:41+00:00
+├── backup
+│   └── 2026-01-25-02-24-21
+│       └── gf_server2_gf_server2_1_v1_41000
+│           ├── config
+│           ├── diskstores
+│           │   └── ds1_357251478ee04a3b-a73e996fb9473231
+│           │       └── dir0
+│           │           ├── BACKUPds1_1.crf
+│           │           ├── BACKUPds1_1.drf
+│           │           ├── BACKUPds1_1.krf
+│           │           └── BACKUPds1.if
+│           ├── README_FILE.txt
+│           ├── restore.sh
+│           └── user
+├── ds1
+│   ├── BACKUPds1_1.crf
+│   ├── BACKUPds1_1.drf
+│   ├── BACKUPds1_1.krf
+│   ├── BACKUPds1_2.crf
+│   ├── BACKUPds1_2.drf
+│   ├── BACKUPds1.if
+│   └── DRLK_IFds1.lk
+├── gf-server2
+├── gf-server2.log
+└── vf.gf.server.pid
+
+
+gf-server3/
+├── Accepted-terms-on-2026-01-25T02:19:41+00:00
+├── backup
+│   └── 2026-01-25-02-24-21
+│       └── gf_server3_gf_server3_1_v1_41000
+│           ├── config
+│           ├── diskstores
+│           │   └── ds1_801f5031062744c6-a3bd55d4357ff5c1
+│           │       └── dir0
+│           │           ├── BACKUPds1_1.crf
+│           │           ├── BACKUPds1_1.drf
+│           │           ├── BACKUPds1_1.krf
+│           │           └── BACKUPds1.if
+│           ├── README_FILE.txt
+│           ├── restore.sh
+│           └── user
+├── ds1
+│   ├── BACKUPds1_1.crf
+│   ├── BACKUPds1_1.drf
+│   ├── BACKUPds1_1.krf
+│   ├── BACKUPds1_2.crf
+│   ├── BACKUPds1_2.drf
+│   ├── BACKUPds1.if
+│   └── DRLK_IFds1.lk
+├── gf-server3
+├── gf-server3.log
+└── vf.gf.server.pid
+
+
+
+
+
+
+
+
+✅
+
+destroy region --name=/exampleRegion1
+destroy region --name=/exampleRegion2
+
+or 
+
+remove the disk store files from ds1
+
+
+
+docker compose down -v
+
+
+
+
+
+
+🔥 copy all the files in the dir0 to the current working directory of each cache server 
+🔥 remove vf.gf.server.pid file
+
+docker compose up
+
+
+
+🔥 create the region first otherwise the data is not restored
+
+create region --name=exampleRegion1 --type=REPLICATE_PERSISTENT --disk-store=ds1
+
+create region --name=exampleRegion2 --type=REPLICATE_PERSISTENT --disk-store=ds2
+
