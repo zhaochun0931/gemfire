@@ -1,0 +1,5 @@
+start locator --name=locator1
+
+
+
+start server --name=server1 --hostname-for-clients=localhost --cache-xml-file=/root/gf/cache.xml
