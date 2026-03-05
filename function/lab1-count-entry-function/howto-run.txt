@@ -1,0 +1,37 @@
+deploy --jar=/root/gemfire-test/server/my-app/target/my-app-1.0-SNAPSHOT.jar
+
+
+
+gfsh>deploy --jar=/root/gemfire-test/server/my-app/target/my-app-1.0-SNAPSHOT.jar
+
+Deploying files: my-app-1.0-SNAPSHOT.jar
+Total file size is: 0.00MB
+
+Continue?  (Y/n): Y
+Member  |           JAR           | JAR Location
+------- | ----------------------- | -------------------------------------------
+server1 | my-app-1.0-SNAPSHOT.jar | /root/gf/server1/my-app-1.0-SNAPSHOT.v1.jar
+
+gfsh>
+
+
+
+gfsh>list functions
+Member  | Function
+------- | --------
+server1 | App
+
+gfsh>
+
+
+
+execute function --id=App --arguments="exampleRegion"
+
+
+
+gfsh>execute function --id=App --arguments="exampleRegion"
+Member  | Status | Message
+------- | ------ | -------
+server1 | OK     | [1]
+
+gfsh>
