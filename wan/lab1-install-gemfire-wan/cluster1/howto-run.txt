@@ -1,0 +1,17 @@
+start locator --name=my-locator --properties-file=/root/config/gemfire.properties --security-properties-file=/root/config/gfsecurity.properties --hostname-for-clients=20.115.155.38
+
+start server --name=my-server --properties-file=/root/config/gemfire.properties --security-properties-file=/root/config/gfsecurity.properties --hostname-for-clients=20.115.155.38
+
+connect --locator=localhost[10334] --use-ssl --security-properties-file=/root/config/gfsecurity.properties
+
+
+# set up the gateway
+
+create gateway-sender --id="sender1" --parallel=true --remote-distributed-system-id="2"
+
+
+
+create region --name=exampleRegion --type=PARTITION --gateway-sender-id=sender1
+
+
+put --key=1 --value=hello1 --region=/exampleRegion
