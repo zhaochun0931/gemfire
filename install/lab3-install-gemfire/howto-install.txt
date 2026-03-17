@@ -1,0 +1,12 @@
+tar -xzvf vmware-gemfire-10.1.2.tgz
+
+
+# edit the .bash_profile
+
+source ~/.bash_profile
+
+
+gfsh version --full
+
+gfsh version
+
