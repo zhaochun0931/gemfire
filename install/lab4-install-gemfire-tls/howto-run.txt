@@ -1,0 +1,17 @@
+start locator --name=my-locator --port=12345 \
+--properties-file=/path/to/your/gemfire.properties \
+--security-properties-file=/path/to/your/gfsecurity.properties
+
+
+
+start server --name=my-server \
+--properties-file=/path/to/your/gemfire.properties \
+--security-properties-file=/path/to/your/gfsecurity.properties
+
+
+
+connect --locator=localhost[10334] --use-ssl \
+--security-properties-file=/path/to/your/gfsecurity.properties
+
+
+
