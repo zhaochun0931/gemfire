@@ -1,0 +1,55 @@
+package com.mycompany.app;
+
+
+import org.apache.geode.cache.Region;
+import org.apache.geode.cache.client.ClientCache;
+import org.apache.geode.cache.client.ClientCacheFactory;
+import org.apache.geode.cache.client.ClientRegionShortcut;
+
+
+/**
+ * Hello world!
+ */
+
+
+public class App
+{
+    public static void main( String[] args ) throws Exception
+    {
+
+//        System.out.println( "Hello World!" );
+
+
+
+
+    ClientCache cache = new ClientCacheFactory()
+      .set("name", "my-client")
+      .set("log-level", "config")
+      .set("log-file", "producer.log")
+      .set("ssl-enabled-components", "all")
+      .set("ssl-keystore","./certs/keystore.p12")
+      .set("ssl-keystore-password", "password")
+      .set("ssl-truststore", "./certs/truststore.p12")
+      .set("ssl-truststore-password", "password")
+      .addPoolLocator("172.16.204.139", 10334)
+      .create();
+
+
+        Region<String, String> region = cache
+                .<String, String>createClientRegionFactory(ClientRegionShortcut.CACHING_PROXY)
+                .create("exampleRegion");
+
+
+        for (int i = 1; i <= 1000; i++) {
+            String key = "key" + i;
+            String value = "value" + i;
+            region.put(key, value);
+        }
+
+        System.out.println("✅ Inserted 1000 entries into the region!");
+
+        cache.close();
+
+
+    }
+}

@@ -1,0 +1,9 @@
+mkdir certs
+
+cd certs
+
+keytool -genkeypair -alias myapp-key -keyalg RSA -keysize 2048 -storetype PKCS12 -keystore keystore.p12 -validity 365 -dname "CN=localhost, OU=IT, O=MyCompany, L=Shanghai, ST=Shanghai, C=CN" -storepass password
+
+keytool -exportcert -alias myapp-key -keystore keystore.p12 -storetype PKCS12 -file myapp-public.cer
+
+keytool -importcert -alias myapp-key -keystore truststore.p12 -storetype PKCS12 -file myapp-public.cer
