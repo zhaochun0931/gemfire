@@ -1,0 +1,38 @@
+# deploy the jar on the gemfire server
+
+deploy --jar=/tmp/my-app-1.0-SNAPSHOT.jar
+
+
+list deployed
+
+
+# create region
+create region --name=exampleRegion --type=REPLICATE
+
+
+# create a queue and attach this listener to the region
+
+create async-event-queue \
+    --id=myAsyncQueue \
+    --listener=com.mycompany.app.MyAsyncListener \
+    --batch-size=50 \
+    --batch-time-interval=1000
+
+
+
+list async-event-queues
+
+gfsh>list async-event-queues
+Member  |      ID      | Batch Size | Persistent | Disk Store | Max Memory |             Listener              | Created with paused event processing | Currently Paused
+------- | ------------ | ---------- | ---------- | ---------- | ---------- | --------------------------------- | ------------------------------------ | ----------------
+server1 | myAsyncQueue | 50         | false      | null       | 100        | com.mycompany.app.MyAsyncListener | false                                | false
+
+gfsh>
+
+
+
+
+
+alter region --name=/exampleRegion --async-event-queue-id=myAsyncQueue
+
+
