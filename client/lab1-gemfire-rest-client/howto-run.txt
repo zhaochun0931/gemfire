@@ -1,0 +1,18 @@
+start locator
+
+start server --start-rest-api=yes --http-service-port=8080
+
+create region --name=Customer --type=REPLICATE
+
+
+
+
+curl -G "http://172.16.204.139:8080/gemfire-api/v1/Customer" \
+     --data-urlencode "ignoreMissingKey=true" \
+     --data-urlencode "q=SELECT * FROM /Customer WHERE status = 'Active'" \
+     -H "Accept: application/json"
+
+
+
+
+http://172.16.204.139:8080/gemfire-api/docs/index.html
