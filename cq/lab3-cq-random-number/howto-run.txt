@@ -1,0 +1,5 @@
+start locator --name=locator1
+
+start server --name=server
+
+create region --name=NumbersRegion --type=PARTITION
