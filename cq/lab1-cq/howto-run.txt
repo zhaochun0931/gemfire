@@ -1,0 +1,8 @@
+start locator --name=locator1
+
+
+configure pdx --read-serialized=true
+
+start server --name=server1
+
+create region --name=Trades --type=PARTITION
