@@ -1,0 +1,5 @@
+mkdir certs
+
+kubectl get secret gemfire1-cert -o=jsonpath='{.data.password}' | base64 --decode > ./certs/password
+kubectl get secret gemfire1-cert -o=jsonpath='{.data.keystore\.p12}' | base64 --decode > ./certs/keystore.p12
+kubectl get secret gemfire1-cert -o=jsonpath='{.data.truststore\.p12}' | base64 --decode > ./certs/truststore.p12
