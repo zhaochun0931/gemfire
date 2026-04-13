@@ -1,0 +1,44 @@
+package com.mycompany.app;
+
+/**
+ * Hello world!
+ */
+
+import org.apache.geode.cache.Region;
+import org.apache.geode.cache.client.ClientCache;
+import org.apache.geode.cache.client.ClientCacheFactory;
+import org.apache.geode.cache.client.ClientRegionShortcut;
+
+public class App {
+    public String getGreeting() {
+        return "Hello World!";
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new App().getGreeting());
+
+        // 1. Configure and create the ClientCache programmatically
+        ClientCache cache = new ClientCacheFactory()
+                // Replace "localhost" and 10334 with your actual Locator host and port
+//                .addPoolLocator("localhost", 10334)
+                .addPoolLocator("172.16.204.139", 10334)
+                .create();
+
+        // 2. Create the Region programmatically without XML
+        // PROXY means this client won't store data locally; it just sends/gets from the server
+        Region<String, String> region = cache.<String, String>createClientRegionFactory(ClientRegionShortcut.PROXY)
+                .create("exampleRegion");
+
+        // 3. Execute your data loading logic
+        for (int i = 1; i <= 1000; i++) {
+            String key = "key" + i;
+            String value = "value" + i;
+            region.put(key, value);
+        }
+
+        System.out.println("✅ Inserted 1000 entries into the region!");
+
+        // 4. Clean up
+        cache.close();
+    }
+}
