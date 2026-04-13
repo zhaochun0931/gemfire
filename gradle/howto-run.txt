@@ -1,0 +1,20 @@
+mkdir my-gradle-project
+
+cd my-gradle-project/
+
+gradle init
+
+./gradlew run
+
+
+./gradlew clean
+
+
+
+You should never hardcode passwords directly into your build.gradle file, especially if you commit your code to version control (like Git). Instead, store them in your user-level or project-level gradle.properties file.
+
+Open (or create) the gradle.properties file.
+
+Project level: Inside your my-first-gradle-project folder.
+
+Global level (Recommended): ~/.gradle/gradle.properties (Mac/Linux)
