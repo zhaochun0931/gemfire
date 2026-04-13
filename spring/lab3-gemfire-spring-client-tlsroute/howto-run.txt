@@ -1,3 +1,7 @@
+create region --name=myRegion --type=REPLICATE
+
+
+
 mkdir certs
 
 kubectl get secret gemfire1-cert -o=jsonpath='{.data.password}' | base64 --decode > ./certs/password
