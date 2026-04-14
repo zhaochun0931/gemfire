@@ -1,3 +1,5 @@
-gradle clean build
+split the config to application.properties
 
-gradle bootrun
+
+
+mvn spring-boot:run
