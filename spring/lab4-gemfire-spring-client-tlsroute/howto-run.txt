@@ -1,0 +1,1 @@
+split the config to application.properties
