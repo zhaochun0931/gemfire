@@ -1,0 +1,5 @@
+split the config to application.yml
+
+
+
+mvn spring-boot:run
