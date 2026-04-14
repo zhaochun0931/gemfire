@@ -1,0 +1,10 @@
+check the region and entry status
+
+
+
+
+gfsh
+
+start locator --bind-address=172.16.204.139 --J=-Djava.rmi.server.hostname=172.16.204.139 --J=-Dgemfire.jmx-manager-hostname-for-clients=172.16.204.139
+
+start server
