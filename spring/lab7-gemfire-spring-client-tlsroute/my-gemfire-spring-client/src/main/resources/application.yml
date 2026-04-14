@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: my-gemfire-spring-client
+  data:
+    gemfire:
+      # Spring automatically builds the SSL context using these properties
+      security:
+        ssl:
+          components: all
+          keystore: ./certs/keystore.p12
+          keystore.password: unreDY6sNR08-IHBQcw0BADP_leu888D-R-12Lhh1LY=
+          truststore: ./certs/truststore.p12
+          truststore.password: unreDY6sNR08-IHBQcw0BADP_leu888D-R-12Lhh1LY=
+      properties:
+        ssl-endpoint-identification-enabled: "true"
+
+# Custom Properties for SNI Proxy
+gemfire:
+  sni:
+    host: localhost
+    port: 9000
+
+# Custom Application Logic Configuration
+app:
+  runner:
+    insert-count: 100
+    payload-prefix: "GemFire Data Payload"
