@@ -1,0 +1,41 @@
+the Native Client is a specialized library that allows non-Java applications—specifically those written in C++ and .NET—to connect to a GemFire cluster with high performance.
+
+
+
+tar -xzvf vmware-gemfire-native-10.4.3-build.9-Ubuntu18-64bit.tar.gz
+
+cd vmware-gemfire-native/examples/putgetremove/
+
+
+# cmake .
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found VMwareGemFireNative: /root/vmware-gemfire-native/lib/libvmware-gemfire.so (found version "1.0")
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /root/vmware-gemfire-native/examples/cpp/putgetremove
+# 
+#
+#
+#
+#
+# make
+[ 50%] Building CXX object CMakeFiles/cpp-putgetremove.dir/main.cpp.o
+[100%] Linking CXX executable cpp-putgetremove
+[100%] Built target cpp-putgetremove
+#
+#
+#
+#
+# ./cpp-putgetremove
+Storing id and username in the region
+Getting the user info from the region
+  rtimmons = Robert Timmons
+  scharles = Sylvia Charles
+Removing rtimmons info from the region
+rtimmons's info successfully deleted
+#
