@@ -1,0 +1,73 @@
+services:
+  gf-locator1:
+    image: gemfire/gemfire:10.1.2
+    container_name: gf-locator1
+    networks:
+      - gf-network
+    environment:
+      - ACCEPT_TERMS=y
+    ports:
+      - "10334:10334"
+      - "7070:7070"
+    command: gfsh start locator --name=locator1
+
+  gf-locator2:
+    image: gemfire/gemfire:10.1.2
+    container_name: gf-locator2
+    networks:
+      - gf-network
+    environment:
+      - ACCEPT_TERMS=y
+    ports:
+      - "10335:10335"
+      - "7071:7070"
+    depends_on:
+      - gf-locator1
+    # locator2 joins the cluster by pointing to locator1
+    command: gfsh start locator --name=locator2 --port=10335 --locators=gf-locator1[10334]
+
+  gf-server1:
+    image: gemfire/gemfire:10.1.2
+    container_name: gf-server1
+    networks:
+      - gf-network
+    environment:
+      - ACCEPT_TERMS=y
+    ports:
+      - "40404:40404"
+    depends_on:
+      - gf-locator1
+      - gf-locator2
+    command: gfsh start server --name=server1 --locators=gf-locator1[10334],gf-locator2[10335] --server-port=40404
+
+  gf-server2:
+    image: gemfire/gemfire:10.1.2
+    container_name: gf-server2
+    networks:
+      - gf-network
+    environment:
+      - ACCEPT_TERMS=y
+    ports:
+      - "40405:40405"
+    depends_on:
+      - gf-locator1
+      - gf-locator2
+    command: gfsh start server --name=server2 --locators=gf-locator1[10334],gf-locator2[10335] --server-port=40405
+
+  gf-server3:
+    image: gemfire/gemfire:10.1.2
+    container_name: gf-server3
+    networks:
+      - gf-network
+    environment:
+      - ACCEPT_TERMS=y
+    ports:
+      - "40406:40406"
+    depends_on:
+      - gf-locator1
+      - gf-locator2
+    command: gfsh start server --name=server3 --locators=gf-locator1[10334],gf-locator2[10335] --server-port=40406
+
+networks:
+  gf-network:
+    driver: bridge

@@ -1,0 +1,13 @@
+docker compose up
+
+docker compose up -d
+
+
+docker exec -it gf-locator1 gfsh
+connect
+
+docker exec -it gf-locator1 gfsh -e 'connect' -e 'list member'
+
+
+docker exec -it gf-locator2 gfsh
+connect --locator=localhost[10335]
