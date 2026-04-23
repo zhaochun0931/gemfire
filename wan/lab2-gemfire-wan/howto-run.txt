@@ -1,0 +1,49 @@
+cluster1:
+
+
+start locator --name=locator1 --properties-file=/root/cluster/config/gemfire.properties
+
+start locator --name=locator2 --properties-file=/root/cluster/config/gemfire.properties --port=10335
+start server --name=server1
+
+
+
+cluster2:
+
+start locator --name=locator1 --properties-file=/root/cluster/config/gemfire.properties
+start locator --name=locator2 --properties-file=/root/cluster/config/gemfire.properties --port=10335
+start server --name=server1
+
+
+
+cluster1:
+
+# create the gateway sender
+
+create gateway-sender --id="sender1" --parallel=true --remote-distributed-system-id="2"
+
+create region --name=exampleRegion --type=PARTITION --gateway-sender-id=sender1
+
+list gateways
+
+
+
+stop gateway-sender --id=sender1
+
+start gateway-sender --id=sender1
+
+
+
+
+cluster2:
+
+# create the gateway receiver
+
+create gateway-receiver --start-port=1530 --end-port=1551 --hostname-for-senders=172.16.204.140
+
+create region --name=exampleRegion --type=PARTITION
+
+
+# input some entries from cluster1
+
+put --key=hello1 --value=test1 --region=/exampleRegion
