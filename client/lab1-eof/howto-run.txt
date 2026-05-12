@@ -1,0 +1,16 @@
+End Of File
+
+
+
+javac eof.java
+
+java eof
+
+
+
+# open another terminal
+
+nc -v 127.0.0.1 40511
+
+
+Press Ctrl + C immediately after it connects.
