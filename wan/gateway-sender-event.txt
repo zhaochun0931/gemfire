@@ -1,0 +1,12 @@
+The Lifecycle of a Gateway Sender Event
+Creation: A local client performs a mutation (e.g., a put or destroy on a Region). The local cache is updated immediately, and the client receives a success response. Simultaneously, GemFire wraps this operation into a new GatewaySenderEvent object.
+
+Enqueueing: The event is pushed into the Gateway Sender Queue (this is where the maximum-queue-memory limit we discussed earlier comes into play).
+
+Batching: A background dispatcher thread continuously polls the queue. It groups multiple events together into a batch (controlled by batch-size and batch-time-interval) to optimize network transmission.
+
+Transmission: The dispatcher thread serializes the batch and sends it over a TCP connection to the remote site's GatewayReceiver.
+
+Processing: The remote site unpacks the events and applies the operations to its local copy of the Region.
+
+Acknowledgement & Deletion: The remote site sends an acknowledgement (ACK) back to the sender. Only after receiving this ACK does the sender delete the Gateway Sender Event from its queue. If the connection drops before the ACK is received, the sender will re-transmit the event later to ensure no data is lost.
