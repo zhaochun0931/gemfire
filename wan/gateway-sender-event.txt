@@ -1,4 +1,13 @@
+A Gateway Sender Event is the fundamental unit of work for WAN (Wide Area Network) replication.
+
+When you configure a multi-site GemFire architecture, you don't want a slow network connection between New York and London to slow down your local application. To solve this, GemFire decouples the local cache operation from the remote replication. The Gateway Sender Event is the bridge between the two.
+
+
+
+
+
 The Lifecycle of a Gateway Sender Event
+
 Creation: A local client performs a mutation (e.g., a put or destroy on a Region). The local cache is updated immediately, and the client receives a success response. Simultaneously, GemFire wraps this operation into a new GatewaySenderEvent object.
 
 Enqueueing: The event is pushed into the Gateway Sender Queue (this is where the maximum-queue-memory limit we discussed earlier comes into play).
