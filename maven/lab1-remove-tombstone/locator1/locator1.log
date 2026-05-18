@@ -1,0 +1,3122 @@
+[info 2026/05/18 11:49:16.630 CST locator1 <main> tid=0x1] 
+---------------------------------------------------------------------------
+  
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with this
+  work for additional information regarding copyright ownership.
+   
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with the
+  License.  You may obtain a copy of the License at
+  
+  http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the
+  License for the specific language governing permissions and limitations
+  under the License.
+  
+---------------------------------------------------------------------------
+----------------------------------------
+VMware GemFire
+----------------------------------------
+Build-Java-Vendor: BellSoft
+GemFire-Source-Date: 2023-04-07 14:35:30 -0700
+Build-Platform: Linux 5.10.162+ amd64
+Build-Java-Version: 1.8.0_362
+GemFire-Source-Revision: 2a5ca3b62305f905c90704e265ab05aed659d745
+Build-Id: root 1810
+Product-Name: VMware GemFire
+GemFire-Source-Repository: support/10.0
+GemFire-Version: 10.0.0
+
+Running on: Running on: 10.164.209.171/10.164.209.171, 10 cpu(s), aarch64 Mac OS X 26.4.1 
+---------------------------------------------------------------------------
+Communications version: 200
+Process ID: 48936
+User: zchun
+Current dir: /Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1
+Home dir: /Users/zchun
+Command Line Parameters:
+  --add-exports=java.management/com.sun.jmx.remote.security=ALL-UNNAMED
+  --add-exports=java.base/sun.nio.ch=ALL-UNNAMED
+  --add-opens=java.base/java.lang=ALL-UNNAMED
+  --add-opens=java.base/java.nio=ALL-UNNAMED
+  -Dgemfire.enable-cluster-configuration=true
+  -Dgemfire.load-cluster-configuration-from-dir=false
+  -XX:+UseZGC
+  -Dgemfire.launcher.registerSignalHandlers=true
+  -Djava.awt.headless=true
+  -Dsun.rmi.dgc.server.gcInterval=9223372036854775806
+Class Path:
+  /Users/zchun/Downloads/vmware-gemfire-10.0.0/lib/gemfire-bootstrap-10.0.0.jar
+Library Path:
+  /Users/zchun/Library/Java/Extensions
+  /Library/Java/Extensions
+  /Network/Library/Java/Extensions
+  /System/Library/Java/Extensions
+  /usr/lib/java
+  .
+System Properties:
+    Locator.forceLocatorDMType = true
+    apple.awt.application.name = LocatorLauncher
+    boot.module.loader = com.vmware.gemfire.bootstrap.internal.GemFireModuleLoader
+    com.vmware.gemfire.deployment.modules.internal.Launcher.extensionsRuntimePath = /var/folders/0y/47ml4wh571l7x16hh5lt8l9m0000gq/T/gemfire-extensions11401764413395545922
+    file.encoding = UTF-8
+    file.separator = /
+    gemfire.enable-cluster-configuration = true
+    gemfire.home = /Users/zchun/Downloads/vmware-gemfire-10.0.0
+    gemfire.launcher.registerSignalHandlers = true
+    gemfire.load-cluster-configuration-from-dir = false
+    java.awt.headless = true
+    java.class.version = 65.0
+    java.home = /Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home
+    java.io.tmpdir = /var/folders/0y/47ml4wh571l7x16hh5lt8l9m0000gq/T/
+    java.runtime.name = Java(TM) SE Runtime Environment
+    java.runtime.version = 21.0.8+12-LTS-250
+    java.specification.name = Java Platform API Specification
+    java.specification.vendor = Oracle Corporation
+    java.specification.version = 21
+    java.vendor = Oracle Corporation
+    java.vendor.url = https://java.oracle.com/
+    java.vendor.url.bug = https://bugreport.java.com/bugreport/
+    java.version = 21.0.8
+    java.version.date = 2025-07-15
+    java.vm.info = mixed mode, sharing
+    java.vm.name = Java HotSpot(TM) 64-Bit Server VM
+    java.vm.specification.name = Java Virtual Machine Specification
+    java.vm.specification.vendor = Oracle Corporation
+    java.vm.specification.version = 21
+    java.vm.vendor = Oracle Corporation
+    java.vm.version = 21.0.8+12-LTS-250
+    jboss.modules.system.pkgs = javax.management,java.lang.management
+    jdk.debug = release
+    line.separator = 
+
+    module.path = /Users/zchun/Downloads/vmware-gemfire-10.0.0/moduleDescriptors:/var/folders/0y/47ml4wh571l7x16hh5lt8l9m0000gq/T/gemfire-extensions11401764413395545922:/Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1/deployments
+    native.encoding = UTF-8
+    os.version = 26.4.1
+    path.separator = :
+    stderr.encoding = UTF-8
+    stdout.encoding = UTF-8
+    sun.arch.data.model = 64
+    sun.boot.library.path = /Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/lib
+    sun.cpu.endian = little
+    sun.io.unicode.encoding = UnicodeBig
+    sun.java.command = com.vmware.gemfire.bootstrap.LocatorLauncher start locator1 --automatic-module-classpath=/Users/zchun/Downloads/vmware-gemfire-10.0.0/extensions/* --port=10334
+    sun.java.launcher = SUN_STANDARD
+    sun.jnu.encoding = UTF-8
+    sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+    sun.rmi.dgc.server.gcInterval = 9223372036854775806
+    user.country = US
+    user.language = en
+    user.timezone = Asia/Shanghai
+Log4J 2 Configuration:
+    jar:file:/Users/zchun/Downloads/vmware-gemfire-10.0.0/lib/gemfire-log4j-10.0.0.jar!/log4j2.xml
+---------------------------------------------------------------------------
+
+
+[info 2026/05/18 11:49:16.637 CST locator1 <main> tid=0x1] Startup Configuration: 
+### GemFire Properties defined with system property ###
+enable-cluster-configuration=true
+load-cluster-configuration-from-dir=false
+### GemFire Properties defined with api ###
+cache-xml-file=
+locators=10.164.209.171[10334]
+name=locator1
+### GemFire Properties defined with launcher ###
+log-file=/Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1/locator1.log
+### GemFire Properties using default values ###
+ack-severe-alert-threshold=0
+ack-wait-threshold=15
+archive-disk-space-limit=0
+archive-file-size-limit=0
+async-distribution-timeout=0
+async-max-queue-size=8
+async-queue-timeout=60000
+bind-address=
+cluster-configuration-dir=
+cluster-ssl-ciphers=any
+cluster-ssl-enabled=false
+cluster-ssl-keystore=
+cluster-ssl-keystore-password=
+cluster-ssl-keystore-type=
+cluster-ssl-protocols=any
+cluster-ssl-require-authentication=true
+cluster-ssl-truststore=
+cluster-ssl-truststore-password=
+conflate-events=server
+conserve-sockets=false
+delta-propagation=true
+deploy-working-dir=/Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1
+disable-auto-reconnect=false
+disable-jmx=false
+disable-tcp=false
+distributed-system-id=-1
+distributed-transactions=false
+durable-client-id=
+durable-client-timeout=300
+enable-management-rest-service=true
+enable-network-partition-detection=true
+enable-time-statistics=true
+enforce-unique-host=false
+gateway-ssl-ciphers=any
+gateway-ssl-enabled=false
+gateway-ssl-keystore=
+gateway-ssl-keystore-password=
+gateway-ssl-keystore-type=
+gateway-ssl-protocols=any
+gateway-ssl-require-authentication=true
+gateway-ssl-truststore=
+gateway-ssl-truststore-password=
+groups=
+http-service-bind-address=
+http-service-port=7070
+http-service-ssl-ciphers=any
+http-service-ssl-enabled=false
+http-service-ssl-keystore=
+http-service-ssl-keystore-password=
+http-service-ssl-keystore-type=
+http-service-ssl-protocols=any
+http-service-ssl-require-authentication=false
+http-service-ssl-truststore=
+http-service-ssl-truststore-password=
+jmx-manager=true
+jmx-manager-access-file=
+jmx-manager-bind-address=
+jmx-manager-hostname-for-clients=
+jmx-manager-http-port=7070
+jmx-manager-password-file=
+jmx-manager-port=1099
+jmx-manager-ssl-ciphers=any
+jmx-manager-ssl-enabled=false
+jmx-manager-ssl-keystore=
+jmx-manager-ssl-keystore-password=
+jmx-manager-ssl-keystore-type=
+jmx-manager-ssl-protocols=any
+jmx-manager-ssl-require-authentication=true
+jmx-manager-ssl-truststore=
+jmx-manager-ssl-truststore-password=
+jmx-manager-start=false
+jmx-manager-update-rate=2000
+locator-wait-time=0
+lock-memory=false
+log-disk-space-limit=0
+log-file-size-limit=0
+log-level=config
+max-num-reconnect-tries=3
+max-wait-time-reconnect=60000
+mcast-address=239.192.81.1
+mcast-flow-control=1048576, 0.25, 5000
+mcast-port=0
+mcast-recv-buffer-size=1048576
+mcast-send-buffer-size=65535
+mcast-ttl=32
+member-timeout=5000
+membership-port-range=41000-61000
+memcached-bind-address=
+memcached-port=0
+memcached-protocol=ASCII
+off-heap-memory-size=
+redundancy-zone=
+remote-locators=
+remove-unresponsive-client=false
+roles=
+security-auth-token-enabled-components=
+security-client-accessor=
+security-client-accessor-pp=
+security-client-auth-init=
+security-client-authenticator=
+security-client-dhalgo=
+security-log-file=
+security-log-level=config
+security-manager=
+security-peer-auth-init=
+security-peer-authenticator=
+security-peer-verifymember-timeout=1000
+security-post-processor=
+security-udp-dhalgo=
+serializable-object-filter=!*
+server-bind-address=
+server-ssl-ciphers=any
+server-ssl-enabled=false
+server-ssl-keystore=
+server-ssl-keystore-password=
+server-ssl-keystore-type=
+server-ssl-protocols=any
+server-ssl-require-authentication=true
+server-ssl-truststore=
+server-ssl-truststore-password=
+socket-buffer-size=32768
+socket-lease-time=1800000
+ssl-ciphers=any
+ssl-client-protocols=
+ssl-cluster-alias=
+ssl-default-alias=
+ssl-enabled-components=
+ssl-endpoint-identification-enabled=false
+ssl-gateway-alias=
+ssl-jmx-alias=
+ssl-keystore=
+ssl-keystore-password=
+ssl-keystore-type=
+ssl-locator-alias=
+ssl-parameter-extension=
+ssl-protocols=any
+ssl-require-authentication=true
+ssl-server-alias=
+ssl-server-protocols=
+ssl-truststore=
+ssl-truststore-password=
+ssl-truststore-type=
+ssl-use-default-context=false
+ssl-web-alias=
+ssl-web-require-authentication=false
+start-dev-rest-api=false
+start-locator=
+statistic-archive-file=
+statistic-sample-rate=1000
+statistic-sampling-enabled=true
+tcp-port=0
+thread-monitor-enabled=true
+thread-monitor-interval-ms=60000
+thread-monitor-time-limit-ms=120000
+udp-fragment-size=60000
+udp-recv-buffer-size=1048576
+udp-send-buffer-size=65535
+use-cluster-configuration=true
+use-udp-membership-messenger=false
+user-command-packages=
+validate-serializable-objects=false
+
+
+[info 2026/05/18 11:49:16.641 CST locator1 <main> tid=0x1] ClassLoader Modules:
+- Module Name: _automatic_
+-- Resources:
+--- gemfire-greenplum-4.0.1-javadoc.jar
+--- gemfire-greenplum-4.0.1.jar
+--- /var/folders/0y/47ml4wh571l7x16hh5lt8l9m0000gq/T/gemfire-extensions11401764413395545922/_automatic_/main/lib
+-- Module Dependencies:
+--- default_application
+--- gemfire
+--- java.base
+--- java.se
+
+- Module Name: default_application
+-- Resources:
+--- /Users/zchun/Downloads/vmware-gemfire-10.0.0/moduleDescriptors/default_application/main/lib
+-- Module Dependencies:
+--- _automatic_
+--- java.base
+
+- Module Name: gemfire
+-- Resources:
+--- HdrHistogram-2.1.12.jar
+--- HikariCP-4.0.3.jar
+--- LatencyUtils-2.0.3.jar
+--- antlr-2.7.7.jar
+--- bson-4.8.1.jar
+--- classgraph-4.8.154.jar
+--- commons-beanutils-1.9.4.jar
+--- commons-codec-1.15.jar
+--- commons-collections4-4.4.jar
+--- commons-digester-2.1.jar
+--- commons-io-2.11.0.jar
+--- commons-lang3-3.12.0.jar
+--- commons-logging-1.2.jar
+--- commons-validator-1.7.jar
+--- fastutil-8.5.11.jar
+--- gemfire-common-10.0.0.jar
+--- gemfire-connectors-10.0.0.jar
+--- gemfire-core-10.0.0.jar
+--- gemfire-cq-10.0.0.jar
+--- gemfire-deployment-jboss-modules-10.0.0.jar
+--- gemfire-gfsh-10.0.0.jar
+--- gemfire-http-service-10.0.0.jar
+--- gemfire-log4j-10.0.0.jar
+--- gemfire-logging-10.0.0.jar
+--- gemfire-management-10.0.0.jar
+--- gemfire-membership-10.0.0.jar
+--- gemfire-memcached-10.0.0.jar
+--- gemfire-old-client-support-10.0.0.jar
+--- gemfire-rebalancer-10.0.0.jar
+--- gemfire-serialization-10.0.0.jar
+--- gemfire-tcp-messenger-10.0.0.jar
+--- gemfire-tcp-server-10.0.0.jar
+--- gemfire-unsafe-10.0.0.jar
+--- gemfire-version-10.0.0.jar
+--- gemfire-wan-10.0.0.jar
+--- httpclient-4.5.14.jar
+--- httpcore-4.4.16.jar
+--- istack-commons-runtime-4.0.1.jar
+--- jackson-annotations-2.14.1.jar
+--- jackson-core-2.14.1.jar
+--- jackson-databind-2.14.1.jar
+--- jackson-datatype-joda-2.14.1.jar
+--- jackson-datatype-jsr310-2.14.1.jar
+--- javax.activation-api-1.2.0.jar
+--- javax.resource-api-1.7.1.jar
+--- javax.servlet-api-3.1.0.jar
+--- javax.transaction-api-1.3.jar
+--- jaxb-api-2.3.1.jar
+--- jaxb-impl-2.3.2.jar
+--- jetty-http-9.4.50.v20221201.jar
+--- jetty-io-9.4.50.v20221201.jar
+--- jetty-security-9.4.50.v20221201.jar
+--- jetty-server-9.4.50.v20221201.jar
+--- jetty-servlet-9.4.50.v20221201.jar
+--- jetty-util-9.4.50.v20221201.jar
+--- jetty-util-ajax-9.4.50.v20221201.jar
+--- jetty-webapp-9.4.50.v20221201.jar
+--- jetty-xml-9.4.50.v20221201.jar
+--- jgroups-3.6.14.Final.jar
+--- jline-2.12.jar
+--- jna-5.12.1.jar
+--- jna-platform-5.12.1.jar
+--- joda-time-2.12.2.jar
+--- jopt-simple-5.0.4.jar
+--- log4j-api-2.19.0.jar
+--- log4j-core-2.19.0.jar
+--- log4j-jcl-2.19.0.jar
+--- log4j-jul-2.19.0.jar
+--- log4j-slf4j-impl-2.19.0.jar
+--- micrometer-commons-1.10.2.jar
+--- micrometer-core-1.10.2.jar
+--- micrometer-observation-1.10.2.jar
+--- netty-buffer-4.1.86.Final.jar
+--- netty-codec-4.1.86.Final.jar
+--- netty-common-4.1.86.Final.jar
+--- netty-handler-4.1.86.Final.jar
+--- netty-resolver-4.1.86.Final.jar
+--- netty-transport-4.1.86.Final.jar
+--- netty-transport-native-unix-common-4.1.86.Final.jar
+--- rmiio-2.1.2.jar
+--- shiro-cache-1.11.0.jar
+--- shiro-config-core-1.11.0.jar
+--- shiro-config-ogdl-1.11.0.jar
+--- shiro-core-1.11.0.jar
+--- shiro-crypto-cipher-1.11.0.jar
+--- shiro-crypto-core-1.11.0.jar
+--- shiro-crypto-hash-1.11.0.jar
+--- shiro-event-1.11.0.jar
+--- shiro-lang-1.11.0.jar
+--- slf4j-api-1.7.36.jar
+--- snappy-0.4.jar
+--- spring-beans-5.3.26.jar
+--- spring-context-5.3.26.jar
+--- spring-core-5.3.26.jar
+--- spring-jcl-5.3.26.jar
+--- spring-shell-1.2.0.RELEASE.jar
+--- spring-web-5.3.26.jar
+--- swagger-annotations-2.2.7.jar
+--- /Users/zchun/Downloads/vmware-gemfire-10.0.0/moduleDescriptors/gemfire/main/lib
+-- Module Dependencies:
+--- default_application
+--- java.base
+--- java.se
+--- jdk.unsupported
+
+
+
+[info 2026/05/18 11:49:16.647 CST locator1 <main> tid=0x1] initializing InternalDataSerializer with 9 services
+
+[info 2026/05/18 11:49:16.648 CST locator1 <main> tid=0x1] loaded 1 sanctioned serializables from CQSanctionedSerializablesService
+
+[info 2026/05/18 11:49:16.648 CST locator1 <main> tid=0x1] loaded 0 sanctioned serializables from MembershipSanctionedSerializablesService
+
+[info 2026/05/18 11:49:16.652 CST locator1 <main> tid=0x1] loaded 488 sanctioned serializables from CoreSanctionedSerializablesService
+
+[info 2026/05/18 11:49:16.653 CST locator1 <main> tid=0x1] loaded 6 sanctioned serializables from SerializationSanctionedSerializablesService
+
+[info 2026/05/18 11:49:16.653 CST locator1 <main> tid=0x1] loaded 6 sanctioned serializables from WANSanctionedSerializablesService
+
+[info 2026/05/18 11:49:16.653 CST locator1 <main> tid=0x1] loaded 11 sanctioned serializables from ConnectorsSanctionedSerializablesService
+
+[info 2026/05/18 11:49:16.654 CST locator1 <main> tid=0x1] loaded 54 sanctioned serializables from MemcachedSanctionedSerializablesService
+
+[info 2026/05/18 11:49:16.654 CST locator1 <main> tid=0x1] loaded 42 sanctioned serializables from ManagementSanctionedSerializablesService
+
+[info 2026/05/18 11:49:16.655 CST locator1 <main> tid=0x1] loaded 116 sanctioned serializables from GfshSanctionedSerializablesService
+
+[info 2026/05/18 11:49:16.675 CST locator1 <main> tid=0x1] Serial Queue info : THROTTLE_PERCENT: 0.75 SERIAL_QUEUE_BYTE_LIMIT :41943040 SERIAL_QUEUE_THROTTLE :31457280 TOTAL_SERIAL_QUEUE_BYTE_LIMIT :83886080 TOTAL_SERIAL_QUEUE_THROTTLE :31457280 SERIAL_QUEUE_SIZE_LIMIT :20000 SERIAL_QUEUE_SIZE_THROTTLE :15000
+
+[info 2026/05/18 11:49:16.771 CST locator1 <main> tid=0x1] Starting membership services
+
+[info 2026/05/18 11:49:16.854 CST locator1 <main> tid=0x1] Established local address 10.164.209.171(locator1:48936:locator)<ec>:52004
+
+[info 2026/05/18 11:49:16.854 CST locator1 <main> tid=0x1] This member is hosting a locator will be preferred as a membership coordinator
+
+[info 2026/05/18 11:49:16.854 CST locator1 <main> tid=0x1] JGroups channel created (took 40ms)
+
+[info 2026/05/18 11:49:16.861 CST locator1 <main> tid=0x1] GemFire P2P Listener started on /10.164.209.171:44623
+
+[info 2026/05/18 11:49:16.861 CST locator1 <Geode Failure Detection Server thread 1> tid=0x3c] Started failure detection server thread on 10.164.209.171/10.164.209.171:48982.
+
+[info 2026/05/18 11:49:16.862 CST locator1 <main> tid=0x1] Peer locator is connecting to local membership services with ID 10.164.209.171(locator1:48936:locator)<ec>:52004
+
+[info 2026/05/18 11:49:17.828 CST locator1 <locator request thread 1> tid=0x3f] Peer locator: coordinator from registrations is 10.164.209.171(locator1:48936:locator)<ec>:52004
+
+[info 2026/05/18 11:49:18.836 CST locator1 <main> tid=0x1] received FindCoordinatorResponse(coordinator=10.164.209.171(locator1:48936:locator)<ec>:52004, fromView=false, viewId=null, registrants=[10.164.209.171(locator1:48936:locator)<ec>:52004], senderId=10.164.209.171(locator1:48936:locator)<ec>:52004, network partition detection enabled=true, locators preferred as coordinators=true, view=null) from locator /10.164.209.171:10334
+
+[info 2026/05/18 11:49:18.837 CST locator1 <main> tid=0x1] findCoordinator chose 10.164.209.171(locator1:48936:locator)<ec>:52004 out of these possible coordinators: [10.164.209.171(locator1:48936:locator)<ec>:52004]
+
+[info 2026/05/18 11:49:18.837 CST locator1 <main> tid=0x1] Discovery state after looking for membership coordinator is locatorsContacted=1; findInViewResponses=0; alreadyTried=[]; registrants=[]; possibleCoordinator=10.164.209.171(locator1:48936:locator)<ec>:52004; viewId=-1; hasContactedAJoinedLocator=false; view=null; responses=[]
+
+[info 2026/05/18 11:49:18.837 CST locator1 <main> tid=0x1] found possible coordinator 10.164.209.171(locator1:48936:locator)<ec>:52004
+
+[info 2026/05/18 11:49:18.837 CST locator1 <main> tid=0x1] This member is becoming the membership coordinator with address 10.164.209.171(locator1:48936:locator)<ec>:52004
+
+[info 2026/05/18 11:49:18.838 CST locator1 <main> tid=0x1] Location services has received notification that this node is becoming membership coordinator
+
+[info 2026/05/18 11:49:18.838 CST locator1 <main> tid=0x1] received new view: View[10.164.209.171(locator1:48936:locator)<ec><v0>:52004|0] members: [10.164.209.171(locator1:48936:locator)<ec><v0>:52004]
+old view is: null
+
+[info 2026/05/18 11:49:18.838 CST locator1 <main> tid=0x1] Peer locator received new membership view: View[10.164.209.171(locator1:48936:locator)<ec><v0>:52004|0] members: [10.164.209.171(locator1:48936:locator)<ec><v0>:52004]
+
+[info 2026/05/18 11:49:18.842 CST locator1 <main> tid=0x1] ViewCreator starting on:10.164.209.171(locator1:48936:locator)<ec><v0>:52004
+
+[info 2026/05/18 11:49:18.842 CST locator1 <Geode Membership View Creator> tid=0x40] View Creator thread is starting
+
+[info 2026/05/18 11:49:18.842 CST locator1 <main> tid=0x1] Finished joining (took 1980ms).
+
+[info 2026/05/18 11:49:18.842 CST locator1 <main> tid=0x1] Starting DistributionManager 10.164.209.171(locator1:48936:locator)<ec><v0>:52004.  (took 2163 ms)
+
+[info 2026/05/18 11:49:18.843 CST locator1 <main> tid=0x1] Initial (distribution manager) view, View[10.164.209.171(locator1:48936:locator)<ec><v0>:52004|0] members: [10.164.209.171(locator1:48936:locator)<ec><v0>:52004]
+
+[info 2026/05/18 11:49:18.844 CST locator1 <Geode Membership View Creator> tid=0x40] no recipients for new view aside from myself
+
+[info 2026/05/18 11:49:18.845 CST locator1 <main> tid=0x1] Did not hear back from any other system. I am the first one.
+
+[info 2026/05/18 11:49:18.845 CST locator1 <main> tid=0x1] DistributionManager 10.164.209.171(locator1:48936:locator)<ec><v0>:52004 started on DistributionLocatorId{host=/10.164.209.171, port=10334, bindAddress='', hostnameForClients='null', hostname='10.164.209.171', memberName='', timestamp=1779076156664}. There were 0 other DMs. others: []  (took 2181 ms)  (locator)
+
+[info 2026/05/18 11:49:18.854 CST locator1 <StatSampler> tid=0x43] Disabling statistic archival.
+
+[info 2026/05/18 11:49:18.890 CST locator1 <main> tid=0x1] Creating cache for locator.
+
+[info 2026/05/18 11:49:18.984 CST locator1 <main> tid=0x1] Initialized cache service org.apache.geode.connectors.jdbc.internal.JdbcConnectorServiceImpl
+
+[info 2026/05/18 11:49:18.985 CST locator1 <main> tid=0x1] Initialized cache service org.apache.geode.cache.wan.internal.WanCopyRegionFunctionService
+
+[info 2026/05/18 11:49:19.332 CST locator1 <main> tid=0x1] Initialized cache service org.apache.geode.management.internal.cli.remote.OnlineCommandProcessor
+
+[info 2026/05/18 11:49:19.333 CST locator1 <main> tid=0x1] Initialized cache service org.apache.geode.internal.memcached.GeodeMemcachedService
+
+[info 2026/05/18 11:49:19.334 CST locator1 <main> tid=0x1] Initialized cache service com.gemstone.gemfire.OldClientSupportProvider
+
+[info 2026/05/18 11:49:19.335 CST locator1 <main> tid=0x1] Initialized cache service org.apache.geode.cache.query.internal.QueryConfigurationServiceImpl
+
+[info 2026/05/18 11:49:19.366 CST locator1 <main> tid=0x1] Enabled InternalHttpService on port 7070
+
+[info 2026/05/18 11:49:19.367 CST locator1 <main> tid=0x1] Initialized cache service org.apache.geode.internal.cache.http.service.InternalHttpService
+
+[info 2026/05/18 11:49:19.398 CST locator1 <main> tid=0x1] Initializing region _monitoringRegion_10.164.209.171<v0>52004
+
+[info 2026/05/18 11:49:19.399 CST locator1 <main> tid=0x1] Initialization of region _monitoringRegion_10.164.209.171<v0>52004 completed
+
+[info 2026/05/18 11:49:19.424 CST locator1 <main> tid=0x1] SharedConfigStatusRequestHandler installed
+
+[info 2026/05/18 11:49:19.424 CST locator1 <main> tid=0x1] ClusterManagementServiceInfoRequestHandler installed
+
+[info 2026/05/18 11:49:21.129 CST locator1 <main> tid=0x1] Created disk store cluster_config with unique id 843bb3d730e34112-b8c22c0b91e5a900
+
+[info 2026/05/18 11:49:21.134 CST locator1 <main> tid=0x1] recovery region initialization took 1 ms
+
+[info 2026/05/18 11:49:21.134 CST locator1 <Idle OplogCompactor1> tid=0x50] Recovered values for disk store cluster_config with unique id 843bb3d7-30e3-4112-b8c2-2c0b91e5a900
+
+[info 2026/05/18 11:49:21.566 CST locator1 <main> tid=0x1] Created oplog#1 drf for disk store cluster_config.
+
+[info 2026/05/18 11:49:21.569 CST locator1 <main> tid=0x1] Created oplog#1 crf for disk store cluster_config.
+
+[info 2026/05/18 11:49:21.570 CST locator1 <main> tid=0x1] Initializing region _ConfigurationRegion
+
+[info 2026/05/18 11:49:21.572 CST locator1 <main> tid=0x1] Region /_ConfigurationRegion was created on this member with the persistent id 10.164.209.171/10.164.209.171:/Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1/ConfigDiskDir_locator1 created at timestamp 1779076161570 version 0 diskStoreId 843bb3d730e34112-b8c22c0b91e5a900 name locator1.
+
+[info 2026/05/18 11:49:21.572 CST locator1 <main> tid=0x1] Initialization of region _ConfigurationRegion completed
+
+[info 2026/05/18 11:49:21.588 CST locator1 <main> tid=0x1] Cluster configuration service start up completed successfully and is now running ....
+
+[info 2026/05/18 11:49:21.591 CST locator1 <main> tid=0x1] Initializing region __OperationStateRegion
+
+[info 2026/05/18 11:49:21.591 CST locator1 <main> tid=0x1] Initialization of region __OperationStateRegion completed
+
+[info 2026/05/18 11:49:21.595 CST locator1 <main> tid=0x1] GemFire Home: /Users/zchun/Downloads/vmware-gemfire-10.0.0
+
+[info 2026/05/18 11:49:21.595 CST locator1 <main> tid=0x1] Located war: gemfire-web-management at location: file:/Users/zchun/Downloads/vmware-gemfire-10.0.0/tools/Extensions/gemfire-web-management-10.0.0.war
+
+[info 2026/05/18 11:49:21.603 CST locator1 <main> tid=0x1] System property 'jmx.remote.rmi.server.serial.filter.pattern' is now configured with 'java.lang.Boolean;java.lang.Byte;java.lang.Character;java.lang.Short;java.lang.Integer;java.lang.Long;java.lang.Float;java.lang.Double;java.lang.String;java.math.BigInteger;java.math.BigDecimal;javax.management.ObjectName;javax.management.openmbean.OpenType;javax.management.openmbean.CompositeData;javax.management.openmbean.TabularData;javax.management.openmbean.SimpleType;javax.management.openmbean.CompositeType;javax.management.openmbean.TabularType;javax.management.openmbean.ArrayType;java.rmi.MarshalledObject;!*'.
+
+[info 2026/05/18 11:49:21.603 CST locator1 <main> tid=0x1] GemFire Home: /Users/zchun/Downloads/vmware-gemfire-10.0.0
+
+[info 2026/05/18 11:49:21.603 CST locator1 <main> tid=0x1] Located war: gemfire-web at location: file:/Users/zchun/Downloads/vmware-gemfire-10.0.0/tools/Extensions/gemfire-web-10.0.0.war
+
+[info 2026/05/18 11:49:21.604 CST locator1 <main> tid=0x1] GemFire Home: /Users/zchun/Downloads/vmware-gemfire-10.0.0
+
+[info 2026/05/18 11:49:21.604 CST locator1 <main> tid=0x1] Located war: gemfire-pulse at location: file:/Users/zchun/Downloads/vmware-gemfire-10.0.0/tools/Pulse/gemfire-pulse-10.0.0.war
+
+[info 2026/05/18 11:49:21.625 CST locator1 <main> tid=0x1] Adding webapp /gemfire
+
+[info 2026/05/18 11:49:21.625 CST locator1 <main> tid=0x1] Attempting to start HTTP service on port (7070) at bind-address (0.0.0.0)...
+
+[info 2026/05/18 11:49:22.035 CST locator1 <main> tid=0x1] Initializing Servlet 'geode-mgmt'
+
+[info 2026/05/18 11:49:22.468 CST locator1 <main> tid=0x1] Completed initialization in 433 ms
+
+[info 2026/05/18 11:49:22.473 CST locator1 <main> tid=0x1] Adding webapp /geode-mgmt
+
+[info 2026/05/18 11:49:22.751 CST locator1 <main> tid=0x1] Initializing Servlet 'geode-mgmt'
+
+[info 2026/05/18 11:49:23.043 CST locator1 <main> tid=0x1] Completed initialization in 291 ms
+
+[info 2026/05/18 11:49:23.045 CST locator1 <main> tid=0x1] Adding webapp /pulse
+
+[info 2026/05/18 11:49:24.894 CST locator1 <main> tid=0x1] Registered AccessControlMBean on GemFire:service=AccessControl,type=Distributed
+
+[info 2026/05/18 11:49:24.898 CST locator1 <main> tid=0x1] Registered FileUploaderMBean on GemFire:service=FileUploader,type=Distributed
+
+[info 2026/05/18 11:49:24.901 CST locator1 <main> tid=0x1] Geode Property enable-management-rest-service=true Geode Management Rest Service is enabled.
+
+[info 2026/05/18 11:49:24.901 CST locator1 <main> tid=0x1] Adding webapp /management
+
+[info 2026/05/18 11:49:25.355 CST locator1 <main> tid=0x1] Initializing Servlet 'management'
+
+[info 2026/05/18 11:49:26.241 CST locator1 <main> tid=0x1] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6bcf2683, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7daa0333, org.springframework.security.web.context.SecurityContextPersistenceFilter@5f07df35, org.springframework.security.web.header.HeaderWriterFilter@1c761232, org.springframework.security.web.authentication.logout.LogoutFilter@21618f32, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@128403d8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@d32178b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@453a699b, org.springframework.security.web.session.SessionManagementFilter@48a3cac8, org.springframework.security.web.access.ExceptionTranslationFilter@4e8765dd, org.springframework.security.web.access.intercept.AuthorizationFilter@83d47a2]
+
+[info 2026/05/18 11:49:26.259 CST locator1 <main> tid=0x1] Completed initialization in 904 ms
+
+[info 2026/05/18 11:49:26.260 CST locator1 <main> tid=0x1] Locator started on 10.164.209.171/10.164.209.171[10334]
+
+[info 2026/05/18 11:49:26.260 CST locator1 <main> tid=0x1] Starting server location for Distribution Locator on 10.164.209.171[10334]
+
+[info 2026/05/18 11:49:35.330 CST locator1 <locator request thread 1> tid=0x3f] Peer locator: coordinator from view is 10.164.209.171(locator1:48936:locator)<ec><v0>:52004
+
+[info 2026/05/18 11:49:36.476 CST locator1 <Membership Messenger Receiver Non-Blocking> tid=0x34] Received a join request from 10.164.209.171(server1:49198):57945
+
+[info 2026/05/18 11:49:36.781 CST locator1 <Geode Membership View Creator> tid=0x40] View Creator is processing 1 requests for the next membership view ([JoinRequestMessage(10.164.209.171(server1:49198):57945) failureDetectionPort:52102])
+
+[info 2026/05/18 11:49:36.791 CST locator1 <Geode Membership View Creator> tid=0x40] preparing new view View[10.164.209.171(locator1:48936:locator)<ec><v0>:52004|1] members: [10.164.209.171(locator1:48936:locator)<ec><v0>:52004, 10.164.209.171(server1:49198)<v1>:57945{lead}]
+
+[info 2026/05/18 11:49:36.826 CST locator1 <Geode Membership View Creator> tid=0x40] finished waiting for responses to view preparation
+
+[info 2026/05/18 11:49:36.826 CST locator1 <Geode Membership View Creator> tid=0x40] received new view: View[10.164.209.171(locator1:48936:locator)<ec><v0>:52004|1] members: [10.164.209.171(locator1:48936:locator)<ec><v0>:52004, 10.164.209.171(server1:49198)<v1>:57945{lead}]
+old view is: View[10.164.209.171(locator1:48936:locator)<ec><v0>:52004|0] members: [10.164.209.171(locator1:48936:locator)<ec><v0>:52004]
+
+[info 2026/05/18 11:49:36.827 CST locator1 <Geode Membership View Creator> tid=0x40] Peer locator received new membership view: View[10.164.209.171(locator1:48936:locator)<ec><v0>:52004|1] members: [10.164.209.171(locator1:48936:locator)<ec><v0>:52004, 10.164.209.171(server1:49198)<v1>:57945{lead}]
+
+[info 2026/05/18 11:49:36.828 CST locator1 <Geode Membership View Creator> tid=0x40] sending new view View[10.164.209.171(locator1:48936:locator)<ec><v0>:52004|1] members: [10.164.209.171(locator1:48936:locator)<ec><v0>:52004, 10.164.209.171(server1:49198)<v1>:57945{lead}]
+
+[info 2026/05/18 11:49:36.829 CST locator1 <Geode View Processor1> tid=0x93] Membership: Processing addition <10.164.209.171(server1:49198)<v1>:57945>
+
+[info 2026/05/18 11:49:36.834 CST locator1 <FederatingManager1> tid=0x94] Initializing region _monitoringRegion_10.164.209.171<v1>57945
+
+[info 2026/05/18 11:49:36.863 CST locator1 <Pooled Waiting Message Processor 1> tid=0x41] Member 10.164.209.171(server1:49198)<v1>:57945 is equivalent or in the same redundancy zone.
+
+[info 2026/05/18 11:49:36.874 CST locator1 <FederatingManager1> tid=0x94] Initialization of region _monitoringRegion_10.164.209.171<v1>57945 completed
+
+[info 2026/05/18 11:49:36.878 CST locator1 <FederatingManager1> tid=0x94] Initializing region _notificationRegion_10.164.209.171<v1>57945
+
+[info 2026/05/18 11:49:36.881 CST locator1 <FederatingManager1> tid=0x94] Initialization of region _notificationRegion_10.164.209.171<v1>57945 completed
+
+[info 2026/05/18 11:49:36.927 CST locator1 <Function Execution Processor2> tid=0x98] Received request for configuration: []
+
+[info 2026/05/18 11:49:36.929 CST locator1 <Function Execution Processor2> tid=0x98] Building up configuration response with following configurations: [cluster]
+
+[info 2026/05/18 11:49:40.082 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8e] Executing command: create region --name=TombstoneLab --type=REPLICATE
+
+[info 2026/05/18 11:49:45.830 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8e] Executing command: put --region=TombstoneLab --key=1 --value="Data A"
+
+[info 2026/05/18 11:49:45.831 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8e] Cache instance for put: org.apache.geode.internal.cache.InternalCacheForClientAccess@4d67d5a4
+
+[info 2026/05/18 11:49:45.883 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8e] Executing command: put --region=TombstoneLab --key=2 --value="Data B"
+
+[info 2026/05/18 11:49:45.883 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8e] Cache instance for put: org.apache.geode.internal.cache.InternalCacheForClientAccess@4d67d5a4
+
+[info 2026/05/18 11:49:46.427 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8e] Executing command: put --region=TombstoneLab --key=3 --value="Data C"
+
+[info 2026/05/18 11:49:46.429 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8e] Cache instance for put: org.apache.geode.internal.cache.InternalCacheForClientAccess@4d67d5a4
+
+[info 2026/05/18 11:52:18.455 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8e] Executing command: show metrics
+
+[info 2026/05/18 11:52:19.402 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8e] Executing command: remove --region=TombstoneLab --key=1
+
+[info 2026/05/18 11:56:45.700 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8e] Executing command: alter runtime --member=server1 --log-level=DEBUG
+
+[info 2026/05/18 11:56:45.747 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8e] XmlEntity:searchString: //cache:cache
+
+[info 2026/05/18 11:58:01.660 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8e] Executing command: remove --region=TombstoneLab --key=2
+
+[info 2026/05/18 11:59:01.781 CST locator1 <RMI TCP Connection(8)-127.0.0.1> tid=0xa0] Executing command: remove --region=TombstoneLab --key=3
+
+[info 2026/05/18 11:59:06.621 CST locator1 <RMI TCP Connection(8)-127.0.0.1> tid=0xa0] Executing command: show metrics
+
+[info 2026/05/18 11:59:18.679 CST locator1 <RMI TCP Connection(8)-127.0.0.1> tid=0xa0] Executing command: shutdown --include-locators=yes
+
+[info 2026/05/18 11:59:18.681 CST locator1 <RMI TCP Connection(8)-127.0.0.1> tid=0xa0] Gfsh executing shutdown on members [10.164.209.171(server1:49198)<v1>:57945]
+
+[info 2026/05/18 11:59:18.683 CST locator1 <RMI TCP Connection(8)-127.0.0.1> tid=0xa0] Gfsh executing shutdown on members [10.164.209.171(locator1:48936:locator)<ec><v0>:52004]
+
+[info 2026/05/18 11:59:18.756 CST locator1 <Function Execution Processor2> tid=0x98] Received GFSH shutdown. Shutting down member 10.164.209.171(locator1:48936:locator)<ec><v0>:52004
+
+[warn 2026/05/18 11:59:19.772 CST locator1 <Shutdown Disconnector1> tid=0xa3] Remove Proxy failed for null due to GemFire:service=Region,name=/TombstoneLab,type=Member,member=server1
+org.apache.geode.cache.EntryDestroyedException: GemFire:service=Region,name=/TombstoneLab,type=Member,member=server1
+	at gemfire//org.apache.geode.internal.cache.NonTXEntry.basicGetEntry(NonTXEntry.java:66)
+	at gemfire//org.apache.geode.internal.cache.NonTXEntry.getKey(NonTXEntry.java:85)
+	at gemfire//org.apache.geode.management.internal.MBeanProxyFactory.removeAllProxies(MBeanProxyFactory.java:144)
+	at gemfire//org.apache.geode.management.internal.FederatingManager.removeMemberArtifacts(FederatingManager.java:516)
+	at gemfire//org.apache.geode.management.internal.FederatingManager.stopManagingActivity(FederatingManager.java:352)
+	at gemfire//org.apache.geode.management.internal.FederatingManager.stopManager(FederatingManager.java:184)
+	at gemfire//org.apache.geode.management.internal.SystemManagementService.close(SystemManagementService.java:218)
+	at gemfire//org.apache.geode.management.internal.beans.ManagementAdapter.handleCacheRemoval(ManagementAdapter.java:721)
+	at gemfire//org.apache.geode.management.internal.beans.ManagementListener.handleEvent(ManagementListener.java:135)
+	at gemfire//org.apache.geode.distributed.internal.InternalDistributedSystem.notifyResourceEventListeners(InternalDistributedSystem.java:2052)
+	at gemfire//org.apache.geode.distributed.internal.InternalDistributedSystem.handleResourceEvent(InternalDistributedSystem.java:626)
+	at gemfire//org.apache.geode.internal.cache.GemFireCacheImpl.doClose(GemFireCacheImpl.java:2211)
+	at gemfire//org.apache.geode.internal.cache.GemFireCacheImpl.close(GemFireCacheImpl.java:2172)
+	at gemfire//org.apache.geode.distributed.internal.InternalDistributedSystem.disconnect(InternalDistributedSystem.java:1534)
+	at gemfire//org.apache.geode.distributed.internal.InternalDistributedSystem.disconnect(InternalDistributedSystem.java:1232)
+	at gemfire//org.apache.geode.management.internal.cli.functions.ShutDownFunction.lambda$disconnectInNonDaemonThread$0(ShutDownFunction.java:88)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+[info 2026/05/18 11:59:19.790 CST locator1 <Shutdown Disconnector1> tid=0xa3] GemFireCache[id = 842903939; isClosing = true; isShutDownAll = false; created = Mon May 18 11:49:18 CST 2026; server = false; copyOnRead = false; lockLease = 120; lockTimeout = 60]: Now closing.
+
+[info 2026/05/18 11:59:19.825 CST locator1 <Pooled High Priority Message Processor 2> tid=0x97] received leave request from 10.164.209.171(server1:49198)<v1>:57945 for 10.164.209.171(server1:49198)<v1>:57945
+
+[info 2026/05/18 11:59:19.826 CST locator1 <Pooled High Priority Message Processor 2> tid=0x97] JoinLeave.processLeaveRequestMessage(LeaveRequestMessage) invoked.  isCoordinator=true; isStopping=false; cancelInProgress=false
+
+[info 2026/05/18 11:59:19.826 CST locator1 <Pooled High Priority Message Processor 2> tid=0x97] Member at 10.164.209.171(server1:49198)<v1>:57945 gracefully left the distributed cache: shutdown message received
+
+[info 2026/05/18 11:59:19.976 CST locator1 <Shutdown Disconnector1> tid=0xa3] Created oplog#1 krf for disk store cluster_config.
+
+[info 2026/05/18 11:59:19.984 CST locator1 <org.apache.geode.distributed.internal.InternalLocator$$Lambda/0x0000008801450f78@661fe025> tid=0xa6] Stopping Locator on 0.0.0.0/0.0.0.0:10334:10334
+
+[info 2026/05/18 11:59:19.987 CST locator1 <Distribution Locator on 10.164.209.171: 10334> tid=0x25] locator shutting down
+
+[info 2026/05/18 11:59:19.987 CST locator1 <Distribution Locator on 10.164.209.171: 10334> tid=0x25] Closing locator's cache
+
+[info 2026/05/18 11:59:19.988 CST locator1 <main> tid=0x1] locator is exiting normally
+
+[info 2026/05/18 11:59:19.988 CST locator1 <org.apache.geode.distributed.internal.InternalLocator$$Lambda/0x0000008801450f78@661fe025> tid=0xa6] Distribution Locator on 10.164.209.171 is stopped
+
+[info 2026/05/18 11:59:19.988 CST locator1 <main> tid=0x1] Distribution Locator on 10.164.209.171 is stopped
+
+[info 2026/05/18 11:59:19.988 CST locator1 <Shutdown Disconnector1> tid=0xa3] Shutting down DistributionManager 10.164.209.171(locator1:48936:locator)<ec><v0>:52004. 
+
+[info 2026/05/18 11:59:20.129 CST locator1 <Geode Membership View Creator> tid=0x40] View Creator is processing 1 requests for the next membership view ([LeaveRequestMessage(10.164.209.171(server1:49198)<v1>:57945; reason=shutdown message received)])
+
+[info 2026/05/18 11:59:20.129 CST locator1 <Geode Membership View Creator> tid=0x40] View Creator thread interrupted
+
+[info 2026/05/18 11:59:20.129 CST locator1 <Geode Membership View Creator> tid=0x40] View Creator thread is exiting
+
+[info 2026/05/18 11:59:20.940 CST locator1 <Membership Messenger Receiver Non-Blocking> tid=0x34] received leave request from 10.164.209.171(server1:49198)<v1>:57945 for 10.164.209.171(server1:49198)<v1>:57945
+
+[info 2026/05/18 11:59:20.940 CST locator1 <Membership Messenger Receiver Non-Blocking> tid=0x34] JoinLeave.processLeaveRequestMessage(LeaveRequestMessage) invoked.  isCoordinator=true; isStopping=false; cancelInProgress=false
+
+[info 2026/05/18 11:59:21.099 CST locator1 <Shutdown Disconnector1> tid=0xa3] Now closing distribution for 10.164.209.171(locator1:48936:locator)<ec><v0>:52004
+
+[info 2026/05/18 11:59:21.099 CST locator1 <Shutdown Disconnector1> tid=0xa3] Stopping membership services
+
+[info 2026/05/18 11:59:21.100 CST locator1 <Geode Failure Detection Server thread 1> tid=0x3c] GMSHealthMonitor server thread exiting
+
+[info 2026/05/18 11:59:23.124 CST locator1 <Shutdown Disconnector1> tid=0xa3] DistributionManager stopped in 3136ms.
+
+[info 2026/05/18 11:59:23.125 CST locator1 <Shutdown Disconnector1> tid=0xa3] Marking DistributionManager 10.164.209.171(locator1:48936:locator)<ec><v0>:52004 as closed.
+
+[info 2026/05/18 13:10:53.418 CST locator1 <main> tid=0x1] 
+---------------------------------------------------------------------------
+  
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with this
+  work for additional information regarding copyright ownership.
+   
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with the
+  License.  You may obtain a copy of the License at
+  
+  http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the
+  License for the specific language governing permissions and limitations
+  under the License.
+  
+---------------------------------------------------------------------------
+----------------------------------------
+VMware GemFire
+----------------------------------------
+Build-Java-Vendor: BellSoft
+GemFire-Source-Date: 2023-04-07 14:35:30 -0700
+Build-Platform: Linux 5.10.162+ amd64
+Build-Java-Version: 1.8.0_362
+GemFire-Source-Revision: 2a5ca3b62305f905c90704e265ab05aed659d745
+Build-Id: root 1810
+Product-Name: VMware GemFire
+GemFire-Source-Repository: support/10.0
+GemFire-Version: 10.0.0
+
+Running on: Running on: 10.164.209.171/10.164.209.171, 10 cpu(s), aarch64 Mac OS X 26.4.1 
+---------------------------------------------------------------------------
+Communications version: 200
+Process ID: 18648
+User: zchun
+Current dir: /Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1
+Home dir: /Users/zchun
+Command Line Parameters:
+  --add-exports=java.management/com.sun.jmx.remote.security=ALL-UNNAMED
+  --add-exports=java.base/sun.nio.ch=ALL-UNNAMED
+  --add-opens=java.base/java.lang=ALL-UNNAMED
+  --add-opens=java.base/java.nio=ALL-UNNAMED
+  -Dgemfire.enable-cluster-configuration=true
+  -Dgemfire.load-cluster-configuration-from-dir=false
+  -XX:+UseZGC
+  -Dgemfire.launcher.registerSignalHandlers=true
+  -Djava.awt.headless=true
+  -Dsun.rmi.dgc.server.gcInterval=9223372036854775806
+Class Path:
+  /Users/zchun/Downloads/vmware-gemfire-10.0.0/lib/gemfire-bootstrap-10.0.0.jar
+Library Path:
+  /Users/zchun/Library/Java/Extensions
+  /Library/Java/Extensions
+  /Network/Library/Java/Extensions
+  /System/Library/Java/Extensions
+  /usr/lib/java
+  .
+System Properties:
+    Locator.forceLocatorDMType = true
+    apple.awt.application.name = LocatorLauncher
+    boot.module.loader = com.vmware.gemfire.bootstrap.internal.GemFireModuleLoader
+    com.vmware.gemfire.deployment.modules.internal.Launcher.extensionsRuntimePath = /var/folders/0y/47ml4wh571l7x16hh5lt8l9m0000gq/T/gemfire-extensions11698654885483871078
+    file.encoding = UTF-8
+    file.separator = /
+    gemfire.enable-cluster-configuration = true
+    gemfire.home = /Users/zchun/Downloads/vmware-gemfire-10.0.0
+    gemfire.launcher.registerSignalHandlers = true
+    gemfire.load-cluster-configuration-from-dir = false
+    java.awt.headless = true
+    java.class.version = 65.0
+    java.home = /Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home
+    java.io.tmpdir = /var/folders/0y/47ml4wh571l7x16hh5lt8l9m0000gq/T/
+    java.runtime.name = Java(TM) SE Runtime Environment
+    java.runtime.version = 21.0.8+12-LTS-250
+    java.specification.name = Java Platform API Specification
+    java.specification.vendor = Oracle Corporation
+    java.specification.version = 21
+    java.vendor = Oracle Corporation
+    java.vendor.url = https://java.oracle.com/
+    java.vendor.url.bug = https://bugreport.java.com/bugreport/
+    java.version = 21.0.8
+    java.version.date = 2025-07-15
+    java.vm.info = mixed mode, sharing
+    java.vm.name = Java HotSpot(TM) 64-Bit Server VM
+    java.vm.specification.name = Java Virtual Machine Specification
+    java.vm.specification.vendor = Oracle Corporation
+    java.vm.specification.version = 21
+    java.vm.vendor = Oracle Corporation
+    java.vm.version = 21.0.8+12-LTS-250
+    jboss.modules.system.pkgs = javax.management,java.lang.management
+    jdk.debug = release
+    line.separator = 
+
+    module.path = /Users/zchun/Downloads/vmware-gemfire-10.0.0/moduleDescriptors:/var/folders/0y/47ml4wh571l7x16hh5lt8l9m0000gq/T/gemfire-extensions11698654885483871078:/Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1/deployments
+    native.encoding = UTF-8
+    os.version = 26.4.1
+    path.separator = :
+    stderr.encoding = UTF-8
+    stdout.encoding = UTF-8
+    sun.arch.data.model = 64
+    sun.boot.library.path = /Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/lib
+    sun.cpu.endian = little
+    sun.io.unicode.encoding = UnicodeBig
+    sun.java.command = com.vmware.gemfire.bootstrap.LocatorLauncher start locator1 --automatic-module-classpath=/Users/zchun/Downloads/vmware-gemfire-10.0.0/extensions/* --port=10334
+    sun.java.launcher = SUN_STANDARD
+    sun.jnu.encoding = UTF-8
+    sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+    sun.rmi.dgc.server.gcInterval = 9223372036854775806
+    user.country = US
+    user.language = en
+    user.timezone = Asia/Shanghai
+Log4J 2 Configuration:
+    jar:file:/Users/zchun/Downloads/vmware-gemfire-10.0.0/lib/gemfire-log4j-10.0.0.jar!/log4j2.xml
+---------------------------------------------------------------------------
+
+
+[info 2026/05/18 13:10:53.423 CST locator1 <main> tid=0x1] Startup Configuration: 
+### GemFire Properties defined with system property ###
+enable-cluster-configuration=true
+load-cluster-configuration-from-dir=false
+### GemFire Properties defined with api ###
+cache-xml-file=
+locators=10.164.209.171[10334]
+name=locator1
+### GemFire Properties defined with launcher ###
+log-file=/Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1/locator1.log
+### GemFire Properties using default values ###
+ack-severe-alert-threshold=0
+ack-wait-threshold=15
+archive-disk-space-limit=0
+archive-file-size-limit=0
+async-distribution-timeout=0
+async-max-queue-size=8
+async-queue-timeout=60000
+bind-address=
+cluster-configuration-dir=
+cluster-ssl-ciphers=any
+cluster-ssl-enabled=false
+cluster-ssl-keystore=
+cluster-ssl-keystore-password=
+cluster-ssl-keystore-type=
+cluster-ssl-protocols=any
+cluster-ssl-require-authentication=true
+cluster-ssl-truststore=
+cluster-ssl-truststore-password=
+conflate-events=server
+conserve-sockets=false
+delta-propagation=true
+deploy-working-dir=/Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1
+disable-auto-reconnect=false
+disable-jmx=false
+disable-tcp=false
+distributed-system-id=-1
+distributed-transactions=false
+durable-client-id=
+durable-client-timeout=300
+enable-management-rest-service=true
+enable-network-partition-detection=true
+enable-time-statistics=true
+enforce-unique-host=false
+gateway-ssl-ciphers=any
+gateway-ssl-enabled=false
+gateway-ssl-keystore=
+gateway-ssl-keystore-password=
+gateway-ssl-keystore-type=
+gateway-ssl-protocols=any
+gateway-ssl-require-authentication=true
+gateway-ssl-truststore=
+gateway-ssl-truststore-password=
+groups=
+http-service-bind-address=
+http-service-port=7070
+http-service-ssl-ciphers=any
+http-service-ssl-enabled=false
+http-service-ssl-keystore=
+http-service-ssl-keystore-password=
+http-service-ssl-keystore-type=
+http-service-ssl-protocols=any
+http-service-ssl-require-authentication=false
+http-service-ssl-truststore=
+http-service-ssl-truststore-password=
+jmx-manager=true
+jmx-manager-access-file=
+jmx-manager-bind-address=
+jmx-manager-hostname-for-clients=
+jmx-manager-http-port=7070
+jmx-manager-password-file=
+jmx-manager-port=1099
+jmx-manager-ssl-ciphers=any
+jmx-manager-ssl-enabled=false
+jmx-manager-ssl-keystore=
+jmx-manager-ssl-keystore-password=
+jmx-manager-ssl-keystore-type=
+jmx-manager-ssl-protocols=any
+jmx-manager-ssl-require-authentication=true
+jmx-manager-ssl-truststore=
+jmx-manager-ssl-truststore-password=
+jmx-manager-start=false
+jmx-manager-update-rate=2000
+locator-wait-time=0
+lock-memory=false
+log-disk-space-limit=0
+log-file-size-limit=0
+log-level=config
+max-num-reconnect-tries=3
+max-wait-time-reconnect=60000
+mcast-address=239.192.81.1
+mcast-flow-control=1048576, 0.25, 5000
+mcast-port=0
+mcast-recv-buffer-size=1048576
+mcast-send-buffer-size=65535
+mcast-ttl=32
+member-timeout=5000
+membership-port-range=41000-61000
+memcached-bind-address=
+memcached-port=0
+memcached-protocol=ASCII
+off-heap-memory-size=
+redundancy-zone=
+remote-locators=
+remove-unresponsive-client=false
+roles=
+security-auth-token-enabled-components=
+security-client-accessor=
+security-client-accessor-pp=
+security-client-auth-init=
+security-client-authenticator=
+security-client-dhalgo=
+security-log-file=
+security-log-level=config
+security-manager=
+security-peer-auth-init=
+security-peer-authenticator=
+security-peer-verifymember-timeout=1000
+security-post-processor=
+security-udp-dhalgo=
+serializable-object-filter=!*
+server-bind-address=
+server-ssl-ciphers=any
+server-ssl-enabled=false
+server-ssl-keystore=
+server-ssl-keystore-password=
+server-ssl-keystore-type=
+server-ssl-protocols=any
+server-ssl-require-authentication=true
+server-ssl-truststore=
+server-ssl-truststore-password=
+socket-buffer-size=32768
+socket-lease-time=1800000
+ssl-ciphers=any
+ssl-client-protocols=
+ssl-cluster-alias=
+ssl-default-alias=
+ssl-enabled-components=
+ssl-endpoint-identification-enabled=false
+ssl-gateway-alias=
+ssl-jmx-alias=
+ssl-keystore=
+ssl-keystore-password=
+ssl-keystore-type=
+ssl-locator-alias=
+ssl-parameter-extension=
+ssl-protocols=any
+ssl-require-authentication=true
+ssl-server-alias=
+ssl-server-protocols=
+ssl-truststore=
+ssl-truststore-password=
+ssl-truststore-type=
+ssl-use-default-context=false
+ssl-web-alias=
+ssl-web-require-authentication=false
+start-dev-rest-api=false
+start-locator=
+statistic-archive-file=
+statistic-sample-rate=1000
+statistic-sampling-enabled=true
+tcp-port=0
+thread-monitor-enabled=true
+thread-monitor-interval-ms=60000
+thread-monitor-time-limit-ms=120000
+udp-fragment-size=60000
+udp-recv-buffer-size=1048576
+udp-send-buffer-size=65535
+use-cluster-configuration=true
+use-udp-membership-messenger=false
+user-command-packages=
+validate-serializable-objects=false
+
+
+[info 2026/05/18 13:10:53.427 CST locator1 <main> tid=0x1] ClassLoader Modules:
+- Module Name: _automatic_
+-- Resources:
+--- gemfire-greenplum-4.0.1-javadoc.jar
+--- gemfire-greenplum-4.0.1.jar
+--- /var/folders/0y/47ml4wh571l7x16hh5lt8l9m0000gq/T/gemfire-extensions11698654885483871078/_automatic_/main/lib
+-- Module Dependencies:
+--- default_application
+--- gemfire
+--- java.base
+--- java.se
+
+- Module Name: default_application
+-- Resources:
+--- /Users/zchun/Downloads/vmware-gemfire-10.0.0/moduleDescriptors/default_application/main/lib
+-- Module Dependencies:
+--- _automatic_
+--- java.base
+
+- Module Name: gemfire
+-- Resources:
+--- HdrHistogram-2.1.12.jar
+--- HikariCP-4.0.3.jar
+--- LatencyUtils-2.0.3.jar
+--- antlr-2.7.7.jar
+--- bson-4.8.1.jar
+--- classgraph-4.8.154.jar
+--- commons-beanutils-1.9.4.jar
+--- commons-codec-1.15.jar
+--- commons-collections4-4.4.jar
+--- commons-digester-2.1.jar
+--- commons-io-2.11.0.jar
+--- commons-lang3-3.12.0.jar
+--- commons-logging-1.2.jar
+--- commons-validator-1.7.jar
+--- fastutil-8.5.11.jar
+--- gemfire-common-10.0.0.jar
+--- gemfire-connectors-10.0.0.jar
+--- gemfire-core-10.0.0.jar
+--- gemfire-cq-10.0.0.jar
+--- gemfire-deployment-jboss-modules-10.0.0.jar
+--- gemfire-gfsh-10.0.0.jar
+--- gemfire-http-service-10.0.0.jar
+--- gemfire-log4j-10.0.0.jar
+--- gemfire-logging-10.0.0.jar
+--- gemfire-management-10.0.0.jar
+--- gemfire-membership-10.0.0.jar
+--- gemfire-memcached-10.0.0.jar
+--- gemfire-old-client-support-10.0.0.jar
+--- gemfire-rebalancer-10.0.0.jar
+--- gemfire-serialization-10.0.0.jar
+--- gemfire-tcp-messenger-10.0.0.jar
+--- gemfire-tcp-server-10.0.0.jar
+--- gemfire-unsafe-10.0.0.jar
+--- gemfire-version-10.0.0.jar
+--- gemfire-wan-10.0.0.jar
+--- httpclient-4.5.14.jar
+--- httpcore-4.4.16.jar
+--- istack-commons-runtime-4.0.1.jar
+--- jackson-annotations-2.14.1.jar
+--- jackson-core-2.14.1.jar
+--- jackson-databind-2.14.1.jar
+--- jackson-datatype-joda-2.14.1.jar
+--- jackson-datatype-jsr310-2.14.1.jar
+--- javax.activation-api-1.2.0.jar
+--- javax.resource-api-1.7.1.jar
+--- javax.servlet-api-3.1.0.jar
+--- javax.transaction-api-1.3.jar
+--- jaxb-api-2.3.1.jar
+--- jaxb-impl-2.3.2.jar
+--- jetty-http-9.4.50.v20221201.jar
+--- jetty-io-9.4.50.v20221201.jar
+--- jetty-security-9.4.50.v20221201.jar
+--- jetty-server-9.4.50.v20221201.jar
+--- jetty-servlet-9.4.50.v20221201.jar
+--- jetty-util-9.4.50.v20221201.jar
+--- jetty-util-ajax-9.4.50.v20221201.jar
+--- jetty-webapp-9.4.50.v20221201.jar
+--- jetty-xml-9.4.50.v20221201.jar
+--- jgroups-3.6.14.Final.jar
+--- jline-2.12.jar
+--- jna-5.12.1.jar
+--- jna-platform-5.12.1.jar
+--- joda-time-2.12.2.jar
+--- jopt-simple-5.0.4.jar
+--- log4j-api-2.19.0.jar
+--- log4j-core-2.19.0.jar
+--- log4j-jcl-2.19.0.jar
+--- log4j-jul-2.19.0.jar
+--- log4j-slf4j-impl-2.19.0.jar
+--- micrometer-commons-1.10.2.jar
+--- micrometer-core-1.10.2.jar
+--- micrometer-observation-1.10.2.jar
+--- netty-buffer-4.1.86.Final.jar
+--- netty-codec-4.1.86.Final.jar
+--- netty-common-4.1.86.Final.jar
+--- netty-handler-4.1.86.Final.jar
+--- netty-resolver-4.1.86.Final.jar
+--- netty-transport-4.1.86.Final.jar
+--- netty-transport-native-unix-common-4.1.86.Final.jar
+--- rmiio-2.1.2.jar
+--- shiro-cache-1.11.0.jar
+--- shiro-config-core-1.11.0.jar
+--- shiro-config-ogdl-1.11.0.jar
+--- shiro-core-1.11.0.jar
+--- shiro-crypto-cipher-1.11.0.jar
+--- shiro-crypto-core-1.11.0.jar
+--- shiro-crypto-hash-1.11.0.jar
+--- shiro-event-1.11.0.jar
+--- shiro-lang-1.11.0.jar
+--- slf4j-api-1.7.36.jar
+--- snappy-0.4.jar
+--- spring-beans-5.3.26.jar
+--- spring-context-5.3.26.jar
+--- spring-core-5.3.26.jar
+--- spring-jcl-5.3.26.jar
+--- spring-shell-1.2.0.RELEASE.jar
+--- spring-web-5.3.26.jar
+--- swagger-annotations-2.2.7.jar
+--- /Users/zchun/Downloads/vmware-gemfire-10.0.0/moduleDescriptors/gemfire/main/lib
+-- Module Dependencies:
+--- default_application
+--- java.base
+--- java.se
+--- jdk.unsupported
+
+
+
+[info 2026/05/18 13:10:53.431 CST locator1 <main> tid=0x1] initializing InternalDataSerializer with 9 services
+
+[info 2026/05/18 13:10:53.433 CST locator1 <main> tid=0x1] loaded 116 sanctioned serializables from GfshSanctionedSerializablesService
+
+[info 2026/05/18 13:10:53.438 CST locator1 <main> tid=0x1] loaded 488 sanctioned serializables from CoreSanctionedSerializablesService
+
+[info 2026/05/18 13:10:53.438 CST locator1 <main> tid=0x1] loaded 11 sanctioned serializables from ConnectorsSanctionedSerializablesService
+
+[info 2026/05/18 13:10:53.438 CST locator1 <main> tid=0x1] loaded 6 sanctioned serializables from SerializationSanctionedSerializablesService
+
+[info 2026/05/18 13:10:53.438 CST locator1 <main> tid=0x1] loaded 6 sanctioned serializables from WANSanctionedSerializablesService
+
+[info 2026/05/18 13:10:53.439 CST locator1 <main> tid=0x1] loaded 54 sanctioned serializables from MemcachedSanctionedSerializablesService
+
+[info 2026/05/18 13:10:53.439 CST locator1 <main> tid=0x1] loaded 1 sanctioned serializables from CQSanctionedSerializablesService
+
+[info 2026/05/18 13:10:53.439 CST locator1 <main> tid=0x1] loaded 0 sanctioned serializables from MembershipSanctionedSerializablesService
+
+[info 2026/05/18 13:10:53.439 CST locator1 <main> tid=0x1] loaded 42 sanctioned serializables from ManagementSanctionedSerializablesService
+
+[info 2026/05/18 13:10:53.457 CST locator1 <main> tid=0x1] Serial Queue info : THROTTLE_PERCENT: 0.75 SERIAL_QUEUE_BYTE_LIMIT :41943040 SERIAL_QUEUE_THROTTLE :31457280 TOTAL_SERIAL_QUEUE_BYTE_LIMIT :83886080 TOTAL_SERIAL_QUEUE_THROTTLE :31457280 SERIAL_QUEUE_SIZE_LIMIT :20000 SERIAL_QUEUE_SIZE_THROTTLE :15000
+
+[info 2026/05/18 13:10:53.544 CST locator1 <main> tid=0x1] Starting membership services
+
+[info 2026/05/18 13:10:53.623 CST locator1 <main> tid=0x1] Established local address 10.164.209.171(locator1:18648:locator)<ec>:46921
+
+[info 2026/05/18 13:10:53.623 CST locator1 <main> tid=0x1] This member is hosting a locator will be preferred as a membership coordinator
+
+[info 2026/05/18 13:10:53.623 CST locator1 <main> tid=0x1] JGroups channel created (took 38ms)
+
+[info 2026/05/18 13:10:53.629 CST locator1 <main> tid=0x1] GemFire P2P Listener started on /10.164.209.171:44064
+
+[info 2026/05/18 13:10:53.630 CST locator1 <Geode Failure Detection Server thread 1> tid=0x3a] Started failure detection server thread on 10.164.209.171/10.164.209.171:55104.
+
+[info 2026/05/18 13:10:53.630 CST locator1 <main> tid=0x1] Peer locator is connecting to local membership services with ID 10.164.209.171(locator1:18648:locator)<ec>:46921
+
+[info 2026/05/18 13:10:54.658 CST locator1 <locator request thread 1> tid=0x3d] Peer locator: coordinator from view is 10.164.209.171(server1:49198)<v1>:57945
+
+[info 2026/05/18 13:10:55.672 CST locator1 <main> tid=0x1] received FindCoordinatorResponse(coordinator=10.164.209.171(server1:49198)<v1>:57945, fromView=true, viewId=-1, registrants=[10.164.209.171(locator1:18648:locator)<ec>:46921], senderId=10.164.209.171(locator1:18648:locator)<ec>:46921, network partition detection enabled=true, locators preferred as coordinators=true, view=View[10.164.209.171(locator1:48936:locator)<ec><v0>:52004|-1] members: [10.164.209.171(server1:49198)<v1>:57945{lead}]) from locator /10.164.209.171:10334
+
+[info 2026/05/18 13:10:55.675 CST locator1 <main> tid=0x1] findCoordinator chose 10.164.209.171(server1:49198)<v1>:57945 out of these possible coordinators: [10.164.209.171(server1:49198)<v1>:57945]
+
+[info 2026/05/18 13:10:55.676 CST locator1 <main> tid=0x1] Discovery state after looking for membership coordinator is locatorsContacted=1; findInViewResponses=0; alreadyTried=[]; registrants=[]; possibleCoordinator=10.164.209.171(server1:49198)<v1>:57945; viewId=-1; hasContactedAJoinedLocator=false; view=View[10.164.209.171(locator1:48936:locator)<ec><v0>:52004|-1] members: [10.164.209.171(server1:49198)<v1>:57945{lead}]; responses=[]
+
+[info 2026/05/18 13:10:55.676 CST locator1 <main> tid=0x1] found possible coordinator 10.164.209.171(server1:49198)<v1>:57945
+
+[info 2026/05/18 13:10:55.680 CST locator1 <main> tid=0x1] Attempting to join the distributed system through coordinator 10.164.209.171(server1:49198)<v1>:57945 using address 10.164.209.171(locator1:18648:locator)<ec>:46921
+
+[info 2026/05/18 13:10:55.716 CST locator1 <main> tid=0x1] Failed to send join request to coordinator 10.164.209.171(server1:49198)<v1>:57945, io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /10.164.209.171:57945
+
+[info 2026/05/18 13:10:55.736 CST locator1 <locator request thread 1> tid=0x3d] Peer locator: coordinator from view is null
+
+[info 2026/05/18 13:10:55.736 CST locator1 <locator request thread 1> tid=0x3d] Peer locator: coordinator from registrations is 10.164.209.171(locator1:18648:locator)<ec>:46921
+
+[info 2026/05/18 13:10:56.739 CST locator1 <main> tid=0x1] received FindCoordinatorResponse(coordinator=10.164.209.171(locator1:18648:locator)<ec>:46921, fromView=true, viewId=-1, registrants=[10.164.209.171(locator1:18648:locator)<ec>:46921], senderId=10.164.209.171(locator1:18648:locator)<ec>:46921, network partition detection enabled=true, locators preferred as coordinators=true, view=View[10.164.209.171(locator1:48936:locator)<ec><v0>:52004|-1] members: [10.164.209.171(server1:49198)<v1>:57945{lead}]) from locator /10.164.209.171:10334
+
+[info 2026/05/18 13:10:56.740 CST locator1 <main> tid=0x1] findCoordinator chose 10.164.209.171(locator1:18648:locator)<ec>:46921 out of these possible coordinators: [10.164.209.171(locator1:18648:locator)<ec>:46921]
+
+[info 2026/05/18 13:10:56.740 CST locator1 <main> tid=0x1] Discovery state after looking for membership coordinator is locatorsContacted=1; findInViewResponses=0; alreadyTried=[10.164.209.171(server1:49198)<v1>:57945]; registrants=[10.164.209.171(locator1:18648:locator)<ec>:46921]; possibleCoordinator=10.164.209.171(locator1:18648:locator)<ec>:46921; viewId=-1; hasContactedAJoinedLocator=false; view=View[10.164.209.171(locator1:48936:locator)<ec><v0>:52004|-1] members: [10.164.209.171(server1:49198)<v1>:57945{lead}]; responses=[]
+
+[info 2026/05/18 13:10:56.740 CST locator1 <main> tid=0x1] found possible coordinator 10.164.209.171(locator1:18648:locator)<ec>:46921
+
+[info 2026/05/18 13:10:56.740 CST locator1 <main> tid=0x1] This member is becoming the membership coordinator with address 10.164.209.171(locator1:18648:locator)<ec>:46921
+
+[info 2026/05/18 13:10:56.740 CST locator1 <main> tid=0x1] Location services has received notification that this node is becoming membership coordinator
+
+[info 2026/05/18 13:10:56.741 CST locator1 <main> tid=0x1] received new view: View[10.164.209.171(locator1:18648:locator)<ec><v0>:46921|0] members: [10.164.209.171(locator1:18648:locator)<ec><v0>:46921]
+old view is: null
+
+[info 2026/05/18 13:10:56.741 CST locator1 <main> tid=0x1] Peer locator received new membership view: View[10.164.209.171(locator1:18648:locator)<ec><v0>:46921|0] members: [10.164.209.171(locator1:18648:locator)<ec><v0>:46921]
+
+[info 2026/05/18 13:10:56.751 CST locator1 <main> tid=0x1] ViewCreator starting on:10.164.209.171(locator1:18648:locator)<ec><v0>:46921
+
+[info 2026/05/18 13:10:56.753 CST locator1 <Geode Membership View Creator> tid=0x42] View Creator thread is starting
+
+[info 2026/05/18 13:10:56.753 CST locator1 <main> tid=0x1] Finished joining (took 3123ms).
+
+[info 2026/05/18 13:10:56.754 CST locator1 <main> tid=0x1] Starting DistributionManager 10.164.209.171(locator1:18648:locator)<ec><v0>:46921.  (took 3293 ms)
+
+[info 2026/05/18 13:10:56.754 CST locator1 <Geode Membership View Creator> tid=0x42] no recipients for new view aside from myself
+
+[info 2026/05/18 13:10:56.756 CST locator1 <main> tid=0x1] Initial (distribution manager) view, View[10.164.209.171(locator1:18648:locator)<ec><v0>:46921|0] members: [10.164.209.171(locator1:18648:locator)<ec><v0>:46921]
+
+[info 2026/05/18 13:10:56.762 CST locator1 <main> tid=0x1] Did not hear back from any other system. I am the first one.
+
+[info 2026/05/18 13:10:56.763 CST locator1 <main> tid=0x1] DistributionManager 10.164.209.171(locator1:18648:locator)<ec><v0>:46921 started on DistributionLocatorId{host=/10.164.209.171, port=10334, bindAddress='', hostnameForClients='null', hostname='10.164.209.171', memberName='', timestamp=1779081053448}. There were 0 other DMs. others: []  (took 3314 ms)  (locator)
+
+[info 2026/05/18 13:10:56.780 CST locator1 <StatSampler> tid=0x45] Disabling statistic archival.
+
+[info 2026/05/18 13:10:56.818 CST locator1 <main> tid=0x1] Creating cache for locator.
+
+[info 2026/05/18 13:10:56.907 CST locator1 <main> tid=0x1] Initialized cache service org.apache.geode.connectors.jdbc.internal.JdbcConnectorServiceImpl
+
+[info 2026/05/18 13:10:56.908 CST locator1 <main> tid=0x1] Initialized cache service org.apache.geode.cache.wan.internal.WanCopyRegionFunctionService
+
+[info 2026/05/18 13:10:57.227 CST locator1 <main> tid=0x1] Initialized cache service org.apache.geode.management.internal.cli.remote.OnlineCommandProcessor
+
+[info 2026/05/18 13:10:57.228 CST locator1 <main> tid=0x1] Initialized cache service org.apache.geode.internal.memcached.GeodeMemcachedService
+
+[info 2026/05/18 13:10:57.229 CST locator1 <main> tid=0x1] Initialized cache service com.gemstone.gemfire.OldClientSupportProvider
+
+[info 2026/05/18 13:10:57.230 CST locator1 <main> tid=0x1] Initialized cache service org.apache.geode.cache.query.internal.QueryConfigurationServiceImpl
+
+[info 2026/05/18 13:10:57.260 CST locator1 <main> tid=0x1] Enabled InternalHttpService on port 7070
+
+[info 2026/05/18 13:10:57.260 CST locator1 <main> tid=0x1] Initialized cache service org.apache.geode.internal.cache.http.service.InternalHttpService
+
+[info 2026/05/18 13:10:57.290 CST locator1 <main> tid=0x1] Initializing region _monitoringRegion_10.164.209.171<v0>46921
+
+[info 2026/05/18 13:10:57.291 CST locator1 <main> tid=0x1] Initialization of region _monitoringRegion_10.164.209.171<v0>46921 completed
+
+[info 2026/05/18 13:10:57.311 CST locator1 <main> tid=0x1] SharedConfigStatusRequestHandler installed
+
+[info 2026/05/18 13:10:57.311 CST locator1 <main> tid=0x1] ClusterManagementServiceInfoRequestHandler installed
+
+[info 2026/05/18 13:10:58.828 CST locator1 <main> tid=0x1] Recovered disk store cluster_config with unique id 843bb3d730e34112-b8c22c0b91e5a900
+
+[info 2026/05/18 13:10:58.831 CST locator1 <main> tid=0x1] Recovering oplog#1 /Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1/ConfigDiskDir_locator1/BACKUPcluster_config_1.drf for disk store cluster_config.
+
+[info 2026/05/18 13:10:58.834 CST locator1 <main> tid=0x1] Recovering oplog#1 /Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1/ConfigDiskDir_locator1/BACKUPcluster_config_1.krf for disk store cluster_config.
+
+[info 2026/05/18 13:10:58.840 CST locator1 <main> tid=0x1] recovery oplog load took 9 ms
+
+[info 2026/05/18 13:10:59.138 CST locator1 <main> tid=0x1] Created oplog#2 drf for disk store cluster_config.
+
+[info 2026/05/18 13:10:59.141 CST locator1 <main> tid=0x1] Created oplog#2 crf for disk store cluster_config.
+
+[info 2026/05/18 13:10:59.141 CST locator1 <main> tid=0x1] recovery region initialization took 301 ms
+
+[info 2026/05/18 13:10:59.143 CST locator1 <Idle OplogCompactor1> tid=0x53] Recovered values for disk store cluster_config with unique id 843bb3d7-30e3-4112-b8c2-2c0b91e5a900
+
+[info 2026/05/18 13:10:59.143 CST locator1 <OplogCompactor cluster_config for oplog oplog#1> tid=0x53] OplogCompactor for cluster_config compaction oplog id(s): oplog#1
+
+[info 2026/05/18 13:10:59.147 CST locator1 <main> tid=0x1] Initializing region _ConfigurationRegion
+
+[info 2026/05/18 13:10:59.149 CST locator1 <OplogCompactor cluster_config for oplog oplog#1> tid=0x53] compaction did 1 creates and updates in 5 ms
+
+[info 2026/05/18 13:10:59.149 CST locator1 <main> tid=0x1] Region /_ConfigurationRegion recovered from the local disk. Old persistent ID: /10.164.209.171:/Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1/ConfigDiskDir_locator1 created at timestamp 1779076161570 version 0 diskStoreId 843bb3d730e34112-b8c22c0b91e5a900 name locator1, new persistent ID 10.164.209.171/10.164.209.171:/Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1/ConfigDiskDir_locator1 created at timestamp 1779081059146 version 0 diskStoreId 843bb3d730e34112-b8c22c0b91e5a900 name locator1
+
+[info 2026/05/18 13:10:59.149 CST locator1 <Oplog Delete Task1> tid=0x54] Deleted oplog#1 crf for disk store cluster_config.
+
+[info 2026/05/18 13:10:59.150 CST locator1 <Oplog Delete Task1> tid=0x54] Deleted oplog#1 krf for disk store cluster_config.
+
+[info 2026/05/18 13:10:59.151 CST locator1 <main> tid=0x1] Initialization of region _ConfigurationRegion completed
+
+[info 2026/05/18 13:10:59.154 CST locator1 <Oplog Delete Task1> tid=0x54] Deleted oplog#1 drf for disk store cluster_config.
+
+[info 2026/05/18 13:10:59.177 CST locator1 <main> tid=0x1] Cluster configuration service start up completed successfully and is now running ....
+
+[info 2026/05/18 13:10:59.181 CST locator1 <main> tid=0x1] Initializing region __OperationStateRegion
+
+[info 2026/05/18 13:10:59.181 CST locator1 <main> tid=0x1] Initialization of region __OperationStateRegion completed
+
+[info 2026/05/18 13:10:59.185 CST locator1 <main> tid=0x1] GemFire Home: /Users/zchun/Downloads/vmware-gemfire-10.0.0
+
+[info 2026/05/18 13:10:59.185 CST locator1 <main> tid=0x1] Located war: gemfire-web-management at location: file:/Users/zchun/Downloads/vmware-gemfire-10.0.0/tools/Extensions/gemfire-web-management-10.0.0.war
+
+[info 2026/05/18 13:10:59.192 CST locator1 <main> tid=0x1] System property 'jmx.remote.rmi.server.serial.filter.pattern' is now configured with 'java.lang.Boolean;java.lang.Byte;java.lang.Character;java.lang.Short;java.lang.Integer;java.lang.Long;java.lang.Float;java.lang.Double;java.lang.String;java.math.BigInteger;java.math.BigDecimal;javax.management.ObjectName;javax.management.openmbean.OpenType;javax.management.openmbean.CompositeData;javax.management.openmbean.TabularData;javax.management.openmbean.SimpleType;javax.management.openmbean.CompositeType;javax.management.openmbean.TabularType;javax.management.openmbean.ArrayType;java.rmi.MarshalledObject;!*'.
+
+[info 2026/05/18 13:10:59.193 CST locator1 <main> tid=0x1] GemFire Home: /Users/zchun/Downloads/vmware-gemfire-10.0.0
+
+[info 2026/05/18 13:10:59.193 CST locator1 <main> tid=0x1] Located war: gemfire-web at location: file:/Users/zchun/Downloads/vmware-gemfire-10.0.0/tools/Extensions/gemfire-web-10.0.0.war
+
+[info 2026/05/18 13:10:59.193 CST locator1 <main> tid=0x1] GemFire Home: /Users/zchun/Downloads/vmware-gemfire-10.0.0
+
+[info 2026/05/18 13:10:59.193 CST locator1 <main> tid=0x1] Located war: gemfire-pulse at location: file:/Users/zchun/Downloads/vmware-gemfire-10.0.0/tools/Pulse/gemfire-pulse-10.0.0.war
+
+[info 2026/05/18 13:10:59.211 CST locator1 <main> tid=0x1] Adding webapp /gemfire
+
+[info 2026/05/18 13:10:59.211 CST locator1 <main> tid=0x1] Attempting to start HTTP service on port (7070) at bind-address (0.0.0.0)...
+
+[info 2026/05/18 13:10:59.494 CST locator1 <main> tid=0x1] Initializing Servlet 'geode-mgmt'
+
+[info 2026/05/18 13:10:59.854 CST locator1 <main> tid=0x1] Completed initialization in 360 ms
+
+[info 2026/05/18 13:10:59.857 CST locator1 <main> tid=0x1] Adding webapp /geode-mgmt
+
+[info 2026/05/18 13:11:00.029 CST locator1 <main> tid=0x1] Initializing Servlet 'geode-mgmt'
+
+[info 2026/05/18 13:11:00.291 CST locator1 <main> tid=0x1] Completed initialization in 262 ms
+
+[info 2026/05/18 13:11:00.292 CST locator1 <main> tid=0x1] Adding webapp /pulse
+
+[info 2026/05/18 13:11:01.624 CST locator1 <main> tid=0x1] Registered AccessControlMBean on GemFire:service=AccessControl,type=Distributed
+
+[info 2026/05/18 13:11:01.627 CST locator1 <main> tid=0x1] Registered FileUploaderMBean on GemFire:service=FileUploader,type=Distributed
+
+[info 2026/05/18 13:11:01.629 CST locator1 <main> tid=0x1] Geode Property enable-management-rest-service=true Geode Management Rest Service is enabled.
+
+[info 2026/05/18 13:11:01.630 CST locator1 <main> tid=0x1] Adding webapp /management
+
+[info 2026/05/18 13:11:02.006 CST locator1 <main> tid=0x1] Initializing Servlet 'management'
+
+[info 2026/05/18 13:11:02.820 CST locator1 <main> tid=0x1] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@174e9ae8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3b51cbf7, org.springframework.security.web.context.SecurityContextPersistenceFilter@274ac029, org.springframework.security.web.header.HeaderWriterFilter@564519de, org.springframework.security.web.authentication.logout.LogoutFilter@206e080, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2d2690f6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@256ba00b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1d4d1621, org.springframework.security.web.session.SessionManagementFilter@31cced7, org.springframework.security.web.access.ExceptionTranslationFilter@3c638904, org.springframework.security.web.access.intercept.AuthorizationFilter@3fe94bea]
+
+[info 2026/05/18 13:11:02.835 CST locator1 <main> tid=0x1] Completed initialization in 829 ms
+
+[info 2026/05/18 13:11:02.835 CST locator1 <main> tid=0x1] Locator started on 10.164.209.171/10.164.209.171[10334]
+
+[info 2026/05/18 13:11:02.835 CST locator1 <main> tid=0x1] Starting server location for Distribution Locator on 10.164.209.171[10334]
+
+[info 2026/05/18 13:11:23.395 CST locator1 <locator request thread 1> tid=0x3d] Peer locator: coordinator from view is 10.164.209.171(locator1:18648:locator)<ec><v0>:46921
+
+[info 2026/05/18 13:11:24.491 CST locator1 <Membership Messenger Receiver Non-Blocking> tid=0x31] Received a join request from 10.164.209.171(server1:19153):48416
+
+[info 2026/05/18 13:11:24.796 CST locator1 <Geode Membership View Creator> tid=0x42] View Creator is processing 1 requests for the next membership view ([JoinRequestMessage(10.164.209.171(server1:19153):48416) failureDetectionPort:44465])
+
+[info 2026/05/18 13:11:24.798 CST locator1 <Geode Membership View Creator> tid=0x42] preparing new view View[10.164.209.171(locator1:18648:locator)<ec><v0>:46921|1] members: [10.164.209.171(locator1:18648:locator)<ec><v0>:46921, 10.164.209.171(server1:19153)<v1>:48416{lead}]
+
+[info 2026/05/18 13:11:24.876 CST locator1 <Geode Membership View Creator> tid=0x42] finished waiting for responses to view preparation
+
+[info 2026/05/18 13:11:24.877 CST locator1 <Geode Membership View Creator> tid=0x42] received new view: View[10.164.209.171(locator1:18648:locator)<ec><v0>:46921|1] members: [10.164.209.171(locator1:18648:locator)<ec><v0>:46921, 10.164.209.171(server1:19153)<v1>:48416{lead}]
+old view is: View[10.164.209.171(locator1:18648:locator)<ec><v0>:46921|0] members: [10.164.209.171(locator1:18648:locator)<ec><v0>:46921]
+
+[info 2026/05/18 13:11:24.877 CST locator1 <Geode Membership View Creator> tid=0x42] Peer locator received new membership view: View[10.164.209.171(locator1:18648:locator)<ec><v0>:46921|1] members: [10.164.209.171(locator1:18648:locator)<ec><v0>:46921, 10.164.209.171(server1:19153)<v1>:48416{lead}]
+
+[info 2026/05/18 13:11:24.878 CST locator1 <Geode Membership View Creator> tid=0x42] sending new view View[10.164.209.171(locator1:18648:locator)<ec><v0>:46921|1] members: [10.164.209.171(locator1:18648:locator)<ec><v0>:46921, 10.164.209.171(server1:19153)<v1>:48416{lead}]
+
+[info 2026/05/18 13:11:24.879 CST locator1 <Geode View Processor1> tid=0x90] Membership: Processing addition <10.164.209.171(server1:19153)<v1>:48416>
+
+[info 2026/05/18 13:11:24.885 CST locator1 <FederatingManager1> tid=0x91] Initializing region _monitoringRegion_10.164.209.171<v1>48416
+
+[info 2026/05/18 13:11:24.924 CST locator1 <Pooled Waiting Message Processor 1> tid=0x43] Member 10.164.209.171(server1:19153)<v1>:48416 is equivalent or in the same redundancy zone.
+
+[info 2026/05/18 13:11:24.936 CST locator1 <FederatingManager1> tid=0x91] Initialization of region _monitoringRegion_10.164.209.171<v1>48416 completed
+
+[info 2026/05/18 13:11:24.940 CST locator1 <FederatingManager1> tid=0x91] Initializing region _notificationRegion_10.164.209.171<v1>48416
+
+[info 2026/05/18 13:11:24.943 CST locator1 <FederatingManager1> tid=0x91] Initialization of region _notificationRegion_10.164.209.171<v1>48416 completed
+
+[info 2026/05/18 13:11:24.987 CST locator1 <Function Execution Processor2> tid=0x95] Received request for configuration: []
+
+[info 2026/05/18 13:11:24.987 CST locator1 <Function Execution Processor2> tid=0x95] Building up configuration response with following configurations: [cluster]
+
+[info 2026/05/18 13:11:26.800 CST locator1 <RMI TCP Connection(5)-127.0.0.1> tid=0x8d] Executing command: create region --name=TombstoneLab --type=REPLICATE
+
+[info 2026/05/18 13:11:33.292 CST locator1 <RMI TCP Connection(5)-127.0.0.1> tid=0x8d] Executing command: destroy region --name=/TombstoneLab
+
+[info 2026/05/18 13:11:36.536 CST locator1 <RMI TCP Connection(5)-127.0.0.1> tid=0x8d] Executing command: create region --name=TombstoneLab --type=REPLICATE
+
+[info 2026/05/18 13:11:41.575 CST locator1 <RMI TCP Connection(5)-127.0.0.1> tid=0x8d] Executing command: put --region=TombstoneLab --key=1 --value="Data A"
+
+[info 2026/05/18 13:11:41.577 CST locator1 <RMI TCP Connection(5)-127.0.0.1> tid=0x8d] Cache instance for put: org.apache.geode.internal.cache.InternalCacheForClientAccess@77ce88c4
+
+[info 2026/05/18 13:11:41.628 CST locator1 <RMI TCP Connection(5)-127.0.0.1> tid=0x8d] Executing command: put --region=TombstoneLab --key=2 --value="Data B"
+
+[info 2026/05/18 13:11:41.629 CST locator1 <RMI TCP Connection(5)-127.0.0.1> tid=0x8d] Cache instance for put: org.apache.geode.internal.cache.InternalCacheForClientAccess@77ce88c4
+
+[info 2026/05/18 13:11:42.224 CST locator1 <RMI TCP Connection(5)-127.0.0.1> tid=0x8d] Executing command: put --region=TombstoneLab --key=3 --value="Data C"
+
+[info 2026/05/18 13:11:42.224 CST locator1 <RMI TCP Connection(5)-127.0.0.1> tid=0x8d] Cache instance for put: org.apache.geode.internal.cache.InternalCacheForClientAccess@77ce88c4
+
+[info 2026/05/18 13:12:01.744 CST locator1 <RMI TCP Connection(5)-127.0.0.1> tid=0x8d] Executing command: alter runtime --log-level=DEBUG
+
+[info 2026/05/18 13:12:01.766 CST locator1 <RMI TCP Connection(5)-127.0.0.1> tid=0x8d] XmlEntity:searchString: //cache:cache
+
+[info 2026/05/18 13:12:07.123 CST locator1 <RMI TCP Connection(5)-127.0.0.1> tid=0x8d] Executing command: remove --region=TombstoneLab --key=2
+
+[info 2026/05/18 13:13:28.403 CST locator1 <RMI TCP Connection(5)-127.0.0.1> tid=0x8d] Executing command: show metrics
+
+[info 2026/05/18 13:13:48.429 CST locator1 <RMI TCP Connection(5)-127.0.0.1> tid=0x8d] Executing command: shutdown --include-locators=yes
+
+[info 2026/05/18 13:13:48.432 CST locator1 <RMI TCP Connection(5)-127.0.0.1> tid=0x8d] Gfsh executing shutdown on members [10.164.209.171(server1:19153)<v1>:48416]
+
+[info 2026/05/18 13:13:48.433 CST locator1 <RMI TCP Connection(5)-127.0.0.1> tid=0x8d] Gfsh executing shutdown on members [10.164.209.171(locator1:18648:locator)<ec><v0>:46921]
+
+[info 2026/05/18 13:13:48.436 CST locator1 <Function Execution Processor2> tid=0x95] Received GFSH shutdown. Shutting down member 10.164.209.171(locator1:18648:locator)<ec><v0>:46921
+
+[info 2026/05/18 13:13:49.463 CST locator1 <Shutdown Disconnector1> tid=0x9d] GemFireCache[id = 1959333678; isClosing = true; isShutDownAll = false; created = Mon May 18 13:10:56 CST 2026; server = false; copyOnRead = false; lockLease = 120; lockTimeout = 60]: Now closing.
+
+[info 2026/05/18 13:13:49.498 CST locator1 <Pooled High Priority Message Processor 2> tid=0x94] received leave request from 10.164.209.171(server1:19153)<v1>:48416 for 10.164.209.171(server1:19153)<v1>:48416
+
+[info 2026/05/18 13:13:49.499 CST locator1 <Pooled High Priority Message Processor 2> tid=0x94] JoinLeave.processLeaveRequestMessage(LeaveRequestMessage) invoked.  isCoordinator=true; isStopping=false; cancelInProgress=false
+
+[info 2026/05/18 13:13:49.499 CST locator1 <Pooled High Priority Message Processor 2> tid=0x94] Member at 10.164.209.171(server1:19153)<v1>:48416 gracefully left the distributed cache: shutdown message received
+
+[info 2026/05/18 13:13:49.607 CST locator1 <Shutdown Disconnector1> tid=0x9d] Created oplog#2 krf for disk store cluster_config.
+
+[info 2026/05/18 13:13:49.612 CST locator1 <org.apache.geode.distributed.internal.InternalLocator$$Lambda/0x000000070143e610@7fad214a> tid=0xa0] Stopping Locator on 0.0.0.0/0.0.0.0:10334:10334
+
+[info 2026/05/18 13:13:49.615 CST locator1 <Distribution Locator on 10.164.209.171: 10334> tid=0x24] locator shutting down
+
+[info 2026/05/18 13:13:49.615 CST locator1 <Distribution Locator on 10.164.209.171: 10334> tid=0x24] Closing locator's cache
+
+[info 2026/05/18 13:13:49.615 CST locator1 <main> tid=0x1] locator is exiting normally
+
+[info 2026/05/18 13:13:49.615 CST locator1 <org.apache.geode.distributed.internal.InternalLocator$$Lambda/0x000000070143e610@7fad214a> tid=0xa0] Distribution Locator on 10.164.209.171 is stopped
+
+[info 2026/05/18 13:13:49.615 CST locator1 <main> tid=0x1] Distribution Locator on 10.164.209.171 is stopped
+
+[info 2026/05/18 13:13:49.616 CST locator1 <Shutdown Disconnector1> tid=0x9d] Shutting down DistributionManager 10.164.209.171(locator1:18648:locator)<ec><v0>:46921. 
+
+[info 2026/05/18 13:13:49.804 CST locator1 <Geode Membership View Creator> tid=0x42] View Creator is processing 1 requests for the next membership view ([LeaveRequestMessage(10.164.209.171(server1:19153)<v1>:48416; reason=shutdown message received)])
+
+[info 2026/05/18 13:13:49.805 CST locator1 <Geode Membership View Creator> tid=0x42] View Creator thread interrupted
+
+[info 2026/05/18 13:13:49.805 CST locator1 <Geode Membership View Creator> tid=0x42] View Creator thread is exiting
+
+[info 2026/05/18 13:13:50.611 CST locator1 <Membership Messenger Receiver Non-Blocking> tid=0x31] received leave request from 10.164.209.171(server1:19153)<v1>:48416 for 10.164.209.171(server1:19153)<v1>:48416
+
+[info 2026/05/18 13:13:50.612 CST locator1 <Membership Messenger Receiver Non-Blocking> tid=0x31] JoinLeave.processLeaveRequestMessage(LeaveRequestMessage) invoked.  isCoordinator=true; isStopping=false; cancelInProgress=false
+
+[info 2026/05/18 13:13:50.723 CST locator1 <Shutdown Disconnector1> tid=0x9d] Now closing distribution for 10.164.209.171(locator1:18648:locator)<ec><v0>:46921
+
+[info 2026/05/18 13:13:50.724 CST locator1 <Shutdown Disconnector1> tid=0x9d] Stopping membership services
+
+[info 2026/05/18 13:13:50.724 CST locator1 <Geode Failure Detection Server thread 1> tid=0x3a] GMSHealthMonitor server thread exiting
+
+[info 2026/05/18 13:13:51.742 CST locator1 <Shutdown Disconnector1> tid=0x9d] DistributionManager stopped in 2126ms.
+
+[info 2026/05/18 13:13:51.742 CST locator1 <Shutdown Disconnector1> tid=0x9d] Marking DistributionManager 10.164.209.171(locator1:18648:locator)<ec><v0>:46921 as closed.
+
+[info 2026/05/18 13:46:05.398 CST locator1 <main> tid=0x1] 
+---------------------------------------------------------------------------
+  
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with this
+  work for additional information regarding copyright ownership.
+   
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with the
+  License.  You may obtain a copy of the License at
+  
+  http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the
+  License for the specific language governing permissions and limitations
+  under the License.
+  
+---------------------------------------------------------------------------
+----------------------------------------
+VMware GemFire
+----------------------------------------
+Build-Java-Vendor: BellSoft
+GemFire-Source-Date: 2023-04-07 14:35:30 -0700
+Build-Platform: Linux 5.10.162+ amd64
+Build-Java-Version: 1.8.0_362
+GemFire-Source-Revision: 2a5ca3b62305f905c90704e265ab05aed659d745
+Build-Id: root 1810
+Product-Name: VMware GemFire
+GemFire-Source-Repository: support/10.0
+GemFire-Version: 10.0.0
+
+Running on: Running on: 10.164.209.171/10.164.209.171, 10 cpu(s), aarch64 Mac OS X 26.4.1 
+---------------------------------------------------------------------------
+Communications version: 200
+Process ID: 46623
+User: zchun
+Current dir: /Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1
+Home dir: /Users/zchun
+Command Line Parameters:
+  --add-exports=java.management/com.sun.jmx.remote.security=ALL-UNNAMED
+  --add-exports=java.base/sun.nio.ch=ALL-UNNAMED
+  --add-opens=java.base/java.lang=ALL-UNNAMED
+  --add-opens=java.base/java.nio=ALL-UNNAMED
+  -Dgemfire.enable-cluster-configuration=true
+  -Dgemfire.load-cluster-configuration-from-dir=false
+  -XX:+UseZGC
+  -Dgemfire.launcher.registerSignalHandlers=true
+  -Djava.awt.headless=true
+  -Dsun.rmi.dgc.server.gcInterval=9223372036854775806
+Class Path:
+  /Users/zchun/Downloads/vmware-gemfire-10.0.0/lib/gemfire-bootstrap-10.0.0.jar
+Library Path:
+  /Users/zchun/Library/Java/Extensions
+  /Library/Java/Extensions
+  /Network/Library/Java/Extensions
+  /System/Library/Java/Extensions
+  /usr/lib/java
+  .
+System Properties:
+    Locator.forceLocatorDMType = true
+    apple.awt.application.name = LocatorLauncher
+    boot.module.loader = com.vmware.gemfire.bootstrap.internal.GemFireModuleLoader
+    com.vmware.gemfire.deployment.modules.internal.Launcher.extensionsRuntimePath = /var/folders/0y/47ml4wh571l7x16hh5lt8l9m0000gq/T/gemfire-extensions11327340653969197782
+    file.encoding = UTF-8
+    file.separator = /
+    gemfire.enable-cluster-configuration = true
+    gemfire.home = /Users/zchun/Downloads/vmware-gemfire-10.0.0
+    gemfire.launcher.registerSignalHandlers = true
+    gemfire.load-cluster-configuration-from-dir = false
+    java.awt.headless = true
+    java.class.version = 65.0
+    java.home = /Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home
+    java.io.tmpdir = /var/folders/0y/47ml4wh571l7x16hh5lt8l9m0000gq/T/
+    java.runtime.name = Java(TM) SE Runtime Environment
+    java.runtime.version = 21.0.8+12-LTS-250
+    java.specification.name = Java Platform API Specification
+    java.specification.vendor = Oracle Corporation
+    java.specification.version = 21
+    java.vendor = Oracle Corporation
+    java.vendor.url = https://java.oracle.com/
+    java.vendor.url.bug = https://bugreport.java.com/bugreport/
+    java.version = 21.0.8
+    java.version.date = 2025-07-15
+    java.vm.info = mixed mode, sharing
+    java.vm.name = Java HotSpot(TM) 64-Bit Server VM
+    java.vm.specification.name = Java Virtual Machine Specification
+    java.vm.specification.vendor = Oracle Corporation
+    java.vm.specification.version = 21
+    java.vm.vendor = Oracle Corporation
+    java.vm.version = 21.0.8+12-LTS-250
+    jboss.modules.system.pkgs = javax.management,java.lang.management
+    jdk.debug = release
+    line.separator = 
+
+    module.path = /Users/zchun/Downloads/vmware-gemfire-10.0.0/moduleDescriptors:/var/folders/0y/47ml4wh571l7x16hh5lt8l9m0000gq/T/gemfire-extensions11327340653969197782:/Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1/deployments
+    native.encoding = UTF-8
+    os.version = 26.4.1
+    path.separator = :
+    stderr.encoding = UTF-8
+    stdout.encoding = UTF-8
+    sun.arch.data.model = 64
+    sun.boot.library.path = /Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/lib
+    sun.cpu.endian = little
+    sun.io.unicode.encoding = UnicodeBig
+    sun.java.command = com.vmware.gemfire.bootstrap.LocatorLauncher start locator1 --automatic-module-classpath=/Users/zchun/Downloads/vmware-gemfire-10.0.0/extensions/* --port=10334
+    sun.java.launcher = SUN_STANDARD
+    sun.jnu.encoding = UTF-8
+    sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+    sun.rmi.dgc.server.gcInterval = 9223372036854775806
+    user.country = US
+    user.language = en
+    user.timezone = Asia/Shanghai
+Log4J 2 Configuration:
+    jar:file:/Users/zchun/Downloads/vmware-gemfire-10.0.0/lib/gemfire-log4j-10.0.0.jar!/log4j2.xml
+---------------------------------------------------------------------------
+
+
+[info 2026/05/18 13:46:05.405 CST locator1 <main> tid=0x1] Startup Configuration: 
+### GemFire Properties defined with system property ###
+enable-cluster-configuration=true
+load-cluster-configuration-from-dir=false
+### GemFire Properties defined with api ###
+cache-xml-file=
+locators=10.164.209.171[10334]
+name=locator1
+### GemFire Properties defined with launcher ###
+log-file=/Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1/locator1.log
+### GemFire Properties using default values ###
+ack-severe-alert-threshold=0
+ack-wait-threshold=15
+archive-disk-space-limit=0
+archive-file-size-limit=0
+async-distribution-timeout=0
+async-max-queue-size=8
+async-queue-timeout=60000
+bind-address=
+cluster-configuration-dir=
+cluster-ssl-ciphers=any
+cluster-ssl-enabled=false
+cluster-ssl-keystore=
+cluster-ssl-keystore-password=
+cluster-ssl-keystore-type=
+cluster-ssl-protocols=any
+cluster-ssl-require-authentication=true
+cluster-ssl-truststore=
+cluster-ssl-truststore-password=
+conflate-events=server
+conserve-sockets=false
+delta-propagation=true
+deploy-working-dir=/Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1
+disable-auto-reconnect=false
+disable-jmx=false
+disable-tcp=false
+distributed-system-id=-1
+distributed-transactions=false
+durable-client-id=
+durable-client-timeout=300
+enable-management-rest-service=true
+enable-network-partition-detection=true
+enable-time-statistics=true
+enforce-unique-host=false
+gateway-ssl-ciphers=any
+gateway-ssl-enabled=false
+gateway-ssl-keystore=
+gateway-ssl-keystore-password=
+gateway-ssl-keystore-type=
+gateway-ssl-protocols=any
+gateway-ssl-require-authentication=true
+gateway-ssl-truststore=
+gateway-ssl-truststore-password=
+groups=
+http-service-bind-address=
+http-service-port=7070
+http-service-ssl-ciphers=any
+http-service-ssl-enabled=false
+http-service-ssl-keystore=
+http-service-ssl-keystore-password=
+http-service-ssl-keystore-type=
+http-service-ssl-protocols=any
+http-service-ssl-require-authentication=false
+http-service-ssl-truststore=
+http-service-ssl-truststore-password=
+jmx-manager=true
+jmx-manager-access-file=
+jmx-manager-bind-address=
+jmx-manager-hostname-for-clients=
+jmx-manager-http-port=7070
+jmx-manager-password-file=
+jmx-manager-port=1099
+jmx-manager-ssl-ciphers=any
+jmx-manager-ssl-enabled=false
+jmx-manager-ssl-keystore=
+jmx-manager-ssl-keystore-password=
+jmx-manager-ssl-keystore-type=
+jmx-manager-ssl-protocols=any
+jmx-manager-ssl-require-authentication=true
+jmx-manager-ssl-truststore=
+jmx-manager-ssl-truststore-password=
+jmx-manager-start=false
+jmx-manager-update-rate=2000
+locator-wait-time=0
+lock-memory=false
+log-disk-space-limit=0
+log-file-size-limit=0
+log-level=config
+max-num-reconnect-tries=3
+max-wait-time-reconnect=60000
+mcast-address=239.192.81.1
+mcast-flow-control=1048576, 0.25, 5000
+mcast-port=0
+mcast-recv-buffer-size=1048576
+mcast-send-buffer-size=65535
+mcast-ttl=32
+member-timeout=5000
+membership-port-range=41000-61000
+memcached-bind-address=
+memcached-port=0
+memcached-protocol=ASCII
+off-heap-memory-size=
+redundancy-zone=
+remote-locators=
+remove-unresponsive-client=false
+roles=
+security-auth-token-enabled-components=
+security-client-accessor=
+security-client-accessor-pp=
+security-client-auth-init=
+security-client-authenticator=
+security-client-dhalgo=
+security-log-file=
+security-log-level=config
+security-manager=
+security-peer-auth-init=
+security-peer-authenticator=
+security-peer-verifymember-timeout=1000
+security-post-processor=
+security-udp-dhalgo=
+serializable-object-filter=!*
+server-bind-address=
+server-ssl-ciphers=any
+server-ssl-enabled=false
+server-ssl-keystore=
+server-ssl-keystore-password=
+server-ssl-keystore-type=
+server-ssl-protocols=any
+server-ssl-require-authentication=true
+server-ssl-truststore=
+server-ssl-truststore-password=
+socket-buffer-size=32768
+socket-lease-time=1800000
+ssl-ciphers=any
+ssl-client-protocols=
+ssl-cluster-alias=
+ssl-default-alias=
+ssl-enabled-components=
+ssl-endpoint-identification-enabled=false
+ssl-gateway-alias=
+ssl-jmx-alias=
+ssl-keystore=
+ssl-keystore-password=
+ssl-keystore-type=
+ssl-locator-alias=
+ssl-parameter-extension=
+ssl-protocols=any
+ssl-require-authentication=true
+ssl-server-alias=
+ssl-server-protocols=
+ssl-truststore=
+ssl-truststore-password=
+ssl-truststore-type=
+ssl-use-default-context=false
+ssl-web-alias=
+ssl-web-require-authentication=false
+start-dev-rest-api=false
+start-locator=
+statistic-archive-file=
+statistic-sample-rate=1000
+statistic-sampling-enabled=true
+tcp-port=0
+thread-monitor-enabled=true
+thread-monitor-interval-ms=60000
+thread-monitor-time-limit-ms=120000
+udp-fragment-size=60000
+udp-recv-buffer-size=1048576
+udp-send-buffer-size=65535
+use-cluster-configuration=true
+use-udp-membership-messenger=false
+user-command-packages=
+validate-serializable-objects=false
+
+
+[info 2026/05/18 13:46:05.408 CST locator1 <main> tid=0x1] ClassLoader Modules:
+- Module Name: _automatic_
+-- Resources:
+--- gemfire-greenplum-4.0.1-javadoc.jar
+--- gemfire-greenplum-4.0.1.jar
+--- /var/folders/0y/47ml4wh571l7x16hh5lt8l9m0000gq/T/gemfire-extensions11327340653969197782/_automatic_/main/lib
+-- Module Dependencies:
+--- default_application
+--- gemfire
+--- java.base
+--- java.se
+
+- Module Name: default_application
+-- Resources:
+--- /Users/zchun/Downloads/vmware-gemfire-10.0.0/moduleDescriptors/default_application/main/lib
+-- Module Dependencies:
+--- _automatic_
+--- java.base
+
+- Module Name: gemfire
+-- Resources:
+--- HdrHistogram-2.1.12.jar
+--- HikariCP-4.0.3.jar
+--- LatencyUtils-2.0.3.jar
+--- antlr-2.7.7.jar
+--- bson-4.8.1.jar
+--- classgraph-4.8.154.jar
+--- commons-beanutils-1.9.4.jar
+--- commons-codec-1.15.jar
+--- commons-collections4-4.4.jar
+--- commons-digester-2.1.jar
+--- commons-io-2.11.0.jar
+--- commons-lang3-3.12.0.jar
+--- commons-logging-1.2.jar
+--- commons-validator-1.7.jar
+--- fastutil-8.5.11.jar
+--- gemfire-common-10.0.0.jar
+--- gemfire-connectors-10.0.0.jar
+--- gemfire-core-10.0.0.jar
+--- gemfire-cq-10.0.0.jar
+--- gemfire-deployment-jboss-modules-10.0.0.jar
+--- gemfire-gfsh-10.0.0.jar
+--- gemfire-http-service-10.0.0.jar
+--- gemfire-log4j-10.0.0.jar
+--- gemfire-logging-10.0.0.jar
+--- gemfire-management-10.0.0.jar
+--- gemfire-membership-10.0.0.jar
+--- gemfire-memcached-10.0.0.jar
+--- gemfire-old-client-support-10.0.0.jar
+--- gemfire-rebalancer-10.0.0.jar
+--- gemfire-serialization-10.0.0.jar
+--- gemfire-tcp-messenger-10.0.0.jar
+--- gemfire-tcp-server-10.0.0.jar
+--- gemfire-unsafe-10.0.0.jar
+--- gemfire-version-10.0.0.jar
+--- gemfire-wan-10.0.0.jar
+--- httpclient-4.5.14.jar
+--- httpcore-4.4.16.jar
+--- istack-commons-runtime-4.0.1.jar
+--- jackson-annotations-2.14.1.jar
+--- jackson-core-2.14.1.jar
+--- jackson-databind-2.14.1.jar
+--- jackson-datatype-joda-2.14.1.jar
+--- jackson-datatype-jsr310-2.14.1.jar
+--- javax.activation-api-1.2.0.jar
+--- javax.resource-api-1.7.1.jar
+--- javax.servlet-api-3.1.0.jar
+--- javax.transaction-api-1.3.jar
+--- jaxb-api-2.3.1.jar
+--- jaxb-impl-2.3.2.jar
+--- jetty-http-9.4.50.v20221201.jar
+--- jetty-io-9.4.50.v20221201.jar
+--- jetty-security-9.4.50.v20221201.jar
+--- jetty-server-9.4.50.v20221201.jar
+--- jetty-servlet-9.4.50.v20221201.jar
+--- jetty-util-9.4.50.v20221201.jar
+--- jetty-util-ajax-9.4.50.v20221201.jar
+--- jetty-webapp-9.4.50.v20221201.jar
+--- jetty-xml-9.4.50.v20221201.jar
+--- jgroups-3.6.14.Final.jar
+--- jline-2.12.jar
+--- jna-5.12.1.jar
+--- jna-platform-5.12.1.jar
+--- joda-time-2.12.2.jar
+--- jopt-simple-5.0.4.jar
+--- log4j-api-2.19.0.jar
+--- log4j-core-2.19.0.jar
+--- log4j-jcl-2.19.0.jar
+--- log4j-jul-2.19.0.jar
+--- log4j-slf4j-impl-2.19.0.jar
+--- micrometer-commons-1.10.2.jar
+--- micrometer-core-1.10.2.jar
+--- micrometer-observation-1.10.2.jar
+--- netty-buffer-4.1.86.Final.jar
+--- netty-codec-4.1.86.Final.jar
+--- netty-common-4.1.86.Final.jar
+--- netty-handler-4.1.86.Final.jar
+--- netty-resolver-4.1.86.Final.jar
+--- netty-transport-4.1.86.Final.jar
+--- netty-transport-native-unix-common-4.1.86.Final.jar
+--- rmiio-2.1.2.jar
+--- shiro-cache-1.11.0.jar
+--- shiro-config-core-1.11.0.jar
+--- shiro-config-ogdl-1.11.0.jar
+--- shiro-core-1.11.0.jar
+--- shiro-crypto-cipher-1.11.0.jar
+--- shiro-crypto-core-1.11.0.jar
+--- shiro-crypto-hash-1.11.0.jar
+--- shiro-event-1.11.0.jar
+--- shiro-lang-1.11.0.jar
+--- slf4j-api-1.7.36.jar
+--- snappy-0.4.jar
+--- spring-beans-5.3.26.jar
+--- spring-context-5.3.26.jar
+--- spring-core-5.3.26.jar
+--- spring-jcl-5.3.26.jar
+--- spring-shell-1.2.0.RELEASE.jar
+--- spring-web-5.3.26.jar
+--- swagger-annotations-2.2.7.jar
+--- /Users/zchun/Downloads/vmware-gemfire-10.0.0/moduleDescriptors/gemfire/main/lib
+-- Module Dependencies:
+--- default_application
+--- java.base
+--- java.se
+--- jdk.unsupported
+
+
+
+[info 2026/05/18 13:46:05.412 CST locator1 <main> tid=0x1] initializing InternalDataSerializer with 9 services
+
+[info 2026/05/18 13:46:05.415 CST locator1 <main> tid=0x1] loaded 116 sanctioned serializables from GfshSanctionedSerializablesService
+
+[info 2026/05/18 13:46:05.420 CST locator1 <main> tid=0x1] loaded 488 sanctioned serializables from CoreSanctionedSerializablesService
+
+[info 2026/05/18 13:46:05.420 CST locator1 <main> tid=0x1] loaded 11 sanctioned serializables from ConnectorsSanctionedSerializablesService
+
+[info 2026/05/18 13:46:05.420 CST locator1 <main> tid=0x1] loaded 6 sanctioned serializables from SerializationSanctionedSerializablesService
+
+[info 2026/05/18 13:46:05.421 CST locator1 <main> tid=0x1] loaded 6 sanctioned serializables from WANSanctionedSerializablesService
+
+[info 2026/05/18 13:46:05.421 CST locator1 <main> tid=0x1] loaded 54 sanctioned serializables from MemcachedSanctionedSerializablesService
+
+[info 2026/05/18 13:46:05.422 CST locator1 <main> tid=0x1] loaded 1 sanctioned serializables from CQSanctionedSerializablesService
+
+[info 2026/05/18 13:46:05.422 CST locator1 <main> tid=0x1] loaded 0 sanctioned serializables from MembershipSanctionedSerializablesService
+
+[info 2026/05/18 13:46:05.422 CST locator1 <main> tid=0x1] loaded 42 sanctioned serializables from ManagementSanctionedSerializablesService
+
+[info 2026/05/18 13:46:05.439 CST locator1 <main> tid=0x1] Serial Queue info : THROTTLE_PERCENT: 0.75 SERIAL_QUEUE_BYTE_LIMIT :41943040 SERIAL_QUEUE_THROTTLE :31457280 TOTAL_SERIAL_QUEUE_BYTE_LIMIT :83886080 TOTAL_SERIAL_QUEUE_THROTTLE :31457280 SERIAL_QUEUE_SIZE_LIMIT :20000 SERIAL_QUEUE_SIZE_THROTTLE :15000
+
+[info 2026/05/18 13:46:05.536 CST locator1 <main> tid=0x1] Starting membership services
+
+[info 2026/05/18 13:46:05.609 CST locator1 <main> tid=0x1] Established local address 10.164.209.171(locator1:46623:locator)<ec>:54000
+
+[info 2026/05/18 13:46:05.610 CST locator1 <main> tid=0x1] This member is hosting a locator will be preferred as a membership coordinator
+
+[info 2026/05/18 13:46:05.610 CST locator1 <main> tid=0x1] JGroups channel created (took 35ms)
+
+[info 2026/05/18 13:46:05.617 CST locator1 <main> tid=0x1] GemFire P2P Listener started on /10.164.209.171:51362
+
+[info 2026/05/18 13:46:05.617 CST locator1 <Geode Failure Detection Server thread 1> tid=0x38] Started failure detection server thread on 10.164.209.171/10.164.209.171:49755.
+
+[info 2026/05/18 13:46:05.618 CST locator1 <main> tid=0x1] Peer locator is connecting to local membership services with ID 10.164.209.171(locator1:46623:locator)<ec>:54000
+
+[info 2026/05/18 13:46:06.641 CST locator1 <locator request thread 1> tid=0x3c] Peer locator: coordinator from view is 10.164.209.171(server1:19153)<v1>:48416
+
+[info 2026/05/18 13:46:07.648 CST locator1 <main> tid=0x1] received FindCoordinatorResponse(coordinator=10.164.209.171(server1:19153)<v1>:48416, fromView=true, viewId=-1, registrants=[10.164.209.171(locator1:46623:locator)<ec>:54000], senderId=10.164.209.171(locator1:46623:locator)<ec>:54000, network partition detection enabled=true, locators preferred as coordinators=true, view=View[10.164.209.171(locator1:18648:locator)<ec><v0>:46921|-1] members: [10.164.209.171(server1:19153)<v1>:48416{lead}]) from locator /10.164.209.171:10334
+
+[info 2026/05/18 13:46:07.649 CST locator1 <main> tid=0x1] findCoordinator chose 10.164.209.171(server1:19153)<v1>:48416 out of these possible coordinators: [10.164.209.171(server1:19153)<v1>:48416]
+
+[info 2026/05/18 13:46:07.649 CST locator1 <main> tid=0x1] Discovery state after looking for membership coordinator is locatorsContacted=1; findInViewResponses=0; alreadyTried=[]; registrants=[]; possibleCoordinator=10.164.209.171(server1:19153)<v1>:48416; viewId=-1; hasContactedAJoinedLocator=false; view=View[10.164.209.171(locator1:18648:locator)<ec><v0>:46921|-1] members: [10.164.209.171(server1:19153)<v1>:48416{lead}]; responses=[]
+
+[info 2026/05/18 13:46:07.650 CST locator1 <main> tid=0x1] found possible coordinator 10.164.209.171(server1:19153)<v1>:48416
+
+[info 2026/05/18 13:46:07.651 CST locator1 <main> tid=0x1] Attempting to join the distributed system through coordinator 10.164.209.171(server1:19153)<v1>:48416 using address 10.164.209.171(locator1:46623:locator)<ec>:54000
+
+[info 2026/05/18 13:46:07.667 CST locator1 <main> tid=0x1] Failed to send join request to coordinator 10.164.209.171(server1:19153)<v1>:48416, io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /10.164.209.171:48416
+
+[info 2026/05/18 13:46:07.674 CST locator1 <locator request thread 1> tid=0x3c] Peer locator: coordinator from view is null
+
+[info 2026/05/18 13:46:07.674 CST locator1 <locator request thread 1> tid=0x3c] Peer locator: coordinator from registrations is 10.164.209.171(locator1:46623:locator)<ec>:54000
+
+[info 2026/05/18 13:46:08.677 CST locator1 <main> tid=0x1] received FindCoordinatorResponse(coordinator=10.164.209.171(locator1:46623:locator)<ec>:54000, fromView=true, viewId=-1, registrants=[10.164.209.171(locator1:46623:locator)<ec>:54000], senderId=10.164.209.171(locator1:46623:locator)<ec>:54000, network partition detection enabled=true, locators preferred as coordinators=true, view=View[10.164.209.171(locator1:18648:locator)<ec><v0>:46921|-1] members: [10.164.209.171(server1:19153)<v1>:48416{lead}]) from locator /10.164.209.171:10334
+
+[info 2026/05/18 13:46:08.677 CST locator1 <main> tid=0x1] findCoordinator chose 10.164.209.171(locator1:46623:locator)<ec>:54000 out of these possible coordinators: [10.164.209.171(locator1:46623:locator)<ec>:54000]
+
+[info 2026/05/18 13:46:08.678 CST locator1 <main> tid=0x1] Discovery state after looking for membership coordinator is locatorsContacted=1; findInViewResponses=0; alreadyTried=[10.164.209.171(server1:19153)<v1>:48416]; registrants=[10.164.209.171(locator1:46623:locator)<ec>:54000]; possibleCoordinator=10.164.209.171(locator1:46623:locator)<ec>:54000; viewId=-1; hasContactedAJoinedLocator=false; view=View[10.164.209.171(locator1:18648:locator)<ec><v0>:46921|-1] members: [10.164.209.171(server1:19153)<v1>:48416{lead}]; responses=[]
+
+[info 2026/05/18 13:46:08.678 CST locator1 <main> tid=0x1] found possible coordinator 10.164.209.171(locator1:46623:locator)<ec>:54000
+
+[info 2026/05/18 13:46:08.678 CST locator1 <main> tid=0x1] This member is becoming the membership coordinator with address 10.164.209.171(locator1:46623:locator)<ec>:54000
+
+[info 2026/05/18 13:46:08.678 CST locator1 <main> tid=0x1] Location services has received notification that this node is becoming membership coordinator
+
+[info 2026/05/18 13:46:08.679 CST locator1 <main> tid=0x1] received new view: View[10.164.209.171(locator1:46623:locator)<ec><v0>:54000|0] members: [10.164.209.171(locator1:46623:locator)<ec><v0>:54000]
+old view is: null
+
+[info 2026/05/18 13:46:08.681 CST locator1 <main> tid=0x1] Peer locator received new membership view: View[10.164.209.171(locator1:46623:locator)<ec><v0>:54000|0] members: [10.164.209.171(locator1:46623:locator)<ec><v0>:54000]
+
+[info 2026/05/18 13:46:08.708 CST locator1 <main> tid=0x1] ViewCreator starting on:10.164.209.171(locator1:46623:locator)<ec><v0>:54000
+
+[info 2026/05/18 13:46:08.709 CST locator1 <Geode Membership View Creator> tid=0x41] View Creator thread is starting
+
+[info 2026/05/18 13:46:08.709 CST locator1 <main> tid=0x1] Finished joining (took 3091ms).
+
+[info 2026/05/18 13:46:08.709 CST locator1 <main> tid=0x1] Starting DistributionManager 10.164.209.171(locator1:46623:locator)<ec><v0>:54000.  (took 3266 ms)
+
+[info 2026/05/18 13:46:08.709 CST locator1 <Geode Membership View Creator> tid=0x41] no recipients for new view aside from myself
+
+[info 2026/05/18 13:46:08.709 CST locator1 <main> tid=0x1] Initial (distribution manager) view, View[10.164.209.171(locator1:46623:locator)<ec><v0>:54000|0] members: [10.164.209.171(locator1:46623:locator)<ec><v0>:54000]
+
+[info 2026/05/18 13:46:08.712 CST locator1 <main> tid=0x1] Did not hear back from any other system. I am the first one.
+
+[info 2026/05/18 13:46:08.712 CST locator1 <main> tid=0x1] DistributionManager 10.164.209.171(locator1:46623:locator)<ec><v0>:54000 started on DistributionLocatorId{host=/10.164.209.171, port=10334, bindAddress='', hostnameForClients='null', hostname='10.164.209.171', memberName='', timestamp=1779083165430}. There were 0 other DMs. others: []  (took 3282 ms)  (locator)
+
+[info 2026/05/18 13:46:08.720 CST locator1 <StatSampler> tid=0x44] Disabling statistic archival.
+
+[info 2026/05/18 13:46:08.759 CST locator1 <main> tid=0x1] Creating cache for locator.
+
+[info 2026/05/18 13:46:08.852 CST locator1 <main> tid=0x1] Initialized cache service org.apache.geode.connectors.jdbc.internal.JdbcConnectorServiceImpl
+
+[info 2026/05/18 13:46:08.852 CST locator1 <main> tid=0x1] Initialized cache service org.apache.geode.cache.wan.internal.WanCopyRegionFunctionService
+
+[info 2026/05/18 13:46:09.235 CST locator1 <main> tid=0x1] Initialized cache service org.apache.geode.management.internal.cli.remote.OnlineCommandProcessor
+
+[info 2026/05/18 13:46:09.236 CST locator1 <main> tid=0x1] Initialized cache service org.apache.geode.internal.memcached.GeodeMemcachedService
+
+[info 2026/05/18 13:46:09.236 CST locator1 <main> tid=0x1] Initialized cache service com.gemstone.gemfire.OldClientSupportProvider
+
+[info 2026/05/18 13:46:09.237 CST locator1 <main> tid=0x1] Initialized cache service org.apache.geode.cache.query.internal.QueryConfigurationServiceImpl
+
+[info 2026/05/18 13:46:09.269 CST locator1 <main> tid=0x1] Enabled InternalHttpService on port 7070
+
+[info 2026/05/18 13:46:09.269 CST locator1 <main> tid=0x1] Initialized cache service org.apache.geode.internal.cache.http.service.InternalHttpService
+
+[info 2026/05/18 13:46:09.298 CST locator1 <main> tid=0x1] Initializing region _monitoringRegion_10.164.209.171<v0>54000
+
+[info 2026/05/18 13:46:09.300 CST locator1 <main> tid=0x1] Initialization of region _monitoringRegion_10.164.209.171<v0>54000 completed
+
+[info 2026/05/18 13:46:09.322 CST locator1 <main> tid=0x1] SharedConfigStatusRequestHandler installed
+
+[info 2026/05/18 13:46:09.322 CST locator1 <main> tid=0x1] ClusterManagementServiceInfoRequestHandler installed
+
+[info 2026/05/18 13:46:10.894 CST locator1 <main> tid=0x1] Recovered disk store cluster_config with unique id 843bb3d730e34112-b8c22c0b91e5a900
+
+[info 2026/05/18 13:46:10.897 CST locator1 <main> tid=0x1] Recovering oplog#2 /Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1/ConfigDiskDir_locator1/BACKUPcluster_config_2.drf for disk store cluster_config.
+
+[info 2026/05/18 13:46:10.900 CST locator1 <main> tid=0x1] Recovering oplog#2 /Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1/ConfigDiskDir_locator1/BACKUPcluster_config_2.krf for disk store cluster_config.
+
+[info 2026/05/18 13:46:10.908 CST locator1 <main> tid=0x1] recovery oplog load took 11 ms
+
+[info 2026/05/18 13:46:11.498 CST locator1 <main> tid=0x1] Created oplog#3 drf for disk store cluster_config.
+
+[info 2026/05/18 13:46:11.501 CST locator1 <main> tid=0x1] Created oplog#3 crf for disk store cluster_config.
+
+[info 2026/05/18 13:46:11.502 CST locator1 <main> tid=0x1] recovery region initialization took 593 ms
+
+[info 2026/05/18 13:46:11.504 CST locator1 <Idle OplogCompactor1> tid=0x53] Recovered values for disk store cluster_config with unique id 843bb3d7-30e3-4112-b8c2-2c0b91e5a900
+
+[info 2026/05/18 13:46:11.505 CST locator1 <OplogCompactor cluster_config for oplog oplog#2> tid=0x53] OplogCompactor for cluster_config compaction oplog id(s): oplog#2
+
+[info 2026/05/18 13:46:11.508 CST locator1 <OplogCompactor cluster_config for oplog oplog#2> tid=0x53] compaction did 1 creates and updates in 2 ms
+
+[info 2026/05/18 13:46:11.508 CST locator1 <Oplog Delete Task1> tid=0x54] Deleted oplog#2 crf for disk store cluster_config.
+
+[info 2026/05/18 13:46:11.508 CST locator1 <Oplog Delete Task1> tid=0x54] Deleted oplog#2 krf for disk store cluster_config.
+
+[info 2026/05/18 13:46:11.508 CST locator1 <main> tid=0x1] Initializing region _ConfigurationRegion
+
+[info 2026/05/18 13:46:11.509 CST locator1 <Oplog Delete Task1> tid=0x54] Deleted oplog#2 drf for disk store cluster_config.
+
+[info 2026/05/18 13:46:11.511 CST locator1 <main> tid=0x1] Region /_ConfigurationRegion recovered from the local disk. Old persistent ID: /10.164.209.171:/Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1/ConfigDiskDir_locator1 created at timestamp 1779081059146 version 0 diskStoreId 843bb3d730e34112-b8c22c0b91e5a900 name locator1, new persistent ID 10.164.209.171/10.164.209.171:/Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1/ConfigDiskDir_locator1 created at timestamp 1779083171508 version 0 diskStoreId 843bb3d730e34112-b8c22c0b91e5a900 name locator1
+
+[info 2026/05/18 13:46:11.512 CST locator1 <main> tid=0x1] Initialization of region _ConfigurationRegion completed
+
+[info 2026/05/18 13:46:11.537 CST locator1 <main> tid=0x1] Cluster configuration service start up completed successfully and is now running ....
+
+[info 2026/05/18 13:46:11.542 CST locator1 <main> tid=0x1] Initializing region __OperationStateRegion
+
+[info 2026/05/18 13:46:11.542 CST locator1 <main> tid=0x1] Initialization of region __OperationStateRegion completed
+
+[info 2026/05/18 13:46:11.545 CST locator1 <main> tid=0x1] GemFire Home: /Users/zchun/Downloads/vmware-gemfire-10.0.0
+
+[info 2026/05/18 13:46:11.546 CST locator1 <main> tid=0x1] Located war: gemfire-web-management at location: file:/Users/zchun/Downloads/vmware-gemfire-10.0.0/tools/Extensions/gemfire-web-management-10.0.0.war
+
+[info 2026/05/18 13:46:11.553 CST locator1 <main> tid=0x1] System property 'jmx.remote.rmi.server.serial.filter.pattern' is now configured with 'java.lang.Boolean;java.lang.Byte;java.lang.Character;java.lang.Short;java.lang.Integer;java.lang.Long;java.lang.Float;java.lang.Double;java.lang.String;java.math.BigInteger;java.math.BigDecimal;javax.management.ObjectName;javax.management.openmbean.OpenType;javax.management.openmbean.CompositeData;javax.management.openmbean.TabularData;javax.management.openmbean.SimpleType;javax.management.openmbean.CompositeType;javax.management.openmbean.TabularType;javax.management.openmbean.ArrayType;java.rmi.MarshalledObject;!*'.
+
+[info 2026/05/18 13:46:11.554 CST locator1 <main> tid=0x1] GemFire Home: /Users/zchun/Downloads/vmware-gemfire-10.0.0
+
+[info 2026/05/18 13:46:11.554 CST locator1 <main> tid=0x1] Located war: gemfire-web at location: file:/Users/zchun/Downloads/vmware-gemfire-10.0.0/tools/Extensions/gemfire-web-10.0.0.war
+
+[info 2026/05/18 13:46:11.554 CST locator1 <main> tid=0x1] GemFire Home: /Users/zchun/Downloads/vmware-gemfire-10.0.0
+
+[info 2026/05/18 13:46:11.554 CST locator1 <main> tid=0x1] Located war: gemfire-pulse at location: file:/Users/zchun/Downloads/vmware-gemfire-10.0.0/tools/Pulse/gemfire-pulse-10.0.0.war
+
+[info 2026/05/18 13:46:11.572 CST locator1 <main> tid=0x1] Adding webapp /gemfire
+
+[info 2026/05/18 13:46:11.572 CST locator1 <main> tid=0x1] Attempting to start HTTP service on port (7070) at bind-address (0.0.0.0)...
+
+[info 2026/05/18 13:46:11.821 CST locator1 <main> tid=0x1] Initializing Servlet 'geode-mgmt'
+
+[info 2026/05/18 13:46:12.137 CST locator1 <main> tid=0x1] Completed initialization in 316 ms
+
+[info 2026/05/18 13:46:12.141 CST locator1 <main> tid=0x1] Adding webapp /geode-mgmt
+
+[info 2026/05/18 13:46:12.311 CST locator1 <main> tid=0x1] Initializing Servlet 'geode-mgmt'
+
+[info 2026/05/18 13:46:12.605 CST locator1 <main> tid=0x1] Completed initialization in 294 ms
+
+[info 2026/05/18 13:46:12.606 CST locator1 <main> tid=0x1] Adding webapp /pulse
+
+[info 2026/05/18 13:46:13.991 CST locator1 <main> tid=0x1] Registered AccessControlMBean on GemFire:service=AccessControl,type=Distributed
+
+[info 2026/05/18 13:46:13.995 CST locator1 <main> tid=0x1] Registered FileUploaderMBean on GemFire:service=FileUploader,type=Distributed
+
+[info 2026/05/18 13:46:13.997 CST locator1 <main> tid=0x1] Geode Property enable-management-rest-service=true Geode Management Rest Service is enabled.
+
+[info 2026/05/18 13:46:13.997 CST locator1 <main> tid=0x1] Adding webapp /management
+
+[info 2026/05/18 13:46:14.349 CST locator1 <main> tid=0x1] Initializing Servlet 'management'
+
+[info 2026/05/18 13:46:15.226 CST locator1 <main> tid=0x1] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@477367ad, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3230d2b2, org.springframework.security.web.context.SecurityContextPersistenceFilter@35853c37, org.springframework.security.web.header.HeaderWriterFilter@73dbb666, org.springframework.security.web.authentication.logout.LogoutFilter@63a1bee7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@20865ff2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1a7c593b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@aab2419, org.springframework.security.web.session.SessionManagementFilter@6ed238c2, org.springframework.security.web.access.ExceptionTranslationFilter@585cbbde, org.springframework.security.web.access.intercept.AuthorizationFilter@282506e1]
+
+[info 2026/05/18 13:46:15.240 CST locator1 <main> tid=0x1] Completed initialization in 890 ms
+
+[info 2026/05/18 13:46:15.240 CST locator1 <main> tid=0x1] Locator started on 10.164.209.171/10.164.209.171[10334]
+
+[info 2026/05/18 13:46:15.240 CST locator1 <main> tid=0x1] Starting server location for Distribution Locator on 10.164.209.171[10334]
+
+[info 2026/05/18 13:48:29.464 CST locator1 <locator request thread 1> tid=0x3c] Peer locator: coordinator from view is 10.164.209.171(locator1:46623:locator)<ec><v0>:54000
+
+[info 2026/05/18 13:48:30.538 CST locator1 <Membership Messenger Receiver Non-Blocking> tid=0x30] Received a join request from 10.164.209.171(server1:48536):60914
+
+[info 2026/05/18 13:48:30.844 CST locator1 <Geode Membership View Creator> tid=0x41] View Creator is processing 1 requests for the next membership view ([JoinRequestMessage(10.164.209.171(server1:48536):60914) failureDetectionPort:52104])
+
+[info 2026/05/18 13:48:30.848 CST locator1 <Geode Membership View Creator> tid=0x41] preparing new view View[10.164.209.171(locator1:46623:locator)<ec><v0>:54000|1] members: [10.164.209.171(locator1:46623:locator)<ec><v0>:54000, 10.164.209.171(server1:48536)<v1>:60914{lead}]
+
+[info 2026/05/18 13:48:30.897 CST locator1 <Geode Membership View Creator> tid=0x41] finished waiting for responses to view preparation
+
+[info 2026/05/18 13:48:30.897 CST locator1 <Geode Membership View Creator> tid=0x41] received new view: View[10.164.209.171(locator1:46623:locator)<ec><v0>:54000|1] members: [10.164.209.171(locator1:46623:locator)<ec><v0>:54000, 10.164.209.171(server1:48536)<v1>:60914{lead}]
+old view is: View[10.164.209.171(locator1:46623:locator)<ec><v0>:54000|0] members: [10.164.209.171(locator1:46623:locator)<ec><v0>:54000]
+
+[info 2026/05/18 13:48:30.897 CST locator1 <Geode Membership View Creator> tid=0x41] Peer locator received new membership view: View[10.164.209.171(locator1:46623:locator)<ec><v0>:54000|1] members: [10.164.209.171(locator1:46623:locator)<ec><v0>:54000, 10.164.209.171(server1:48536)<v1>:60914{lead}]
+
+[info 2026/05/18 13:48:30.900 CST locator1 <Geode Membership View Creator> tid=0x41] sending new view View[10.164.209.171(locator1:46623:locator)<ec><v0>:54000|1] members: [10.164.209.171(locator1:46623:locator)<ec><v0>:54000, 10.164.209.171(server1:48536)<v1>:60914{lead}]
+
+[info 2026/05/18 13:48:30.900 CST locator1 <Geode View Processor1> tid=0x91] Membership: Processing addition <10.164.209.171(server1:48536)<v1>:60914>
+
+[info 2026/05/18 13:48:30.906 CST locator1 <FederatingManager1> tid=0x92] Initializing region _monitoringRegion_10.164.209.171<v1>60914
+
+[info 2026/05/18 13:48:30.935 CST locator1 <Pooled Waiting Message Processor 1> tid=0x42] Member 10.164.209.171(server1:48536)<v1>:60914 is equivalent or in the same redundancy zone.
+
+[info 2026/05/18 13:48:30.944 CST locator1 <FederatingManager1> tid=0x92] Initialization of region _monitoringRegion_10.164.209.171<v1>60914 completed
+
+[info 2026/05/18 13:48:30.948 CST locator1 <FederatingManager1> tid=0x92] Initializing region _notificationRegion_10.164.209.171<v1>60914
+
+[info 2026/05/18 13:48:30.951 CST locator1 <FederatingManager1> tid=0x92] Initialization of region _notificationRegion_10.164.209.171<v1>60914 completed
+
+[info 2026/05/18 13:48:30.992 CST locator1 <Function Execution Processor2> tid=0x96] Received request for configuration: []
+
+[info 2026/05/18 13:48:30.993 CST locator1 <Function Execution Processor2> tid=0x96] Building up configuration response with following configurations: [cluster]
+
+[info 2026/05/18 13:48:37.394 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8e] Executing command: alter runtime --log-level=DEBUG
+
+[info 2026/05/18 13:48:37.414 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8e] XmlEntity:searchString: //cache:cache
+
+[info 2026/05/18 13:48:42.442 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8e] Executing command: show metrics
+
+[info 2026/05/18 13:48:44.479 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8e] Executing command: show metrics
+
+[info 2026/05/18 13:48:45.325 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8e] Executing command: show metrics
+
+[info 2026/05/18 13:48:46.142 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8e] Executing command: show metrics
+
+[info 2026/05/18 13:48:46.935 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8e] Executing command: show metrics
+
+[info 2026/05/18 13:48:47.626 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8e] Executing command: show metrics
+
+[info 2026/05/18 13:48:59.555 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8e] Executing command: put --key=2 --value="Data D" --region=/TombstoneLab
+
+[info 2026/05/18 13:48:59.556 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8e] Cache instance for put: org.apache.geode.internal.cache.InternalCacheForClientAccess@37fef327
+
+[info 2026/05/18 13:49:02.310 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8e] Executing command: show metrics
+
+[info 2026/05/18 14:13:19.012 CST locator1 <Distributed system shutdown hook> tid=0x20] VM is exiting - shutting down distributed system
+
+[info 2026/05/18 14:13:19.103 CST locator1 <Distributed system shutdown hook> tid=0x20] GemFireCache[id = 1723764129; isClosing = true; isShutDownAll = false; created = Mon May 18 13:46:08 CST 2026; server = false; copyOnRead = false; lockLease = 120; lockTimeout = 60]: Now closing.
+
+[info 2026/05/18 14:13:19.108 CST locator1 <Pooled High Priority Message Processor 2> tid=0x95] received leave request from 10.164.209.171(server1:48536)<v1>:60914 for 10.164.209.171(server1:48536)<v1>:60914
+
+[info 2026/05/18 14:13:19.109 CST locator1 <Pooled High Priority Message Processor 2> tid=0x95] JoinLeave.processLeaveRequestMessage(LeaveRequestMessage) invoked.  isCoordinator=true; isStopping=false; cancelInProgress=false
+
+[info 2026/05/18 14:13:19.109 CST locator1 <Pooled High Priority Message Processor 2> tid=0x95] Member at 10.164.209.171(server1:48536)<v1>:60914 gracefully left the distributed cache: shutdown message received
+
+[info 2026/05/18 14:13:19.213 CST locator1 <Membership Messenger Receiver Non-Blocking> tid=0x30] received leave request from 10.164.209.171(server1:48536)<v1>:60914 for 10.164.209.171(server1:48536)<v1>:60914
+
+[info 2026/05/18 14:13:19.214 CST locator1 <Membership Messenger Receiver Non-Blocking> tid=0x30] JoinLeave.processLeaveRequestMessage(LeaveRequestMessage) invoked.  isCoordinator=true; isStopping=false; cancelInProgress=false
+
+[info 2026/05/18 14:13:19.262 CST locator1 <Distributed system shutdown hook> tid=0x20] Created oplog#3 krf for disk store cluster_config.
+
+[info 2026/05/18 14:13:19.269 CST locator1 <Distributed system shutdown hook> tid=0x20] Shutting down DistributionManager 10.164.209.171(locator1:46623:locator)<ec><v0>:54000. 
+
+[info 2026/05/18 14:13:19.371 CST locator1 <Distributed system shutdown hook> tid=0x20] Now closing distribution for 10.164.209.171(locator1:46623:locator)<ec><v0>:54000
+
+[info 2026/05/18 14:13:19.371 CST locator1 <Distributed system shutdown hook> tid=0x20] Stopping membership services
+
+[info 2026/05/18 14:13:19.372 CST locator1 <Geode Membership View Creator> tid=0x41] View Creator thread is exiting
+
+[info 2026/05/18 14:13:19.372 CST locator1 <Geode Failure Detection Server thread 1> tid=0x38] GMSHealthMonitor server thread exiting
+
+[info 2026/05/18 14:13:21.418 CST locator1 <Distributed system shutdown hook> tid=0x20] DistributionManager stopped in 2149ms.
+
+[info 2026/05/18 14:13:21.418 CST locator1 <Distributed system shutdown hook> tid=0x20] Marking DistributionManager 10.164.209.171(locator1:46623:locator)<ec><v0>:54000 as closed.
+
+[info 2026/05/18 15:15:59.191 CST locator1 <main> tid=0x1] 
+---------------------------------------------------------------------------
+  
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with this
+  work for additional information regarding copyright ownership.
+   
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with the
+  License.  You may obtain a copy of the License at
+  
+  http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the
+  License for the specific language governing permissions and limitations
+  under the License.
+  
+---------------------------------------------------------------------------
+----------------------------------------
+VMware GemFire
+----------------------------------------
+Build-Java-Vendor: BellSoft
+GemFire-Source-Date: 2023-04-07 14:35:30 -0700
+Build-Platform: Linux 5.10.162+ amd64
+Build-Java-Version: 1.8.0_362
+GemFire-Source-Revision: 2a5ca3b62305f905c90704e265ab05aed659d745
+Build-Id: root 1810
+Product-Name: VMware GemFire
+GemFire-Source-Repository: support/10.0
+GemFire-Version: 10.0.0
+
+Running on: Running on: 10.164.209.171/10.164.209.171, 10 cpu(s), aarch64 Mac OS X 26.4.1 
+---------------------------------------------------------------------------
+Communications version: 200
+Process ID: 24193
+User: zchun
+Current dir: /Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1
+Home dir: /Users/zchun
+Command Line Parameters:
+  --add-exports=java.management/com.sun.jmx.remote.security=ALL-UNNAMED
+  --add-exports=java.base/sun.nio.ch=ALL-UNNAMED
+  --add-opens=java.base/java.lang=ALL-UNNAMED
+  --add-opens=java.base/java.nio=ALL-UNNAMED
+  -Dgemfire.enable-cluster-configuration=true
+  -Dgemfire.load-cluster-configuration-from-dir=false
+  -XX:+UseZGC
+  -Dgemfire.launcher.registerSignalHandlers=true
+  -Djava.awt.headless=true
+  -Dsun.rmi.dgc.server.gcInterval=9223372036854775806
+Class Path:
+  /Users/zchun/Downloads/vmware-gemfire-10.0.0/lib/gemfire-bootstrap-10.0.0.jar
+Library Path:
+  /Users/zchun/Library/Java/Extensions
+  /Library/Java/Extensions
+  /Network/Library/Java/Extensions
+  /System/Library/Java/Extensions
+  /usr/lib/java
+  .
+System Properties:
+    Locator.forceLocatorDMType = true
+    apple.awt.application.name = LocatorLauncher
+    boot.module.loader = com.vmware.gemfire.bootstrap.internal.GemFireModuleLoader
+    com.vmware.gemfire.deployment.modules.internal.Launcher.extensionsRuntimePath = /var/folders/0y/47ml4wh571l7x16hh5lt8l9m0000gq/T/gemfire-extensions16900371482146395269
+    file.encoding = UTF-8
+    file.separator = /
+    gemfire.enable-cluster-configuration = true
+    gemfire.home = /Users/zchun/Downloads/vmware-gemfire-10.0.0
+    gemfire.launcher.registerSignalHandlers = true
+    gemfire.load-cluster-configuration-from-dir = false
+    java.awt.headless = true
+    java.class.version = 65.0
+    java.home = /Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home
+    java.io.tmpdir = /var/folders/0y/47ml4wh571l7x16hh5lt8l9m0000gq/T/
+    java.runtime.name = Java(TM) SE Runtime Environment
+    java.runtime.version = 21.0.8+12-LTS-250
+    java.specification.name = Java Platform API Specification
+    java.specification.vendor = Oracle Corporation
+    java.specification.version = 21
+    java.vendor = Oracle Corporation
+    java.vendor.url = https://java.oracle.com/
+    java.vendor.url.bug = https://bugreport.java.com/bugreport/
+    java.version = 21.0.8
+    java.version.date = 2025-07-15
+    java.vm.info = mixed mode, sharing
+    java.vm.name = Java HotSpot(TM) 64-Bit Server VM
+    java.vm.specification.name = Java Virtual Machine Specification
+    java.vm.specification.vendor = Oracle Corporation
+    java.vm.specification.version = 21
+    java.vm.vendor = Oracle Corporation
+    java.vm.version = 21.0.8+12-LTS-250
+    jboss.modules.system.pkgs = javax.management,java.lang.management
+    jdk.debug = release
+    line.separator = 
+
+    module.path = /Users/zchun/Downloads/vmware-gemfire-10.0.0/moduleDescriptors:/var/folders/0y/47ml4wh571l7x16hh5lt8l9m0000gq/T/gemfire-extensions16900371482146395269:/Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1/deployments
+    native.encoding = UTF-8
+    os.version = 26.4.1
+    path.separator = :
+    stderr.encoding = UTF-8
+    stdout.encoding = UTF-8
+    sun.arch.data.model = 64
+    sun.boot.library.path = /Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/lib
+    sun.cpu.endian = little
+    sun.io.unicode.encoding = UnicodeBig
+    sun.java.command = com.vmware.gemfire.bootstrap.LocatorLauncher start locator1 --automatic-module-classpath=/Users/zchun/Downloads/vmware-gemfire-10.0.0/extensions/* --port=10334
+    sun.java.launcher = SUN_STANDARD
+    sun.jnu.encoding = UTF-8
+    sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+    sun.rmi.dgc.server.gcInterval = 9223372036854775806
+    user.country = US
+    user.language = en
+    user.timezone = Asia/Shanghai
+Log4J 2 Configuration:
+    jar:file:/Users/zchun/Downloads/vmware-gemfire-10.0.0/lib/gemfire-log4j-10.0.0.jar!/log4j2.xml
+---------------------------------------------------------------------------
+
+
+[info 2026/05/18 15:15:59.197 CST locator1 <main> tid=0x1] Startup Configuration: 
+### GemFire Properties defined with system property ###
+enable-cluster-configuration=true
+load-cluster-configuration-from-dir=false
+### GemFire Properties defined with api ###
+cache-xml-file=
+locators=10.164.209.171[10334]
+name=locator1
+### GemFire Properties defined with launcher ###
+log-file=/Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1/locator1.log
+### GemFire Properties using default values ###
+ack-severe-alert-threshold=0
+ack-wait-threshold=15
+archive-disk-space-limit=0
+archive-file-size-limit=0
+async-distribution-timeout=0
+async-max-queue-size=8
+async-queue-timeout=60000
+bind-address=
+cluster-configuration-dir=
+cluster-ssl-ciphers=any
+cluster-ssl-enabled=false
+cluster-ssl-keystore=
+cluster-ssl-keystore-password=
+cluster-ssl-keystore-type=
+cluster-ssl-protocols=any
+cluster-ssl-require-authentication=true
+cluster-ssl-truststore=
+cluster-ssl-truststore-password=
+conflate-events=server
+conserve-sockets=false
+delta-propagation=true
+deploy-working-dir=/Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1
+disable-auto-reconnect=false
+disable-jmx=false
+disable-tcp=false
+distributed-system-id=-1
+distributed-transactions=false
+durable-client-id=
+durable-client-timeout=300
+enable-management-rest-service=true
+enable-network-partition-detection=true
+enable-time-statistics=true
+enforce-unique-host=false
+gateway-ssl-ciphers=any
+gateway-ssl-enabled=false
+gateway-ssl-keystore=
+gateway-ssl-keystore-password=
+gateway-ssl-keystore-type=
+gateway-ssl-protocols=any
+gateway-ssl-require-authentication=true
+gateway-ssl-truststore=
+gateway-ssl-truststore-password=
+groups=
+http-service-bind-address=
+http-service-port=7070
+http-service-ssl-ciphers=any
+http-service-ssl-enabled=false
+http-service-ssl-keystore=
+http-service-ssl-keystore-password=
+http-service-ssl-keystore-type=
+http-service-ssl-protocols=any
+http-service-ssl-require-authentication=false
+http-service-ssl-truststore=
+http-service-ssl-truststore-password=
+jmx-manager=true
+jmx-manager-access-file=
+jmx-manager-bind-address=
+jmx-manager-hostname-for-clients=
+jmx-manager-http-port=7070
+jmx-manager-password-file=
+jmx-manager-port=1099
+jmx-manager-ssl-ciphers=any
+jmx-manager-ssl-enabled=false
+jmx-manager-ssl-keystore=
+jmx-manager-ssl-keystore-password=
+jmx-manager-ssl-keystore-type=
+jmx-manager-ssl-protocols=any
+jmx-manager-ssl-require-authentication=true
+jmx-manager-ssl-truststore=
+jmx-manager-ssl-truststore-password=
+jmx-manager-start=false
+jmx-manager-update-rate=2000
+locator-wait-time=0
+lock-memory=false
+log-disk-space-limit=0
+log-file-size-limit=0
+log-level=config
+max-num-reconnect-tries=3
+max-wait-time-reconnect=60000
+mcast-address=239.192.81.1
+mcast-flow-control=1048576, 0.25, 5000
+mcast-port=0
+mcast-recv-buffer-size=1048576
+mcast-send-buffer-size=65535
+mcast-ttl=32
+member-timeout=5000
+membership-port-range=41000-61000
+memcached-bind-address=
+memcached-port=0
+memcached-protocol=ASCII
+off-heap-memory-size=
+redundancy-zone=
+remote-locators=
+remove-unresponsive-client=false
+roles=
+security-auth-token-enabled-components=
+security-client-accessor=
+security-client-accessor-pp=
+security-client-auth-init=
+security-client-authenticator=
+security-client-dhalgo=
+security-log-file=
+security-log-level=config
+security-manager=
+security-peer-auth-init=
+security-peer-authenticator=
+security-peer-verifymember-timeout=1000
+security-post-processor=
+security-udp-dhalgo=
+serializable-object-filter=!*
+server-bind-address=
+server-ssl-ciphers=any
+server-ssl-enabled=false
+server-ssl-keystore=
+server-ssl-keystore-password=
+server-ssl-keystore-type=
+server-ssl-protocols=any
+server-ssl-require-authentication=true
+server-ssl-truststore=
+server-ssl-truststore-password=
+socket-buffer-size=32768
+socket-lease-time=1800000
+ssl-ciphers=any
+ssl-client-protocols=
+ssl-cluster-alias=
+ssl-default-alias=
+ssl-enabled-components=
+ssl-endpoint-identification-enabled=false
+ssl-gateway-alias=
+ssl-jmx-alias=
+ssl-keystore=
+ssl-keystore-password=
+ssl-keystore-type=
+ssl-locator-alias=
+ssl-parameter-extension=
+ssl-protocols=any
+ssl-require-authentication=true
+ssl-server-alias=
+ssl-server-protocols=
+ssl-truststore=
+ssl-truststore-password=
+ssl-truststore-type=
+ssl-use-default-context=false
+ssl-web-alias=
+ssl-web-require-authentication=false
+start-dev-rest-api=false
+start-locator=
+statistic-archive-file=
+statistic-sample-rate=1000
+statistic-sampling-enabled=true
+tcp-port=0
+thread-monitor-enabled=true
+thread-monitor-interval-ms=60000
+thread-monitor-time-limit-ms=120000
+udp-fragment-size=60000
+udp-recv-buffer-size=1048576
+udp-send-buffer-size=65535
+use-cluster-configuration=true
+use-udp-membership-messenger=false
+user-command-packages=
+validate-serializable-objects=false
+
+
+[info 2026/05/18 15:15:59.199 CST locator1 <main> tid=0x1] ClassLoader Modules:
+- Module Name: _automatic_
+-- Resources:
+--- gemfire-greenplum-4.0.1-javadoc.jar
+--- gemfire-greenplum-4.0.1.jar
+--- /var/folders/0y/47ml4wh571l7x16hh5lt8l9m0000gq/T/gemfire-extensions16900371482146395269/_automatic_/main/lib
+-- Module Dependencies:
+--- default_application
+--- gemfire
+--- java.base
+--- java.se
+
+- Module Name: default_application
+-- Resources:
+--- /Users/zchun/Downloads/vmware-gemfire-10.0.0/moduleDescriptors/default_application/main/lib
+-- Module Dependencies:
+--- _automatic_
+--- java.base
+
+- Module Name: gemfire
+-- Resources:
+--- HdrHistogram-2.1.12.jar
+--- HikariCP-4.0.3.jar
+--- LatencyUtils-2.0.3.jar
+--- antlr-2.7.7.jar
+--- bson-4.8.1.jar
+--- classgraph-4.8.154.jar
+--- commons-beanutils-1.9.4.jar
+--- commons-codec-1.15.jar
+--- commons-collections4-4.4.jar
+--- commons-digester-2.1.jar
+--- commons-io-2.11.0.jar
+--- commons-lang3-3.12.0.jar
+--- commons-logging-1.2.jar
+--- commons-validator-1.7.jar
+--- fastutil-8.5.11.jar
+--- gemfire-common-10.0.0.jar
+--- gemfire-connectors-10.0.0.jar
+--- gemfire-core-10.0.0.jar
+--- gemfire-cq-10.0.0.jar
+--- gemfire-deployment-jboss-modules-10.0.0.jar
+--- gemfire-gfsh-10.0.0.jar
+--- gemfire-http-service-10.0.0.jar
+--- gemfire-log4j-10.0.0.jar
+--- gemfire-logging-10.0.0.jar
+--- gemfire-management-10.0.0.jar
+--- gemfire-membership-10.0.0.jar
+--- gemfire-memcached-10.0.0.jar
+--- gemfire-old-client-support-10.0.0.jar
+--- gemfire-rebalancer-10.0.0.jar
+--- gemfire-serialization-10.0.0.jar
+--- gemfire-tcp-messenger-10.0.0.jar
+--- gemfire-tcp-server-10.0.0.jar
+--- gemfire-unsafe-10.0.0.jar
+--- gemfire-version-10.0.0.jar
+--- gemfire-wan-10.0.0.jar
+--- httpclient-4.5.14.jar
+--- httpcore-4.4.16.jar
+--- istack-commons-runtime-4.0.1.jar
+--- jackson-annotations-2.14.1.jar
+--- jackson-core-2.14.1.jar
+--- jackson-databind-2.14.1.jar
+--- jackson-datatype-joda-2.14.1.jar
+--- jackson-datatype-jsr310-2.14.1.jar
+--- javax.activation-api-1.2.0.jar
+--- javax.resource-api-1.7.1.jar
+--- javax.servlet-api-3.1.0.jar
+--- javax.transaction-api-1.3.jar
+--- jaxb-api-2.3.1.jar
+--- jaxb-impl-2.3.2.jar
+--- jetty-http-9.4.50.v20221201.jar
+--- jetty-io-9.4.50.v20221201.jar
+--- jetty-security-9.4.50.v20221201.jar
+--- jetty-server-9.4.50.v20221201.jar
+--- jetty-servlet-9.4.50.v20221201.jar
+--- jetty-util-9.4.50.v20221201.jar
+--- jetty-util-ajax-9.4.50.v20221201.jar
+--- jetty-webapp-9.4.50.v20221201.jar
+--- jetty-xml-9.4.50.v20221201.jar
+--- jgroups-3.6.14.Final.jar
+--- jline-2.12.jar
+--- jna-5.12.1.jar
+--- jna-platform-5.12.1.jar
+--- joda-time-2.12.2.jar
+--- jopt-simple-5.0.4.jar
+--- log4j-api-2.19.0.jar
+--- log4j-core-2.19.0.jar
+--- log4j-jcl-2.19.0.jar
+--- log4j-jul-2.19.0.jar
+--- log4j-slf4j-impl-2.19.0.jar
+--- micrometer-commons-1.10.2.jar
+--- micrometer-core-1.10.2.jar
+--- micrometer-observation-1.10.2.jar
+--- netty-buffer-4.1.86.Final.jar
+--- netty-codec-4.1.86.Final.jar
+--- netty-common-4.1.86.Final.jar
+--- netty-handler-4.1.86.Final.jar
+--- netty-resolver-4.1.86.Final.jar
+--- netty-transport-4.1.86.Final.jar
+--- netty-transport-native-unix-common-4.1.86.Final.jar
+--- rmiio-2.1.2.jar
+--- shiro-cache-1.11.0.jar
+--- shiro-config-core-1.11.0.jar
+--- shiro-config-ogdl-1.11.0.jar
+--- shiro-core-1.11.0.jar
+--- shiro-crypto-cipher-1.11.0.jar
+--- shiro-crypto-core-1.11.0.jar
+--- shiro-crypto-hash-1.11.0.jar
+--- shiro-event-1.11.0.jar
+--- shiro-lang-1.11.0.jar
+--- slf4j-api-1.7.36.jar
+--- snappy-0.4.jar
+--- spring-beans-5.3.26.jar
+--- spring-context-5.3.26.jar
+--- spring-core-5.3.26.jar
+--- spring-jcl-5.3.26.jar
+--- spring-shell-1.2.0.RELEASE.jar
+--- spring-web-5.3.26.jar
+--- swagger-annotations-2.2.7.jar
+--- /Users/zchun/Downloads/vmware-gemfire-10.0.0/moduleDescriptors/gemfire/main/lib
+-- Module Dependencies:
+--- default_application
+--- java.base
+--- java.se
+--- jdk.unsupported
+
+
+
+[info 2026/05/18 15:15:59.203 CST locator1 <main> tid=0x1] initializing InternalDataSerializer with 9 services
+
+[info 2026/05/18 15:15:59.205 CST locator1 <main> tid=0x1] loaded 116 sanctioned serializables from GfshSanctionedSerializablesService
+
+[info 2026/05/18 15:15:59.208 CST locator1 <main> tid=0x1] loaded 488 sanctioned serializables from CoreSanctionedSerializablesService
+
+[info 2026/05/18 15:15:59.209 CST locator1 <main> tid=0x1] loaded 11 sanctioned serializables from ConnectorsSanctionedSerializablesService
+
+[info 2026/05/18 15:15:59.209 CST locator1 <main> tid=0x1] loaded 6 sanctioned serializables from SerializationSanctionedSerializablesService
+
+[info 2026/05/18 15:15:59.209 CST locator1 <main> tid=0x1] loaded 6 sanctioned serializables from WANSanctionedSerializablesService
+
+[info 2026/05/18 15:15:59.209 CST locator1 <main> tid=0x1] loaded 54 sanctioned serializables from MemcachedSanctionedSerializablesService
+
+[info 2026/05/18 15:15:59.210 CST locator1 <main> tid=0x1] loaded 1 sanctioned serializables from CQSanctionedSerializablesService
+
+[info 2026/05/18 15:15:59.210 CST locator1 <main> tid=0x1] loaded 0 sanctioned serializables from MembershipSanctionedSerializablesService
+
+[info 2026/05/18 15:15:59.210 CST locator1 <main> tid=0x1] loaded 42 sanctioned serializables from ManagementSanctionedSerializablesService
+
+[info 2026/05/18 15:15:59.227 CST locator1 <main> tid=0x1] Serial Queue info : THROTTLE_PERCENT: 0.75 SERIAL_QUEUE_BYTE_LIMIT :41943040 SERIAL_QUEUE_THROTTLE :31457280 TOTAL_SERIAL_QUEUE_BYTE_LIMIT :83886080 TOTAL_SERIAL_QUEUE_THROTTLE :31457280 SERIAL_QUEUE_SIZE_LIMIT :20000 SERIAL_QUEUE_SIZE_THROTTLE :15000
+
+[info 2026/05/18 15:15:59.312 CST locator1 <main> tid=0x1] Starting membership services
+
+[info 2026/05/18 15:15:59.378 CST locator1 <main> tid=0x1] Established local address 10.164.209.171(locator1:24193:locator)<ec>:54918
+
+[info 2026/05/18 15:15:59.379 CST locator1 <main> tid=0x1] This member is hosting a locator will be preferred as a membership coordinator
+
+[info 2026/05/18 15:15:59.379 CST locator1 <main> tid=0x1] JGroups channel created (took 33ms)
+
+[info 2026/05/18 15:15:59.385 CST locator1 <main> tid=0x1] GemFire P2P Listener started on /10.164.209.171:52644
+
+[info 2026/05/18 15:15:59.385 CST locator1 <Geode Failure Detection Server thread 1> tid=0x38] Started failure detection server thread on 10.164.209.171/10.164.209.171:48914.
+
+[info 2026/05/18 15:15:59.386 CST locator1 <main> tid=0x1] Peer locator is connecting to local membership services with ID 10.164.209.171(locator1:24193:locator)<ec>:54918
+
+[info 2026/05/18 15:16:00.420 CST locator1 <locator request thread 1> tid=0x3c] Peer locator: coordinator from view is 10.164.209.171(server1:48536)<v1>:60914
+
+[info 2026/05/18 15:16:01.433 CST locator1 <main> tid=0x1] received FindCoordinatorResponse(coordinator=10.164.209.171(server1:48536)<v1>:60914, fromView=true, viewId=-1, registrants=[10.164.209.171(locator1:24193:locator)<ec>:54918], senderId=10.164.209.171(locator1:24193:locator)<ec>:54918, network partition detection enabled=true, locators preferred as coordinators=true, view=View[10.164.209.171(locator1:46623:locator)<ec><v0>:54000|-1] members: [10.164.209.171(server1:48536)<v1>:60914{lead}]) from locator /10.164.209.171:10334
+
+[info 2026/05/18 15:16:01.433 CST locator1 <main> tid=0x1] findCoordinator chose 10.164.209.171(server1:48536)<v1>:60914 out of these possible coordinators: [10.164.209.171(server1:48536)<v1>:60914]
+
+[info 2026/05/18 15:16:01.433 CST locator1 <main> tid=0x1] Discovery state after looking for membership coordinator is locatorsContacted=1; findInViewResponses=0; alreadyTried=[]; registrants=[]; possibleCoordinator=10.164.209.171(server1:48536)<v1>:60914; viewId=-1; hasContactedAJoinedLocator=false; view=View[10.164.209.171(locator1:46623:locator)<ec><v0>:54000|-1] members: [10.164.209.171(server1:48536)<v1>:60914{lead}]; responses=[]
+
+[info 2026/05/18 15:16:01.434 CST locator1 <main> tid=0x1] found possible coordinator 10.164.209.171(server1:48536)<v1>:60914
+
+[info 2026/05/18 15:16:01.434 CST locator1 <main> tid=0x1] Attempting to join the distributed system through coordinator 10.164.209.171(server1:48536)<v1>:60914 using address 10.164.209.171(locator1:24193:locator)<ec>:54918
+
+[info 2026/05/18 15:16:01.451 CST locator1 <main> tid=0x1] Failed to send join request to coordinator 10.164.209.171(server1:48536)<v1>:60914, io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /10.164.209.171:60914
+
+[info 2026/05/18 15:16:01.455 CST locator1 <locator request thread 1> tid=0x3c] Peer locator: coordinator from view is null
+
+[info 2026/05/18 15:16:01.455 CST locator1 <locator request thread 1> tid=0x3c] Peer locator: coordinator from registrations is 10.164.209.171(locator1:24193:locator)<ec>:54918
+
+[info 2026/05/18 15:16:02.459 CST locator1 <main> tid=0x1] received FindCoordinatorResponse(coordinator=10.164.209.171(locator1:24193:locator)<ec>:54918, fromView=true, viewId=-1, registrants=[10.164.209.171(locator1:24193:locator)<ec>:54918], senderId=10.164.209.171(locator1:24193:locator)<ec>:54918, network partition detection enabled=true, locators preferred as coordinators=true, view=View[10.164.209.171(locator1:46623:locator)<ec><v0>:54000|-1] members: [10.164.209.171(server1:48536)<v1>:60914{lead}]) from locator /10.164.209.171:10334
+
+[info 2026/05/18 15:16:02.460 CST locator1 <main> tid=0x1] findCoordinator chose 10.164.209.171(locator1:24193:locator)<ec>:54918 out of these possible coordinators: [10.164.209.171(locator1:24193:locator)<ec>:54918]
+
+[info 2026/05/18 15:16:02.460 CST locator1 <main> tid=0x1] Discovery state after looking for membership coordinator is locatorsContacted=1; findInViewResponses=0; alreadyTried=[10.164.209.171(server1:48536)<v1>:60914]; registrants=[10.164.209.171(locator1:24193:locator)<ec>:54918]; possibleCoordinator=10.164.209.171(locator1:24193:locator)<ec>:54918; viewId=-1; hasContactedAJoinedLocator=false; view=View[10.164.209.171(locator1:46623:locator)<ec><v0>:54000|-1] members: [10.164.209.171(server1:48536)<v1>:60914{lead}]; responses=[]
+
+[info 2026/05/18 15:16:02.461 CST locator1 <main> tid=0x1] found possible coordinator 10.164.209.171(locator1:24193:locator)<ec>:54918
+
+[info 2026/05/18 15:16:02.461 CST locator1 <main> tid=0x1] This member is becoming the membership coordinator with address 10.164.209.171(locator1:24193:locator)<ec>:54918
+
+[info 2026/05/18 15:16:02.461 CST locator1 <main> tid=0x1] Location services has received notification that this node is becoming membership coordinator
+
+[info 2026/05/18 15:16:02.462 CST locator1 <main> tid=0x1] received new view: View[10.164.209.171(locator1:24193:locator)<ec><v0>:54918|0] members: [10.164.209.171(locator1:24193:locator)<ec><v0>:54918]
+old view is: null
+
+[info 2026/05/18 15:16:02.462 CST locator1 <main> tid=0x1] Peer locator received new membership view: View[10.164.209.171(locator1:24193:locator)<ec><v0>:54918|0] members: [10.164.209.171(locator1:24193:locator)<ec><v0>:54918]
+
+[info 2026/05/18 15:16:02.473 CST locator1 <main> tid=0x1] ViewCreator starting on:10.164.209.171(locator1:24193:locator)<ec><v0>:54918
+
+[info 2026/05/18 15:16:02.475 CST locator1 <main> tid=0x1] Finished joining (took 3089ms).
+
+[info 2026/05/18 15:16:02.475 CST locator1 <main> tid=0x1] Starting DistributionManager 10.164.209.171(locator1:24193:locator)<ec><v0>:54918.  (took 3245 ms)
+
+[info 2026/05/18 15:16:02.476 CST locator1 <Geode Membership View Creator> tid=0x41] View Creator thread is starting
+
+[info 2026/05/18 15:16:02.477 CST locator1 <Geode Membership View Creator> tid=0x41] no recipients for new view aside from myself
+
+[info 2026/05/18 15:16:02.477 CST locator1 <main> tid=0x1] Initial (distribution manager) view, View[10.164.209.171(locator1:24193:locator)<ec><v0>:54918|0] members: [10.164.209.171(locator1:24193:locator)<ec><v0>:54918]
+
+[info 2026/05/18 15:16:02.481 CST locator1 <main> tid=0x1] Did not hear back from any other system. I am the first one.
+
+[info 2026/05/18 15:16:02.482 CST locator1 <main> tid=0x1] DistributionManager 10.164.209.171(locator1:24193:locator)<ec><v0>:54918 started on DistributionLocatorId{host=/10.164.209.171, port=10334, bindAddress='', hostnameForClients='null', hostname='10.164.209.171', memberName='', timestamp=1779088559217}. There were 0 other DMs. others: []  (took 3265 ms)  (locator)
+
+[info 2026/05/18 15:16:02.493 CST locator1 <StatSampler> tid=0x44] Disabling statistic archival.
+
+[info 2026/05/18 15:16:02.532 CST locator1 <main> tid=0x1] Creating cache for locator.
+
+[info 2026/05/18 15:16:02.625 CST locator1 <main> tid=0x1] Initialized cache service org.apache.geode.connectors.jdbc.internal.JdbcConnectorServiceImpl
+
+[info 2026/05/18 15:16:02.625 CST locator1 <main> tid=0x1] Initialized cache service org.apache.geode.cache.wan.internal.WanCopyRegionFunctionService
+
+[info 2026/05/18 15:16:02.930 CST locator1 <main> tid=0x1] Initialized cache service org.apache.geode.management.internal.cli.remote.OnlineCommandProcessor
+
+[info 2026/05/18 15:16:02.931 CST locator1 <main> tid=0x1] Initialized cache service org.apache.geode.internal.memcached.GeodeMemcachedService
+
+[info 2026/05/18 15:16:02.931 CST locator1 <main> tid=0x1] Initialized cache service com.gemstone.gemfire.OldClientSupportProvider
+
+[info 2026/05/18 15:16:02.932 CST locator1 <main> tid=0x1] Initialized cache service org.apache.geode.cache.query.internal.QueryConfigurationServiceImpl
+
+[info 2026/05/18 15:16:02.961 CST locator1 <main> tid=0x1] Enabled InternalHttpService on port 7070
+
+[info 2026/05/18 15:16:02.961 CST locator1 <main> tid=0x1] Initialized cache service org.apache.geode.internal.cache.http.service.InternalHttpService
+
+[info 2026/05/18 15:16:02.992 CST locator1 <main> tid=0x1] Initializing region _monitoringRegion_10.164.209.171<v0>54918
+
+[info 2026/05/18 15:16:02.993 CST locator1 <main> tid=0x1] Initialization of region _monitoringRegion_10.164.209.171<v0>54918 completed
+
+[info 2026/05/18 15:16:03.013 CST locator1 <main> tid=0x1] SharedConfigStatusRequestHandler installed
+
+[info 2026/05/18 15:16:03.014 CST locator1 <main> tid=0x1] ClusterManagementServiceInfoRequestHandler installed
+
+[info 2026/05/18 15:16:04.486 CST locator1 <main> tid=0x1] Recovered disk store cluster_config with unique id 843bb3d730e34112-b8c22c0b91e5a900
+
+[info 2026/05/18 15:16:04.488 CST locator1 <main> tid=0x1] Recovering oplog#3 /Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1/ConfigDiskDir_locator1/BACKUPcluster_config_3.drf for disk store cluster_config.
+
+[info 2026/05/18 15:16:04.492 CST locator1 <main> tid=0x1] Recovering oplog#3 /Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1/ConfigDiskDir_locator1/BACKUPcluster_config_3.krf for disk store cluster_config.
+
+[info 2026/05/18 15:16:04.498 CST locator1 <main> tid=0x1] recovery oplog load took 10 ms
+
+[info 2026/05/18 15:16:05.045 CST locator1 <main> tid=0x1] Created oplog#4 drf for disk store cluster_config.
+
+[info 2026/05/18 15:16:05.048 CST locator1 <main> tid=0x1] Created oplog#4 crf for disk store cluster_config.
+
+[info 2026/05/18 15:16:05.049 CST locator1 <main> tid=0x1] recovery region initialization took 551 ms
+
+[info 2026/05/18 15:16:05.051 CST locator1 <Idle OplogCompactor1> tid=0x52] Recovered values for disk store cluster_config with unique id 843bb3d7-30e3-4112-b8c2-2c0b91e5a900
+
+[info 2026/05/18 15:16:05.051 CST locator1 <OplogCompactor cluster_config for oplog oplog#3> tid=0x52] OplogCompactor for cluster_config compaction oplog id(s): oplog#3
+
+[info 2026/05/18 15:16:05.054 CST locator1 <OplogCompactor cluster_config for oplog oplog#3> tid=0x52] compaction did 1 creates and updates in 2 ms
+
+[info 2026/05/18 15:16:05.054 CST locator1 <Oplog Delete Task1> tid=0x53] Deleted oplog#3 crf for disk store cluster_config.
+
+[info 2026/05/18 15:16:05.055 CST locator1 <Oplog Delete Task1> tid=0x53] Deleted oplog#3 krf for disk store cluster_config.
+
+[info 2026/05/18 15:16:05.056 CST locator1 <main> tid=0x1] Initializing region _ConfigurationRegion
+
+[info 2026/05/18 15:16:05.056 CST locator1 <Oplog Delete Task1> tid=0x53] Deleted oplog#3 drf for disk store cluster_config.
+
+[info 2026/05/18 15:16:05.058 CST locator1 <main> tid=0x1] Region /_ConfigurationRegion recovered from the local disk. Old persistent ID: /10.164.209.171:/Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1/ConfigDiskDir_locator1 created at timestamp 1779083171508 version 0 diskStoreId 843bb3d730e34112-b8c22c0b91e5a900 name locator1, new persistent ID 10.164.209.171/10.164.209.171:/Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/locator1/ConfigDiskDir_locator1 created at timestamp 1779088565055 version 0 diskStoreId 843bb3d730e34112-b8c22c0b91e5a900 name locator1
+
+[info 2026/05/18 15:16:05.060 CST locator1 <main> tid=0x1] Initialization of region _ConfigurationRegion completed
+
+[info 2026/05/18 15:16:05.082 CST locator1 <main> tid=0x1] Cluster configuration service start up completed successfully and is now running ....
+
+[info 2026/05/18 15:16:05.086 CST locator1 <main> tid=0x1] Initializing region __OperationStateRegion
+
+[info 2026/05/18 15:16:05.086 CST locator1 <main> tid=0x1] Initialization of region __OperationStateRegion completed
+
+[info 2026/05/18 15:16:05.090 CST locator1 <main> tid=0x1] GemFire Home: /Users/zchun/Downloads/vmware-gemfire-10.0.0
+
+[info 2026/05/18 15:16:05.090 CST locator1 <main> tid=0x1] Located war: gemfire-web-management at location: file:/Users/zchun/Downloads/vmware-gemfire-10.0.0/tools/Extensions/gemfire-web-management-10.0.0.war
+
+[info 2026/05/18 15:16:05.098 CST locator1 <main> tid=0x1] System property 'jmx.remote.rmi.server.serial.filter.pattern' is now configured with 'java.lang.Boolean;java.lang.Byte;java.lang.Character;java.lang.Short;java.lang.Integer;java.lang.Long;java.lang.Float;java.lang.Double;java.lang.String;java.math.BigInteger;java.math.BigDecimal;javax.management.ObjectName;javax.management.openmbean.OpenType;javax.management.openmbean.CompositeData;javax.management.openmbean.TabularData;javax.management.openmbean.SimpleType;javax.management.openmbean.CompositeType;javax.management.openmbean.TabularType;javax.management.openmbean.ArrayType;java.rmi.MarshalledObject;!*'.
+
+[info 2026/05/18 15:16:05.098 CST locator1 <main> tid=0x1] GemFire Home: /Users/zchun/Downloads/vmware-gemfire-10.0.0
+
+[info 2026/05/18 15:16:05.098 CST locator1 <main> tid=0x1] Located war: gemfire-web at location: file:/Users/zchun/Downloads/vmware-gemfire-10.0.0/tools/Extensions/gemfire-web-10.0.0.war
+
+[info 2026/05/18 15:16:05.098 CST locator1 <main> tid=0x1] GemFire Home: /Users/zchun/Downloads/vmware-gemfire-10.0.0
+
+[info 2026/05/18 15:16:05.099 CST locator1 <main> tid=0x1] Located war: gemfire-pulse at location: file:/Users/zchun/Downloads/vmware-gemfire-10.0.0/tools/Pulse/gemfire-pulse-10.0.0.war
+
+[info 2026/05/18 15:16:05.115 CST locator1 <main> tid=0x1] Adding webapp /gemfire
+
+[info 2026/05/18 15:16:05.116 CST locator1 <main> tid=0x1] Attempting to start HTTP service on port (7070) at bind-address (0.0.0.0)...
+
+[info 2026/05/18 15:16:05.341 CST locator1 <main> tid=0x1] Initializing Servlet 'geode-mgmt'
+
+[info 2026/05/18 15:16:05.678 CST locator1 <main> tid=0x1] Completed initialization in 337 ms
+
+[info 2026/05/18 15:16:05.681 CST locator1 <main> tid=0x1] Adding webapp /geode-mgmt
+
+[info 2026/05/18 15:16:05.868 CST locator1 <main> tid=0x1] Initializing Servlet 'geode-mgmt'
+
+[info 2026/05/18 15:16:06.127 CST locator1 <main> tid=0x1] Completed initialization in 259 ms
+
+[info 2026/05/18 15:16:06.128 CST locator1 <main> tid=0x1] Adding webapp /pulse
+
+[info 2026/05/18 15:16:07.523 CST locator1 <main> tid=0x1] Registered AccessControlMBean on GemFire:service=AccessControl,type=Distributed
+
+[info 2026/05/18 15:16:07.526 CST locator1 <main> tid=0x1] Registered FileUploaderMBean on GemFire:service=FileUploader,type=Distributed
+
+[info 2026/05/18 15:16:07.528 CST locator1 <main> tid=0x1] Geode Property enable-management-rest-service=true Geode Management Rest Service is enabled.
+
+[info 2026/05/18 15:16:07.529 CST locator1 <main> tid=0x1] Adding webapp /management
+
+[info 2026/05/18 15:16:07.872 CST locator1 <main> tid=0x1] Initializing Servlet 'management'
+
+[info 2026/05/18 15:16:08.655 CST locator1 <main> tid=0x1] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@38bbbb3c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@21032dfd, org.springframework.security.web.context.SecurityContextPersistenceFilter@445ec339, org.springframework.security.web.header.HeaderWriterFilter@5dd1526e, org.springframework.security.web.authentication.logout.LogoutFilter@6ed238c2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@46ab3c70, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@915ac5c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5910aa2e, org.springframework.security.web.session.SessionManagementFilter@779af906, org.springframework.security.web.access.ExceptionTranslationFilter@37095cad, org.springframework.security.web.access.intercept.AuthorizationFilter@20865ff2]
+
+[info 2026/05/18 15:16:08.668 CST locator1 <main> tid=0x1] Completed initialization in 796 ms
+
+[info 2026/05/18 15:16:08.669 CST locator1 <main> tid=0x1] Locator started on 10.164.209.171/10.164.209.171[10334]
+
+[info 2026/05/18 15:16:08.669 CST locator1 <main> tid=0x1] Starting server location for Distribution Locator on 10.164.209.171[10334]
+
+[info 2026/05/18 15:19:06.751 CST locator1 <locator request thread 1> tid=0x3c] Peer locator: coordinator from view is 10.164.209.171(locator1:24193:locator)<ec><v0>:54918
+
+[info 2026/05/18 15:19:07.821 CST locator1 <Membership Messenger Receiver Non-Blocking> tid=0x30] Received a join request from 10.164.209.171(server1:24705):57292
+
+[info 2026/05/18 15:19:08.122 CST locator1 <Geode Membership View Creator> tid=0x41] View Creator is processing 1 requests for the next membership view ([JoinRequestMessage(10.164.209.171(server1:24705):57292) failureDetectionPort:43695])
+
+[info 2026/05/18 15:19:08.123 CST locator1 <Geode Membership View Creator> tid=0x41] preparing new view View[10.164.209.171(locator1:24193:locator)<ec><v0>:54918|1] members: [10.164.209.171(locator1:24193:locator)<ec><v0>:54918, 10.164.209.171(server1:24705)<v1>:57292{lead}]
+
+[info 2026/05/18 15:19:08.149 CST locator1 <Geode Membership View Creator> tid=0x41] finished waiting for responses to view preparation
+
+[info 2026/05/18 15:19:08.149 CST locator1 <Geode Membership View Creator> tid=0x41] received new view: View[10.164.209.171(locator1:24193:locator)<ec><v0>:54918|1] members: [10.164.209.171(locator1:24193:locator)<ec><v0>:54918, 10.164.209.171(server1:24705)<v1>:57292{lead}]
+old view is: View[10.164.209.171(locator1:24193:locator)<ec><v0>:54918|0] members: [10.164.209.171(locator1:24193:locator)<ec><v0>:54918]
+
+[info 2026/05/18 15:19:08.149 CST locator1 <Geode Membership View Creator> tid=0x41] Peer locator received new membership view: View[10.164.209.171(locator1:24193:locator)<ec><v0>:54918|1] members: [10.164.209.171(locator1:24193:locator)<ec><v0>:54918, 10.164.209.171(server1:24705)<v1>:57292{lead}]
+
+[info 2026/05/18 15:19:08.150 CST locator1 <Geode Membership View Creator> tid=0x41] sending new view View[10.164.209.171(locator1:24193:locator)<ec><v0>:54918|1] members: [10.164.209.171(locator1:24193:locator)<ec><v0>:54918, 10.164.209.171(server1:24705)<v1>:57292{lead}]
+
+[info 2026/05/18 15:19:08.150 CST locator1 <Geode View Processor1> tid=0x90] Membership: Processing addition <10.164.209.171(server1:24705)<v1>:57292>
+
+[info 2026/05/18 15:19:08.154 CST locator1 <FederatingManager1> tid=0x91] Initializing region _monitoringRegion_10.164.209.171<v1>57292
+
+[info 2026/05/18 15:19:08.178 CST locator1 <Pooled Waiting Message Processor 1> tid=0x42] Member 10.164.209.171(server1:24705)<v1>:57292 is equivalent or in the same redundancy zone.
+
+[info 2026/05/18 15:19:08.187 CST locator1 <FederatingManager1> tid=0x91] Initialization of region _monitoringRegion_10.164.209.171<v1>57292 completed
+
+[info 2026/05/18 15:19:08.191 CST locator1 <FederatingManager1> tid=0x91] Initializing region _notificationRegion_10.164.209.171<v1>57292
+
+[info 2026/05/18 15:19:08.194 CST locator1 <FederatingManager1> tid=0x91] Initialization of region _notificationRegion_10.164.209.171<v1>57292 completed
+
+[info 2026/05/18 15:19:08.242 CST locator1 <Function Execution Processor2> tid=0x95] Received request for configuration: []
+
+[info 2026/05/18 15:19:08.242 CST locator1 <Function Execution Processor2> tid=0x95] Building up configuration response with following configurations: [cluster]
+
+[info 2026/05/18 15:20:08.564 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: deploy --jar=/Users/zchun/Downloads/gemfire-case/36917948/vks/architecture/lab1-tombstone/my-app/target/my-app-1.0-SNAPSHOT.jar
+
+[info 2026/05/18 15:20:10.596 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: list deployed
+
+[info 2026/05/18 15:20:38.295 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: list deployed
+
+[info 2026/05/18 15:20:53.292 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: list functions
+
+[info 2026/05/18 15:21:00.417 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=REGION_NAME,gc
+
+[info 2026/05/18 15:21:09.142 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: list regions
+
+[info 2026/05/18 15:21:10.952 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: show metrics
+
+[info 2026/05/18 15:21:23.597 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TombstoneLab,gc
+
+[info 2026/05/18 15:21:26.457 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TombstoneLab,gc
+
+[info 2026/05/18 15:22:40.953 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: put --key="key1" --value="value1" --region=/TombstoneLab
+
+[info 2026/05/18 15:22:40.955 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Cache instance for put: org.apache.geode.internal.cache.InternalCacheForClientAccess@37fef327
+
+[info 2026/05/18 15:22:51.337 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: put --key="key2" --value="value2" --region=/TombstoneLab
+
+[info 2026/05/18 15:22:51.337 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Cache instance for put: org.apache.geode.internal.cache.InternalCacheForClientAccess@37fef327
+
+[info 2026/05/18 15:23:09.290 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TombstoneLab,gc
+
+[info 2026/05/18 15:23:13.173 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: remove --key="key1" --region=/TombstoneLab
+
+[info 2026/05/18 15:23:14.994 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TombstoneLab,gc
+
+[info 2026/05/18 15:23:24.048 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TombstoneLab,gc
+
+[info 2026/05/18 15:23:26.305 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TombstoneLab,gc
+
+[info 2026/05/18 15:23:27.298 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TombstoneLab,gc
+
+[info 2026/05/18 15:23:38.015 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TombstoneLab
+
+[info 2026/05/18 15:23:39.094 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TombstoneLab
+
+[info 2026/05/18 15:23:47.249 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: remove --key="key2" --region=/TombstoneLab
+
+[info 2026/05/18 15:23:48.725 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TombstoneLab
+
+[info 2026/05/18 15:23:51.085 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TombstoneLab
+
+[info 2026/05/18 15:23:51.851 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TombstoneLab
+
+[info 2026/05/18 15:23:52.533 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TombstoneLab
+
+[info 2026/05/18 15:23:53.184 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TombstoneLab
+
+[info 2026/05/18 15:23:53.825 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TombstoneLab
+
+[info 2026/05/18 15:24:40.720 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: create region --name=/TestRegion
+
+[info 2026/05/18 15:24:46.187 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: create region --name=/TestRegion --type=REPLICATE
+
+[info 2026/05/18 15:24:49.346 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: put --key="key3" --value="value3" --region=/TestRegion
+
+[info 2026/05/18 15:24:49.346 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Cache instance for put: org.apache.geode.internal.cache.InternalCacheForClientAccess@37fef327
+
+[info 2026/05/18 15:24:49.369 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: put --key="key4" --value="value4" --region=/TestRegion
+
+[info 2026/05/18 15:24:49.370 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Cache instance for put: org.apache.geode.internal.cache.InternalCacheForClientAccess@37fef327
+
+[info 2026/05/18 15:24:49.389 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: put --key="key5" --value="value5" --region=/TestRegion
+
+[info 2026/05/18 15:24:49.389 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Cache instance for put: org.apache.geode.internal.cache.InternalCacheForClientAccess@37fef327
+
+[info 2026/05/18 15:24:49.410 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: put --key="key6" --value="value6" --region=/TestRegion
+
+[info 2026/05/18 15:24:49.410 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Cache instance for put: org.apache.geode.internal.cache.InternalCacheForClientAccess@37fef327
+
+[info 2026/05/18 15:24:49.432 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: put --key="key7" --value="value7" --region=/TestRegion
+
+[info 2026/05/18 15:24:49.432 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Cache instance for put: org.apache.geode.internal.cache.InternalCacheForClientAccess@37fef327
+
+[info 2026/05/18 15:24:49.918 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: put --key="key8" --value="value8" --region=/TestRegion
+
+[info 2026/05/18 15:24:49.918 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Cache instance for put: org.apache.geode.internal.cache.InternalCacheForClientAccess@37fef327
+
+[info 2026/05/18 15:25:26.974 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion
+
+[info 2026/05/18 15:25:29.885 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion
+
+[info 2026/05/18 15:25:38.286 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: remove --key="key3" --region=/TestRegion
+
+[info 2026/05/18 15:25:39.935 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion
+
+[info 2026/05/18 15:25:46.451 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: remove --key="key4" --region=/TestRegion
+
+[info 2026/05/18 15:25:48.638 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion
+
+[info 2026/05/18 15:25:55.687 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: remove --key="key5" --region=/TestRegion
+
+[info 2026/05/18 15:25:57.158 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion
+
+[info 2026/05/18 15:26:04.028 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: remove --key="key6" --region=/TestRegion
+
+[info 2026/05/18 15:26:04.055 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: remove --key="key7" --region=/TestRegion
+
+[info 2026/05/18 15:26:05.098 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: remove --key="key8" --region=/TestRegion
+
+[info 2026/05/18 15:26:07.516 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion
+
+[info 2026/05/18 15:26:08.704 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion
+
+[info 2026/05/18 15:26:09.632 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion
+
+[info 2026/05/18 15:26:12.414 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion,gc
+
+[info 2026/05/18 15:26:16.419 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion
+
+[info 2026/05/18 15:26:17.701 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion
+
+[info 2026/05/18 15:26:18.649 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion
+
+[info 2026/05/18 15:26:19.492 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion
+
+[info 2026/05/18 15:26:20.327 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion
+
+[info 2026/05/18 15:26:21.140 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion
+
+[info 2026/05/18 15:26:21.947 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion
+
+[info 2026/05/18 15:26:26.479 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion
+
+[info 2026/05/18 15:26:27.888 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion
+
+[info 2026/05/18 15:26:28.888 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion
+
+[info 2026/05/18 15:26:31.949 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: show metrics
+
+[info 2026/05/18 15:26:38.550 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion,gc
+
+[info 2026/05/18 15:26:39.984 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion,gc
+
+[info 2026/05/18 15:26:42.579 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion,gc
+
+[info 2026/05/18 15:26:43.624 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion,gc
+
+[info 2026/05/18 15:26:46.336 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: show metrics
+
+[info 2026/05/18 15:27:08.150 CST locator1 <RMI TCP Connection(10)-127.0.0.1> tid=0x9f] Executing command: alter runtime --log-level=DEBUG
+
+[info 2026/05/18 15:27:08.170 CST locator1 <RMI TCP Connection(10)-127.0.0.1> tid=0x9f] XmlEntity:searchString: //cache:cache
+
+[info 2026/05/18 15:27:21.546 CST locator1 <RMI TCP Connection(10)-127.0.0.1> tid=0x9f] Executing command: put --key="key3" --value="value3" --region=/TestRegion
+
+[info 2026/05/18 15:27:21.546 CST locator1 <RMI TCP Connection(10)-127.0.0.1> tid=0x9f] Cache instance for put: org.apache.geode.internal.cache.InternalCacheForClientAccess@37fef327
+
+[info 2026/05/18 15:27:21.568 CST locator1 <RMI TCP Connection(10)-127.0.0.1> tid=0x9f] Executing command: put --key="key4" --value="value4" --region=/TestRegion
+
+[info 2026/05/18 15:27:21.569 CST locator1 <RMI TCP Connection(10)-127.0.0.1> tid=0x9f] Cache instance for put: org.apache.geode.internal.cache.InternalCacheForClientAccess@37fef327
+
+[info 2026/05/18 15:27:21.586 CST locator1 <RMI TCP Connection(10)-127.0.0.1> tid=0x9f] Executing command: put --key="key5" --value="value5" --region=/TestRegion
+
+[info 2026/05/18 15:27:21.586 CST locator1 <RMI TCP Connection(10)-127.0.0.1> tid=0x9f] Cache instance for put: org.apache.geode.internal.cache.InternalCacheForClientAccess@37fef327
+
+[info 2026/05/18 15:27:21.604 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: put --key="key6" --value="value6" --region=/TestRegion
+
+[info 2026/05/18 15:27:21.604 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Cache instance for put: org.apache.geode.internal.cache.InternalCacheForClientAccess@37fef327
+
+[info 2026/05/18 15:27:21.620 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: put --key="key7" --value="value7" --region=/TestRegion
+
+[info 2026/05/18 15:27:21.621 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Cache instance for put: org.apache.geode.internal.cache.InternalCacheForClientAccess@37fef327
+
+[info 2026/05/18 15:27:22.586 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: put --key="key8" --value="value8" --region=/TestRegion
+
+[info 2026/05/18 15:27:22.586 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Cache instance for put: org.apache.geode.internal.cache.InternalCacheForClientAccess@37fef327
+
+[info 2026/05/18 15:27:27.949 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion
+
+[info 2026/05/18 15:27:30.358 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion
+
+[info 2026/05/18 15:27:34.762 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: remove --key="key3" --region=/TestRegion
+
+[info 2026/05/18 15:27:34.785 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: remove --key="key4" --region=/TestRegion
+
+[info 2026/05/18 15:27:34.801 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: remove --key="key5" --region=/TestRegion
+
+[info 2026/05/18 15:27:34.819 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: remove --key="key6" --region=/TestRegion
+
+[info 2026/05/18 15:27:34.837 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: remove --key="key7" --region=/TestRegion
+
+[info 2026/05/18 15:27:35.443 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: remove --key="key8" --region=/TestRegion
+
+[info 2026/05/18 15:27:38.254 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion
+
+[info 2026/05/18 15:27:41.931 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion
+
+[info 2026/05/18 15:27:44.988 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion,gc
+
+[info 2026/05/18 15:27:47.505 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion,gc
+
+[info 2026/05/18 15:27:48.447 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: execute function --id=tombstone-gc --arguments=TestRegion,gc
+
+[info 2026/05/18 15:27:57.708 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Executing command: shutdown --include-locators=yes
+
+[info 2026/05/18 15:27:57.710 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Gfsh executing shutdown on members [10.164.209.171(server1:24705)<v1>:57292]
+
+[info 2026/05/18 15:27:57.711 CST locator1 <RMI TCP Connection(4)-127.0.0.1> tid=0x8d] Gfsh executing shutdown on members [10.164.209.171(locator1:24193:locator)<ec><v0>:54918]
+
+[info 2026/05/18 15:27:57.714 CST locator1 <Function Execution Processor2> tid=0x95] Received GFSH shutdown. Shutting down member 10.164.209.171(locator1:24193:locator)<ec><v0>:54918
+
+[warn 2026/05/18 15:27:58.725 CST locator1 <Shutdown Disconnector1> tid=0xa2] Remove Proxy failed for null due to GemFire:service=Region,name=/TombstoneLab,type=Member,member=server1
+org.apache.geode.cache.EntryDestroyedException: GemFire:service=Region,name=/TombstoneLab,type=Member,member=server1
+	at gemfire//org.apache.geode.internal.cache.NonTXEntry.basicGetEntry(NonTXEntry.java:66)
+	at gemfire//org.apache.geode.internal.cache.NonTXEntry.getKey(NonTXEntry.java:85)
+	at gemfire//org.apache.geode.management.internal.MBeanProxyFactory.removeAllProxies(MBeanProxyFactory.java:144)
+	at gemfire//org.apache.geode.management.internal.FederatingManager.removeMemberArtifacts(FederatingManager.java:516)
+	at gemfire//org.apache.geode.management.internal.FederatingManager.stopManagingActivity(FederatingManager.java:352)
+	at gemfire//org.apache.geode.management.internal.FederatingManager.stopManager(FederatingManager.java:184)
+	at gemfire//org.apache.geode.management.internal.SystemManagementService.close(SystemManagementService.java:218)
+	at gemfire//org.apache.geode.management.internal.beans.ManagementAdapter.handleCacheRemoval(ManagementAdapter.java:721)
+	at gemfire//org.apache.geode.management.internal.beans.ManagementListener.handleEvent(ManagementListener.java:135)
+	at gemfire//org.apache.geode.distributed.internal.InternalDistributedSystem.notifyResourceEventListeners(InternalDistributedSystem.java:2052)
+	at gemfire//org.apache.geode.distributed.internal.InternalDistributedSystem.handleResourceEvent(InternalDistributedSystem.java:626)
+	at gemfire//org.apache.geode.internal.cache.GemFireCacheImpl.doClose(GemFireCacheImpl.java:2211)
+	at gemfire//org.apache.geode.internal.cache.GemFireCacheImpl.close(GemFireCacheImpl.java:2172)
+	at gemfire//org.apache.geode.distributed.internal.InternalDistributedSystem.disconnect(InternalDistributedSystem.java:1534)
+	at gemfire//org.apache.geode.distributed.internal.InternalDistributedSystem.disconnect(InternalDistributedSystem.java:1232)
+	at gemfire//org.apache.geode.management.internal.cli.functions.ShutDownFunction.lambda$disconnectInNonDaemonThread$0(ShutDownFunction.java:88)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+[warn 2026/05/18 15:27:58.727 CST locator1 <Shutdown Disconnector1> tid=0xa2] Remove Proxy failed for null due to GemFire:service=CacheServer,port=40404,type=Member,member=server1
+org.apache.geode.cache.EntryDestroyedException: GemFire:service=CacheServer,port=40404,type=Member,member=server1
+	at gemfire//org.apache.geode.internal.cache.NonTXEntry.basicGetEntry(NonTXEntry.java:66)
+	at gemfire//org.apache.geode.internal.cache.NonTXEntry.getKey(NonTXEntry.java:85)
+	at gemfire//org.apache.geode.management.internal.MBeanProxyFactory.removeAllProxies(MBeanProxyFactory.java:144)
+	at gemfire//org.apache.geode.management.internal.FederatingManager.removeMemberArtifacts(FederatingManager.java:516)
+	at gemfire//org.apache.geode.management.internal.FederatingManager.stopManagingActivity(FederatingManager.java:352)
+	at gemfire//org.apache.geode.management.internal.FederatingManager.stopManager(FederatingManager.java:184)
+	at gemfire//org.apache.geode.management.internal.SystemManagementService.close(SystemManagementService.java:218)
+	at gemfire//org.apache.geode.management.internal.beans.ManagementAdapter.handleCacheRemoval(ManagementAdapter.java:721)
+	at gemfire//org.apache.geode.management.internal.beans.ManagementListener.handleEvent(ManagementListener.java:135)
+	at gemfire//org.apache.geode.distributed.internal.InternalDistributedSystem.notifyResourceEventListeners(InternalDistributedSystem.java:2052)
+	at gemfire//org.apache.geode.distributed.internal.InternalDistributedSystem.handleResourceEvent(InternalDistributedSystem.java:626)
+	at gemfire//org.apache.geode.internal.cache.GemFireCacheImpl.doClose(GemFireCacheImpl.java:2211)
+	at gemfire//org.apache.geode.internal.cache.GemFireCacheImpl.close(GemFireCacheImpl.java:2172)
+	at gemfire//org.apache.geode.distributed.internal.InternalDistributedSystem.disconnect(InternalDistributedSystem.java:1534)
+	at gemfire//org.apache.geode.distributed.internal.InternalDistributedSystem.disconnect(InternalDistributedSystem.java:1232)
+	at gemfire//org.apache.geode.management.internal.cli.functions.ShutDownFunction.lambda$disconnectInNonDaemonThread$0(ShutDownFunction.java:88)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+[info 2026/05/18 15:27:58.743 CST locator1 <Shutdown Disconnector1> tid=0xa2] GemFireCache[id = 1596518588; isClosing = true; isShutDownAll = false; created = Mon May 18 15:16:02 CST 2026; server = false; copyOnRead = false; lockLease = 120; lockTimeout = 60]: Now closing.
+
+[info 2026/05/18 15:27:58.759 CST locator1 <Pooled High Priority Message Processor 2> tid=0x94] received leave request from 10.164.209.171(server1:24705)<v1>:57292 for 10.164.209.171(server1:24705)<v1>:57292
+
+[info 2026/05/18 15:27:58.760 CST locator1 <Pooled High Priority Message Processor 2> tid=0x94] JoinLeave.processLeaveRequestMessage(LeaveRequestMessage) invoked.  isCoordinator=true; isStopping=false; cancelInProgress=false
+
+[info 2026/05/18 15:27:58.760 CST locator1 <Pooled High Priority Message Processor 2> tid=0x94] Member at 10.164.209.171(server1:24705)<v1>:57292 gracefully left the distributed cache: shutdown message received
+
+[info 2026/05/18 15:27:58.918 CST locator1 <Shutdown Disconnector1> tid=0xa2] Created oplog#4 krf for disk store cluster_config.
+
+[info 2026/05/18 15:27:58.924 CST locator1 <org.apache.geode.distributed.internal.InternalLocator$$Lambda/0x000000700146f378@3a401749> tid=0xa5] Stopping Locator on 0.0.0.0/0.0.0.0:10334:10334
+
+[info 2026/05/18 15:27:58.926 CST locator1 <Distribution Locator on 10.164.209.171: 10334> tid=0x24] locator shutting down
+
+[info 2026/05/18 15:27:58.926 CST locator1 <Distribution Locator on 10.164.209.171: 10334> tid=0x24] Closing locator's cache
+
+[info 2026/05/18 15:27:58.927 CST locator1 <main> tid=0x1] locator is exiting normally
+
+[info 2026/05/18 15:27:58.927 CST locator1 <org.apache.geode.distributed.internal.InternalLocator$$Lambda/0x000000700146f378@3a401749> tid=0xa5] Distribution Locator on 10.164.209.171 is stopped
+
+[info 2026/05/18 15:27:58.927 CST locator1 <main> tid=0x1] Distribution Locator on 10.164.209.171 is stopped
+
+[info 2026/05/18 15:27:58.927 CST locator1 <Shutdown Disconnector1> tid=0xa2] Shutting down DistributionManager 10.164.209.171(locator1:24193:locator)<ec><v0>:54918. 
+
+[info 2026/05/18 15:27:59.063 CST locator1 <Geode Membership View Creator> tid=0x41] View Creator is processing 1 requests for the next membership view ([LeaveRequestMessage(10.164.209.171(server1:24705)<v1>:57292; reason=shutdown message received)])
+
+[info 2026/05/18 15:27:59.063 CST locator1 <Geode Membership View Creator> tid=0x41] View Creator thread interrupted
+
+[info 2026/05/18 15:27:59.063 CST locator1 <Geode Membership View Creator> tid=0x41] View Creator thread is exiting
+
+[info 2026/05/18 15:27:59.871 CST locator1 <Membership Messenger Receiver Non-Blocking> tid=0x30] received leave request from 10.164.209.171(server1:24705)<v1>:57292 for 10.164.209.171(server1:24705)<v1>:57292
+
+[info 2026/05/18 15:27:59.871 CST locator1 <Membership Messenger Receiver Non-Blocking> tid=0x30] JoinLeave.processLeaveRequestMessage(LeaveRequestMessage) invoked.  isCoordinator=true; isStopping=false; cancelInProgress=false
+
+[info 2026/05/18 15:28:00.034 CST locator1 <Shutdown Disconnector1> tid=0xa2] Now closing distribution for 10.164.209.171(locator1:24193:locator)<ec><v0>:54918
+
+[info 2026/05/18 15:28:00.035 CST locator1 <Shutdown Disconnector1> tid=0xa2] Stopping membership services
+
+[info 2026/05/18 15:28:00.038 CST locator1 <Geode Failure Detection Server thread 1> tid=0x38] GMSHealthMonitor server thread exiting
+
+[info 2026/05/18 15:28:02.062 CST locator1 <Shutdown Disconnector1> tid=0xa2] DistributionManager stopped in 3135ms.
+
+[info 2026/05/18 15:28:02.062 CST locator1 <Shutdown Disconnector1> tid=0xa2] Marking DistributionManager 10.164.209.171(locator1:24193:locator)<ec><v0>:54918 as closed.
+
