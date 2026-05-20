@@ -1,0 +1,19 @@
+mkdir certs
+
+cd certs
+
+
+openssl req -x509 -newkey rsa:4096 -keyout private_key.pem -out certificate.pem -days 365 -nodes -subj "/C=US/ST=State/L=City/O=Organization/OU=Department/CN=localhost"
+
+
+openssl pkcs12 -export -out keystore.p12 -inkey private_key.pem -in certificate.pem -name "myalias" -passout pass:yourpassword
+
+
+keytool -importcert -alias "trustedcert" -file certificate.pem -keystore truststore.p12 -storetype PKCS12 -storepass yourpassword -noprompt
+
+keytool -importkeystore -srckeystore keystore.p12 -srcstoretype PKCS12 -srcstorepass yourpassword -destkeystore keystore.jks -deststoretype JKS -deststorepass yourpassword
+
+keytool -importkeystore -srckeystore truststore.p12 -srcstoretype PKCS12 -srcstorepass yourpassword -destkeystore truststore.jks -deststoretype JKS -deststorepass yourpassword
+
+
+keytool -list -keystore truststore.p12 -storetype PKCS12 -storepass yourpassword

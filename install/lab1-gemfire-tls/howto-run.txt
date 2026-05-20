@@ -1,0 +1,17 @@
+gfsh
+
+start locator --name=locator1 --properties-file=./conf/gemfire.properties --security-properties-file=./conf/gfsecurity.properties
+
+start server --name=server1 --properties-file=./conf/gemfire.properties --security-properties-file=./conf/gfsecurity.properties --start-rest-api=1 --http-service-port=8080
+
+
+
+
+
+
+connect --locator=localhost[10334] --use-ssl --security-properties-file=./conf/gfsecurity.properties
+
+create region --name=exampleRegion --type=REPLICATE
+
+put --key=key1 --value=hello1 --region=/exampleRegion
+
