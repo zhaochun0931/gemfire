@@ -1,14 +1,14 @@
 services:
   jdk:
-    image: openjdk:8-jdk
-    container_name: geode-support-shell
+    image: amazoncorretto:8-alpine3.22-jdk
+    container_name: gemfire-support-shell
     stdin_open: true   # same as -it
     tty: true          # same as -it
     working_dir: /workspace
     volumes:
       - /Users/zchun/Downloads/gemfire-case:/workspace
-      - /Users/zchun/Downloads/geode-support-shell/v.1.2.0.tar.gz:/workspace/v.1.2.0.tar.gz
-    command: /bin/bash -c "tar -xzvf v.1.2.0.tar.gz && cd geode-support-shell-v.1.2.0 && ./gradlew build && java -jar ./build/libs/geode-support-shell-1.2.0.jar"
+    # Notice /bin/sh is used here instead of /bin/bash
+    command: /bin/sh -c "tar -xzvf v.1.2.0.tar.gz && cd geode-support-shell-v.1.2.0 && ./gradlew build && java -jar ./build/libs/geode-support-shell-1.2.0.jar"
     networks:
       - jdknet
 
