@@ -6,7 +6,7 @@
 docker compose up
 
 
-docker exec -it geode-support-shell bash
+docker exec -it geode-support-shell sh
 
 java -jar geode-support-shell-v.1.2.0/build/libs/geode-support-shell-1.2.0.jar
 
@@ -15,6 +15,8 @@ java -jar geode-support-shell-v.1.2.0/build/libs/geode-support-shell-1.2.0.jar
 
 
 show statistics metadata *gfs
+
+show statistics metadata 36934329/
 
 geode-support-shell>show statistics metadata 36590564/exportedLogs_1757912561096
 ╔════════════════════════════════════════════════════════════════╦═══════════════╦═══════════════════════════════════╦════════════════╦════════════════════════╦════════════════════════╗
