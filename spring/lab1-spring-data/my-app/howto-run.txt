@@ -1,0 +1,31 @@
+gfsh>deploy --jar=/Users/zchun/Downloads/gemfire-case/36934329/lab1-spring-data/my-app/target/my-app-1.0-SNAPSHOT.jar
+
+Deploying files: my-app-1.0-SNAPSHOT.jar
+Total file size is: 0.01MB
+
+Continue?  (Y/n): y
+Member  |           JAR           | JAR Location
+------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------
+server1 | my-app-1.0-SNAPSHOT.jar | /Users/zchun/Downloads/gemfire-case/36934329/gemfire/server1/deployments/my-app/main/lib/my-app-1.0-SNAPSHOT.jar
+
+gfsh>query --query="select * from /Customers"
+Result : true
+Limit  : 100
+Rows   : 1
+
+id  | name
+--- | ----------
+123 | "John Doe"
+
+gfsh
+
+
+
+
+
+
+
+
+  mvn clean install
+
+  mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
