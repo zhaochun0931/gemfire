@@ -1,0 +1,11 @@
+start locator --name=locator1 \
+--J=-Dgemfire.security-manager=com.mycompany.app.SimpleTestSecurityManager \
+--classpath=/root/test-security-manager/my-app/target/my-app-1.0-SNAPSHOT.jar \
+--security-properties-file=/root/test-security-manager/gfsecurity.properties
+
+
+
+start server --name=server1 \
+--J=-Dgemfire.security-manager=com.mycompany.app.SimpleTestSecurityManager \
+--classpath=/root/test-security-manager/my-app/target/my-app-1.0-SNAPSHOT.jar \
+--security-properties-file=/root/test-security-manager/gfsecurity.properties
