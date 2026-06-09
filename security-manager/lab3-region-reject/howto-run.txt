@@ -1,0 +1,23 @@
+start locator --name=locator1 \
+--J=-Dgemfire.security-manager=com.mycompany.app.SimpleTestSecurityManager \
+--J=-Dgemfire.auth.file=/path/gemfire-auth.properties \
+--classpath=/path/target/my-app-1.0-SNAPSHOT.jar \
+--security-properties-file=/path/gfsecurity.properties
+
+
+
+
+
+start server --name=server1 \
+--J=-Dgemfire.security-manager=com.mycompany.app.SimpleTestSecurityManager \
+--J=-Dgemfire.auth.file=/path/gemfire-auth.properties \
+--classpath=/path/my-app-1.0-SNAPSHOT.jar \
+--security-properties-file=/path/gfsecurity.properties
+
+
+
+create region --name=exampleRegion1 --type=REPLICATE_PERSISTENT
+
+create region --name=exampleRegion2 --type=REPLICATE_PERSISTENT
+
+create region --name=exampleRegion3 --type=REPLICATE_PERSISTENT
