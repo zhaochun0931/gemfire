@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%level %date{yyyy/MM/dd HH:mm:ss.SSS} %zone %thread &lt;%logger{1}&gt; tid=%tid] %message%n"/>
+        </Console>
+
+        <RollingFile name="GemFireLogFile" 
+                     fileName="./wlslog/cachelog/appServerInstance01.log"
+                     filePattern="./wlslog/cachelog/appServerInstance01-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="[%level %date{yyyy/MM/dd HH:mm:ss.SSS} %zone %thread &lt;%logger{1}&gt; tid=%tid] %message%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="org.apache.geode" level="info" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="GemFireLogFile"/>
+        </Logger>
+        
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="GemFireLogFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
