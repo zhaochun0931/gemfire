@@ -38,7 +38,7 @@ services:
     depends_on:
       - gf-locator1
       - gf-locator2
-    command: gfsh start server --name=server1 --locators=gf-locator1[10334],gf-locator2[10335] --server-port=40404
+    command: gfsh start server --name=server1 --locators=gf-locator1[10334],gf-locator2[10335] --server-port=40404 --hostname-for-clients=localhost
 
   gf-server2:
     image: gemfire/gemfire:10.1.2
@@ -52,7 +52,7 @@ services:
     depends_on:
       - gf-locator1
       - gf-locator2
-    command: gfsh start server --name=server2 --locators=gf-locator1[10334],gf-locator2[10335] --server-port=40405
+    command: gfsh start server --name=server2 --locators=gf-locator1[10334],gf-locator2[10335] --server-port=40405 --hostname-for-clients=localhost
 
   gf-server3:
     image: gemfire/gemfire:10.1.2
@@ -66,7 +66,7 @@ services:
     depends_on:
       - gf-locator1
       - gf-locator2
-    command: gfsh start server --name=server3 --locators=gf-locator1[10334],gf-locator2[10335] --server-port=40406
+    command: gfsh start server --name=server3 --locators=gf-locator1[10334],gf-locator2[10335] --server-port=40406 --hostname-for-clients=localhost
 
 networks:
   gf-network:
