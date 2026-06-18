@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.out"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{dd/MM/yy HH:mm:ss,SSS z}] %p [%X{user}] [%c{1}.%M] %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="ROLLINGFILEAPPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="./wlslog/xxxticketing-log4j.log"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{dd/MM/yy HH:mm:ss,SSS z}] %p [%X{user}] [%c{1}.%M] %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="ASYNCROLLINGFILEAPPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="./wlslog/eticketing-async.log"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{dd/MM/yy HH:mm:ss,SSS z}] %p [%X{user}] [%c{1}] %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="SYSLOGAPPENDER" class="org.apache.log4j.net.SyslogAppender">
+        <param name="SyslogHost" value="10.64.4.108:514"/>
+        <param name="Facility" value="LOCAL0"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{dd/MM/yy HH:mm:ss,SSS z}] %p [%X{user}] [%c{1}] %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="ASYNC" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="ASYNCROLLINGFILEAPPENDER"/>
+    </appender>
+
+    <logger name="org.springframework">
+        <level value="OFF"/>
+    </logger>
+    <logger name="org.apache.axis2">
+        <level value="OFF"/>
+    </logger>
+    <logger name="org.apache.axiom">
+        <level value="OFF"/>
+    </logger>
+    <logger name="org.apache.commons">
+        <level value="OFF"/>
+    </logger>
+    <logger name="org.apache.zookeeper">
+        <level value="INFO"/>
+    </logger>
+    <logger name="httpclient.wire">
+        <level value="OFF"/>
+    </logger>
+
+    <root>
+        <level value="DEBUG"/>
+        <appender-ref ref="ASYNC"/>
+        <appender-ref ref="ROLLINGFILEAPPENDER"/> 
+    </root>
+
+</log4j:configuration>

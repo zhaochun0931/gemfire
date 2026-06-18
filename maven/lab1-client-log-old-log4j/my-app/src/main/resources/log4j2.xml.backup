@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%d{dd/MM/yy HH:mm:ss.SSS z}] %p [%X{user}] [%c{1}.%M] %m%n"/>
+        </Console>
+
+        <RollingFile name="ASYNCROLLINGFILEAPPENDER" 
+                     fileName="./wlslog/${sys:weblogic.Name}/eticketing.log"
+                     filePattern="./wlslog/${sys:weblogic.Name}/eticketing-async-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="[%d{dd/MM/yy HH:mm:ss.SSS z}] %p [%X{user}] [%c{1}] %m%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="200 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="50"/>
+        </RollingFile>
+
+        <RollingFile name="ROLLINGFILEAPPENDER" 
+                     fileName="./wlslog/${sys:weblogic.Name}/eticketing.log"
+                     filePattern="./wlslog/${sys:weblogic.Name}/eticketing-standard-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="[%d{dd/MM/yy HH:mm:ss.SSS z}] %p [%X{user}] [%c{1}.%M] %m%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="200 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="5"/>
+        </RollingFile>
+
+        <Syslog name="SYSLOGAPPENDER" host="10.64.4.108" port="514" protocol="UDP" facility="LOCAL0">
+            <PatternLayout pattern="[%d{dd/MM/yy HH:mm:ss.SSS z}] %p [%X{user}] [%c{1}] %m"/>
+        </Syslog>
+
+        <Async name="ASYNC">
+            <AppenderRef ref="ASYNCROLLINGFILEAPPENDER"/>
+        </Async>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="org.springframework" level="OFF"/>
+        <Logger name="org.apache.axis2" level="OFF"/>
+        <Logger name="org.apache.axiom" level="OFF"/>
+        <Logger name="org.apache.commons" level="OFF"/>
+        <Logger name="org.apache.zookeeper" level="INFO"/>
+        <Logger name="httpclient.wire" level="OFF"/>
+        
+        <Root level="INFO">
+            <AppenderRef ref="ASYNC"/>
+        </Root>
+    </Loggers>
+</Configuration>
