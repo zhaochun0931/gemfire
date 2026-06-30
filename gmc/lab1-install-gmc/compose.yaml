@@ -1,0 +1,140 @@
+services:
+  gemfire-management-console:
+    image: registry.packages.broadcom.com/gemfire-management-console/gemfire-management-console:1.4.4
+    container_name: gemfire-management-console
+    ports:
+      - "8080:8080"
+    networks:
+      - gf-network
+    depends_on:
+      - gf-locator1  # <-- This ensures the console can resolve gf-locator1's DNS
+    restart: unless-stopped
+
+  gf-locator1:
+    image: gemfire/gemfire:10.1.2
+    container_name: gf-locator1
+    networks:
+      - gf-network
+    environment:
+      - ACCEPT_TERMS=y
+    ports:
+      - "10334:10334"
+      - "7070:7070"
+      - "8001:8001"
+    command: >
+      gfsh start locator 
+      --name=locator1 
+      --http-service-port=7070 
+      --J=-Dgemfire.prometheus.metrics.emission=Default 
+      --J=-Dgemfire.prometheus.metrics.port=8001
+
+  gf-locator2:
+    image: gemfire/gemfire:10.1.2
+    container_name: gf-locator2
+    networks:
+      - gf-network
+    environment:
+      - ACCEPT_TERMS=y
+    ports:
+      - "10335:10335"
+      - "7071:7071"
+      - "8002:8002"
+    depends_on:
+      - gf-locator1
+    command: >
+      gfsh start locator 
+      --name=locator2 
+      --port=10335 
+      --http-service-port=7071 
+      --locators=gf-locator1[10334] 
+      --J=-Dgemfire.prometheus.metrics.emission=Default 
+      --J=-Dgemfire.prometheus.metrics.port=8002
+
+  gf-server1:
+    image: gemfire/gemfire:10.1.2
+    container_name: gf-server1
+    networks:
+      - gf-network
+    environment:
+      - ACCEPT_TERMS=y
+    ports:
+      - "40404:40404"
+      - "8003:8003"
+    depends_on:
+      - gf-locator1
+      - gf-locator2
+    command: >
+      gfsh start server 
+      --name=server1 
+      --locators=gf-locator1[10334],gf-locator2[10335] 
+      --server-port=40404 
+      --hostname-for-clients=localhost 
+      --J=-Dgemfire.prometheus.metrics.emission=Default 
+      --J=-Dgemfire.prometheus.metrics.port=8003
+
+  gf-server2:
+    image: gemfire/gemfire:10.1.2
+    container_name: gf-server2
+    networks:
+      - gf-network
+    environment:
+      - ACCEPT_TERMS=y
+    ports:
+      - "40405:40405"
+      - "8004:8004"
+    depends_on:
+      - gf-locator1
+      - gf-locator2
+    command: >
+      gfsh start server 
+      --name=server2 
+      --locators=gf-locator1[10334],gf-locator2[10335] 
+      --server-port=40405 
+      --hostname-for-clients=localhost 
+      --J=-Dgemfire.prometheus.metrics.emission=Default 
+      --J=-Dgemfire.prometheus.metrics.port=8004
+
+  gf-server3:
+    image: gemfire/gemfire:10.1.2
+    container_name: gf-server3
+    networks:
+      - gf-network
+    environment:
+      - ACCEPT_TERMS=y
+    ports:
+      - "40406:40406"
+      - "8005:8005"
+    depends_on:
+      - gf-locator1
+      - gf-locator2
+    command: >
+      gfsh start server 
+      --name=server3 
+      --locators=gf-locator1[10334],gf-locator2[10335] 
+      --server-port=40406 
+      --hostname-for-clients=localhost 
+      --J=-Dgemfire.prometheus.metrics.emission=Default 
+      --J=-Dgemfire.prometheus.metrics.port=8005
+
+  prometheus:
+    # image: prom/prometheus:v2.45.0 # Using a stable LTS version
+    # image: prom/prometheus:v3.5.0 # Using a stable LTS version
+    image: prom/prometheus:v3.12.0 # Using a stable LTS version
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - gf-network
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    depends_on:
+      - gf-locator1
+      - gf-locator2
+      - gf-server1
+      - gf-server2
+      - gf-server3
+    restart: unless-stopped
+
+networks:
+  gf-network:
+    driver: bridge
