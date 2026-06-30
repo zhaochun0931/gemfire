@@ -1,0 +1,23 @@
+LDAP Server URL:
+
+ldap://openldap-server:1389/dc=example,dc=com
+
+
+
+User Search Filter:
+
+uid or cn
+
+
+Management Console Admin Username:
+
+user01
+
+
+
+Management Console Admin Password:
+
+password
+
+
+
