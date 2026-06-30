@@ -1,0 +1,11 @@
+docker login registry.packages.broadcom.com
+
+
+
+add cluster
+
+gf-locator1:7070
+
+
+
+http://localhost:8001/metrics
