@@ -1,0 +1,103 @@
+One-Way (Active-Passive) WAN replication topology.
+
+In this setup, data flows strictly from Cluster 1 (the source/active site) to Cluster 2 (the target/passive site). 
+
+Changes made in Cluster 1 will replicate to Cluster 2, but Cluster 2 will not replicate anything back to Cluster 1.
+
+
+
+Step 1: Configure Cluster 2 (The Receiver)
+
+
+You must always start the receiver side first so that when the sender starts up, it has something to connect to.
+
+
+
+# 1. Connect to Cluster 2:
+
+docker exec -it cluster2-locator gfsh
+
+
+# 2. Create the receiver (this tells the cluster to listen for incoming WAN traffic):
+
+create gateway-receiver
+
+
+# 3. Create the hosting region without a gateway sender attached:
+
+create region --name=test-region --type=REPLICATE
+
+
+
+
+
+
+
+
+
+
+
+Step 2: Configure Cluster 1 (The Sender)
+
+Now, set up Cluster 1 to push data out.
+
+# 1. Connect to Cluster 1:
+
+docker exec -it cluster1-locator gfsh
+
+
+# 2. Create the gateway sender pointing to Cluster 2 (System ID 2):
+
+create gateway-sender --id=to-cluster2 --remote-distributed-system-id=2
+
+# 3. Create the region and attach the gateway sender to it:
+
+create region --name=test-region --type=REPLICATE --gateway-sender-id=to-cluster2
+
+
+
+
+
+
+
+
+To test your one-way WAN configuration, we will put data into Cluster 1 (the sender) and verify that it automatically replicates to Cluster 2 (the receiver).
+
+Remember: Because this is a one-way (active-passive) setup, you should only write data to Cluster 1. If you write directly to Cluster 2, it will not sync back.
+
+
+Step 1: Put data into Cluster 1 (Sender)
+
+# 1. Open your terminal and connect to Cluster 1:
+
+docker exec -it cluster1-locator gfsh
+
+
+# 2. Add a few test entries using the put command:
+
+
+put --region=/test-region --key="key1" --value="Hello Cluster 2"
+put --region=/test-region --key="key2" --value="WAN Replication Works!"
+
+
+# 3. Verify the data is in Cluster 1:
+
+query --query="select * from /test-region"
+
+
+
+
+
+
+Step 2: Verify data arrived in Cluster 2 (Receiver)
+
+# 1. Open a new terminal window (or disconnect from the current one using disconnect) and connect to Cluster 2:
+
+docker exec -it cluster2-locator gfsh
+
+
+# 2. Check the contents of the region on Cluster 2:
+
+query --query="select * from /test-region"
+
+If your configuration is correct, you will see key1 and key2 successfully printed out in Cluster 2!
