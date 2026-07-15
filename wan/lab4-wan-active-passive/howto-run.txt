@@ -1,0 +1,90 @@
+cluster1
+
+start locator --name=cluster1-locator \
+  --bind-address=172.16.204.139 \
+  --port=10334 \
+  --J=-Dgemfire.distributed-system-id=1 \
+  --J=-Dgemfire.remote-locators=172.16.204.140[10334]
+
+
+start server --name=cluster1-server1 \
+  --server-bind-address=172.16.204.139 \
+  --server-port=40404 \
+  --locators=172.16.204.139[10334]
+
+
+start server --name=cluster1-server2 \
+  --server-bind-address=172.16.204.139 \
+  --server-port=40405 \
+  --locators=172.16.204.139[10334]
+
+
+
+
+create disk-store --name=wan-disk-store --dir=wan_queue_data --max-oplog-size=10
+
+create gateway-receiver
+
+create gateway-sender --id=to-cluster2 \
+  --remote-distributed-system-id=2 \
+  --parallel=false \
+  --enable-persistence=true \
+  --disk-store-name=wan-disk-store \
+  --maximum-queue-memory=5 \
+  --dispatcher-threads=1
+
+
+create region --name=OrderRegion --type=REPLICATE_PERSISTENT --gateway-sender-id=to-cluster2
+
+list gateways
+
+
+
+
+
+put --key='testKey' --value='HelloWAN' --region=/OrderRegion
+
+
+put --key='testKey2' --value='HelloWAN-after-failover' --region=/OrderRegion
+
+put --key='testKey3' --value='HelloWAN-start-server1-again' --region=/OrderRegion
+
+put --key='testKey4' --value='HelloWAN-testkey4' --region=/OrderRegion
+
+
+
+cluster2
+
+start locator --name=cluster2-locator \
+  --bind-address=172.16.204.140 \
+  --port=10334 \
+  --J=-Dgemfire.distributed-system-id=2 \
+  --J=-Dgemfire.remote-locators=172.16.204.139[10334]
+
+
+start server --name=cluster2-server1 \
+  --server-bind-address=172.16.204.140 \
+  --server-port=40404 \
+  --locators=172.16.204.140[10334]
+
+start server --name=cluster2-server2 \
+  --server-bind-address=172.16.204.140 \
+  --server-port=40405 \
+  --locators=172.16.204.140[10334]
+
+
+
+create disk-store --name=wan-disk-store --dir=wan_queue_data --max-oplog-size=10
+
+create gateway-receiver
+
+create gateway-sender --id=to-cluster1 --remote-distributed-system-id=1 --parallel=false --dispatcher-threads=1
+
+
+create region --name=OrderRegion --type=REPLICATE_PERSISTENT --gateway-sender-id=to-cluster1
+
+
+
+put --key='backKey' --value='WAN_Active_Double' --region=/OrderRegion
+
+
