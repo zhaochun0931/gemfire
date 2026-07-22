@@ -1,0 +1,68 @@
+Step A: Configure Cluster 2 (Receivers & Target Region)
+
+docker exec -it cluster2-locator gfsh
+connect --locator=cluster2-locator[10334]
+
+# Start a Gateway Receiver (will start across both Cluster 2 servers)
+create gateway-receiver --start-port=50504 --end-port=50510
+
+# Create Partitioned Region on Cluster 2
+create region --name=OrderData --type=PARTITION_REDUNDANT
+
+
+
+
+Step B: Configure Cluster 1 (Parallel Gateway Senders & Source Region)
+
+docker exec -it cluster1-locator gfsh
+connect --locator=cluster1-locator[10334]
+
+# 1. Create Parallel Gateway Sender (instantiates on both server1 & server2)
+create gateway-sender \
+  --id=ParallelSenderToCluster2 \
+  --remote-distributed-system-id=2 \
+  --parallel=true \
+  --enable-persistence=true
+
+# 2. Create Partitioned Region referencing the Parallel Sender
+create region \
+  --name=OrderData \
+  --type=PARTITION_REDUNDANT \
+  --gateway-sender-id=ParallelSenderToCluster2
+
+
+
+
+
+
+
+
+Step 1: Insert Test Data into Cluster 1
+Connect to Cluster 1 using gfsh and insert a few key-value pairs into your OrderData region:
+
+docker exec -it cluster1-locator gfsh
+connect --locator=cluster1-locator[10334]
+
+# Put test entries
+put --key="order-101" --value="Laptop" --region=/OrderData
+put --key="order-102" --value="Smartphone" --region=/OrderData
+put --key="order-103" --value="Headphones" --region=/OrderData
+put --key="order-104" --value="Smartwatch" --region=/OrderData
+
+# Query Cluster 1 to verify local entries
+query --query="SELECT * FROM /OrderData"
+
+
+
+
+Step 2: Verify Replication on Cluster 2
+
+Now open a new terminal tab/window (or disconnect and reconnect) to check Cluster 2 and ensure the parallel gateway sent the data over:
+
+docker exec -it cluster2-locator gfsh
+connect --locator=cluster2-locator[10334]
+
+# Query Cluster 2 to confirm parallel WAN replication succeeded
+query --query="SELECT * FROM /OrderData"
+
+You should see all 4 items listed in Cluster 2!
