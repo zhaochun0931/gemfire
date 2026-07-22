@@ -1,0 +1,83 @@
+To create a two-way (bi-directional) parallel gateway, both clusters need to act as both senders and receivers.
+
+When data is written to Cluster 1, it will replicate to Cluster 2. When data is written to Cluster 2, it will replicate to Cluster 1.
+
+
+
+
+
+Step 1: Configure Cluster 1 (Receives from ID 2, Sends to ID 2)
+
+Connect to Cluster 1 and run the following commands:
+
+docker exec -it cluster1-locator gfsh
+
+connect --locator=cluster1-locator[10334]
+
+# 1. Create Gateway Receiver to receive data from Cluster 2
+create gateway-receiver --start-port=50504 --end-port=50510
+
+# 2. Create Parallel Gateway Sender targeting Distributed System ID 2
+create gateway-sender \
+  --id=ParallelSenderToCluster2 \
+  --remote-distributed-system-id=2 \
+  --parallel=true \
+  --enable-persistence=true
+
+# 3. Create Partitioned Region with Gateway Sender attached
+create region \
+  --name=OrderData \
+  --type=PARTITION_REDUNDANT \
+  --gateway-sender-id=ParallelSenderToCluster2
+
+
+
+
+Step 2: Configure Cluster 2 (Receives from ID 1, Sends to ID 1)
+Connect to Cluster 2 and complete the reciprocal setup targeting Distributed System ID 1:
+
+
+docker exec -it cluster2-locator gfsh
+connect --locator=cluster2-locator[10334]
+
+# 1. Create Gateway Receiver to receive data from Cluster 1
+create gateway-receiver --start-port=50504 --end-port=50510
+
+# 2. Create Parallel Gateway Sender targeting Distributed System ID 1
+create gateway-sender \
+  --id=ParallelSenderToCluster1 \
+  --remote-distributed-system-id=1 \
+  --parallel=true \
+  --enable-persistence=true
+
+# 3. Create Partitioned Region with Gateway Sender attached
+create region \
+  --name=OrderData \
+  --type=PARTITION_REDUNDANT \
+  --gateway-sender-id=ParallelSenderToCluster1
+
+
+Why infinite loops don't happen: GemFire automatically tags gateway events with their originating distributed-system-id. When Cluster 2 receives an event from Cluster 1, it recognizes it originated from ID 1 and will not echo it back.
+
+Step 3: Test Bi-Directional Replication
+Now test writes in both directions to verify complete synchronization.
+
+1. Put data in Cluster 1
+
+docker exec -it cluster1-locator gfsh
+connect --locator=cluster1-locator[10334]
+
+put --key="c1-order-1" --value="Monitor" --region=/OrderData
+
+query --query='select * from /OrderData'
+
+
+
+2. Put data in Cluster 2
+
+docker exec -it cluster2-locator gfsh
+connect --locator=cluster2-locator[10334]
+
+put --key="c2-order-1" --value="Keyboard" --region=/OrderData
+
+query --query='select * from /OrderData'
