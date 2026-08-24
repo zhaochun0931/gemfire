@@ -1,0 +1,19 @@
+docker compose up
+
+
+docker exec -it gf-locator1 gfsh
+
+
+create region --name=exampleRegion --type=REPLICATE_PERSISTENT
+
+
+
+
+
+
+docker exec -it gemfire-client bash
+
+mvn clean install
+
+mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+
