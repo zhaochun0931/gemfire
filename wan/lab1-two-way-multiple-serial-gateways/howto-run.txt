@@ -1,0 +1,172 @@
+docker container prune -f
+
+docker compose up
+
+
+docker compose down -v
+
+
+
+
+
+
+
+Configure Cluster 1 (System ID 1)
+
+
+
+1.Configure Cluster 1 (System ID 1):Set up receivers, senders targeting ID 2, and regions.
+
+
+docker exec -it cluster1-locator gfsh
+
+connect --locator=cluster1-locator[10334]
+
+
+Create Gateway Receiver:
+
+create gateway-receiver --start-port=50504 --end-port=50510
+
+
+
+
+Create 3 Serial Gateway Senders targeting Distributed System ID 2:
+
+create gateway-sender --id=Sender1ToCluster2 --remote-distributed-system-id=2 --parallel=false --enable-persistence=true
+
+create gateway-sender --id=Sender2ToCluster2 --remote-distributed-system-id=2 --parallel=false --enable-persistence=true
+
+create gateway-sender --id=Sender3ToCluster2 --remote-distributed-system-id=2 --parallel=false --enable-persistence=true
+
+
+
+Create 5 Partitioned Regions attached to all 3 Gateway Senders:
+
+create region --name=OrderData --type=PARTITION_REDUNDANT --gateway-sender-id=Sender1ToCluster2,Sender2ToCluster2,Sender3ToCluster2
+
+create region --name=CustomerData --type=PARTITION_REDUNDANT --gateway-sender-id=Sender1ToCluster2,Sender2ToCluster2,Sender3ToCluster2
+
+create region --name=ProductData --type=PARTITION_REDUNDANT --gateway-sender-id=Sender1ToCluster2,Sender2ToCluster2,Sender3ToCluster2
+
+create region --name=InventoryData --type=PARTITION_REDUNDANT --gateway-sender-id=Sender1ToCluster2,Sender2ToCluster2,Sender3ToCluster2
+
+create region --name=ShippingData --type=PARTITION_REDUNDANT --gateway-sender-id=Sender1ToCluster2,Sender2ToCluster2,Sender3ToCluster2
+
+
+
+
+
+
+
+Configure Cluster 2 (System ID 2)
+
+2.Configure Cluster 2 (System ID 2):Set up receivers, senders targeting ID 1, and regions.
+
+docker exec -it cluster2-locator gfsh
+
+connect --locator=cluster2-locator[10334]
+
+
+
+Create Gateway Receiver:
+
+create gateway-receiver --start-port=50504 --end-port=50510
+
+
+# 2. create Senders as Serial Senders
+
+create gateway-sender --id=Sender1ToCluster1 --remote-distributed-system-id=1 --parallel=false --enable-persistence=true
+
+create gateway-sender --id=Sender2ToCluster1 --remote-distributed-system-id=1 --parallel=false --enable-persistence=true
+
+create gateway-sender --id=Sender3ToCluster1 --remote-distributed-system-id=1 --parallel=false --enable-persistence=true
+
+
+
+# 3. Create Regions attached to all 3 Serial Senders
+
+create region --name=OrderData --type=PARTITION_REDUNDANT --gateway-sender-id=Sender1ToCluster1,Sender2ToCluster1,Sender3ToCluster1
+
+create region --name=CustomerData --type=PARTITION_REDUNDANT --gateway-sender-id=Sender1ToCluster1,Sender2ToCluster1,Sender3ToCluster1
+
+create region --name=ProductData --type=PARTITION_REDUNDANT --gateway-sender-id=Sender1ToCluster1,Sender2ToCluster1,Sender3ToCluster1
+
+create region --name=InventoryData --type=PARTITION_REDUNDANT --gateway-sender-id=Sender1ToCluster1,Sender2ToCluster1,Sender3ToCluster1
+
+create region --name=ShippingData --type=PARTITION_REDUNDANT --gateway-sender-id=Sender1ToCluster1,Sender2ToCluster1,Sender3ToCluster1
+
+
+
+
+
+
+
+
+
+Put test entries into Cluster 1:
+
+put --region=/OrderData --key="ORD-101" --value="Laptop Order - Cluster 1"
+
+put --region=/CustomerData --key="CUST-101" --value="Alice - Cluster 1"
+
+put --region=/ProductData --key="PROD-101" --value="MacBook Pro - Cluster 1"
+
+put --region=/InventoryData --key="INV-101" --value="Stock: 50 - Cluster 1"
+
+put --region=/ShippingData --key="SHIP-101" --value="Express Delivery - Cluster 1"
+
+
+
+Verify on Cluster 2 (should display entries inserted in Cluster 1):
+
+
+get --region=/OrderData --key="ORD-101"
+
+get --region=/CustomerData --key="CUST-101"
+
+get --region=/ProductData --key="PROD-101"
+
+get --region=/InventoryData --key="INV-101"
+
+get --region=/ShippingData --key="SHIP-101"
+
+
+
+
+
+
+
+
+
+
+Step 1: Put Test Entries on Cluster 2
+
+
+
+
+
+put --region=/OrderData --key="ORD-202" --value="Phone Order - Cluster 2"
+
+put --region=/CustomerData --key="CUST-202" --value="Bob - Cluster 2"
+
+put --region=/ProductData --key="PROD-202" --value="iPhone 15 - Cluster 2"
+
+put --region=/InventoryData --key="INV-202" --value="Stock: 120 - Cluster 2"
+
+put --region=/ShippingData --key="SHIP-202" --value="Standard Delivery - Cluster 2"
+
+
+Step 2: Verify Reverse Replication on Cluster 1
+
+get --region=/OrderData --key="ORD-202"
+
+get --region=/CustomerData --key="CUST-202"
+
+get --region=/ProductData --key="PROD-202"
+
+get --region=/InventoryData --key="INV-202"
+
+get --region=/ShippingData --key="SHIP-202"
+
+
+

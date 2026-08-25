@@ -1,0 +1,11 @@
+You only need one Gateway Receiver per server instance because a single receiver acts as a centralized entry point that handles all incoming WAN traffic for that server.
+
+Key Reasons
+Port-Based Multiplexing: A Gateway Receiver binds to a network port (e.g., within --start-port=50504 --end-port=50510) and listens for connections from any remote Gateway Sender. It multiplexes incoming events over those established connections regardless of which sender or region sent them.
+
+Internal Event Routing: Once an event arrives at the Gateway Receiver, GemFire inspects the event's target region name (e.g., /OrderData, /CustomerData) and routes it directly to the local region in the cache. The receiver is region-agnostic.
+
+Support for Multiple Senders & Systems: A single Gateway Receiver can accept connections simultaneously from multiple distinct Gateway Senders, multiple regions, and even multiple remote clusters without needing dedicated receiver instances.
+
+
+

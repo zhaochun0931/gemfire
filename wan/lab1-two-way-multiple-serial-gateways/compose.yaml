@@ -1,0 +1,175 @@
+services:
+  # ==========================================
+  # CLUSTER 1 (Distributed System ID: 1)
+  # ==========================================
+
+  cluster1-locator:
+    image: gemfire/gemfire:10.0.2
+    container_name: cluster1-locator
+    hostname: cluster1-locator
+    environment:
+      - ACCEPT_TERMS=y
+    networks:
+      - gf-network
+    volumes:
+      - ./cluster1-locator:/data
+    ports:
+      - "10334:10334" # Host port 10334
+      - "7070:7070"   # Pulse Web UI for Cluster 1
+      - "8001:8001"
+    command: >
+      gfsh start locator 
+      --name=cluster1-locator 
+      --port=10334
+      --J=-Dgemfire.distributed-system-id=1
+      --J=-Dgemfire.remote-locators=cluster2-locator[10334]
+      --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/* 
+      --J=-Dgemfire.prometheus.metrics.emission=Default 
+      --J=-Dgemfire.prometheus.metrics.port=8001
+    restart: unless-stopped
+
+  cluster1-server1:
+    image: gemfire/gemfire:10.0.2
+    container_name: cluster1-server1
+    hostname: cluster1-server1
+    environment:
+      - ACCEPT_TERMS=y
+    networks:
+      - gf-network
+    volumes:
+      - ./cluster1-server1:/data
+    ports:
+      - "40404:40404"
+      - "8003:8003"
+    command: >
+      gfsh start server 
+      --name=cluster1-server1 
+      --hostname-for-clients=cluster1-server1 
+      --locators=cluster1-locator[10334] 
+      --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/* 
+      --J=-Dgemfire.prometheus.metrics.emission=Default 
+      --J=-Dgemfire.prometheus.metrics.port=8003
+    depends_on:
+      - cluster1-locator
+    restart: unless-stopped
+
+  cluster1-server2:
+    image: gemfire/gemfire:10.0.2
+    container_name: cluster1-server2
+    hostname: cluster1-server2
+    environment:
+      - ACCEPT_TERMS=y
+    networks:
+      - gf-network
+    volumes:
+      - ./cluster1-server2:/data
+    ports:
+      - "40406:40404" # Map container 40404 to host 40406
+      - "8005:8005"
+    command: >
+      gfsh start server 
+      --name=cluster1-server2 
+      --hostname-for-clients=cluster1-server2 
+      --locators=cluster1-locator[10334] 
+      --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/* 
+      --J=-Dgemfire.prometheus.metrics.emission=Default 
+      --J=-Dgemfire.prometheus.metrics.port=8005
+    depends_on:
+      - cluster1-locator
+    restart: unless-stopped
+
+  # ==========================================
+  # CLUSTER 2 (Distributed System ID: 2)
+  # ==========================================
+
+  cluster2-locator:
+    image: gemfire/gemfire:10.0.2
+    container_name: cluster2-locator
+    hostname: cluster2-locator
+    environment:
+      - ACCEPT_TERMS=y
+    networks:
+      - gf-network
+    volumes:
+      - ./cluster2-locator:/data
+    ports:
+      - "10335:10334" # Host port 10335 maps to container 10334
+      - "7071:7070"   # Pulse Web UI for Cluster 2
+      - "8002:8002"
+    command: >
+      gfsh start locator 
+      --name=cluster2-locator 
+      --port=10334
+      --J=-Dgemfire.distributed-system-id=2
+      --J=-Dgemfire.remote-locators=cluster1-locator[10334]
+      --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/* 
+      --J=-Dgemfire.prometheus.metrics.emission=Default 
+      --J=-Dgemfire.prometheus.metrics.port=8002
+    restart: unless-stopped
+
+  cluster2-server1:
+    image: gemfire/gemfire:10.0.2
+    container_name: cluster2-server1
+    hostname: cluster2-server1
+    environment:
+      - ACCEPT_TERMS=y
+    networks:
+      - gf-network
+    volumes:
+      - ./cluster2-server1:/data
+    ports:
+      - "40405:40404"
+      - "8004:8004"
+    command: >
+      gfsh start server 
+      --name=cluster2-server1 
+      --hostname-for-clients=cluster2-server1 
+      --locators=cluster2-locator[10334] 
+      --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/* 
+      --J=-Dgemfire.prometheus.metrics.emission=Default 
+      --J=-Dgemfire.prometheus.metrics.port=8004
+    depends_on:
+      - cluster2-locator
+    restart: unless-stopped
+
+  cluster2-server2:
+    image: gemfire/gemfire:10.0.2
+    container_name: cluster2-server2
+    hostname: cluster2-server2
+    environment:
+      - ACCEPT_TERMS=y
+    networks:
+      - gf-network
+    volumes:
+      - ./cluster2-server2:/data
+    ports:
+      - "40407:40404" # Map container 40404 to host 40407
+      - "8006:8006"
+    command: >
+      gfsh start server 
+      --name=cluster2-server2 
+      --hostname-for-clients=cluster2-server2 
+      --locators=cluster2-locator[10334] 
+      --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/* 
+      --J=-Dgemfire.prometheus.metrics.emission=Default 
+      --J=-Dgemfire.prometheus.metrics.port=8006
+    depends_on:
+      - cluster2-locator
+    restart: unless-stopped
+
+  # ==========================================
+  # UTILITY
+  # ==========================================
+
+  busybox:
+    image: busybox:latest
+    container_name: busybox
+    hostname: busybox
+    command: sh -c "while true; do sleep 3600; done"
+    networks:
+      - gf-network
+    restart: unless-stopped
+
+networks:
+  gf-network:
+    driver: bridge
