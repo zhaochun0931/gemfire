@@ -45,3 +45,18 @@ java \
   -DstartServer=true \
   -cp "target/my-app-1.0-SNAPSHOT.jar:$GEMFIRE_LIB/*" \
   com.mycompany.app.App
+
+
+
+
+gfsh>list members
+Member Count : 4
+
+  Name   |                           Id                            |  Type   | Status
+-------- | ------------------------------------------------------- | ------- | ------
+locator1 | test(locator1:1991:locator)<ec><v0>:59266 [Coordinator] | Locator | Ready
+app1     | test(app1:34860)<v8>:54046                              | Server  | Ready
+app3     | test(app3:35975)<v15>:59610                             | Server  | Ready
+server1  | test(server1:2135)<v1>:58254                            | Server  | Ready
+
+gfsh>
