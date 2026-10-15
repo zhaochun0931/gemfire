@@ -1,0 +1,20 @@
+是的，这两个库**都是开源的**，均遵循 **Apache License 2.0** 许可证开源发布。
+
+---
+
+### 1. 两者的定位与关系
+
+* **`spring-data-geode`**
+属于 Spring Data 家族的核心模块之一。它提供了针对 Apache Geode 的对象映射（Object Mapping）、`CrudRepository` 接口抽象、注解配置以及分布式缓存/事务集成。
+* **`spring-geode-starter`**
+属于 Spring Boot for Apache Geode（SBDG）项目提供的 Starter 依赖。它在底层依赖于 `spring-data-geode`，通过 Spring Boot 的自动配置（Auto-configuration）机制极大简化了 Geode 客户端的连接与配置流程。
+
+---
+
+### 2. 重要现状提醒（生命周期已终止）
+
+虽然它们是开源项目，但在选型或维护时需注意其维护状态：
+
+* **已停止社区维护（EOL / Archived）：** 从 Spring Boot 3.0 / Spring Data 2022.0 起，Spring 官方已将 Apache Geode 相关的集成模块从发布列车中移除，其 GitHub 仓库也已被标记为归档（如移至 [Spring Attic](https://github.com/spring-attic/spring-data-geode)）。
+* **兼容性局限：** 这两个库主要停留在 Spring Boot 2.x 和 Java 8/11/17 早期阶段，无法原生平滑升级到 Spring Boot 3.x。
+* **后续选型建议：** 如果是全新开发的项目，通常不建议继续引入这两个库。若需要分布式内存缓存或网格，建议评估 Redis、Hazelcast、Infinispan 等活跃维护的替代方案；若业务绑定 VMware GemFire 生态，可关注 VMware 提供的商业化或后续迁移指南。
