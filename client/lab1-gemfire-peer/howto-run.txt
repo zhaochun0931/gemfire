@@ -1,0 +1,47 @@
+mvn clean package dependency:copy-dependencies -DoutputDirectory=target/lib -DskipTests
+
+
+
+
+
+GFSH_PATH=$(readlink -f $(which gfsh))
+GEMFIRE_HOME=$(dirname $(dirname $GFSH_PATH))
+echo "GemFire 安装目录为: $GEMFIRE_HOME"
+
+
+
+
+
+
+GFSH_PATH=$(readlink -f $(which gfsh))
+GEMFIRE_LIB=$(dirname $(dirname $GFSH_PATH))/lib
+
+java \
+  --add-opens=java.base/java.lang=ALL-UNNAMED \
+  --add-opens=java.base/java.nio=ALL-UNNAMED \
+  --add-opens=java.base/sun.nio.ch=ALL-UNNAMED \
+  --add-opens=java.base/java.util=ALL-UNNAMED \
+  --add-opens=java.base/java.lang.reflect=ALL-UNNAMED \
+  --add-opens=java.base/java.net=ALL-UNNAMED \
+  --add-opens=java.base/java.util.concurrent=ALL-UNNAMED \
+  -Dgemfire.name=app1 \
+  -Dgemfire.locators=127.0.0.1[10334] \
+  -DstartServer=false \
+  -cp "target/my-app-1.0-SNAPSHOT.jar:$GEMFIRE_LIB/*" \
+  com.mycompany.app.App
+  
+
+
+java \
+  --add-opens=java.base/java.lang=ALL-UNNAMED \
+  --add-opens=java.base/java.nio=ALL-UNNAMED \
+  --add-opens=java.base/sun.nio.ch=ALL-UNNAMED \
+  --add-opens=java.base/java.util=ALL-UNNAMED \
+  --add-opens=java.base/java.lang.reflect=ALL-UNNAMED \
+  --add-opens=java.base/java.net=ALL-UNNAMED \
+  --add-opens=java.base/java.util.concurrent=ALL-UNNAMED \
+  -Dgemfire.name=app2 \
+  -Dgemfire.locators=127.0.0.1[10334] \
+  -DstartServer=true \
+  -cp "target/my-app-1.0-SNAPSHOT.jar:$GEMFIRE_LIB/*" \
+  com.mycompany.app.App
