@@ -1,0 +1,15 @@
+docker compose up
+
+
+
+create region --name=Customer --type=REPLICATE
+
+
+
+
+./mvnw spring-boot:run
+
+
+
+
+./mvnw clean
