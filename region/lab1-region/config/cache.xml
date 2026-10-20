@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<cache xmlns="http://geode.apache.org/schema/cache"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://geode.apache.org/schema/cache
+                           http://geode.apache.org/schema/cache/cache-1.0.xsd"
+       version="1.0">
+
+    <!-- 示例：创建 Customer Region，采用分区存储并保留一份冗余副本 -->
+    <region name="Customer" refid="PARTITION_REDUNDANT"/>
+
+    <!-- 需要更多 Region 时，在这里继续添加，例如： -->
+    <!-- <region name="Orders" refid="PARTITION_REDUNDANT"/> -->
+    <!-- <region name="Settings" refid="REPLICATE"/> -->
+
+</cache>
