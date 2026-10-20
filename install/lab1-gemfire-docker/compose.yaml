@@ -1,14 +1,13 @@
 services:
-
   gemfire-management-console:
-    image: registry.packages.broadcom.com/gemfire-management-console/gemfire-management-console:1.3.0
+    image: gemfire/gemfire-management-console:1.4.1
     container_name: gemfire-management-console
     hostname: gmc
     ports:
       - "8080:8080"
-    restart: unless-stopped
     networks:
       - gf-network
+    restart: unless-stopped
 
   gf-locator1:
     image: gemfire/gemfire:10.0.2
@@ -24,7 +23,17 @@ services:
       - "10334:10334"
       - "7070:7070"
       - "8001:8001"
-    command: gfsh start locator --name=gf-locator1 --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/* --J=-Dgemfire.prometheus.metrics.emission=Default --J=-Dgemfire.prometheus.metrics.port=8001
+    command: >
+      gfsh start locator
+      --name=gf-locator1
+      --dir=/data
+      --port=10334
+      --locators=gf-locator1[10334],gf-locator2[10335]
+      --hostname-for-clients=localhost
+      --http-service-port=7070
+      --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/*
+      --J=-Dgemfire.prometheus.metrics.emission=Default
+      --J=-Dgemfire.prometheus.metrics.port=8001
     restart: unless-stopped
 
   gf-locator2:
@@ -38,10 +47,20 @@ services:
     volumes:
       - ./gf-locator2:/data
     ports:
-      - "10335:10334"
+      - "10335:10335"
       - "7071:7070"
       - "8002:8002"
-    command: gfsh start locator --name=gf-locator2 --locators=gf-locator1[10334] --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/* --J=-Dgemfire.prometheus.metrics.emission=Default --J=-Dgemfire.prometheus.metrics.port=8002
+    command: >
+      gfsh start locator
+      --name=gf-locator2
+      --dir=/data
+      --port=10335
+      --locators=gf-locator1[10334],gf-locator2[10335]
+      --hostname-for-clients=localhost
+      --http-service-port=7070
+      --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/*
+      --J=-Dgemfire.prometheus.metrics.emission=Default
+      --J=-Dgemfire.prometheus.metrics.port=8002
     depends_on:
       - gf-locator1
     restart: unless-stopped
@@ -59,9 +78,19 @@ services:
     ports:
       - "40404:40404"
       - "8003:8003"
-    command: gfsh start server --name=gf-server1 --hostname-for-clients=localhost --locators=gf-locator1[10334] --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/* --J=-Dgemfire.prometheus.metrics.emission=Default --J=-Dgemfire.prometheus.metrics.port=8003
+    command: >
+      gfsh start server
+      --name=gf-server1
+      --dir=/data
+      --locators=gf-locator1[10334],gf-locator2[10335]
+      --server-port=40404
+      --hostname-for-clients=localhost
+      --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/*
+      --J=-Dgemfire.prometheus.metrics.emission=Default
+      --J=-Dgemfire.prometheus.metrics.port=8003
     depends_on:
       - gf-locator1
+      - gf-locator2
     restart: unless-stopped
 
   gf-server2:
@@ -75,17 +104,27 @@ services:
     volumes:
       - ./gf-server2:/data
     ports:
-      - "40405:40404"
+      - "40405:40405"
       - "8004:8004"
-    command: gfsh start server --name=gf-server2 --hostname-for-clients=localhost --locators=gf-locator1[10334] --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/* --J=-Dgemfire.prometheus.metrics.emission=Default --J=-Dgemfire.prometheus.metrics.port=8004
+    command: >
+      gfsh start server
+      --name=gf-server2
+      --dir=/data
+      --locators=gf-locator1[10334],gf-locator2[10335]
+      --server-port=40405
+      --hostname-for-clients=localhost
+      --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/*
+      --J=-Dgemfire.prometheus.metrics.emission=Default
+      --J=-Dgemfire.prometheus.metrics.port=8004
     depends_on:
       - gf-locator1
+      - gf-locator2
     restart: unless-stopped
 
   gf-server3:
     image: gemfire/gemfire:10.0.2
     container_name: gf-server3
-    hostname: gf-server3                # specify the hostname
+    hostname: gf-server3
     environment:
       - ACCEPT_TERMS=y
     networks:
@@ -93,11 +132,21 @@ services:
     volumes:
       - ./gf-server3:/data
     ports:
-      - "40406:40404"
+      - "40406:40406"
       - "8005:8005"
-    command: gfsh start server --name=gf-server3 --hostname-for-clients=localhost --locators=gf-locator1[10334] --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/* --J=-Dgemfire.prometheus.metrics.emission=Default --J=-Dgemfire.prometheus.metrics.port=8005
+    command: >
+      gfsh start server
+      --name=gf-server3
+      --dir=/data
+      --locators=gf-locator1[10334],gf-locator2[10335]
+      --server-port=40406
+      --hostname-for-clients=localhost
+      --classpath=/gemfire/tools/Modules/gemfire-prometheus-metrics/*
+      --J=-Dgemfire.prometheus.metrics.emission=Default
+      --J=-Dgemfire.prometheus.metrics.port=8005
     depends_on:
       - gf-locator1
+      - gf-locator2
     restart: unless-stopped
 
   busybox:
