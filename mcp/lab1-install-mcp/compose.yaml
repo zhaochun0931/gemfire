@@ -1,0 +1,114 @@
+services:
+  gf-locator1:
+    image: gemfire/gemfire:10.1.9-jdk17
+    container_name: gf-locator1
+    networks:
+      - gf-network
+    environment:
+      - ACCEPT_TERMS=y
+    ports:
+      - "10334:10334"
+      - "7070:7070"
+    volumes:
+      - ./gemfire/locator1:/data
+    command: >
+      gfsh start locator
+      --name=locator1
+      --dir=/data
+      --port=10334
+      --locators=gf-locator1[10334],gf-locator2[10335]
+      --hostname-for-clients=localhost
+      --http-service-port=7070
+
+  gf-locator2:
+    image: gemfire/gemfire:10.1.9-jdk17
+    container_name: gf-locator2
+    networks:
+      - gf-network
+    environment:
+      - ACCEPT_TERMS=y
+    ports:
+      - "10335:10335"
+      - "7071:7070"
+    volumes:
+      - ./gemfire/locator2:/data
+    depends_on:
+      - gf-locator1
+    command: >
+      gfsh start locator
+      --name=locator2
+      --dir=/data
+      --port=10335
+      --locators=gf-locator1[10334],gf-locator2[10335]
+      --hostname-for-clients=localhost
+      --http-service-port=7070
+
+  gf-server1:
+    image: gemfire/gemfire:10.1.9-jdk17
+    container_name: gf-server1
+    networks:
+      - gf-network
+    environment:
+      - ACCEPT_TERMS=y
+    ports:
+      - "40404:40404"
+    volumes:
+      - ./gemfire/server1:/data
+    depends_on:
+      - gf-locator1
+      - gf-locator2
+    command: >
+      gfsh start server
+      --name=server1
+      --dir=/data
+      --locators=gf-locator1[10334],gf-locator2[10335]
+      --server-port=40404
+      --hostname-for-clients=localhost
+
+  gf-server2:
+    image: gemfire/gemfire:10.1.9-jdk17
+    container_name: gf-server2
+    networks:
+      - gf-network
+    environment:
+      - ACCEPT_TERMS=y
+    ports:
+      - "40405:40405"
+    volumes:
+      - ./gemfire/server2:/data
+    depends_on:
+      - gf-locator1
+      - gf-locator2
+    command: >
+      gfsh start server
+      --name=server2
+      --dir=/data
+      --locators=gf-locator1[10334],gf-locator2[10335]
+      --server-port=40405
+      --hostname-for-clients=localhost
+
+  gf-server3:
+    image: gemfire/gemfire:10.1.9-jdk17
+    container_name: gf-server3
+    networks:
+      - gf-network
+    environment:
+      - ACCEPT_TERMS=y
+    ports:
+      - "40406:40406"
+    volumes:
+      - ./gemfire/server3:/data
+    depends_on:
+      - gf-locator1
+      - gf-locator2
+    command: >
+      gfsh start server
+      --name=server3
+      --dir=/data
+      --locators=gf-locator1[10334],gf-locator2[10335]
+      --server-port=40406
+      --hostname-for-clients=localhost
+
+networks:
+  gf-network:
+    driver: bridge

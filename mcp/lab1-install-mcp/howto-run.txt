@@ -1,0 +1,78 @@
+# Start the Forwarder
+
+
+export MCPHOME=/tmp/mcp
+
+
+export GF_TELEMETRY_STORE="file://$MCPHOME/telemetry"
+export GF_TELEMETRY_FORWARDER_SCAN_DIR="$MCPHOME/gemfire"
+
+
+gemfire-telemetry-forwarder-1.0.0/bin/gemfire-telemetry-forwarder
+
+
+
+# Start the MCP Server
+
+export GF_TELEMETRY_STORE="file://$MCPHOME/telemetry"
+
+export GF_MCP_AUTH_BASIC_USERNAME="admin"
+export GF_MCP_AUTH_BASIC_PASSWORD="password"
+
+java -jar gemfire-mcp-server-1.0.0.jar
+
+
+
+
+
+printf '%s' 'admin:password' | base64 | tr -d '\r\n'
+
+
+
+
+
+curl -i -X POST http://127.0.0.1:8085/mcp \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -H "Authorization: Basic YWRtaW46cGFzc3dvcmQ=" \
+  -d '{
+    "jsonrpc": "2.0",
+    "id": "1",
+    "method": "initialize",
+    "params": {
+      "protocolVersion": "2024-11-05",
+      "capabilities": {},
+      "clientInfo": {
+        "name": "test-client",
+        "version": "1.0.0"
+      }
+    }
+  }'
+
+
+
+
+
+
+# 1. 握手获取 Session ID
+SESSION_ID=$(curl -s -i -X POST http://127.0.0.1:8085/mcp \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -H "Authorization: Basic YWRtaW46cGFzc3dvcmQ=" \
+  -d '{"jsonrpc":"2.0","id":"1","method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"test","version":"1.0"}}}' \
+  | grep -i "mcp-session-id" | awk '{print $2}' | tr -d '\r')
+
+# 2. 列出 tools
+curl -s -X POST http://127.0.0.1:8085/mcp \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -H "Authorization: Basic YWRtaW46cGFzc3dvcmQ=" \
+  -H "Mcp-Session-Id: $SESSION_ID" \
+  -d '{"jsonrpc":"2.0","id":"2","method":"tools/list","params":{}}'
+
+
+
+
+
+
+
