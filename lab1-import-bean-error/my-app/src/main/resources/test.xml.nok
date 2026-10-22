@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:gfe-data="http://www.springframework.org/schema/data/gemfire"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+								http://www.springframework.org/schema/beans/spring-beans.xsd
+								http://www.springframework.org/schema/data/gemfire
+								http://www.springframework.org/schema/data/gemfire/spring-data-geode.xsd">
+
+	<!-- 第 10 行：解析到此标签时会因为找不到对应的 Schema 声明而直接抛出异常 -->
+	<gfe-data:repositories base-package="com.example.repositories" />
+
+</beans>
