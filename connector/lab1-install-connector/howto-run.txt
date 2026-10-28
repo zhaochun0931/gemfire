@@ -1,0 +1,109 @@
+psql postgres
+
+
+create database gemfire_db;
+
+\c gemfire_db; 
+
+create table t1 (id int);
+
+
+
+insert into t1 select * from generate_series(1,10);
+
+
+
+
+
+
+
+
+
+
+
+
+gemfire-greenplum-4.0.1.tar.gz
+
+
+tar -xzvf gemfire-greenplum-4.0.1.tar.gz
+
+
+gemfire-greenplum-4.0.1
+├── gemfire-greenplum-4.0.1.jar
+├── gemfire-greenplum-4.0.1-javadoc.jar
+└── open_source_licenses.txt
+
+cp gemfire-greenplum-4.0.1/* $GEMFIRE_HOME/extensions
+
+
+
+start locator
+
+start server
+
+> gfsh
+    _________________________     __
+   / _____/ ______/ ______/ /____/ /
+  / /  __/ /___  /_____  / _____  /
+ / /__/ / ____/  _____/ / /    / /
+/______/_/      /______/_/    /_/    10.0.0
+
+Monitor and Manage VMware GemFire
+gfsh>start locator
+Starting a GemFire Locator in /home/gpadmin/chun-test/xxx/dance-vast-omega...
+..................
+Locator in /home/gpadmin/chun-test/xxx/dance-vast-omega on mdw[10334] as dance-vast-omega is currently online.
+Process ID: 2569408
+Uptime: 10 seconds
+Geode Version: 10.0.0
+Java Version: 17.0.20.1
+Log File: /home/gpadmin/chun-test/xxx/dance-vast-omega/dance-vast-omega.log
+JVM Arguments: --add-exports=java.management/com.sun.jmx.remote.security=ALL-UNNAMED --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED -Dgemfire.enable-cluster-configuration=true -Dgemfire.load-cluster-configuration-from-dir=false -XX:+UseZGC -Dgemfire.launcher.registerSignalHandlers=true -Djava.awt.headless=true -Dsun.rmi.dgc.server.gcInterval=9223372036854775806
+Class-Path: /home/gpadmin/chun-test/vmware-gemfire-10.0.0/lib/gemfire-bootstrap-10.0.0.jar
+
+Successfully connected to: JMX Manager [host=mdw, port=1099]
+
+Cluster configuration service is up and running.
+
+gfsh>start server
+Starting a GemFire Server in /home/gpadmin/chun-test/xxx/open-wrong-theta...
+....
+Server in /home/gpadmin/chun-test/xxx/open-wrong-theta on mdw[40404] as open-wrong-theta is currently online.
+Process ID: 2569665
+Uptime: 3 seconds
+Geode Version: 10.0.0
+Java Version: 17.0.20.1
+Log File: /home/gpadmin/chun-test/xxx/open-wrong-theta/open-wrong-theta.log
+JVM Arguments: --add-exports=java.management/com.sun.jmx.remote.security=ALL-UNNAMED --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED -Dgemfire.default.locators=10.159.240.162[10334] -Dgemfire.start-dev-rest-api=false -Dgemfire.use-cluster-configuration=true -XX:OnOutOfMemoryError=kill -KILL %p -XX:+UseZGC -Dgemfire.launcher.registerSignalHandlers=true -Djava.awt.headless=true -Dsun.rmi.dgc.server.gcInterval=9223372036854775806
+Class-Path: /home/gpadmin/chun-test/vmware-gemfire-10.0.0/lib/gemfire-bootstrap-10.0.0.jar
+
+gfsh>
+
+
+
+create region --name=/t1 --type=REPLICATE
+
+
+
+
+
+configure pdx --read-serialized=true --auto-serializable-classes=io.pivotal.gemfire.demo.entity.*
+
+
+create jndi-binding --name=datasource --type=SIMPLE --jdbc-driver-class="org.postgresql.Driver" --username="gpadmin" --password="changeme" --connection-url="jdbc:postgresql://localhost:5432/gemfire_db"
+
+
+
+configure gpfdist-protocol --port=8000
+
+
+
+create gpdb-mapping --region=/t1 --data-source=datasource --pdx-name="io.pivotal.gemfire.demo.entity.t1" --table=t1 --id=id
+
+
+
+
+
+import gpdb --region=/t1
+
+export cluster-configuration --xml-file=cluster-config.xml
