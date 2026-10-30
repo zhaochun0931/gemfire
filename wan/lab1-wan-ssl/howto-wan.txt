@@ -1,0 +1,186 @@
+docker compose  up
+
+
+
+在 GemFire 中配置双向或单向 WAN Gateway（跨集群广域网复制），核心包含三个组成部分：
+
+Gateway Receiver（负责接收来自外部集群的数据）
+
+Gateway Sender（负责将本集群的数据异步或同步发送到目标集群）
+
+Region 绑定（将 Gateway Sender 挂载到需要跨集群同步的 Region 上）
+
+
+
+
+
+下面以你的两个集群（Cluster 1: distributed-system-id=1，Cluster 2: distributed-system-id=2）为例，说明具体配置步骤。
+
+第一步：在两端集群分别创建 Gateway Receiver
+Gateway Receiver 必须部署在两端集群的 Server 节点上，以便接收对端发送的数据。
+
+1. 连接到 Cluster 1 的 Locator 并创建 Receiver
+
+
+
+
+docker exec -it c1-locator1 gfsh
+
+connect --locator=c1-locator1[10334] --security-properties-file=/config/c1-locator1-security.properties
+
+connect --locator=c1-locator1[10334] --security-properties-file=/config/c1-locator2-security.properties
+
+connect --locator=c1-locator1[10334] --security-properties-file=/config/c1-server1-security.properties
+
+connect --locator=c1-locator1[10334] --security-properties-file=/config/c1-server2-security.properties
+
+connect --locator=c1-locator1[10334] --security-properties-file=/config/c1-server3-security.properties
+
+
+connect --locator=c1-locator1[10334] --security-properties-file=/config/c2-locator1-security.properties
+
+connect --locator=c1-locator1[10334] --security-properties-file=/config/c2-locator2-security.properties
+
+connect --locator=c1-locator1[10334] --security-properties-file=/config/c2-server1-security.properties
+
+connect --locator=c1-locator1[10334] --security-properties-file=/config/c2-server2-security.properties
+
+connect --locator=c1-locator1[10334] --security-properties-file=/config/c2-server3-security.properties
+
+
+
+
+
+gfsh
+
+gfsh> connect --locator=c1-locator1[10334]
+# 如果开启了安全认证，追加: --user=admin --password=...
+
+# 创建 Gateway Receiver（端口范围按需指定，如 5101-5200）
+gfsh> create gateway-receiver --start-port=5101 --end-port=5150
+
+
+
+
+
+
+2. 连接到 Cluster 2 的 Locator 并创建 Receiver
+Bash
+gfsh> connect --locator=c2-locator1[20334]
+
+# 创建 Gateway Receiver（端口范围按需指定，如 5201-5250）
+gfsh> create gateway-receiver --start-port=5201 --end-port=5250
+
+
+docker exec -it c2-locator1 gfsh
+
+
+connect --locator=c2-locator1[20334] --security-properties-file=/config/c1-server1-security.properties
+
+connect --locator=c2-locator1[20334] --security-properties-file=/config/c2-server3-security.properties
+
+connect --locator=c2-locator1[20334] --security-properties-file=/config/c2-server3-security.properties
+
+connect --locator=c2-locator1[20334] --security-properties-file=/config/c2-server3-security.properties
+
+connect --locator=c2-locator1[20334] --security-properties-file=/config/c2-server3-security.properties
+
+connect --locator=c2-locator1[20334] --security-properties-file=/config/c2-server3-security.properties
+
+
+
+
+第二步：创建 Gateway Sender
+Gateway Sender 定义了数据发送的策略（并行/串行、队列大小、重试机制等），其中 --remote-distributed-system-id 必须对应目标集群的 distributed-system-id。
+
+1. 在 Cluster 1 创建发往 Cluster 2 的 Sender（目标 ID = 2）
+
+gfsh> connect --locator=c1-locator1[10334]
+
+# 创建并行（parallel）Sender，适合 Partitioned Region
+gfsh> create gateway-sender \
+  --id=sender-to-c2 \
+  --remote-distributed-system-id=2 \
+  --parallel=true \
+  --maximum-queue-memory=64 \
+  --enable-persistence=false
+
+
+2. 在 Cluster 2 创建发往 Cluster 1 的 Sender（目标 ID = 1）
+Bash
+gfsh> connect --locator=c2-locator1[20334]
+
+gfsh> create gateway-sender \
+  --id=sender-to-c1 \
+  --remote-distributed-system-id=1 \
+  --parallel=true \
+  --maximum-queue-memory=64 \
+  --enable-persistence=false
+
+
+
+第三步：创建 Region 并绑定 Gateway Sender
+在创建 Region 时，通过 --gateway-sender-id 将数据变动通知转发给 Gateway Sender。
+
+1. 在 Cluster 1 创建带 Sender 的 Region
+gfsh> connect --locator=c1-locator1[10334]
+
+gfsh> create region \
+  --name=Customer \
+  --type=PARTITION \
+  --gateway-sender-id=sender-to-c2
+
+
+
+2. 在 Cluster 2 创建对应 Region（带反向 Sender，实现双向复制）
+
+gfsh> connect --locator=c2-locator1[20334]
+
+gfsh> create region \
+  --name=Customer \
+  --type=PARTITION \
+  --gateway-sender-id=sender-to-c1
+
+
+第四步：验证 WAN 复制状态与数据同步
+1. 查看 Sender 与 Receiver 状态
+
+gfsh> list gateways
+正常状态下，Sender 的 Status 应为 Running，Connected 应为 true。
+
+2. 插入数据测试同步
+在 Cluster 1 写入一条数据：
+
+gfsh> connect --locator=c1-locator1[10334]
+gfsh> put --region=/Customer --key="k1" --value="value-from-c1"
+
+在 Cluster 2 检查是否同步到达：
+
+gfsh> connect --locator=c2-locator1[20334]
+gfsh> get --region=/Customer --key="k1"
+
+
+
+
+
+
+测试反向同步（从 Cluster 2 到 Cluster 1）1. 连接 Cluster 2 并写入新数据Bashgfsh
+gfsh> connect --locator=c2-locator1[20334]
+# 如果启用了安全认证，按需追加认证参数
+
+# 在 c2 写入一条测试数据
+gfsh> put --region=/Customer --key="k2" --value="value-from-c2"
+
+2. 连接 Cluster 1 验证数据是否同步到达
+gfsh> connect --locator=c1-locator1[10334]
+
+# 在 c1 读取刚刚在 c2 写入的数据
+gfsh> get --region=/Customer --key="k2"
+如果返回结果中 Value 为 "value-from-c2"，即表明由 Cluster 2 -> Cluster 1 的反向同步链路工作正常。
+
+
+
+
+避免双向循环更新（Cyclic Replication）：
+
+GemFire 的 Gateway 内部自带对 distributed-system-id 的追踪机制，数据同步到对端后默认不会被重新路由回源集群，不需要额外写代码防止回环。

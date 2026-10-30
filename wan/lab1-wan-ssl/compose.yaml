@@ -1,0 +1,256 @@
+services:
+  # =========================================================================
+  # Cluster 1
+  # =========================================================================
+  c1-locator1:
+    image: gemfire/gemfire:10.1.9-jdk17
+    container_name: c1-locator1
+    networks:
+      - gf-wan-network
+    environment:
+      - ACCEPT_TERMS=y
+    ports:
+      - "10334:10334"
+      - "7070:7070"
+    volumes:
+      - ./gemfire/c1-locator1:/data
+      - ./ssl:/ssl:ro
+      - ./config:/config:ro
+    command: >
+      gfsh start locator
+      --name=c1-locator1
+      --dir=/data
+      --port=10334
+      --locators=c1-locator1[10334],c1-locator2[10335]
+      --http-service-port=7070
+      --security-properties-file=/config/c1-locator1-security.properties
+
+  c1-locator2:
+    image: gemfire/gemfire:10.1.9-jdk17
+    container_name: c1-locator2
+    networks:
+      - gf-wan-network
+    environment:
+      - ACCEPT_TERMS=y
+    ports:
+      - "10335:10335"
+      - "7071:7070"
+    volumes:
+      - ./gemfire/c1-locator2:/data
+      - ./ssl:/ssl:ro
+      - ./config:/config:ro
+    depends_on:
+      - c1-locator1
+    command: >
+      gfsh start locator
+      --name=c1-locator2
+      --dir=/data
+      --port=10335
+      --locators=c1-locator1[10334],c1-locator2[10335]
+      --http-service-port=7070
+      --security-properties-file=/config/c1-locator2-security.properties
+
+  c1-server1:
+    image: gemfire/gemfire:10.1.9-jdk17
+    container_name: c1-server1
+    networks:
+      - gf-wan-network
+    environment:
+      - ACCEPT_TERMS=y
+    ports:
+      - "40404:40404"
+      - "5101:5101"
+    volumes:
+      - ./gemfire/c1-server1:/data
+      - ./ssl:/ssl:ro
+      - ./config:/config:ro
+    depends_on:
+      - c1-locator1
+      - c1-locator2
+    command: >
+      gfsh start server
+      --name=c1-server1
+      --dir=/data
+      --server-port=40404
+      --locators=c1-locator1[10334],c1-locator2[10335]
+      --security-properties-file=/config/c1-server1-security.properties
+
+  # c1-server2:
+  #   image: gemfire/gemfire:10.1.9-jdk17
+  #   container_name: c1-server2
+  #   networks:
+  #     - gf-wan-network
+  #   environment:
+  #     - ACCEPT_TERMS=y
+  #   ports:
+  #     - "40405:40405"
+  #     - "5102:5102"
+  #   volumes:
+  #     - ./gemfire/c1-server2:/data
+  #     - ./ssl:/ssl:ro
+  #     - ./config:/config:ro
+  #   depends_on:
+  #     - c1-locator1
+  #     - c1-locator2
+  #   command: >
+  #     gfsh start server
+  #     --name=c1-server2
+  #     --dir=/data
+  #     --server-port=40405
+  #     --locators=c1-locator1[10334],c1-locator2[10335]
+  #     --security-properties-file=/config/c1-server2-security.properties
+
+  # c1-server3:
+  #   image: gemfire/gemfire:10.1.9-jdk17
+  #   container_name: c1-server3
+  #   networks:
+  #     - gf-wan-network
+  #   environment:
+  #     - ACCEPT_TERMS=y
+  #   ports:
+  #     - "40406:40406"
+  #     - "5103:5103"
+  #   volumes:
+  #     - ./gemfire/c1-server3:/data
+  #     - ./ssl:/ssl:ro
+  #     - ./config:/config:ro
+  #   depends_on:
+  #     - c1-locator1
+  #     - c1-locator2
+  #   command: >
+  #     gfsh start server
+  #     --name=c1-server3
+  #     --dir=/data
+  #     --server-port=40406
+  #     --locators=c1-locator1[10334],c1-locator2[10335]
+  #     --properties-file=/config/c1-server3-security.properties
+
+  # =========================================================================
+  # Cluster 2
+  # =========================================================================
+  c2-locator1:
+    image: gemfire/gemfire:10.1.9-jdk17
+    container_name: c2-locator1
+    networks:
+      - gf-wan-network
+    environment:
+      - ACCEPT_TERMS=y
+    ports:
+      - "20334:20334"
+      - "8070:7070"
+    volumes:
+      - ./gemfire/c2-locator1:/data
+      - ./ssl:/ssl:ro
+      - ./config:/config:ro
+    command: >
+      gfsh start locator
+      --name=c2-locator1
+      --dir=/data
+      --port=20334
+      --locators=c2-locator1[20334],c2-locator2[20335]
+      --http-service-port=7070
+      --security-properties-file=/config/c2-locator1-security.properties
+
+  c2-locator2:
+    image: gemfire/gemfire:10.1.9-jdk17
+    container_name: c2-locator2
+    networks:
+      - gf-wan-network
+    environment:
+      - ACCEPT_TERMS=y
+    ports:
+      - "20335:20335"
+      - "8071:7070"
+    volumes:
+      - ./gemfire/c2-locator2:/data
+      - ./ssl:/ssl:ro
+      - ./config:/config:ro
+    depends_on:
+      - c2-locator1
+    command: >
+      gfsh start locator
+      --name=c2-locator2
+      --dir=/data
+      --port=20335
+      --locators=c2-locator1[20334],c2-locator2[20335]
+      --http-service-port=7070
+      --security-properties-file=/config/c2-locator2-security.properties
+
+  c2-server1:
+    image: gemfire/gemfire:10.1.9-jdk17
+    container_name: c2-server1
+    networks:
+      - gf-wan-network
+    environment:
+      - ACCEPT_TERMS=y
+    ports:
+      - "50404:50404"
+      - "5201:5201"
+    volumes:
+      - ./gemfire/c2-server1:/data
+      - ./ssl:/ssl:ro
+      - ./config:/config:ro
+    depends_on:
+      - c2-locator1
+      - c2-locator2
+    command: >
+      gfsh start server
+      --name=c2-server1
+      --dir=/data
+      --server-port=50404
+      --locators=c2-locator1[20334],c2-locator2[20335]
+      --security-properties-file=/config/c2-server1-security.properties
+
+  # c2-server2:
+  #   image: gemfire/gemfire:10.1.9-jdk17
+  #   container_name: c2-server2
+  #   networks:
+  #     - gf-wan-network
+  #   environment:
+  #     - ACCEPT_TERMS=y
+  #   ports:
+  #     - "50405:50405"
+  #     - "5202:5202"
+  #   volumes:
+  #     - ./gemfire/c2-server2:/data
+  #     - ./ssl:/ssl:ro
+  #     - ./config:/config:ro
+  #   depends_on:
+  #     - c2-locator1
+  #     - c2-locator2
+  #   command: >
+  #     gfsh start server
+  #     --name=c2-server2
+  #     --dir=/data
+  #     --server-port=50405
+  #     --locators=c2-locator1[20334],c2-locator2[20335]
+  #     --security-properties-file=/config/c2-server2-security.properties
+
+  # c2-server3:
+  #   image: gemfire/gemfire:10.1.9-jdk17
+  #   container_name: c2-server3
+  #   networks:
+  #     - gf-wan-network
+  #   environment:
+  #     - ACCEPT_TERMS=y
+  #   ports:
+  #     - "50406:50406"
+  #     - "5203:5203"
+  #   volumes:
+  #     - ./gemfire/c2-server3:/data
+  #     - ./ssl:/ssl:ro
+  #     - ./config:/config:ro
+  #   depends_on:
+  #     - c2-locator1
+  #     - c2-locator2
+  #   command: >
+  #     gfsh start server
+  #     --name=c2-server3
+  #     --dir=/data
+  #     --server-port=50406
+  #     --locators=c2-locator1[20334],c2-locator2[20335]
+  #     --security-properties-file=/config/c2-server3-security.properties
+
+networks:
+  gf-wan-network:
+    driver: bridge

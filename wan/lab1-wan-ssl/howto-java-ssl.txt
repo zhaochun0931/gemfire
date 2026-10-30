@@ -1,0 +1,132 @@
+第一阶段：创建两个集群各自的根 CA
+
+mkdir ssl
+
+cd ssl
+
+
+
+1. 集群 1 专属 CA（GemFire-CA1）
+
+# 生成 CA1 密钥库
+keytool -genkeypair -alias root-ca1 -keyalg RSA -keysize 2048 \
+  -keystore ca1-store.p12 -storetype PKCS12 -storepass password123 \
+  -validity 3650 -dname "CN=GemFire-CA1, OU=Cluster1, O=Enterprise, C=US" \
+  -ext BasicConstraints:critical=ca:true
+
+# 导出 CA1 公钥证书
+keytool -exportcert -rfc -alias root-ca1 -file ca1.pem \
+  -keystore ca1-store.p12 -storetype PKCS12 -storepass password123
+
+
+
+2. 集群 2 专属 CA（GemFire-CA2）
+
+# 生成 CA2 密钥库
+keytool -genkeypair -alias root-ca2 -keyalg RSA -keysize 2048 \
+  -keystore ca2-store.p12 -storetype PKCS12 -storepass password123 \
+  -validity 3650 -dname "CN=GemFire-CA2, OU=Cluster2, O=Enterprise, C=US" \
+  -ext BasicConstraints:critical=ca:true
+
+# 导出 CA2 公钥证书
+keytool -exportcert -rfc -alias root-ca2 -file ca2.pem \
+  -keystore ca2-store.p12 -storetype PKCS12 -storepass password123
+
+
+
+
+第二阶段：构建双向信任的 TrustStore
+
+跨 WAN 通信的关键在于：每个集群的 TrustStore 不仅要信任本集群的 CA，还必须信任对方集群的 CA。两个集群可共用此 truststore.p12。
+
+
+# 导入集群 1 根证书
+keytool -importcert -noprompt -alias ca1-anchor -file ca1.pem \
+  -keystore truststore.p12 -storetype PKCS12 -storepass password123
+
+# 导入集群 2 根证书
+keytool -importcert -noprompt -alias ca2-anchor -file ca2.pem \
+  -keystore truststore.p12 -storetype PKCS12 -storepass password123
+
+
+验证检查：运行 
+keytool -list -keystore truststore.p12 -storepass password123
+
+确保其中包含两条条目：ca1-anchor 与 ca2-anchor，且条目类型均为 trustedCertEntry。
+
+
+
+
+
+第三阶段：批量签发各集群节点证书并组装证书链
+
+1. 为集群 1 节点签发证书（2 个 Locator + 3 个 Server）
+节点命名：c1-locator1, c1-locator2, c1-server1, c1-server2, c1-server3
+
+for NAME in c1-locator1 c1-locator2 c1-server1 c1-server2 c1-server3; do
+  # 1. 节点本地生成私钥和临时自签名证书
+  keytool -genkeypair -alias ${NAME} -keyalg RSA -keysize 2048 \
+    -keystore ${NAME}-keystore.p12 -storetype PKCS12 -storepass password123 \
+    -validity 365 -dname "CN=${NAME}, OU=Cluster1, O=Enterprise, C=US"
+
+  # 2. 导出 CSR
+  keytool -certreq -alias ${NAME} -keystore ${NAME}-keystore.p12 \
+    -storetype PKCS12 -storepass password123 -file ${NAME}.csr
+
+  # 3. 由 CA1 签署正式证书
+  keytool -gencert -alias root-ca1 -keystore ca1-store.p12 \
+    -storetype PKCS12 -storepass password123 -infile ${NAME}.csr \
+    -outfile ${NAME}-cert.pem -validity 365
+
+  # 4. 节点库先认识发证机构 CA1
+  keytool -importcert -noprompt -alias root-ca1 -file ca1.pem \
+    -keystore ${NAME}-keystore.p12 -storetype PKCS12 -storepass password123
+
+  # 5. 回填已签发证书，缝合完整信任链 (Chain length: 2)
+  keytool -importcert -noprompt -alias ${NAME} -file ${NAME}-cert.pem \
+    -keystore ${NAME}-keystore.p12 -storetype PKCS12 -storepass password123
+
+  # 清理中间文件
+  rm -f ${NAME}.csr ${NAME}-cert.pem
+done
+
+
+
+
+2. 为集群 2 节点签发证书（2 个 Locator + 3 个 Server）
+节点命名：c2-locator1, c2-locator2, c2-server1, c2-server2, c2-server3
+
+for NAME in c2-locator1 c2-locator2 c2-server1 c2-server2 c2-server3; do
+  # 1. 节点本地生成私钥和临时自签名证书
+  keytool -genkeypair -alias ${NAME} -keyalg RSA -keysize 2048 \
+    -keystore ${NAME}-keystore.p12 -storetype PKCS12 -storepass password123 \
+    -validity 365 -dname "CN=${NAME}, OU=Cluster2, O=Enterprise, C=US"
+
+  # 2. 导出 CSR
+  keytool -certreq -alias ${NAME} -keystore ${NAME}-keystore.p12 \
+    -storetype PKCS12 -storepass password123 -file ${NAME}.csr
+
+  # 3. 由 CA2 签署正式证书
+  keytool -gencert -alias root-ca2 -keystore ca2-store.p12 \
+    -storetype PKCS12 -storepass password123 -infile ${NAME}.csr \
+    -outfile ${NAME}-cert.pem -validity 365
+
+  # 4. 节点库先认识发证机构 CA2
+  keytool -importcert -noprompt -alias root-ca2 -file ca2.pem \
+    -keystore ${NAME}-keystore.p12 -storetype PKCS12 -storepass password123
+
+  # 5. 回填已签发证书，缝合完整信任链 (Chain length: 2)
+  keytool -importcert -noprompt -alias ${NAME} -file ${NAME}-cert.pem \
+    -keystore ${NAME}-keystore.p12 -storetype PKCS12 -storepass password123
+
+  # 清理中间文件
+  rm -f ${NAME}.csr ${NAME}-cert.pem
+done
+
+
+
+
+
+
+
+
