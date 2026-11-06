@@ -1,0 +1,74 @@
+# add a new column to test the PdxType
+
+cd my-class
+
+mvn clean install
+
+find ~/.m2/repository -type f -iname '*my-class*'
+
+
+
+
+
+
+
+cd gf-cluster
+
+docker container prune -f
+
+docker compose up -d
+
+
+docker exec -it gf-locator1 gfsh
+
+connect
+
+configure pdx --auto-serializable-classes="com\.mycompany\.app\..*" --read-serialized=true
+
+list pdx-types
+
+create region --name=CustomerRegion --type=REPLICATE
+
+
+
+
+
+cd my-client
+
+mvn clean install
+
+mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+
+
+
+[info 2026/11/06 07:18:22.642 GMT server1 <P2P message reader for gf-locator1(locator1:1:locator)<ec><v0>:49329 unshared ordered sender uid=14 local port=60567 remote port=57948> tid=0x4d] Adding: PdxType[id=0x0041bd6e, dsid=0
+        name=com.mycompany.app.Customer
+        fields=[
+        age:int:0:idx0(relativeOffset)=0:idx1(vlfOffsetIndex)=0
+        customerId:String:1:idx0(relativeOffset)=4:idx1(vlfOffsetIndex)=-1
+        name:String:2:1:idx0(relativeOffset)=0:idx1(vlfOffsetIndex)=1
+        email:String:3:2:idx0(relativeOffset)=0:idx1(vlfOffsetIndex)=2]]
+
+
+
+
+
+
+query --query="SELECT c.name, c.age FROM /CustomerRegion c"
+
+# 查询 age 大于 20 的记录
+gfsh>query --query="SELECT c.name, c.age FROM /CustomerRegion c WHERE c.age > 20"
+
+# 按特定 name 查询
+gfsh>query --query="SELECT c.customerId, c.name, c.age FROM /CustomerRegion c WHERE c.name = 'Alice'"
+
+
+
+3. 查看完整 PDX 对象结构
+如果想查看整条数据在服务端的 PDX 原貌（包含底层类型 ID 与所有字段）：
+
+gfsh>query --query="SELECT * FROM /CustomerRegion"
+
+
+
+gfsh>get --key="CUST-001" --region=/CustomerRegion
